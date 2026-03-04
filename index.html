@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rev: Macroéconomie - Modèle IS-PC-MPR</title>
+    <!-- Méta et Sécurité basiques -->
+    <meta name="description" content="Fiche de révision détaillée pour la Macroéconomie : Modèle IS-PC-MPR">
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                processEscapes: true
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button class="mobile-toggle" id="sidebar-toggle-mobile">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text"><i class="fas fa-chart-line"></i> MacroÉco Rev.</div>
+            <button class="toggle-btn" id="sidebar-toggle-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="menu-nav">
+            <div class="menu-item">
+                <div class="accordion-header active">
+                    <i class="fas fa-book-open"></i>
+                    <span class="accordion-title">Chapitre 1 : IS-PC-MPR</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content" style="max-height: 500px;">
+                    <ul>
+                        <li><a href="#intro" class="active">Introduction & Vue d'ensemble</a></li>
+                        <li><a href="#demand">Côté Demande (IS)</a></li>
+                        <li><a href="#supply">Côté Offre (PC)</a></li>
+                        <li><a href="#interest">Taux d'Intérêt (MPR)</a></li>
+                        <li><a href="#summary">Synthèse et Équations</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content" id="main-content">
+        <header class="page-header">
+            <h1 class="page-title">Chapitre 1 : Le Modèle IS-PC-MPR</h1>
+            <p class="page-subtitle">Comprendre l'interaction complexe entre l'offre, la demande et la politique
+                monétaire</p>
+        </header>
+
+        <section id="intro">
+            <h2>Introduction à la Structure du Modèle</h2>
+            <p>Le modèle macroéconomique contemporain, souvent appelé <strong>modèle IS-PC-MPR</strong>, est le socle
+                fondamental pour comprendre les fluctuations économiques de court et moyen terme. Loin d'être une simple
+                construction abstraite, il sert de grille de lecture aux banques centrales et aux gouvernements pour
+                anticiper les crises et piloter l'économie. Ce modèle synthétique repose sur trois piliers distincts
+                mais profondément interdépendants :</p>
+
+            <ul class="content-list">
+                <li><strong>Le côté de la Demande (Courbe IS) :</strong> Il explique comment la production et les
+                    revenus des ménages réagissent aux variations des taux d'intérêt, en s'appuyant sur les décisions
+                    fondamentales de consommation et d'investissement.</li>
+                <li><strong>Le côté de l'Offre (Courbe de Phillips - PC) :</strong> Il modélise le processus complexe de
+                    formation des prix, mettant en lumière le lien de cause à effet entre le niveau d'activité
+                    économique et l'inflation.</li>
+                <li><strong>Le côté des Taux d'Intérêt (Règle de Politique Monétaire - MPR / Taylor) :</strong> Il
+                    décrit le comportement stratégique et la fonction de réaction de la Banque Centrale, dont la mission
+                    est d'assurer la stabilité des prix tout en soutenant l'emploi et la production.</li>
+            </ul>
+
+            <div class="exam-tip">
+                <i class="fas fa-thumbtack exam-tip-pin"></i>
+                <div class="exam-tip-content">
+                    <h4>Exam Tip : Ne séparez jamais les trois blocs</h4>
+                    <p>Dans un exercice ou une dissertation, une modification sur un marché (par exemple, un choc de
+                        demande) va systématiquement se propager aux autres μέσω le système d'équations. Pensez toujours
+                        à l'effet domino : choc de demande &rarr; impact sur l'inflation (PC) &rarr; réaction de la
+                        banque centrale (MPR) &rarr; rétroaction sur la demande (IS).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="demand">
+            <h2>Le Côté Demande : Les Fondations de la Courbe IS</h2>
+            <p>L'objectif du côté de la demande du modèle est d'expliquer pourquoi et comment la production économique
+                globale ($y$) réagit face à d'autres variables majeures, au premier rang desquelles figurent les taux
+                d'intérêt et l'inflation. Intuitivement, l'idée centrale est évidente : <strong>la production (et donc
+                    la demande globale) est plus élevée lorsque les taux d'intérêt sont bas.</strong> Explorons
+                pourquoi, de façon formelle et micro-fondée.</p>
+
+            <h3>Les Microfondements : De l'indidividu à l'économie globale</h3>
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-shopping-cart"></i> Le Canal de la Consommation</h4>
+                    <p>Les modèles modernes de consommation relient directement notre consommation actuelle aux taux
+                        d'intérêt via un mécanisme central : le <em>choix intertemporel</em>. Un taux d'intérêt élevé
+                        augmente considérablement la rémunération de l'épargne. Cela incite logiquement les ménages
+                        rationnels à sacrifier et reporter leur consommation présente vers le futur. Ainsi, une hausse
+                        des taux d'intérêt réduit instantanément la demande globale actuelle des ménages.</p>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-industry"></i> Le Canal de l'Investissement</h4>
+                    <p>La théorie de l'investissement fonctionne selon une double logique. D'abord, via un <strong>canal
+                            de l'épargne</strong>, de façon analogue à la consommation (l'entreprise préfère placer sa
+                        trésorerie plutôt qu'investir). Ensuite, via le <strong>canal de l'emprunt</strong> : les
+                        projets d'investissement (usines, R&D) sont financés par de la dette extérieure. Or, le prix de
+                        cette dette n'est autre que le taux d'intérêt. Si celui-ci grimpe, le coût de financement
+                        explose, moins de projets sont rentables, et l'investissement national chute.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">Taux Nominal ou Taux Réel : Qu'est-ce qui compte vraiment pour la demande ?
+                </div>
+                <div class="concept-body">
+                    <p>Une question cruciale se pose : est-ce le taux d'intérêt nominal ou réel qui détermine les choix
+                        de consommation et d'investissement ?</p>
+                    <p>Si la récompense visible de l'épargne est bien le taux d'intérêt <strong>nominal</strong> (le
+                        chiffre affiché par votre banque), ce qui importe ultimement aux agents économiques, c'est leur
+                        pouvoir d'achat. Pour une consommation future, il faudra payer les biens selon les prix du
+                        futur.</p>
+                    <p>Dès lors, la variable qui compte réellement est <strong>l'augmentation du pouvoir d'achat
+                            réel</strong> rendu possible par l'épargne. C'est donc le taux d'intérêt
+                        <strong>réel</strong> (qui soustrait l'effet rongeur de l'inflation future anticipée) qui pilote
+                        les décisions macroéconomiques, et non pas le taux nominal perçu comme une simple illusion
+                        monétaire.</p>
+                </div>
+            </div>
+
+            <h3>L'Équation Fondamentale de la Courbe IS</h3>
+            <p>Sur la base de ces fondations microéconomiques solides, supposons formellement que la demande pour les
+                biens et les services (qui équivaut à la production à court terme) soit donnée par l'équation
+                mathématique IS :</p>
+
+            <div class="equation-box">
+                $y_t = \bar{y}_t - \alpha(r_t - \rho) + \epsilon_t$
+            </div>
+
+            <p>Chaque lettre et paramètre de cette équation est le fruit d'une intuition économique lourde de
+                conséquences :</p>
+            <div class="parameter-list">
+                <div class="parameter-item">
+                    <div class="parameter-symbol">$y_t$</div>
+                    <div class="parameter-desc">Le logarithme de la <strong>production (output) totale</strong> de
+                        l'économie à l'instant t.</div>
+                </div>
+                <div class="parameter-item">
+                    <div class="parameter-symbol">$\bar{y}_t$</div>
+                    <div class="parameter-desc">Le logarithme du <strong>niveau naturel (potentiel) de la
+                            production</strong>. Il s'agit du niveau de production qui serait atteint de façon optimale
+                        si tous les prix et salaires étaient parfaitement flexibles.</div>
+                </div>
+                <div class="parameter-item">
+                    <div class="parameter-symbol">$r_t$</div>
+                    <div class="parameter-desc">Le <strong>taux d'intérêt réel</strong> en vigueur. C'est le prix de
+                        l'emprunt net d'inflation.</div>
+                </div>
+                <div class="parameter-item">
+                    <div class="parameter-symbol">$\rho$</div>
+                    <div class="parameter-desc">Le <strong>taux d'intérêt naturel</strong> (avec $\rho > 0$). C'est un
+                        point de repère structurel, le taux "neutre" (voir détails ci-dessous).</div>
+                </div>
+                <div class="parameter-item">
+                    <div class="parameter-symbol">$\alpha$</div>
+                    <div class="parameter-desc">Le paramètre de <strong>sensibilité</strong> ($\alpha > 0$). Il capture
+                        de combien la production baisse lorsque le taux d'intérêt augmente d'un point. Une forte valeur
+                        d'$\alpha$ indique que l'économie est très réactive (élastique) aux conditions financières.
+                    </div>
+                </div>
+                <div class="parameter-item">
+                    <div class="parameter-symbol">$\epsilon_t$</div>
+                    <div class="parameter-desc">Le <strong>choc de demande</strong>. C'est une variable aléatoire
+                        englobant tout ce qui n'est pas expliqué par le système endogène normal (ex: politique
+                        budgétaire agressive, "esprits animaux" avec un soudain sentiment de confiance, récession
+                        foudroyante à l'étranger).</div>
+                </div>
+            </div>
+
+            <h3>Interprétation Pédagogique et Équilibre</h3>
+            <p>Pour véritablement comprendre la puissance de ce modèle, projetons-nous d'abord dans une situation dite
+                d'<strong>équilibre fondamental</strong>. Dans ce scénario parfait :</p>
+            <ul class="content-list">
+                <li>Le taux d'intérêt réel sur les marchés ($r_t$) est parfaitement égal à son niveau d'équilibre qu'est
+                    le taux naturel ($\rho$).</li>
+                <li>Il n'y a la présence d'aucun évènement perturbateur inattendu, c'est-à-dire pas de choc ($\epsilon_t
+                    = 0$).</li>
+            </ul>
+            <p>Que se passe-t-il alors mathématiquement ? La parenthèse $(r_t - \rho)$ devient purement et simplement
+                $0$. Par conséquent, l'équation nous montre que la production actuelle $y_t$ est exactement égale à son
+                potentiel naturel $\bar{y}_t$. L'économie tourne à son régime optimal, sans surchauffe ni sous-emploi.
+            </p>
+
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-compass"></i></div>
+                <div class="alert-content">
+                    <h4>Zoom : Qu'est-ce que le fameux taux d'intérêt naturel ($\rho$) ?</h4>
+                    <p>Le paramètre $\rho$ représente ce niveau si particulier de taux d'intérêt qui ne <strong>stimule
+                            ni ne freine</strong> l'économie. Avec un taux d'intérêt positionné exactement à $\rho$, la
+                        consommation des ménages et l'investissement des entreprises sont à leur niveau dit "naturel",
+                        en parfaite ligne avec l'hypothèse du revenu permanent et du cycle de vie.</p>
+                    <p><strong>Si $r_t > \rho$ :</strong> Les consommateurs sont sur-incités à reporter leur
+                        consommation. La demande plonge sous son niveau naturel.</p>
+                    <p><strong>Si $r_t < \rho$ :</strong> L'emprunt n'est pas cher du tout. La demande s'emballe et
+                                explose au-dessus de son niveau naturel provoquant à terme de l'inflation.</p>
+                </div>
+            </div>
+
+            <p>Les perturbations par rapport à cet équilibre parfait s'expliquent donc systématiquement : soit par des
+                fluctuations du taux d'intérêt réel ($r_t \neq \rho$), souvent imposées par la banque centrale, soit par
+                l'apparition de chocs intempestifs non contrôlables ($\epsilon_t \neq 0$). C'est ici que toute la
+                dynamique macroéconomique opère.</p>
+
+            <h3>Représentations Graphiques : Mouvements sur la Courbe IS</h3>
+            <p>Graphiquement, la courbe IS trace méthodiquement la combinaison des niveaux de production globale ($y_t$
+                sur l'axe des abscisses) et des taux d'intérêts réels ($r_t$ sur l'axe des ordonnées) qui sont purement
+                compatibles avec l'optimisation rationnelle des agents. Elle est fondamentalement décroissante.</p>
+
+            <figure>
+                <img src="assets/IMAGE1.PNG" alt="Visualisation de la Courbe IS, montrant la relation négative">
+                <figcaption><strong>Figure 1 :</strong> Introduction et tracé fondamental de la courbe IS. Elle capture
+                    la puissante relation négative ($\alpha$) entre le taux réel et l'activité.</figcaption>
+            </figure>
+
+            <p>Il est impératif pour l'étudiant en économie de distinguer <strong>un déplacement LE LONG de la
+                    courbe</strong> d'<strong>une translation DE la courbe elle-même</strong>.</p>
+            <p>Si la banque centrale orchestre une évolution stricte des taux d'intérêts endogènes, l'économie glisse
+                simplement "le long" de la courbe bleue de l'IS. Une hausse brutale de 1 point de pourcentage du taux
+                réel conduira l'économie à glisser vers le haut de la courbe, provoquant une contraction ferme et
+                anticipée de la production d'exactement $\alpha$.</p>
+
+            <figure>
+                <img src="assets/IMAGE2.PNG" alt="Déplacement le long de la Courbe IS">
+                <figcaption><strong>Figure 2 :</strong> Hausse du taux d'intérêt réel $r_t$ induisant un mouvement
+                    modéré le long de la courbe IS et une contraction de la production.</figcaption>
+            </figure>
+
+            <p>Maintenant, que se passe-t-il lors d'un <strong>Choc de Demande</strong> positif ($\epsilon_t > 0$) ? Un
+                choc regroupe tout ce qui ne s'explique ni par $y_t$ ni par le taux naturel $\rho$. À tout niveau donné
+                du taux d'intérêt, les agents vont subitement, par excès de folie ou subventions massives, décider de
+                consommer d'avantage. La courbe entière est alors "shiftée" (déplacée) géométriquement vers la droite !
+            </p>
+
+            <figure>
+                <img src="assets/IMAGE3.PNG" alt="Translation entière de la courbe IS vers la droite suite à un choc">
+                <figcaption><strong>Figure 3 :</strong> Choc de demande positif $\epsilon_t$ provoquant un "Shift"
+                    global de toute la courbe IS vers la droite. L'output ($y_t$) est radicalement supérieur pour tout
+                    niveau de taux.</figcaption>
+            </figure>
+
+        </section>
+
+        <section id="supply">
+            <h2>Le Côté Offre : La Puissante Courbe de Phillips (PC)</h2>
+            <p>Afin d'obtenir un modèle robuste et fermé, s'attarder sur la demande n'est pas suffisant : l'activité
+                doit rencontrer son miroir, c'est-à-dire l'offre des entreprises, les coûts et la formation des prix. Le
+                flanc offre de notre économie s'exprime sous la forme iconique de la <strong>Courbe de
+                    Phillips</strong>. Son rôle est de jeter un pont structurel direct entre les niveaux d'activité de
+                l'économie réelle et la dépréciation affolante de la monnaie (l'inflation).</p>
+
+            <div class="equation-box">
+                $\pi_t = \pi^e_t + \phi(y_t - \bar{y}_t) + \nu_t$
+            </div>
+
+            <p>L'équation enseigne solennellement que <strong>l'inflation est positivement liée à l'Output Gap</strong>.
+                La justification de cette affirmation trouve ses fondations dans les rigidités pures du marché : la
+                viscosité des étiquettes (les entreprises ne baissent pas les prix du jour au lendemain, on appelle cela
+                les <em>menu costs</em>), l'inflexibilité des salaires à cause des puissants contrats syndicaux et
+                enfin, des informations très imparfaites perturbant la prise de décision stratégique.</p>
+
+            <p>L'équation de Phillips abrite trois termes primordiaux pour l'édifice analytique de la macroéconomie :
+            </p>
+            <ul class="content-list">
+                <li><strong>Le terme inertiel des anticipations $\pi^e_t$ :</strong> L'inflation n'est pas générée qu'ex
+                    nihilo, elle naît des anticipations de l'opinion publique. Les salaires de demain sont négociés
+                    aujourd'hui sur la base de ce que les travailleurs croient que l'inflation sera. Si les ménages
+                    s'attendent obstinément à une inflation massive, la prophétie se réalise purement par inertie, et
+                    les entreprises répercutent la surenchère salariale sur le prix de l'étiquette. C'est l'ancre du
+                    système !</li>
+                <li><strong>La tension du Gap de Production $\phi(y_t - \bar{y}_t)$ :</strong> Le terme central. L'écart
+                    entre la production actuelle et potentielle (naturelle) symbolise la température, la surchauffe
+                    absolue du moteur économique. Plus cet écart est dans le vert positif, plus les usines tournent en
+                    3*8, on double les heures supp', on sur-consomme l'énergie créant des goulots d'étranglement, ce qui
+                    gonfle irrémédiablement les coûts qui transpirent à leur tour en pure inflation ! Le paramètre
+                    $\phi$ (positif) va dicter la sensibilité à laquelle 1 point de sur-régime se change en taxe
+                    inflationniste.</li>
+                <li><strong>Les vils Chocs d'Offre $\nu_t$ :</strong> Les terribles cygnes noirs des chaînes de
+                    logistiques, totalement aléatoires et exogènes. Le blocage impitoyable d'un détroit, l'OPEP fermant
+                    les robinets de pétrole... ces chocs catapultent arbitrairement les coûts sans aucun justificatif
+                    rationnel de demande, et font exploser la courbe vers les sommets.</li>
+            </ul>
+
+            <figure>
+                <img src="assets/IMAGE4.PNG" alt="Représentation visuelle de la relation croissante Phillips">
+                <figcaption><strong>Figure 4 :</strong> Représentation visuelle standard de la Courbe de Phillips,
+                    capturant ostensiblement la corrélation positive inévitable entre les tensions de la production et
+                    la combustion de l'inflation.</figcaption>
+            </figure>
+        </section>
+
+        <section id="interest">
+            <h2>Taux d'Intérêt (Règle de Taylor - MPR)</h2>
+            <p>Il est temps de connecter la boucle. L'IS dicte que le taux d'intérêt réel ($r_t$) commande la production
+                globale ($y$). Il est devenu impérieux de lever le mystère sur la manière dont ce saint Graal qu'est le
+                taux ($r_t$) vient au monde et se manipule. Cette alchimie se déroule toujours en deux temps minutieux :
+                d'une part l'établissement des taux directeurs nominaux autoritaires par la Banque Centrale, d'autre
+                part le filtre psychologique de l'économie convertissant ces nominaux en taux réels via l'anticipation
+                inflationniste.</p>
+
+            <h3>Détermination autoritaire des Taux Nominaux</h3>
+            <p>Dans nos architectures contemporaines occidentales, le taux nominal ($i_t$) n'est nullement un fruit
+                spontané d'un vague « marché », il est une créature totalement imposée et régie de main de fer par la
+                <strong>Banque Centrale</strong>. À l'instar d'une divinité orchestratrice, l'institution décide
+                souverainement de la direction du crédit dont elle va inonder la carte.</p>
+            <p>Grâce à des procédures chirurgicales d'injonction monétaire (telles que le raffinement de l'arène des
+                liquidités bancaires via des <em>Taux Rémunérés</em> (Repo rates) ou le gavage ciblé des réserves
+                interbancaires), la Banque Centrale obtient inéluctablement les taux courts du système à la virgule
+                près.</p>
+
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-history"></i></div>
+                <div class="alert-content">
+                    <h4>Cadrage Historique : Adieu Modèle IS-LM !</h4>
+                    <p>Dans l'antiquité keynésienne du 20ème siècle, la vulgate modélisait un soi-disant "marché de la
+                        monnaie" complet où la Banque offrait un volume $M$ fixe de billets, le prix du taux se formant
+                        à la rencontre de la demande. Balivernes contemporaines ! L'approche moderne (suivie dans ce
+                        cours) dicte que la Banque cible d'abord obstinément un taux d'intérêt $i$, puis engrange ou
+                        siphonne à l'infini et de façon parfaitement élastique les devises jusqu'à satisfaire pleinement
+                        ce quota-prix. Le modèle monétaire ancien est rangé au musée !</p>
+                </div>
+            </div>
+
+            <h3>La Formule Souveraine : La Règle de Taylor (MPR)</h3>
+            <p>Si la Banque Centrale a le contrôle pur du volant, comment justifier et modéliser l'impulsion qu'elle
+                donne à ce volant économique ? L'empirisme et la macro-théorie nous imposent de voir sa prise de
+                décision comme un comportement hautement <strong>systématique et prévisible</strong>, parfaitement
+                assimilé par les acteurs des marchés : on nomme ce théorème la <strong>Règle de Politique
+                    Monétaire</strong> (fortement connue sous le nom de Règle de Taylor des années 90, en honneur au
+                génie de John Taylor).</p>
+
+            <div class="equation-box">
+                $i_t = \pi_t + \rho + \theta_\pi (\pi_t - \pi^*_t) + \theta_y (y_t - \bar{y}_t)$
+            </div>
+
+            <p>Derrière sa rudesse apparente, cette règle s'interprète comme un manifeste de la politique du compromis
+                monétaire. Analysons l'ADN de la politique :</p>
+            <ul class="content-list">
+                <li>La Banque a une <strong>Cible Sacrée d'Inflation</strong> ($\pi^*_t$), qui constitue le graal
+                    affiché de sa communication et de son action légale (souvent autours de 2%).</li>
+                <li>La Banque agit fermement comme gardienne de cette cible afin que le terme $(\pi_t - \pi^*_t)$ soit
+                    réduit à néant.</li>
+                <li>Mais, la Banque Centrale possède également une conscience humaine et économique : elle déteste
+                    profondément les faillites et les terribles récessions. L'arbitrage du second cratère $(y_t -
+                    \bar{y}_t)$ permet de la faire hésiter et baisser ses taux lorsque l'Output s'effondre.</li>
+            </ul>
+
+            <div class="concept-card">
+                <div class="concept-title">Le Principe Absolu de Taylor ($\theta_\pi > 0$)</div>
+                <div class="concept-body">
+                    <p>Les paramètres $\theta_y$ et surtout $\theta_\pi$ contrôlent la magnitude et l'agressivité de la
+                        Banque Centrale face au Chaos. Il y a pourtant une condition de survie impérieuse pour que le
+                        système mondial ne s'effondre pas dans une boucle hyperinflationniste infinie : Il faut que
+                        <strong>$\theta_\pi$ soit strictement supérieur à zéro</strong> !</p>
+                    <p>Pourquoi ? Si l'économie subit une inflation de $+1\%$, l'objectif vital de la Banque est de
+                        freiner l'économie via l'IS pour contracter l'activité. Mais l'IS ne répond qu'au taux d'intérêt
+                        réel ! Si la banque remonte son taux nominal juste de $1\%$, le taux réel reste plat car grugé
+                        par cette même inflation. Or, avec $\theta_\pi > 0$, l'équation $i_t$ force la banque à remonter
+                        le taux nominal de <strong>PLUS de 1 point de base</strong> ($1\% + \theta_\pi \times 1\%$).
+                        C'est cette réaction disproportionnée ("agressive") sur le taux nominal seul qui permet de faire
+                        grimper le taux réel in fine, de pousser sur la pédale de feins à travers IS et de purger
+                        l'étouffante spirale de la courbe PC.</p>
+                </div>
+            </div>
+
+            <h4>Le Lissage Monétaire (Smoothing) : Pragmatique et Organique</h4>
+            <p>Dans la cruelle réalité empirique, l'utilisation brute de Taylor supposerait que l'institution change
+                vertigineusement les rendements souverains chaque semaine face au moindre soubresaut du thermomètre.
+                Cela ferait disjoncter la finance mondiale. C'est inacceptable et jugé <strong>déraisonnable</strong>.
+            </p>
+            <p>Une formulation extrêmement élégante a alors été greffée : La Règle avec Lissage. Le "Policy Rate"
+                devient, la plupart du temps, la moyenne pondérée conservatrice du Taux Imposé Hier et du calcul
+                Théorique de Taylor. On avance lentement, pas à pas.</p>
+
+            <div class="equation-box">
+                $i_t = \delta[\pi_t + \rho + \theta_\pi (\pi_t - \pi^*_t) + \theta_y (y_t - \bar{y}_t)] +
+                (1-\delta)i_{t-1}$
+            </div>
+
+            <p>Ce coefficient ($\delta$) permet à la Banque d'assurer une lente correction sans chocs systémiques (bien
+                que face à des évènements historiques d'urgence cataclysmiques de baisse foudroyante, toute politique de
+                lissage décente soit volontairement abrogée pour abattre les taux au plancher).</p>
+
+            <h3>L'Équation de Fisher : Le grand Traducteur</h3>
+            <p>La Règle produit l'or nominal. Comment l'extraire pour obtenir le vital rendement Réel qui dirige l'IS ?
+                Il faut faire appel au monument théorique de <strong>l'Équation Ex-Ante de Fisher</strong> :</p>
+            <div class="equation-box">
+                $r_t = i_t - E_t\pi_{t+1}$
+            </div>
+            <p>Le taux libre d'inflation est égal au nominal de la Banque Centrale déprécié des <strong>anticipations
+                    formulées mathématiquement par les agents</strong> quant à ce que sera l'inflation de l'année à
+                venir ($E_t\pi_{t+1}$). Le cœur du problème pour les Banquiers en est à devenir fous : comment le petit
+                peuple projette-t-il l'inflation future ?</p>
+            <ul class="content-list">
+                <li><strong>Hypothèse des Anticipations Adaptatives :</strong> Le pire cauchemar d'un directeur
+                    monétaire. Une hypothèse bornée exclusivement tournée vers le rétroviseur. ($E_t\pi_{t+1} = \pi_t$).
+                    La population juge bêtement, aveuglément et sans vision que l'inflation demain sera mécaniquement
+                    égale à l'inflation d'hier matin.</li>
+                <li><strong>Le Saint Graal : L'Ancrage Solide</strong> ($E_t \pi_{t+1} - \pi^* = \psi(\pi_t - \pi^*)$).
+                    Les agents croient si pieusement et écoutent si intimement la parole de l'Institut Monétaire que
+                    quoi qu'il se passe sur le front de la guerre des prix, les anticipations de l'année prochaine se
+                    refermeront fermement autour du 2% promis.</li>
+            </ul>
+
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-arrows-alt-h"></i> Court vs Long Terme : La bataille des Taux</h4>
+                    <p>La majorité vibrante de l'économie (entrepreneurs, familles avec prêts immobiliers) prête
+                        infiniment plus son attention de financement au Taux Épargne Long-Terme étalé sur des décennies.
+                        La complexité monumentale pour les Banques Centrales est de réaliser qu'elles ne modulent
+                        chimiquement et ne contrôlent bureaucratiquement <strong>QUE</strong> les taux explosifs au jour
+                        le jour, ou hebdomadaire de premier niveau.</p>
+                    <p>Néanmoins l'alchimie fonctionne presque majestueusement via <em>l'hypothèse des attentes</em> et
+                        les purs arbitrages colossaux des marchés efficients : un rendement souverain de dette à trente
+                        ans est fondamentalement calculé comme étant strictement la lourde moyenne projetée de tous les
+                        mini-taux journaliers successifs planifiés pour l'éternité.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="summary">
+            <h2>Synthèse Globale, Simuler et Boucler le Modèle</h2>
+            <p>Le modèle total assemblé, fermé, devient la plus brillante architecture pour déterminer non seulement les
+                conditions actuelles, mais toutes les prophéties futures de la machinerie des états monétaires. Dans
+                tout développement rigoureux et toute calibration de ces univers, un travail de tri radical de la nature
+                des paramètres s'impose.</p>
+
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-project-diagram"></i> Anatomie des Variables Macroéconomiques</h4>
+                    <p>Il existe, au fer rouge, trois distinctions nobles dans nos 10 formidables variables observées :
+                    </p>
+                    <ul>
+                        <li><strong style="color:var(--accent-primary)">Les Endogènes Maternelles :</strong> Ce sont les
+                            variables déterminées "à l'interne", filles directes du comportement algébrique du modèle,
+                            qui changent sans crier gare sur le moment.</li>
+                        <li><strong style="color:var(--accent-primary)">Les Exogènes Pures :</strong> Celles propulsées
+                            par les dieux, sans justifications, n'écoutant aucune règle intrinsèque à part les chocs
+                            extérieurs irrationnels.</li>
+                        <li><strong style="color:var(--accent-primary)">Endogènes Pré-établies :</strong> Celles qui
+                            bien qu'endogènes sur la durée globale, sont figées à l'instant même T de par leur
+                            historique et impossibles à muter au présent (comme le taux du mois passé).</li>
+                    </ul>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-balance-scale"></i> Paramètres vs Variables : La Ligne Rouge</h4>
+                    <p>Contrairement aux effervescentes variables qui surfent sur les flots des chocs quotidiens, les
+                        <strong>Paramètres</strong> modélisent la gravité de la planète elle-même. Ils sont des
+                        fondements fixes, la structure ADN de l'économie. Ils peuvent hypothétiquement être changés pour
+                        s'adapter à une nouvelle modélisation (nouveau code du travail, modification légale par le
+                        gouvernement), mais vis-à-vis d'une crise, un paramètre fixe la règle à partir de laquelle la
+                        dynamique s'établit.</p>
+                </div>
+            </div>
+
+            <h3>Déterminer les paramètres : Simulation du Modèle</h3>
+            <p>Les modélistes et prévisionnistes peuvent se déchirer sur deux voies pour peupler leurs codes d'équations
+                avec des valeurs tangibles :</p>
+            <ul class="content-list">
+                <li><strong>Estimation (Bayésienne ou autre) :</strong> S'appuyer sur la brutale Data froide passée, et
+                    utiliser les statistiques informatiques colossales pour déduire de facto les valeurs des paramètres
+                    générant les moindres carrés résiduels de l'histoire. Méthode devenue reine depuis les crises des
+                    années 2000 devant la puissance de calcul moderne.</li>
+                <li><strong>La Calibration Pure :</strong> À "l'ancienne" (années 80/90), c'est une technique visant
+                    avec rationalité théorique à injecter des grandeurs intellectuellement justes et calibrer ses
+                    engrenages pour qu'ils soient conformes aux faits saillants caractéristiques du cycle industriel
+                    global.</li>
+            </ul>
+
+            <div class="exam-tip">
+                <i class="fas fa-laptop-code exam-tip-pin"></i>
+                <div class="exam-tip-content">
+                    <h4>Valeurs Canoniques de Laboratoire (Pour vos Simulations)</h4>
+                    <p>Afin de propulser et mettre à l'épreuve ce système fermé (IS-PC-MPR), et d'évaluer la dynamique à
+                        l'équilibre lors des TP ou simulations, nous adoptons des poids conventionnels :</p>
+                    <ul style="margin-top:0.75rem; padding-left:1.5rem; color:var(--tip-text);">
+                        <li><strong>$\alpha = 1$ :</strong> Élasticité pure. Une secousse d'1% des taux déplace
+                            parfaitement de 1% l'économie au cordeau.</li>
+                        <li><strong>$\rho = 2$ :</strong> L'ancrage naturel profond se trouve organiquement autour d'un
+                            taux équilibré de 2.00%.</li>
+                        <li><strong>$\phi = 0.25$ :</strong> Très faible transfert et frottement sur la PC. Une énorme
+                            poussée de demande globale de 1 point n'induira timidement qu'un léger un quart de point
+                            (0.25%) d'érosion inflationniste.</li>
+                        <li><strong>$\theta_y = 0.5$ et $\theta_\pi = 0.5$ :</strong> L'institut des taux est
+                            parfaitement impartial : le taux directeur réagira à une pondération symétrique égale et
+                            réagira tant fort au feu de l'inflation qu'à la panique d'une récession.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="concept-card" style="border-left-color: var(--text-main);">
+                <div class="concept-title">Le Master Schéma de Synthèse Numérique</div>
+                <div class="concept-body">
+                    <p>Pour vous servir de pense-bête indétrônable lors de vos révisions, retrouvez en image nos trois
+                        fondations :</p>
+                    <ul style="padding-left:1.5rem;">
+                        <li>Lister les 10 variables inhérentes au calcul complet (IMAGE 5).</li>
+                        <li>Les 5 paramètres intemporels gouvernant physiquement ce monde macro (IMAGE 6).</li>
+                        <li>La toile, le Graal universel reliant mathématiquement la flèche de l'IS frappant la
+                            Phillips, déclenchant l'alerte Taylor, et corrigeant le taux Nominal sous la baguette de
+                            Fisher anticipativement (IMAGE 7).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <figure>
+                <img src="assets/IMAGE5.PNG" alt="Tableau synthétique recensant les 10 variables du modèle">
+                <figcaption><strong>Figure 5 : L'Inventaire des Variables</strong> – Listes de tous les endogènes et
+                    exogènes (Demande, Production potentielle, Taux naturel) alimentant l'algorithme des crises.
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="assets/IMAGE6.PNG" alt="Tableau des 5 puissants paramètres structurant le modèle">
+                <figcaption><strong>Figure 6 : La Matrice des Paramètres</strong> – La force structurale encapsulée dans
+                    ces coefficients directeurs empiriques.</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/IMAGE7.PNG" alt="Le gigantesque schéma fléché modélisant l'intégralité du modèle">
+                <figcaption><strong>Figure 7 : Master Schéma Final (Le Graal du Macroéconomiste)</strong> – La toile
+                    macroéconomique universelle capturant toutes les rétroactions de l'IS-PC-MPR et de l'Équation de
+                    Fisher.</figcaption>
+            </figure>
+
+            <p style="text-align: center; margin-top: 5rem; color: var(--text-muted); font-style: italic;">
+                Fin du premier chapitre d'introduction fondamental. <br>L'intégralité du socle des lois d'interactions
+                macroéconomiques à travers l'IS-PC-MPR n'a dorénavant plus aucun secret.
+            </p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,563 @@
+:root {
+    /* Colors - Blue Premium Palette */
+    --bg-main: #f8fafc;
+    /* global background almost white/light grey */
+    --bg-sidebar: #0f172a;
+    /* deep navy/midnight blue */
+    --text-main: #1e293b;
+    /* primary text color */
+    --text-muted: #64748b;
+    /* secondary text color */
+    --accent-primary: #2563eb;
+    /* deep blue accent */
+    --accent-secondary: #0ea5e9;
+    /* azure accent */
+    --border-light: #e2e8f0;
+    /* soft border */
+    --card-bg: #ffffff;
+    /* card background */
+
+    /* Alert/Post-It Colors */
+    --alert-bg: #eff6ff;
+    --alert-border: #bfdbfe;
+    --alert-text: #1e3a8a;
+
+    --tip-bg: #fffbeb;
+    --tip-border: #fde68a;
+    --tip-text: #92400e;
+
+    /* Sizing and Layout */
+    --sidebar-width: 280px;
+    --sidebar-collapsed-width: 80px;
+    --header-height: 70px;
+    --content-padding: 2.5rem;
+
+    /* Tyopgraphy */
+    --font-main: 'Inter', sans-serif;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--bg-sidebar);
+    color: white;
+    transition: var(--transition-smooth);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar.collapsed .sidebar-header {
+    justify-content: center;
+    padding: 0;
+}
+
+.sidebar.collapsed .logo-text {
+    display: none;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white;
+    white-space: nowrap;
+}
+
+.toggle-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.toggle-btn:hover {
+    color: var(--accent-secondary);
+}
+
+/* Accordion Menu */
+.menu-nav {
+    padding: 1.5rem 0;
+    flex: 1;
+}
+
+.menu-item {
+    margin-bottom: 0.5rem;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+
+.accordion-header:hover,
+.accordion-header.active {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-left: 4px solid var(--accent-secondary);
+}
+
+.accordion-header i {
+    width: 24px;
+    text-align: center;
+    margin-right: 1rem;
+    font-size: 1.1rem;
+}
+
+.sidebar.collapsed .accordion-header i {
+    margin-right: 0;
+    font-size: 1.25rem;
+}
+
+.sidebar.collapsed .accordion-title,
+.sidebar.collapsed .chevron {
+    display: none;
+}
+
+.accordion-title {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.chevron {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .chevron {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.accordion-content ul {
+    list-style: none;
+    padding: 0.5rem 0;
+}
+
+.accordion-content li a {
+    display: block;
+    padding: 0.5rem 1.5rem 0.5rem 3.5rem;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+
+.accordion-content li a:hover,
+.accordion-content li a.active {
+    color: var(--accent-secondary);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.sidebar.collapsed .accordion-content {
+    display: none;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: var(--content-padding);
+    transition: var(--transition-smooth);
+    max-width: 1200px;
+}
+
+.main-content.expanded {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 1.5rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--bg-sidebar);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Typography elements */
+h2 {
+    font-size: 1.75rem;
+    color: var(--bg-sidebar);
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+h2::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 24px;
+    background: var(--accent-primary);
+    border-radius: 4px;
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: var(--bg-sidebar);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    color: var(--text-main);
+}
+
+strong {
+    font-weight: 600;
+    color: var(--bg-sidebar);
+}
+
+/* UI Components */
+
+/* Concept Cards */
+.concept-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    border-left: 6px solid var(--accent-primary);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.concept-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.concept-card::before {
+    content: '\f0eb';
+    /* lightbulb icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 5rem;
+    color: var(--bg-main);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.concept-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--bg-sidebar);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.concept-body {
+    position: relative;
+    z-index: 1;
+}
+
+.equation-box {
+    background: #f1f5f9;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1.2rem;
+    border: 1px dashed var(--accent-secondary);
+}
+
+/* Grid Cards (Comparisons) */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.grid-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    border-top: 4px solid var(--accent-secondary);
+    transition: var(--transition-smooth);
+}
+
+.grid-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.grid-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: var(--bg-sidebar);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.grid-card h4 i {
+    color: var(--accent-secondary);
+}
+
+.grid-card ul {
+    padding-left: 1.25rem;
+}
+
+.grid-card li {
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+}
+
+/* Alert Boxes / Exam Tips */
+.alert-box {
+    background: var(--alert-bg);
+    border: 1px solid var(--alert-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.alert-icon {
+    font-size: 1.75rem;
+    color: var(--alert-text);
+    flex-shrink: 0;
+}
+
+.alert-content h4 {
+    color: var(--alert-text);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.alert-content p:last-child {
+    margin-bottom: 0;
+}
+
+.exam-tip {
+    background: var(--tip-bg);
+    border-left: 5px solid var(--tip-border);
+    border-top: none;
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1.25rem;
+    position: relative;
+}
+
+.exam-tip-pin {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    color: #ef4444;
+    /* red pin */
+    font-size: 1.5rem;
+    transform: rotate(15deg);
+}
+
+.exam-tip-content h4 {
+    color: var(--tip-text);
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+}
+
+/* Tables and Media */
+figure {
+    margin: 2.5rem 0;
+    text-align: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+figcaption {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.parameter-list {
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    margin: 1.5rem 0;
+}
+
+.parameter-item {
+    display: flex;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.parameter-item:last-child {
+    border-bottom: none;
+}
+
+.parameter-symbol {
+    font-weight: 700;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    color: var(--accent-primary);
+    font-size: 1.1rem;
+}
+
+.parameter-desc {
+    flex: 1;
+}
+
+/* Ordered/Unordered Lists outside of cards */
+.content-list {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.content-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+        width: 280px;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        padding: 1.5rem;
+    }
+
+    /* Add a hamburger menu that shows only on mobile */
+    .mobile-toggle {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--accent-primary);
+        color: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: var(--shadow-lg);
+        z-index: 1001;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-toggle {
+        display: none;
+    }
+}
