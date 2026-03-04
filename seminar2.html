@@ -4,16 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seminar 2 - Dynamic Macro Model</title>
-    <meta name="description" content="Seminar 2: Practical exercises on the Dynamic Macro Model">
-    <!-- Fonts -->
+    <title>Seminar 2 - DMM Other Equations</title>
+    <meta name="description"
+        content="Seminar 2: Practical exercises on Phillips Curve, Taylor Rule, Fisher Equation, and Equilibrium">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
@@ -64,7 +62,7 @@
                 <div class="accordion-content" style="max-height: 500px;">
                     <ul>
                         <li><a href="seminar1.html">Seminar 1: IS Equation</a></li>
-                        <li><a href="seminar2.html" class="active">Seminar 2</a></li>
+                        <li><a href="seminar2.html" class="active">Seminar 2: Other Equations</a></li>
                         <li><a href="seminar3.html">Seminar 3</a></li>
                     </ul>
                 </div>
@@ -74,18 +72,552 @@
 
     <main class="main-content seminar-content" id="main-content">
         <header class="page-header seminar">
-            <h1 class="page-title">Seminar 2</h1>
-            <p class="page-subtitle"><i class="fas fa-pen-to-square"></i> DMM — Practical Exercises</p>
+            <h1 class="page-title">Seminar 2: Other Equations</h1>
+            <p class="page-subtitle"><i class="fas fa-pen-to-square"></i> DMM — Phillips Curve, Taylor Rule, Fisher
+                Equation & Equilibrium</p>
         </header>
 
-        <section id="coming-soon" style="text-align: center; padding: 4rem 2rem;">
-            <div style="font-size: 4rem; margin-bottom: 1.5rem; color: var(--accent-seminar);">
-                <i class="fas fa-hammer"></i>
+        <!-- ==================== EXERCISE 1: Phillips Curve ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 1</span>
+            <h3>The Phillips Curve</h3>
+
+            <div class="formula-recall">
+                <div class="formula-label"><i class="fas fa-lightbulb"></i> Key Formula</div>
+                <p style="text-align: center; margin: 0.5rem 0 0;">
+                    $\pi_t = \pi_t^e + \phi(y_t - \bar{y}_t) + \nu_t$
+                </p>
             </div>
-            <h2 style="color: var(--accent-seminar-hover); font-size: 1.8rem;">Exercises Coming Soon</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 500px; margin: 1rem auto;">
-                This seminar page is ready for exercise content. Exercises and solutions will be added here once
-                available.
+
+            <p>where $\pi_t$ is inflation, $\pi_t^e$ is expected inflation, $(y_t - \bar{y}_t)$ is the output gap,
+                $\phi > 0$ measures how sensitive inflation is to the output gap, and $\nu_t$ is a supply shock.</p>
+
+            <ol class="content-list">
+                <li>Why is inflation related to the output gap?</li>
+                <li>If the economy is at potential output and there are no supply shocks, what determines inflation?
+                </li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Question 1 — Inflation and the Output Gap</div>
+                        <p>The output gap reflects the balance between demand and the economy's productive capacity.</p>
+                        <p>When output is <strong>above potential</strong> ($y_t > \bar{y}_t$), the economy is
+                            overheating. Firms face strong demand and may run into capacity limits (not enough workers,
+                            machines running at full speed). Because demand is high relative to supply, firms can
+                            <strong>raise their prices</strong> → inflation increases.
+                        </p>
+                        <p>At the same time, tight labor markets push <strong>wages up</strong>, which raises production
+                            costs and further increases prices.</p>
+                        <p>When output is <strong>below potential</strong> ($y_t < \bar{y}_t$), there is unused
+                                capacity. Demand is weak, and firms struggle to sell their products. They are less able
+                                to raise prices and may even lower them → inflation decreases.</p>
+                                <div class="equation-box">
+                                    $y_t > \bar{y}_t \implies \pi_t \uparrow \qquad \text{and} \qquad y_t < \bar{y}_t
+                                        \implies \pi_t \downarrow$ </div>
+                                </div>
+
+                                <div class="step">
+                                    <div class="step-label">Question 2 — At Potential, No Shocks</div>
+                                    <p>If $y_t = \bar{y}_t$ (output gap = 0) and $\nu_t = 0$ (no supply shock), the
+                                        Phillips curve
+                                        simplifies to:</p>
+                                    <div class="equation-box">$\pi_t = \pi_t^e$</div>
+                                    <p>Inflation is <strong>entirely determined by inflation expectations</strong>. If
+                                        people expect
+                                        high inflation, inflation will be high. If they expect low inflation, inflation
+                                        will be low.
+                                    </p>
+                                    <p>This is why central banks work so hard to keep expectations "anchored" near their
+                                        target.</p>
+                                </div>
+
+                    </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 2: Taylor Rule ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 2</span>
+            <h3>Taylor Monetary Policy Rule</h3>
+
+            <div class="formula-recall">
+                <div class="formula-label"><i class="fas fa-lightbulb"></i> Key Formula</div>
+                <p style="text-align: center; margin: 0.5rem 0 0;">
+                    $i_t = \pi_t + \rho + \theta_\pi(\pi_t - \pi^*_t) + \theta_y(y_t - \bar{y}_t)$
+                </p>
+            </div>
+
+            <ol class="content-list">
+                <li>Why must $\theta_\pi > 0$ for the economy to be stable? (Taylor Principle)</li>
+                <li>Explain what happens if $\theta_\pi < 0$.</li>
+                <li>If $\theta_y = 0$, how does the CB respond to recessions?</li>
+                <li>Compare two central banks: Bank A has $\theta_\pi = 1.5$, $\theta_y = 0.5$ while Bank B has
+                    $\theta_\pi = 0.5$, $\theta_y = 1.5$.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Q1 — The Taylor Principle ($\theta_\pi > 0$)</div>
+                        <p>The Taylor principle says the central bank must raise interest rates when inflation rises
+                            above the target.</p>
+                        <p>If inflation increases and the CB raises the nominal rate enough, the <strong>real interest
+                                rate also increases</strong>. A higher real rate reduces consumption and investment →
+                            aggregate demand falls → output drops → inflation decreases through the Phillips curve.</p>
+                        <div class="equation-box">
+                            $\pi_t \uparrow \implies i_t \uparrow\uparrow \implies r_t \uparrow \implies y_t
+                            \downarrow \implies \pi_t \downarrow$
+                        </div>
+                        <p>This mechanism brings inflation back toward the target. The economy is
+                            <strong>stable</strong>.
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q2 — What if $\theta_\pi < 0$?</div>
+                                <p>If $\theta_\pi < 0$, the CB <em>lowers</em> interest rates when inflation increases.
+                                        This
+                                        creates an <strong>inflationary spiral</strong>:</p>
+                                <div class="equation-box">
+                                    $\pi_t \uparrow \implies i_t \downarrow \implies r_t \downarrow \implies y_t
+                                    \uparrow
+                                    \implies \pi_t \uparrow\uparrow$
+                                </div>
+                                <p>Inflation keeps growing instead of stabilizing. The economy becomes
+                                    <strong>unstable</strong>.
+                                </p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-label">Q3 — $\theta_y = 0$ (No Output Reaction)</div>
+                            <p>If $\theta_y = 0$, the CB <strong>only reacts to inflation</strong>, not to the output
+                                gap.
+                            </p>
+                            <p>During a recession ($y_t < \bar{y}_t$), the CB will lower rates <em>only if inflation
+                                    also
+                                    falls</em> below target. If inflation stays near target, the CB does nothing — even
+                                    if
+                                    output is low.</p>
+                            <p>This is a pure <strong>inflation-targeting</strong> central bank.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-label">Q4 — Comparing Bank A vs. Bank B</div>
+                            <div class="grid-cards">
+                                <div class="grid-card" style="border-top-color: #e11d74;">
+                                    <h4><i class="fas fa-bullseye" style="color: #e11d74;"></i> Bank A: $\theta_\pi =
+                                        1.5$,
+                                        $\theta_y = 0.5$</h4>
+                                    <p>Reacts <strong>strongly to inflation</strong>. Will raise rates aggressively when
+                                        inflation rises. Prioritizes price stability over output.</p>
+                                    <p>→ <strong>Inflation-focused</strong> policy</p>
+                                </div>
+                                <div class="grid-card" style="border-top-color: #2563eb;">
+                                    <h4><i class="fas fa-industry" style="color: #2563eb;"></i> Bank B: $\theta_\pi =
+                                        0.5$,
+                                        $\theta_y = 1.5$</h4>
+                                    <p>Reacts <strong>strongly to the output gap</strong>. Focuses on reducing
+                                        recessions and
+                                        stabilizing economic activity, even if inflation moves more slowly.</p>
+                                    <p>→ <strong>Output stabilization</strong> policy</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 3: Fisher Equation ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 3</span>
+            <h3>Fisher Equation & Expectations</h3>
+
+            <div class="formula-recall">
+                <div class="formula-label"><i class="fas fa-lightbulb"></i> Key Formulas</div>
+                <p style="text-align: center; margin: 0.5rem 0 0;">
+                    $r_t = i_t - E_t\pi_{t+1}$ <span style="color: var(--text-muted); margin: 0 0.5rem;">|</span>
+                    Adaptive: $E_t\pi_{t+1} = \pi_t$ <span style="color: var(--text-muted); margin: 0 0.5rem;">|</span>
+                    Anchored: $\pi_t^e - \pi^* = \psi(\pi_{t-1} - \pi^*)$
+                </p>
+            </div>
+
+            <p>Imagine that an unexpected shock causes an increase in inflation, while nominal interest rates remain
+                unchanged.</p>
+            <ol class="content-list">
+                <li>What is the difference between ex-ante and ex-post real interest rate?</li>
+                <li>What happens to the real interest rate under adaptive expectations?</li>
+                <li>How is it different with anchored expectations?</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Q1 — Ex-Ante vs. Ex-Post Real Interest Rate</div>
+                        <div class="grid-cards">
+                            <div class="grid-card">
+                                <h4><i class="fas fa-eye"></i> Ex-Ante (Before)</h4>
+                                <p>Calculated using <strong>expected</strong> inflation:</p>
+                                <p style="text-align: center;">$r_t^{ex\,ante} = i_t - E_t\pi_{t+1}$</p>
+                                <p>This is the real return households and firms <em>expect</em> when making decisions
+                                    about saving, borrowing, or investing.</p>
+                            </div>
+                            <div class="grid-card">
+                                <h4><i class="fas fa-check-double"></i> Ex-Post (After)</h4>
+                                <p>Calculated using <strong>actual realized</strong> inflation:</p>
+                                <p style="text-align: center;">$r_t^{ex\,post} = i_t - \pi_{t+1}$</p>
+                                <p>This is the real return that <em>actually occurs</em> after observing inflation. It
+                                    may differ from ex-ante because inflation is uncertain.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q2 — Adaptive Expectations ($E_t\pi_{t+1} = \pi_t$)</div>
+                        <p>With adaptive expectations, expected inflation equals current inflation. If an unexpected
+                            shock raises $\pi_t$ while $i_t$ stays unchanged:</p>
+                        <div class="equation-box">
+                            $\pi_t \uparrow \implies E_t\pi_{t+1} \uparrow \implies r_t = i_t - E_t\pi_{t+1}
+                            \downarrow$
+                        </div>
+                        <p>The real interest rate <strong>falls</strong>. Cheaper borrowing stimulates consumption and
+                            investment → aggregate demand rises → inflation may increase even more.</p>
+                        <p>This is a <strong>destabilizing</strong> mechanism.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q3 — Anchored Expectations</div>
+                        <p>With anchored expectations, expected inflation does <strong>not fully follow</strong> current
+                            inflation:</p>
+                        <div class="equation-box">
+                            $\pi_t^e - \pi^* = \psi(\pi_{t-1} - \pi^*) \qquad \text{where } 0 < \psi < 1$ </div>
+                                <p>When inflation increases unexpectedly, expected inflation rises only
+                                    <strong>partially</strong>.
+                                    So the decrease in the real interest rate is <strong>smaller</strong> than under
+                                    adaptive
+                                    expectations.</p>
+
+                                <div class="alert-box" style="margin-top: 1rem;">
+                                    <div class="alert-icon"><i class="fas fa-star"></i></div>
+                                    <div class="alert-content">
+                                        <h4>Key Comparison</h4>
+                                        <p><strong>Adaptive:</strong> inflation shock → expectations rise strongly →
+                                            $r_t$ falls
+                                            a lot → destabilizing<br>
+                                            <strong>Anchored:</strong> inflation shock → expectations rise only slightly
+                                            → $r_t$
+                                            falls less → more stable
+                                        </p>
+                                    </div>
+                                </div>
+                        </div>
+
+                    </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 4: Long-Run Equilibrium ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 4</span>
+            <h3>Long-Run Equilibrium (Steady State)</h3>
+
+            <div class="formula-recall">
+                <div class="formula-label"><i class="fas fa-lightbulb"></i> Long-Run Conditions</div>
+                <p style="text-align: center; margin: 0.5rem 0 0;">
+                    $y_t = \bar{y}$, $\;\pi_t = \pi^*$, $\;r_t = \rho$, $\;i_t = \rho + \pi^*$
+                </p>
+            </div>
+
+            <p>Assume the model parameters: $\alpha = 1$, $\rho = 2$, $\phi = 0.25$, $\theta_\pi = 0.5$,
+                $\theta_y = 0.5$, $\bar{y} = 100$, $\pi^* = 2$.</p>
+            <ol class="content-list">
+                <li>What are the long-run equilibrium values of $y_t$, $\pi_t$, $r_t$, and $i_t$?</li>
+                <li>If the inflation target changes to $\pi^* = 3$, what happens to the long-run equilibrium?</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Q1 — Baseline Long-Run Values</div>
+                        <p>In the long run, all shocks have disappeared and variables are stable:</p>
+                        <div class="equation-box" style="font-size: 1.1rem;">
+                            $y_t = \bar{y} = 100 \qquad \pi_t = \pi^* = 2 \qquad r_t = \rho = 2 \qquad i_t = \rho +
+                            \pi^* = 2 + 2 = 4$
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q2 — New Target $\pi^* = 3$</div>
+                        <p>If the inflation target changes, only the <strong>nominal variables</strong> adjust. Real
+                            variables stay the same:</p>
+                        <div class="equation-box" style="font-size: 1.1rem;">
+                            $y_t = 100 \qquad \pi_t = 3 \qquad r_t = 2 \qquad i_t = 2 + 3 = 5$
+                        </div>
+                        <p><strong>Key insight:</strong> A higher inflation target raises nominal interest rates and
+                            inflation in the long run, but it does <strong>not affect real variables</strong> (output or
+                            real interest rate). This is the concept of <em>long-run monetary neutrality</em>.</p>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 5: DAD Slope ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 5</span>
+            <h3>Slope of the DAD Curve</h3>
+
+            <div class="formula-recall">
+                <div class="formula-label"><i class="fas fa-lightbulb"></i> DAD Curve</div>
+                <p style="text-align: center; margin: 0.5rem 0 0;">
+                    $y_t = \bar{y} - \frac{\alpha\theta_\pi}{1 + \alpha\theta_y}(\pi_t - \pi^*) +
+                    \frac{1}{1+\alpha\theta_y}\epsilon_t$
+                </p>
+            </div>
+
+            <ol class="content-list">
+                <li>What is the slope of the DAD with respect to inflation?</li>
+                <li>How does the slope depend on $\theta_\pi$ and $\theta_y$?</li>
+                <li>Calculate and interpret the numerical slope using baseline parameters $\alpha = 1$,
+                    $\theta_\pi = 0.5$, $\theta_y = 0.5$.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Q1 — The Slope Formula</div>
+                        <p>The slope is the coefficient in front of $(\pi_t - \pi^*)$:</p>
+                        <div class="equation-box">
+                            $\text{slope of DAD} = -\frac{\alpha\theta_\pi}{1 + \alpha\theta_y}$
+                        </div>
+                        <p>The slope is <strong>negative</strong>: when inflation increases, the CB raises rates → real
+                            rate rises → demand and output fall.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q2 — Effect of $\theta_\pi$ and $\theta_y$</div>
+                        <div class="grid-cards">
+                            <div class="grid-card" style="border-top-color: #e11d74;">
+                                <h4><i class="fas fa-arrow-up" style="color: #e11d74;"></i> Higher $\theta_\pi$</h4>
+                                <p>CB reacts more to inflation → slope becomes <strong>more negative (steeper)</strong>.
+                                    A small increase in inflation causes a <em>large</em> drop in output.</p>
+                            </div>
+                            <div class="grid-card" style="border-top-color: #2563eb;">
+                                <h4><i class="fas fa-arrow-up" style="color: #2563eb;"></i> Higher $\theta_y$</h4>
+                                <p>The denominator $(1 + \alpha\theta_y)$ grows → slope becomes <strong>flatter (closer
+                                        to zero)</strong>. CB cares more about output, partially offsetting the
+                                    inflation
+                                    effect.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q3 — Numerical Calculation</div>
+                        <p>With $\alpha = 1$, $\theta_\pi = 0.5$, $\theta_y = 0.5$:</p>
+                        <div class="equation-box">
+                            $\text{slope} = -\frac{1 \times 0.5}{1 + 1 \times 0.5} = -\frac{0.5}{1.5} \approx -0.33$
+                        </div>
+                        <p><strong>Interpretation:</strong> A 1 percentage point increase in inflation reduces output by
+                            about <strong>0.33 units</strong>, given the baseline parameters.</p>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 6: Short-Run Equilibrium ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 6</span>
+            <h3>Short-Run Equilibrium after a Demand Shock</h3>
+
+            <p>The economy starts in long-run equilibrium ($y = 100$, $\pi = 2$, $r = 2$, $i = 4$). Then a positive
+                demand shock hits: $\epsilon_t = 2$.</p>
+            <p>Parameters: $\alpha = 1$, $\phi = 0.25$, $\theta_\pi = 0.5$, $\theta_y = 0.5$, $\bar{y} = 100$,
+                $\pi^* = 2$.</p>
+            <ol class="content-list">
+                <li>Calculate the new short-run equilibrium values of $y_t$ and $\pi_t$.</li>
+                <li>Calculate the corresponding values of $r_t$ and $i_t$.</li>
+                <li>Show your solution graphically in the DAD–DAS diagram.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Step 1 — Set Up the DAD Equation</div>
+                        <div class="formula-recall">
+                            <div class="formula-label"><i class="fas fa-lightbulb"></i> DAD</div>
+                            <p style="text-align: center; margin: 0.25rem 0 0;">
+                                $y_t = \bar{y} - \frac{\alpha\theta_\pi}{1+\alpha\theta_y}(\pi_t - \pi^*) +
+                                \frac{1}{1+\alpha\theta_y}\epsilon_t$</p>
+                        </div>
+                        <p>Computing the coefficients:</p>
+                        <p style="text-align: center;">
+                            $\frac{\alpha\theta_\pi}{1+\alpha\theta_y} = \frac{0.5}{1.5} = 0.33 \qquad
+                            \frac{1}{1+\alpha\theta_y} = \frac{1}{1.5} = 0.67$
+                        </p>
+                        <p>So:</p>
+                        <div class="equation-box">
+                            $y_t = 100 - 0.33(\pi_t - 2) + 0.67 \times 2 = 101.33 - 0.33(\pi_t - 2)$
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Step 2 — Set Up the DAS Equation</div>
+                        <div class="formula-recall">
+                            <div class="formula-label"><i class="fas fa-lightbulb"></i> DAS (Phillips Curve)</div>
+                            <p style="text-align: center; margin: 0.25rem 0 0;">
+                                $\pi_t = \pi_{t-1} + \phi(y_t - \bar{y})$</p>
+                        </div>
+                        <p>Starting from equilibrium, $\pi_{t-1} = 2$:</p>
+                        <div class="equation-box">$\pi_t = 2 + 0.25(y_t - 100)$</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Step 3 — Solve the System</div>
+                        <p>From the DAD: $y_t - 100 = 1.33 - 0.33(\pi_t - 2)$</p>
+                        <p>Substituting into the DAS:</p>
+                        <p style="text-align: center;">$\pi_t = 2 + 0.25[1.33 - 0.33(\pi_t - 2)]$</p>
+                        <p style="text-align: center;">$\pi_t = 2 + 0.33 - 0.083(\pi_t - 2)$</p>
+                        <p style="text-align: center;">$\pi_t = 2.33 - 0.083\pi_t + 0.166$</p>
+                        <p style="text-align: center;">$1.083\pi_t = 2.496$</p>
+                        <div class="equation-box" style="font-size: 1.15rem;">
+                            $\boxed{\pi_t \approx 2.30}$
+                        </div>
+                        <p>Plugging back into the DAD:</p>
+                        <p style="text-align: center;">$y_t = 101.33 - 0.33(2.30 - 2) = 101.33 - 0.10$</p>
+                        <div class="equation-box" style="font-size: 1.15rem;">
+                            $\boxed{y_t \approx 101.23}$
+                        </div>
+                        <p>Output rises above potential and inflation increases.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Step 4 — Calculate $i_t$ and $r_t$</div>
+                        <p><strong>Nominal interest rate</strong> (Taylor Rule):</p>
+                        <p style="text-align: center;">
+                            $i_t = 2.30 + 2 + 0.5(2.30 - 2) + 0.5(101.23 - 100)$
+                        </p>
+                        <p style="text-align: center;">$i_t = 4.30 + 0.15 + 0.62$</p>
+                        <div class="equation-box">$\boxed{i_t \approx 5.07}$</div>
+
+                        <p><strong>Real interest rate</strong> (Fisher, adaptive: $E_t\pi_{t+1} = \pi_t$):</p>
+                        <p style="text-align: center;">$r_t = i_t - \pi_t = 5.07 - 2.30$</p>
+                        <div class="equation-box">$\boxed{r_t \approx 2.77}$</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Step 5 — Graphical Interpretation</div>
+                        <p>A positive demand shock shifts the <strong>DAD curve to the right</strong>.</p>
+                        <p>The new short-run equilibrium is at the intersection of the new DAD and the original DAS:</p>
+                        <ul class="content-list">
+                            <li>Output increases: $100 \to 101.23$</li>
+                            <li>Inflation increases: $2 \to 2.30$</li>
+                        </ul>
+                        <p>In following periods, the rise in inflation shifts the DAS upward, gradually bringing the
+                            economy back to long-run equilibrium.</p>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 7: DAD-DAS Movements vs Shifts ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 7</span>
+            <h3>DAD–DAS Diagram: Movements vs. Shifts</h3>
+
+            <p>For each of the following changes, determine whether it causes a <strong>movement along</strong> or a
+                <strong>shift</strong> of the DAD and DAS curves:
+            </p>
+            <ol class="content-list">
+                <li>Negative supply shock $\nu_t > 0$.</li>
+                <li>Positive demand shock $\epsilon_t > 0$.</li>
+                <li>Increase in potential output $\bar{y}$.</li>
+                <li>Increase in real interest rate due to policy tightening.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">1 — Negative Supply Shock ($\nu_t > 0$)</div>
+                        <div class="formula-recall">
+                            <div class="formula-label"><i class="fas fa-lightbulb"></i> DAS</div>
+                            <p style="text-align: center; margin: 0.25rem 0 0;">
+                                $\pi_t = \pi_{t-1} + \phi(y_t - \bar{y}) + \nu_t$</p>
+                        </div>
+                        <p>A positive $\nu_t$ increases inflation at every output level (e.g., higher energy prices or
+                            production costs).</p>
+                        <p><strong>Result:</strong> DAS shifts <strong>upward</strong>. DAD does not move.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">2 — Positive Demand Shock ($\epsilon_t > 0$)</div>
+                        <p>In the DAD equation, a positive $\epsilon_t$ increases output at every inflation level (e.g.,
+                            higher government spending, stronger consumer confidence).</p>
+                        <p><strong>Result:</strong> DAD shifts <strong>right</strong>. DAS does not move.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">3 — Increase in Potential Output ($\bar{y} \uparrow$)</div>
+                        <p>$\bar{y}$ appears in <strong>both</strong> equations:</p>
+                        <ul class="content-list">
+                            <li><strong>DAS:</strong> higher $\bar{y}$ → smaller output gap → lower inflation → DAS
+                                shifts <strong>downward</strong>.</li>
+                            <li><strong>DAD:</strong> higher $\bar{y}$ → more output at every inflation level → DAD
+                                shifts <strong>right</strong>.</li>
+                        </ul>
+                        <p><strong>Result:</strong> Both curves shift. This is like a positive productivity or
+                            technology
+                            shock.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">4 — Policy Tightening ($r_t \uparrow$)</div>
+                        <p>Higher real interest rates reduce consumption and investment → aggregate demand falls at
+                            every
+                            inflation level.</p>
+                        <p><strong>Result:</strong> DAD shifts <strong>left</strong>. DAS does not move.</p>
+                    </div>
+
+                    <div class="alert-box" style="margin-top: 1.5rem;">
+                        <div class="alert-icon"><i class="fas fa-star"></i></div>
+                        <div class="alert-content">
+                            <h4>Summary Rule</h4>
+                            <p><strong>Supply shocks</strong> ($\nu_t$) → shift DAS<br>
+                                <strong>Demand shocks</strong> ($\epsilon_t$) → shift DAD<br>
+                                <strong>Structural changes</strong> ($\bar{y}$) → shift both<br>
+                                <strong>Policy changes</strong> → shift DAD
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== FOOTER ==================== -->
+        <section
+            style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-seminar-border); padding-top: 1.5rem;">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                <em>End of Seminar 2 — DMM Other Equations. Based on exercises by Mgr. Ing. Tomáš Pokorný (IES
+                    UK).</em>
             </p>
         </section>
 
