@@ -17,6 +17,12 @@
     --card-bg: #ffffff;
     /* card background */
 
+    /* Seminar Accent - Rose/Pink */
+    --accent-seminar: #e11d74;
+    --accent-seminar-light: #fce7f3;
+    --accent-seminar-border: #f9a8d4;
+    --accent-seminar-hover: #be185d;
+
     /* Alert/Post-It Colors */
     --alert-bg: #eff6ff;
     --alert-border: #bfdbfe;
@@ -205,6 +211,17 @@ body {
 .accordion-content li a.active {
     color: var(--accent-secondary);
     background: rgba(255, 255, 255, 0.03);
+}
+
+/* Seminar menu accent */
+.menu-item.seminar .accordion-header:hover,
+.menu-item.seminar .accordion-header.active {
+    border-left-color: var(--accent-seminar);
+}
+
+.menu-item.seminar .accordion-content li a:hover,
+.menu-item.seminar .accordion-content li a.active {
+    color: var(--accent-seminar-border);
 }
 
 .sidebar.collapsed .accordion-content {
@@ -554,6 +571,139 @@ figcaption {
         z-index: 1001;
         cursor: pointer;
     }
+}
+
+/* ===== Seminar / Exercise Components ===== */
+
+/* Seminar page header accent */
+.page-header.seminar {
+    border-bottom-color: var(--accent-seminar);
+}
+
+.page-header.seminar .page-title {
+    color: var(--accent-seminar-hover);
+}
+
+.page-header.seminar .page-subtitle {
+    color: var(--accent-seminar);
+    font-weight: 500;
+}
+
+/* Exercise Block */
+.exercise-block {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    border-left: 6px solid var(--accent-seminar);
+    position: relative;
+}
+
+.exercise-block .exercise-number {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--accent-seminar);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.exercise-block h3 {
+    margin-top: 0.5rem;
+    color: var(--accent-seminar-hover);
+}
+
+/* Formula Recall Box */
+.formula-recall {
+    background: var(--accent-seminar-light);
+    border: 1px solid var(--accent-seminar-border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+}
+
+.formula-recall .formula-label {
+    font-weight: 700;
+    color: var(--accent-seminar-hover);
+    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Solution Toggle (using <details>) */
+.solution-toggle {
+    margin-top: 1.5rem;
+    border: 1px solid var(--accent-seminar-border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.solution-toggle summary {
+    background: linear-gradient(135deg, var(--accent-seminar), var(--accent-seminar-hover));
+    color: white;
+    padding: 0.85rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    transition: var(--transition-smooth);
+}
+
+.solution-toggle summary::-webkit-details-marker {
+    display: none;
+}
+
+.solution-toggle summary:hover {
+    filter: brightness(1.1);
+}
+
+.solution-toggle summary::before {
+    content: '\f06e';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.85rem;
+}
+
+.solution-toggle[open] summary::before {
+    content: '\f070';
+}
+
+.solution-toggle .solution-content {
+    padding: 1.5rem;
+    background: #fffbfc;
+    border-top: 1px solid var(--accent-seminar-border);
+}
+
+.solution-toggle .solution-content .step {
+    margin-bottom: 1.25rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--accent-seminar-border);
+}
+
+.solution-toggle .solution-content .step-label {
+    font-weight: 700;
+    color: var(--accent-seminar);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.25rem;
+}
+
+/* Seminar h2 accent override */
+.seminar-content h2::before {
+    background: var(--accent-seminar);
 }
 
 @media (min-width: 769px) {
