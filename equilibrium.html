@@ -139,14 +139,14 @@
                 </div>
             </div>
 
-            <p>We will construct the analytical framework utilizing the first approach (graphical 2D simplification) to
-                build raw intuition.</p>
+            <p>We will use the first approach (graphical 2D simplification) to
+                build understanding.</p>
         </section>
 
         <section id="das">
             <h2>3. The Dynamic Aggregate Supply (DAS) Curve</h2>
-            <p>To reduce our 5 equations down to 2, we first compress the supply side. We achieve this by taking the raw
-                Phillips Curve and mathematically combining it strictly with our assumption defining inflation
+            <p>To reduce our 5 equations down to 2, we first simplify the supply side. We do this by taking the
+                Phillips Curve and combining it with our assumption about inflation
                 expectations.</p>
 
             <p>Using purely backward-looking expectations ($E_t \pi_{t+1} = \pi_{t-1}$), we yield the <strong>Dynamic
@@ -175,19 +175,19 @@
 
             <figure>
                 <img src="assets/caca1.png" alt="Dynamic Aggregate Supply Curve Illustration">
-                <figcaption><strong>Figure 1: DAS Curve Illustration.</strong> Representing the upward sloping
-                    dependency inheriting directly from classical continuous Phillips relationships.</figcaption>
+                <figcaption><strong>Figure 1: DAS Curve Illustration.</strong> Showing the upward-sloping
+                    relationship that comes directly from the Phillips Curve.</figcaption>
             </figure>
         </section>
 
         <section id="dad">
             <h2>4. The Dynamic Aggregate Demand (DAD) Curve</h2>
-            <p>We now compress the <em>entire remaining structure</em> of the model (The Demand Side, The Monetary Rule,
-                and the Fisher conversion) forcefully into a single corresponding line: The Dynamic Aggregate Demand
+            <p>We now combine the <em>entire remaining structure</em> of the model (The Demand Side, The Monetary Rule,
+                and the Fisher conversion) into a single line: The Dynamic Aggregate Demand
                 (DAD) curve.</p>
 
-            <h3>Step-by-step Mathematical Derivation</h3>
-            <p>We explicitly employ the four remaining un-compressed equations:</p>
+            <h3>Step-by-step Derivation</h3>
+            <p>We use the four remaining equations:</p>
             <ul class="content-list">
                 <li><strong>IS Curve:</strong> $y_t = \bar{y}_t - \alpha(r_t - \rho) + \epsilon_t$</li>
                 <li><strong>Fisher Equation:</strong> $r_t = i_t - E_t\pi_{t+1}$</li>
@@ -224,10 +224,10 @@
                 \alpha\theta_y} \epsilon_t$
             </div>
 
-            <p>This concisely dictates that the DAD curve relates output exclusively and rigidly to inflation and shock
-                residuals, explicitly presuming the central bank precisely follows its Taylor mandate and all actors
-                execute strictly backward-looking estimations. To simplify geometry significantly, this is often
-                rewritten employing gamma combinations as <strong>$y_t = \bar{y}_t - \gamma_1(\pi_t - \pi^*_t) +
+            <p>This equation shows that DAD relates output only to inflation and demand shocks,
+                assuming the central bank follows its Taylor Rule and all agents
+                use backward-looking expectations. To make graphs easier to draw, this is often
+                simplified as <strong>$y_t = \bar{y}_t - \gamma_1(\pi_t - \pi^*_t) +
                     \gamma_2\epsilon_t$</strong>.</p>
         </section>
 
@@ -265,50 +265,50 @@
 
             <figure>
                 <img src="assets/caca2.png" alt="Dynamic Aggregate Demand Curve Illustration">
-                <figcaption><strong>Figure 2: DAD Curve Illustration.</strong> Displaying the downward sloping
-                    dependency created entirely by Central Bank reaction constraints against inflation deviance.
+                <figcaption><strong>Figure 2: DAD Curve Illustration.</strong> Showing the downward-sloping
+                    relationship created by the Central Bank's reaction to inflation.
                 </figcaption>
             </figure>
         </section>
 
         <section id="intersection">
             <h2>6. Bringing it Together: Equilibrium Dynamics</h2>
-            <p>The ultimate dynamic, short-run geometry consists squarely of the intersecting matrix of these two newly
-                forged curves (DAD and DAS). Together, they algorithmically evaluate and dictate output and inflation
-                flawlessly simultaneously.</p>
+            <p>The short-run equilibrium is found where the DAD and DAS curves intersect. Together, they determine
+                output and inflation
+                at the same time.</p>
 
             <div class="grid-cards">
                 <div class="grid-card">
                     <h4><i class="fas fa-shipping-fast"></i> The Dynamic Form</h4>
-                    <p>Technically, the DAS curve is <strong>dynamic</strong>. It intrinsically links directly backwards
-                        across physical time to previous states (because $\pi_t$ physically equals previous
+                    <p>Technically, the DAS curve is <strong>dynamic</strong>. It connects directly to
+                        previous time periods (because $\pi_t$ depends on
                         $\pi_{t-1}$).</p>
                 </div>
                 <div class="grid-card">
                     <h4><i class="fas fa-anchor"></i> The Static Form</h4>
-                    <p>Conversely, the compressed DAD is <strong>not dynamic across time periods</strong>. Its
-                        functional parameters are strictly trapped in the moment 't' without retaining historical tails.
+                    <p>In contrast, the DAD curve is <strong>not dynamic across time periods</strong>. Its
+                        values only depend on what is happening right now, not on the past.
                     </p>
                 </div>
             </div>
 
-            <p><strong>Critical Behavior Post-Shock:</strong> Immediately following the initial isolated ripple effect
-                of any structural shock upon the graph, only the DAS curve possesses the capacity to keep shifting
-                sequentially continuously over time segments. The DAD curve remains wholly stationary and unchanged
-                until a fresh brand-new exogenous shock forcefully resets it.</p>
+            <p><strong>Critical Behavior After a Shock:</strong> After a shock hits the economy,
+                only the DAS curve keeps shifting over time (because inflation expectations change each period). The DAD
+                curve stays in place
+                until a new, separate shock moves it.</p>
 
             <figure>
                 <img src="assets/caca3.png" alt="Short-Run Equilibrium Graphical Intersection">
-                <figcaption><strong>Figure 3: Short-Run Equilibrium.</strong> Calculated geometrically entirely by the
-                    stark intersection of DAD and DAS lines. Notably, this raw snapshot often dictates outputs sitting
-                    drastically above/below the 'natural' capacity level, alongside inflation floating loosely
-                    above/below target.</figcaption>
+                <figcaption><strong>Figure 3: Short-Run Equilibrium.</strong> Found at the intersection of the DAD and
+                    DAS curves. In the short run, output can be
+                    above or below potential, and inflation can be above or below the target.
+                </figcaption>
             </figure>
 
             <h3>The Explicit Algebraic Solution [Advanced]</h3>
-            <p>Relying exclusively on geometric estimations isn't strictly necessary. By combining both structures
-                perfectly algebraically, mathematicians solve precisely for the intersection, establishing the ultimate
-                endogenous variables completely as strict mathematical formulas directly reacting to shocks alone:</p>
+            <p>We don't need to rely on graphs alone. By combining both the DAD and DAS equations algebraically, we can
+                solve
+                for the exact values of output and inflation as functions of shocks:</p>
 
             <div class="equation-box" style="font-size: 1rem; padding: 1.5rem;">
                 $Y_t = \bar{Y}_t + \frac{\alpha\theta_\pi ( \pi^*_t - \pi_{t-1} - \nu_t ) + \epsilon_t}{1 +
@@ -318,10 +318,9 @@
                 + \alpha(\theta_\pi\phi + \theta_y)}$
             </div>
 
-            <p>By extracting these ultimate absolute values for the primary variables ($Y_t$ and $\pi_t$), one can
-                mathematically cycle back through the foundational equations recursively to derive the resultant
-                deterministic nominal rate $i_t$, calculating expectations $E_t \pi_{t+1}$, and extracting the raw real
-                rate framework $r_t$.</p>
+            <p>Once we know $Y_t$ and $\pi_t$, we can use the other equations to also find the
+                nominal rate $i_t$, expected inflation $E_t \pi_{t+1}$, and the real
+                rate $r_t$.</p>
 
             <h3>Simulating an Increase in Potential Output</h3>
             <p>If we use these formulas to simulate a positive economic event, like
@@ -332,9 +331,10 @@
 
             <figure>
                 <img src="assets/caca4.png" alt="Increase in Potential Output Graph">
-                <figcaption><strong>Figure 4: Potential Output Jump Simulation.</strong> The identical identical
-                    symmetric expansion of both demand framing and supply tracks yields a permanent plateau to much
-                    higher physical production without triggering any inflationary penalty.</figcaption>
+                <figcaption><strong>Figure 4: Potential Output Jump Simulation.</strong> Both the DAD and DAS curves
+                    shift
+                    symmetrically, leading to permanently higher output without
+                    causing any lasting change in inflation.</figcaption>
             </figure>
 
         </section>
