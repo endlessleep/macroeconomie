@@ -66,10 +66,10 @@
 
         <section id="intro">
             <h2>1. Introduction to Model Analysis</h2>
-            <p>Once we have comprehensively defined our model structure (the interdependent IS, PC, and MPR equations),
-                our primary objective strictly shifts towards utilizing this framework for robust analysis.
-                Specifically, we want to analyze the exact behavioral dynamics of all structural variables when exposed
-                to various shifts and shocks.</p>
+            <p>Once we have clearly defined our model structure (the IS, PC, and MPR equations),
+                our main goal is to use this framework for analysis.
+                Specifically, we want to understand how all the variables in the model behave when they are exposed
+                to different changes and shocks.</p>
             <p>A macroeconomic model fundamentally possesses two distinct types of equilibria that we must evaluate:</p>
             <ul class="content-list">
                 <li><strong>Long-run equilibrium:</strong> The ultimate destination where the economy permanently
@@ -83,12 +83,12 @@
             <div class="concept-card">
                 <div class="concept-title">Long-Run Equilibrium Conditions</div>
                 <div class="concept-body">
-                    <p>The crucial first step in analyzing any structural model is properly defining and investigating
-                        its <strong>long-run equilibrium</strong>. For highly complex models, economists must first
-                        verify whether any stable long-run equilibrium even exists mathematically before running
-                        simulations.</p>
-                    <p>How do we firmly define long-run equilibrium in our specific model? The paramount rule is:
-                        <strong>everything, emphatically including inflation, is completely stable.</strong>
+                    <p>The crucial first step in analyzing any economic model is to define and study
+                        its <strong>long-run equilibrium</strong>. In more complex models, economists must first
+                        make sure that a stable long-run equilibrium actually exists before they run
+                        any simulations.</p>
+                    <p>How do we define long-run equilibrium in our model? The main rule is simple:
+                        <strong>everything, especially inflation, is completely stable.</strong>
                     </p>
                     <p>Mathematically, variables no longer shift across time periods:</p>
                     <ul>
@@ -98,15 +98,16 @@
                         <li>$r_t = r_{t-1}$</li>
                     </ul>
                     <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border-light);">
-                    <p>Logically, this implies two absolute anchors: <strong>$y_t = \bar{y}_t$</strong> (equilibrium
-                        output rests flawlessly at its natural potential) and <strong>$\pi_t = E_t \pi_{t+1} =
-                            \pi^*_t$</strong> (actual inflation fundamentally converges exactly with expected inflation
-                        and the rigidly targeted central bank goal).</p>
-                    <p>For these fundamental equalities to hold simultaneously, the real interest rate must default back
-                        to its exogenous natural state: <strong>$r_t = \rho$</strong>. Consequently, the nominal
-                        interest rate strictly follows Fisher's translation to yield <strong>$i_t = \rho +
+                    <p>Logically, this leads to two main anchors: <strong>$y_t = \bar{y}_t$</strong> (equilibrium
+                        output sits perfectly at its natural potential) and <strong>$\pi_t = E_t \pi_{t+1} =
+                            \pi^*_t$</strong> (actual inflation equals expected inflation, which equals
+                        the central bank's target).</p>
+                    <p>For these conditions to hold at the same time, the real interest rate must return
+                        to its natural rate: <strong>$r_t = \rho$</strong>. As a result, using the Fisher equation, the
+                        nominal
+                        interest rate must be: <strong>$i_t = \rho +
                             \pi^*_t$</strong>.</p>
-                    <p>This final calculated figure, $\rho + \pi^*_t$, is universally recognized as the <strong>long-run
+                    <p>This final value, $\rho + \pi^*_t$, is known as the <strong>long-run
                             neutral interest rate</strong>.</p>
                 </div>
             </div>
@@ -114,28 +115,27 @@
 
         <section id="shortrun">
             <h2>2. Navigating the Short-Run Equilibrium</h2>
-            <p>Analyzing the short-run is mathematically intensive. We currently possess 5 interlinked equations and 5
-                endogenous variables. Attempting to analyze this 5-dimensional structure simultaneously using raw mental
-                geometry is impossible.</p>
-            <p>The equations are deeply <strong>simultaneous</strong> in nature: To understand the output level, you
-                require the real interest rate. To calculate the real interest rate, you must input the nominal interest
-                rate. And recursively, to determine the nominal interest rate set by the central bank, you must already
-                know the output gap. This creates a circular dependency.</p>
+            <p>Analyzing the short-run is mathematically complex. We have 5 linked equations and 5
+                variables. Trying to solve this 5-dimensional system just by thinking about it
+                is nearly impossible.</p>
+            <p>The equations are deeply <strong>interconnected</strong>: To find the output level, you
+                need the real interest rate. To find the real interest rate, you need the nominal interest
+                rate. And to know the nominal rate set by the central bank, you must already
+                know the output gap. This creates a circular loop.</p>
 
             <p>To resolve this, modelers employ two distinct operational solutions:</p>
             <div class="grid-cards">
                 <div class="grid-card">
                     <h4><i class="fas fa-compress-arrows-alt"></i> Approach 1: 2D Simplification</h4>
-                    <p>Mathematically substitute the equations into each other to compress the 5-variable space directly
-                        into a manageable <strong>2 variable space</strong>. This permits us to map the most critical
-                        aspects of the model rigidly on a single two-dimensional geometric graph (typically Output vs
-                        Inflation).</p>
+                    <p>Mathematically combine the equations to compress the 5 variables
+                        into a simpler <strong>2 variable space</strong>. This allows us to draw the most important
+                        parts of the model on a single 2D graph (usually Output vs Inflation).</p>
                 </div>
                 <div class="grid-card">
                     <h4><i class="fas fa-laptop-code"></i> Approach 2: Direct Simulation</h4>
-                    <p>Utilize raw algorithms and computational power to automatically calculate the simultaneous
-                        responses of the model to exogeneous structural shocks, analyzing the results across multiple
-                        distinct graphs (Impulse Response Functions).</p>
+                    <p>Use computers and software to automatically calculate how the model
+                        responds to outside shocks, and analyze the results using multiple
+                        graphs (called Impulse Response Functions).</p>
                 </div>
             </div>
 
@@ -160,18 +160,18 @@
                 <div class="alert-icon"><i class="fas fa-chart-line"></i></div>
                 <div class="alert-content">
                     <h4>Slope Intuition</h4>
-                    <p>The DAS curve is functionally <strong>upward sloping</strong>. This directly inherits the
-                        foundational logic of the Phillips-curve relationship: Higher aggregate output functionally
-                        pressures labor capacity, meaning higher ultimate prices and accelerating inflation (the classic
+                    <p>The DAS curve is <strong>upward sloping</strong>. This comes from the
+                        logic of the Phillips curve: Higher output leads to
+                        more pressure on the labor market, which causes higher prices and faster inflation (the classic
                         <em>demand-pull</em> mechanism).
                     </p>
                 </div>
             </div>
 
-            <p>Changes in sheer output functionally cause movement <em>along</em> the rigid DAS line framework.
-                Conversely, changes originating from previous historical inflation rates ($\pi_{t-1}$), raw potential
-                output capacity ($\bar{y}_t$), or isolated external supply shocks ($\nu_t$) physically shift the entire
-                DAS curve graph on the axis.</p>
+            <p>Changes in output cause a movement <em>along</em> the DAS curve.
+                On the other hand, changes in past inflation ($\pi_{t-1}$), potential
+                output ($\bar{y}_t$), or supply shocks ($\nu_t$) will shift the entire
+                DAS curve.</p>
 
             <figure>
                 <img src="assets/caca1.png" alt="Dynamic Aggregate Supply Curve Illustration">
@@ -234,34 +234,34 @@
         <section id="dad-slope">
             <h2>5. Analyzing DAD Slopes and Movements</h2>
 
-            <p>The pure DAD curve accurately reflects a strictly <strong>negative relationship</strong> between
-                prevailing inflation and the total demand for goods and services in the economy. Why is it definitively
-                downward sloping? It roots inherently in the institutional reaction of the Central Bank.</p>
+            <p>The DAD curve shows a <strong>negative relationship</strong> between
+                inflation and the total demand for goods and services. Why does it
+                slope downwards? It comes directly from how the Central Bank reacts.</p>
 
             <div class="exam-tip">
                 <i class="fas fa-thumbtack exam-tip-pin"></i>
                 <div class="exam-tip-content">
                     <h4>The Central Bank Mandate dictates the DAD Slope</h4>
-                    <p>The DAD slopes downwards specifically because the Central Bank explicitly reacts to rising
-                        inflation by hiking nominal interest rates <em>even faster and mathematically higher</em> than
-                        the sheer inflation rise itself (the Taylor Principle). This forcefully causes real absolute
-                        interest rates to abruptly rise, consequently devastating the total demand for goods.</p>
+                    <p>The DAD slopes downwards because the Central Bank reacts to rising
+                        inflation by increasing nominal interest rates <em>even faster</em> than
+                        inflation (the Taylor Principle). This causes the real
+                        interest rate to rise, which reduces the total demand for goods.</p>
                     <hr style="margin: 0.8rem 0; border: none; border-top: 1px dashed var(--tip-text); opacity: 0.3;">
-                    <p><strong>Thought Experiment:</strong> What if the Central Bank was incredibly weak and increased
-                        nominal rates less than inflation? The <em>real interest rate</em> would technically collapse,
-                        drastically stimulating unchecked demand. The entire DAD curve would break structure and flip
-                        upward sloping, destroying the stable anchor.</p>
+                    <p><strong>Thought Experiment:</strong> What if the Central Bank was weak and increased
+                        nominal rates less than inflation? The <em>real interest rate</em> would actually fall,
+                        stimulating too much demand. The entire DAD curve would become
+                        upward sloping, causing the economy to lose its stability.</p>
                 </div>
             </div>
 
-            <p>Thus, what strictly controls the sheer steepness of the DAD curve? The exact proportional ratio
-                configured in the Central Bank's reaction function. A much higher aggressiveness against inflation (a
-                huge $\theta_\pi$ relative parameter compared to $\theta_y$) mechanically crafts an extremely steep,
-                inelastic DAD slope curve on our graph.</p>
+            <p>So, what controls the steepness of the DAD curve? It depends on how aggressively
+                the Central Bank reacts. A stronger reaction against inflation (a
+                large $\theta_\pi$ parameter compared to $\theta_y$) makes the DAD curve
+                much steeper (more inelastic) on the graph.</p>
 
-            <p>A change in inflation triggers mere geometrical movement directly along the DAD trace line. However,
-                rigid changes permanently applied to structural potential output, total altering of the inflation goal
-                target, or external demand shocks comprehensively force the physical DAD line to laterally shift.</p>
+            <p>A change in inflation simply causes a movement along the DAD curve. However,
+                changes to potential output, the inflation target,
+                or external demand shocks will cause the entire DAD curve to shift to the left or right.</p>
 
             <figure>
                 <img src="assets/caca2.png" alt="Dynamic Aggregate Demand Curve Illustration">
@@ -324,11 +324,11 @@
                 rate framework $r_t$.</p>
 
             <h3>Simulating an Increase in Potential Output</h3>
-            <p>If we apply these absolute matrices to simulate an unexpected but positive economic phenomenon, such as
-                an absolute jump upward in potential capacity ($\bar{y}_t$), the analytical graph strictly commands
-                identical, symmetrical shifts directly mirroring within both the DAD and DAS constructs. This
-                symmetrical slide dictates specifically resulting mathematically in massive long-term output gains while
-                neutralizing inflation fluctuations perfectly towards zero deviance.</p>
+            <p>If we use these formulas to simulate a positive economic event, like
+                an increase in potential output ($\bar{y}_t$), the graph shows
+                symmetrical shifts for both the DAD and DAS curves. This
+                symmetrical movement leads to permanent, long-term output gains, without
+                causing any lasting change in inflation.</p>
 
             <figure>
                 <img src="assets/caca4.png" alt="Increase in Potential Output Graph">

@@ -65,14 +65,16 @@
 
         <section id="intro">
             <h2>1. Why Simulate Shocks?</h2>
-            <p>While the DAD-DAS diagram is an elegant geometric tool for mapping out basic shock movements, it suffers
-                from severe limitations when we try to analyze <strong>complex dynamic behavior across time</strong>.
-                Specifically, it only maps output and inflation, rendering the critical underlying movements of interest
-                rates (both nominal and real) completely invisible.</p>
-            <p>Furthermore, a static piece of paper cannot naturally capture the <em>source</em> of dynamic adaptations
-                over multiple periods. Therefore, to truly master the macroeconomic machine, we must utilize
-                <strong>Shock Response Simulations (Impulse Response Functions)</strong>. These allow us to trace the
-                chronological chain reaction of every single variable simultaneously.</p>
+            <p>While the DAD-DAS diagram is a useful tool for showing basic shock movements, it has
+                serious limits when we try to analyze <strong>complex behavior over time</strong>.
+                Specifically, it only shows output and inflation, leaving the important movements of interest
+                rates (both nominal and real) completely hidden.</p>
+            <p>Furthermore, a static drawing cannot easily show the <em>causes</em> of changes
+                over multiple periods. Therefore, to truly understand the macroeconomic system, we need to use
+                <strong>Shock Response Simulations (Impulse Response Functions)</strong>. These simulations allow us to
+                follow the
+                step-by-step chain reaction of all variables at the same time.
+            </p>
         </section>
 
         <!-- ======================= SUPPLY SHOCKS ======================= -->
@@ -82,54 +84,56 @@
                 <h2 style="margin: 0; color: white; border: none; padding: 0;">Part I: Supply Shocks</h2>
             </div>
 
-            <p>A supply shock ($\nu_t$) is mathematically defined as <strong>anything that abruptly increases domestic
-                    inflation without directly increasing physical output</strong>. Real-world examples primarily
-                include commodity price spikes (like an oil crisis), massive sudden wage renegotiations across the
-                board, or skyrocketing financial intermediation costs during a banking crash.</p>
+            <p>A supply shock ($\nu_t$) is defined as <strong>anything that suddenly increases domestic
+                    inflation without directly increasing economic output</strong>. Real-world examples
+                include sudden spikes in commodity prices (like an oil crisis), large-scale wage increases across the
+                country, or skyrocketing financial costs during a banking crisis.</p>
 
             <h3>The Mechanics of a Supply Shock Reaction</h3>
-            <p>When a supply shock forcefully hits, our foundational equations trigger a relentless chronological chain
-                reaction. Here is the step-by-step unrolling of the mechanism, explicitly detailing exactly <em>why</em>
-                variables shift:</p>
+            <p>When a supply shock hits, our model's equations trigger a step-by-step chain
+                reaction. Here is the breakdown of that mechanism, explaining exactly <em>why</em>
+                each variable shifts:</p>
 
             <div class="content-list">
                 <ol>
-                    <li><strong>Initial Strike:</strong> The supply shock fiercely raises inflation physically on the
-                        ground. However, DAD-DAS graphing shows us immediately that output simultaneously falls. Why?
+                    <li><strong>Initial Impact:</strong> The supply shock immediately pushes inflation up in the
+                        real world. But when we look at the DAD-DAS graph, we see that output also falls at the same
+                        time. Why?
                     </li>
-                    <li><strong>The CB Strikes Back:</strong> The central bank (CB) witnesses inflation brutally
-                        exceeding their target line ($\pi_t > \pi^*_t$). Following their strict mandated Taylor mapping,
-                        they instantly aggressively hike the nominal interest rate ($i_t$).</li>
-                    <li><strong>The Real Rate Spikes:</strong> Because the CB is hawkish (following the Taylor
-                        principle), they increase the nominal rate strictly <em>more</em> than the sheer increase in
-                        inflation itself. Mathematically, this forcefully drives the <strong>real interest rate ($r_t$)
-                            upward</strong> above its natural neutral resting anchor ($\rho$).</li>
-                    <li><strong>Demand Collapses:</strong> Confronted with incredibly expensive real borrowing costs,
-                        businesses scrap expansion plans, and households stop making major purchases. Aggregate demand
-                        plummets. Output $y_t$ is choked down severely below potential $\bar{y}_t$.</li>
+                    <li><strong>The Central Bank Reacts:</strong> The central bank (CB) sees inflation rising
+                        above its target ($\pi_t > \pi^*_t$). Following their strict Taylor Rule,
+                        they immediately increase the nominal interest rate ($i_t$).</li>
+                    <li><strong>The Real Rate Spikes:</strong> Because the CB follows the Taylor
+                        principle, they increase the nominal rate by <em>more</em> than the increase in
+                        inflation. As a result, this pushes the <strong>real interest rate ($r_t$)
+                            upward</strong> above its natural resting point ($\rho$).</li>
+                    <li><strong>Demand Drops:</strong> Faced with very high borrowing costs,
+                        businesses cancel expansion plans, and households delay major purchases. Total demand
+                        drops sharply. Output $y_t$ is forced down heavily below its potential level $\bar{y}_t$.</li>
                 </ol>
             </div>
 
             <div class="alert-box">
                 <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
                 <div class="alert-content">
-                    <h4>The Crucial Stabilization Paradox</h4>
-                    <p>Notice carefully: The sheer initial inflation spike <strong>was actually smaller than the raw
-                            mathematical size of the supply shock itself</strong>. Why? Because the very instant the
-                        shock hit, the Central Bank violently pulled the emergency brake on aggregate demand. This
-                        immediate, engineered drop in demand immediately applied a massive counter-weight (downward
-                        pressure) on prices, partially muting the total shock impact.</p>
+                    <h4>The Stabilization Paradox</h4>
+                    <p>Notice an interesting detail: The initial spike in inflation <strong>was actually smaller than
+                            the
+                            size of the supply shock itself</strong>. Why? Because the moment the
+                        shock hit, the Central Bank slammed the brakes on overall demand. This
+                        immediate drop in demand applied strong downward pressure
+                        on prices, partially absorbing the shock's impact.</p>
                 </div>
             </div>
 
             <h3>Dynamic Adjustments: After the Initial Impact</h3>
-            <p>What mathematically occurs in the periods following the initial strike ($t+1$, $t+2$)?</p>
-            <p>Even though the physical external shock ($\nu_t$) eventually zeroes out and dissipates, inflation
-                stubbornly remains hovering above the target. Why? Because of <strong>Expected Inflation</strong>.
-                People vividly remember recent high inflation ($\pi_{t-1}$) and bake it into their current pricing
-                requests. Thus, inflation is kept aloft purely by mathematical societal memory.</p>
-            <p>Consequently, because inflation memory keeps inflation artificially high, the Central Bank is mandated to
-                forcefully keep the real interest rate uncomfortably high. Output remains painfully suppressed.</p>
+            <p>What happens in the periods after the first shock ($t+1$, $t+2$)?</p>
+            <p>Even though the original shock ($\nu_t$) eventually disappears, inflation
+                stubbornly stays above the target. Why? Because of <strong>Expected Inflation</strong>.
+                People remember the recent high inflation ($\pi_{t-1}$) and include it in their current price
+                setting. So, inflation is kept high purely by people's memory of past prices.</p>
+            <p>Because people's memory keeps inflation artificially high, the Central Bank is forced to
+                keep the real interest rate painfully high. As a result, economic output remains low.</p>
 
             <figure>
                 <img src="assets/pipi1.png" alt="Shock to DAS: Initial Dynamics">
@@ -145,10 +149,10 @@
                     long-term equilibrium point (Output = Potential, Inflation = Target).</figcaption>
             </figure>
 
-            <h3>The Central Bank's Agonizing Trade-Off</h3>
-            <p>Herein lies the ultimate macroeconomic tragedy of supply shocks. To force inflation firmly back to the
-                target, the Central Bank functionally <strong>must deliberately engineer a recession</strong>. They
-                deliberately orchestrate weak demand simply to coerce firms to stop hiking prices.</p>
+            <h3>The Central Bank's Difficult Trade-Off</h3>
+            <p>Here is the tragic dilemma of supply shocks. To force inflation back down to the
+                target, the Central Bank <strong>must intentionally cause a recession</strong>. They
+                purposely create weak demand just to force companies to stop raising their prices.</p>
 
             <div class="grid-cards">
                 <div class="grid-card">
@@ -219,10 +223,10 @@
                 <h2 style="margin: 0; color: white; border: none; padding: 0;">Part II: Demand Shocks</h2>
             </div>
 
-            <p>A demand shock ($\epsilon_t$) is starkly defined as <strong>anything that intrinsically forces output to
-                    climb without explicitly originating from prices</strong>. Examples include huge government fiscal
-                spending programs, sudden surges in consumer confidence, massive stock-market wealth generation, or
-                exploding export requests from foreign nations.</p>
+            <p>A demand shock ($\epsilon_t$) is defined as <strong>anything that causes output to
+                    rise independently of price changes</strong>. Examples include massive government
+                spending programs, sudden leaps in consumer confidence, large stock-market gains, or
+                a sudden boom in export requests from foreign countries.</p>
 
             <h3>The Mechanics of a Demand Shock Reaction</h3>
             <p>Unlike a supply shock that initially hurts output, a demand shock looks fantastic on the surface—but
@@ -230,15 +234,16 @@
 
             <div class="content-list">
                 <ol>
-                    <li><strong>Initial Strike:</strong> The demand shock massively amps up output. Instantly, factories
-                        overheat and labor gets scarce, triggering the <em>demand-pull mechanism</em>, which
-                        mathematically forces inflation upwards.</li>
-                    <li><strong>The CB Overrides the Party:</strong> The central bank witnesses BOTH output overheating
-                        ($y_t > \bar{y}_t$) AND inflation exceeding target ($\pi_t > \pi^*_t$). Both variables scream
-                        "Danger!". The CB aggressively hikes rates to cool the economy.</li>
-                    <li><strong>Muted Boom:</strong> Because the CB actively fights the boom from day one, the total
-                        absolute final increase in societal output is actually far smaller than the raw mathematical
-                        size of the initial demand shock itself.</li>
+                    <li><strong>Initial Impact:</strong> The demand shock greatly increases output. Factories
+                        start operating at full speed and labor becomes scarce, causing the <em>demand-pull
+                            mechanism</em>, which
+                        inevitably pushes inflation upward.</li>
+                    <li><strong>The Central Bank Steps In:</strong> The central bank sees BOTH output overheating
+                        ($y_t > \bar{y}_t$) AND inflation rising above target ($\pi_t > \pi^*_t$). Both signs spell
+                        danger. The CB aggressively raises rates to cool the economy down.</li>
+                    <li><strong>A Smaller Boom:</strong> Because the CB fights the boom immediately, the final
+                        overall increase in economic output is actually much smaller than the
+                        size of the initial demand shock.</li>
                 </ol>
             </div>
 
@@ -293,15 +298,15 @@
                 <h2 style="margin: 0; color: white; border: none; padding: 0;">Part III: Monetary Policy Shocks</h2>
             </div>
 
-            <p>Finally, we analyze the Central Bank sabotaging itself. A Monetary Policy shock ($\eta_t$) is rigorously
-                defined as an exogenous deviation completely unjustified by the standard rigid formulas. Examples:
-                Incompetently misjudging the physical neutral rate, an arbitrary political decision to change the target
-                goalpost, or erratic, panicked rate tweaking.</p>
+            <p>Finally, we analyze situations where the Central Bank makes a mistake. A Monetary Policy shock ($\eta_t$)
+                is
+                defined as an external change that isn't justified by the standard rules. Examples include:
+                wrongly estimating the natural neutral rate, a political decision to change the inflation target,
+                or panicked changes to the interest rate.</p>
 
             <h3>1. The Policy Rate Mistake (The "Commission" Error)</h3>
-            <p>Imagine the CB inexplicably drops the nominal interest rate without justification ($\eta_t < 0$). This
-                    sudden plunge physically crushes the real interest rate framework. Cheap money furiously floods the
-                    system.</p>
+            <p>Imagine the CB drops the nominal interest rate without any real justification ($\eta_t < 0$). This sudden
+                    drop crushes the real interest rate. Cheap money floods into the economy.</p>
                     <p>Output violently skyrockets, dragging inflation right up behind it (demand-pull). The moment this
                         occurs, the CB realizes its catastrophic error and instantly scrambles to jack rates incredibly
                         high above baseline to slaughter the very monster it just birthed.</p>
@@ -318,7 +323,8 @@
                         to plummet and inflation to crater. Once they finally notice and catch up, they slash nominal
                         rates severely, eventually finding the new lower baseline. <i>Empirical evidence heavily
                             suggests the global natural rate has been steadily collapsing for the past decade globally
-                            due to aging populations and a "global savings glut".</i></p>
+                            due to aging populations and a "global savings glut".</i>
+                    </p>
 
                     <h3>3. The Disinflation Shock (Changing the Target)</h3>
                     <p>What if the CB deliberately lowers the mathematical $\pi^*_t$ target? To force society down to
@@ -334,10 +340,10 @@
             style="margin-top: 4rem; margin-bottom: 4rem; border-top: 3px solid var(--border-light); padding-top: 2rem;">
             <h2>Conclusion: The Grand Overview</h2>
 
-            <p>This Dynamic Macro Model introduces fundamental systemic upgrades compared to elementary AS-AD models.
-                The inclusion of an explicit, proactive Monetary Policy Rule explicitly reveals that the trajectory of a
-                modern economy fundamentally depends on the psychological aggressiveness (Taylor parameters) of the
-                Central Bank mapping the system.</p>
+            <p>This Dynamic Macro Model introduces major upgrades compared to basic AS-AD models.
+                By including a clear Monetary Policy Rule, it reveals that the path of a
+                modern economy strongly depends on how aggressively the Central Bank reacts to
+                inflation and output changes.</p>
 
             <div class="grid-cards">
                 <div class="grid-card">
