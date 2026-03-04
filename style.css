@@ -458,17 +458,10 @@ figure {
 }
 
 figure img {
-    max-width: 70%;
-    /* Reduced size from 100% */
+    max-width: 100%;
     height: auto;
     border-radius: 6px;
     border: 1px solid #e2e8f0;
-}
-
-figure h4 {
-    margin-bottom: 1rem;
-    color: var(--bg-sidebar);
-    font-size: 1.15rem;
 }
 
 figcaption {
