@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Macro Model - Model Equilibrium</title>
+    <!-- Basic Meta Settings -->
+    <meta name="description" content="Macroeconomics: Dynamic Macro Model - Model Equilibrium">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                processEscapes: true
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="macro_style.css">
+</head>
+
+<body>
+    <button class="mobile-toggle" id="sidebar-toggle-mobile">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text"><i class="fas fa-chart-line"></i> Macroéconomie</div>
+            <button class="toggle-btn" id="sidebar-toggle-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="menu-nav">
+            <div class="menu-item">
+                <div class="accordion-header active">
+                    <i class="fas fa-book-open"></i>
+                    <span class="accordion-title">Dynamic Macro Model</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content" style="max-height: 500px;">
+                    <ul>
+                        <li><a href="index.html">Model Structure</a></li>
+                        <li><a href="equilibrium.html" class="active">Model Equilibrium</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content" id="main-content">
+        <header class="page-header">
+            <h1 class="page-title">Course: Dynamic Macro Model</h1>
+            <p class="page-subtitle">Chapter: Model Equilibrium</p>
+        </header>
+
+        <section id="intro">
+            <h2>1. Introduction to Model Analysis</h2>
+            <p>Once we have comprehensively defined our model structure (the interdependent IS, PC, and MPR equations),
+                our primary objective strictly shifts towards utilizing this framework for robust analysis.
+                Specifically, we want to analyze the exact behavioral dynamics of all structural variables when exposed
+                to various shifts and shocks.</p>
+            <p>A macroeconomic model fundamentally possesses two distinct types of equilibria that we must evaluate:</p>
+            <ul class="content-list">
+                <li><strong>Long-run equilibrium:</strong> The ultimate destination where the economy permanently
+                    settles.</li>
+                <li><strong>Short-run equilibrium:</strong> The immediate, dynamic reaction of the economy. While this
+                    state is technically not perfectly stable (because it is constantly adjusting towards the long-run),
+                    it is still formally classified as an equilibrium mathematically because all simultaneous equations
+                    temporarily balance.</li>
+            </ul>
+
+            <div class="concept-card">
+                <div class="concept-title">Long-Run Equilibrium Conditions</div>
+                <div class="concept-body">
+                    <p>The crucial first step in analyzing any structural model is properly defining and investigating
+                        its <strong>long-run equilibrium</strong>. For highly complex models, economists must first
+                        verify whether any stable long-run equilibrium even exists mathematically before running
+                        simulations.</p>
+                    <p>How do we firmly define long-run equilibrium in our specific model? The paramount rule is:
+                        <strong>everything, emphatically including inflation, is completely stable.</strong></p>
+                    <p>Mathematically, variables no longer shift across time periods:</p>
+                    <ul>
+                        <li>$y_t = y_{t-1}$</li>
+                        <li>$\pi_t = \pi_{t-1}$</li>
+                        <li>$i_t = i_{t-1}$</li>
+                        <li>$r_t = r_{t-1}$</li>
+                    </ul>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border-light);">
+                    <p>Logically, this implies two absolute anchors: <strong>$y_t = \bar{y}_t$</strong> (equilibrium
+                        output rests flawlessly at its natural potential) and <strong>$\pi_t = E_t \pi_{t+1} =
+                            \pi^*_t$</strong> (actual inflation fundamentally converges exactly with expected inflation
+                        and the rigidly targeted central bank goal).</p>
+                    <p>For these fundamental equalities to hold simultaneously, the real interest rate must default back
+                        to its exogenous natural state: <strong>$r_t = \rho$</strong>. Consequently, the nominal
+                        interest rate strictly follows Fisher's translation to yield <strong>$i_t = \rho +
+                            \pi^*_t$</strong>.</p>
+                    <p>This final calculated figure, $\rho + \pi^*_t$, is universally recognized as the <strong>long-run
+                            neutral interest rate</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="shortrun">
+            <h2>2. Navigating the Short-Run Equilibrium</h2>
+            <p>Analyzing the short-run is mathematically intensive. We currently possess 5 interlinked equations and 5
+                endogenous variables. Attempting to analyze this 5-dimensional structure simultaneously using raw mental
+                geometry is impossible.</p>
+            <p>The equations are deeply <strong>simultaneous</strong> in nature: To understand the output level, you
+                require the real interest rate. To calculate the real interest rate, you must input the nominal interest
+                rate. And recursively, to determine the nominal interest rate set by the central bank, you must already
+                know the output gap. This creates a circular dependency.</p>
+
+            <p>To resolve this, modelers employ two distinct operational solutions:</p>
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-compress-arrows-alt"></i> Approach 1: 2D Simplification</h4>
+                    <p>Mathematically substitute the equations into each other to compress the 5-variable space directly
+                        into a manageable <strong>2 variable space</strong>. This permits us to map the most critical
+                        aspects of the model rigidly on a single two-dimensional geometric graph (typically Output vs
+                        Inflation).</p>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-laptop-code"></i> Approach 2: Direct Simulation</h4>
+                    <p>Utilize raw algorithms and computational power to automatically calculate the simultaneous
+                        responses of the model to exogeneous structural shocks, analyzing the results across multiple
+                        distinct graphs (Impulse Response Functions).</p>
+                </div>
+            </div>
+
+            <p>We will construct the analytical framework utilizing the first approach (graphical 2D simplification) to
+                build raw intuition.</p>
+        </section>
+
+        <section id="das">
+            <h2>3. The Dynamic Aggregate Supply (DAS) Curve</h2>
+            <p>To reduce our 5 equations down to 2, we first compress the supply side. We achieve this by taking the raw
+                Phillips Curve and mathematically combining it strictly with our assumption defining inflation
+                expectations.</p>
+
+            <p>Using purely backward-looking expectations ($E_t \pi_{t+1} = \pi_{t-1}$), we yield the <strong>Dynamic
+                    Aggregate Supply (DAS) curve</strong>:</p>
+
+            <div class="equation-box">
+                $\pi_t = \pi_{t-1} + \phi(y_t - \bar{y}_t) + \nu_t$
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="alert-content">
+                    <h4>Slope Intuition</h4>
+                    <p>The DAS curve is functionally <strong>upward sloping</strong>. This directly inherits the
+                        foundational logic of the Phillips-curve relationship: Higher aggregate output functionally
+                        pressures labor capacity, meaning higher ultimate prices and accelerating inflation (the classic
+                        <em>demand-pull</em> mechanism).</p>
+                </div>
+            </div>
+
+            <p>Changes in sheer output functionally cause movement <em>along</em> the rigid DAS line framework.
+                Conversely, changes originating from previous historical inflation rates ($\pi_{t-1}$), raw potential
+                output capacity ($\bar{y}_t$), or isolated external supply shocks ($\nu_t$) physically shift the entire
+                DAS curve graph on the axis.</p>
+
+            <figure>
+                <img src="assets/caca1.png" alt="Dynamic Aggregate Supply Curve Illustration">
+                <figcaption><strong>Figure 1: DAS Curve Illustration.</strong> Representing the upward sloping
+                    dependency inheriting directly from classical continuous Phillips relationships.</figcaption>
+            </figure>
+        </section>
+
+        <section id="dad">
+            <h2>4. The Dynamic Aggregate Demand (DAD) Curve</h2>
+            <p>We now compress the <em>entire remaining structure</em> of the model (The Demand Side, The Monetary Rule,
+                and the Fisher conversion) forcefully into a single corresponding line: The Dynamic Aggregate Demand
+                (DAD) curve.</p>
+
+            <h3>Step-by-step Mathematical Derivation</h3>
+            <p>We explicitly employ the four remaining un-compressed equations:</p>
+            <ul class="content-list">
+                <li><strong>IS Curve:</strong> $y_t = \bar{y}_t - \alpha(r_t - \rho) + \epsilon_t$</li>
+                <li><strong>Fisher Equation:</strong> $r_t = i_t - E_t\pi_{t+1}$</li>
+                <li><strong>Monetary Rule:</strong> $i_t = \pi_t + \rho + \theta_\pi (\pi_t - \pi^*_t) + \theta_y (y_t -
+                    \bar{y}_t)$</li>
+                <li><strong>Expectations:</strong> $E_t\pi_{t+1} = \pi_t$</li>
+            </ul>
+
+            <p><strong>Step 1:</strong> Substitute the Fisher substitution directly into the IS Curve:</p>
+            <p style="text-align:center;">$y_t = \bar{y}_t - \alpha(i_t - E_t\pi_{t+1} - \rho) + \epsilon_t$</p>
+
+            <p><strong>Step 2:</strong> Inside that resultant equation, substitute the central bank's nominal Monetary
+                Rule for $i_t$:</p>
+            <p style="text-align:center;">$y_t = \bar{y}_t - \alpha( \pi_t + \rho + \theta_\pi (\pi_t - \pi^*_t) +
+                \theta_y (y_t - \bar{y}_t) - E_t\pi_{t+1} - \rho) + \epsilon_t$</p>
+
+            <p><strong>Step 3:</strong> Apply the firm assumption that $E_t\pi_{t+1} = \pi_t$. Notice immediately that
+                $\rho$ cancels with $-\rho$, and $\pi_t$ directly cancels with $-\pi_t$ (this cancellation logic holds
+                strictly because we assume the Taylor Rule perfectly reacts one-to-one to base inflation before applying
+                its $\theta_\pi$ premium weighting).</p>
+            <p style="text-align:center;">$y_t = \bar{y}_t - \alpha( \theta_\pi (\pi_t - \pi^*_t) + \theta_y (y_t -
+                \bar{y}_t) ) + \epsilon_t$</p>
+
+            <p><strong>Step 4:</strong> Expand the $\alpha$ multiplier, and collect all like terms pertaining to the
+                isolated variable $y_t$ onto the left-hand side:</p>
+            <p style="text-align:center;">$(1 + \alpha\theta_y) y_t = (1 + \alpha\theta_y) \bar{y}_t - \alpha\theta_\pi
+                (\pi_t - \pi^*_t) + \epsilon_t$</p>
+
+            <p><strong>Step 5:</strong> Divide the entirety by $(1 + \alpha\theta_y)$ to cleanly solve strictly for
+                $y_t$, producing the final definitive DAD blueprint:</p>
+
+            <div class="equation-box">
+                $y_t = \bar{y}_t - \frac{\alpha\theta_\pi}{1 + \alpha\theta_y} (\pi_t - \pi^*_t) + \frac{1}{1 +
+                \alpha\theta_y} \epsilon_t$
+            </div>
+
+            <p>This concisely dictates that the DAD curve relates output exclusively and rigidly to inflation and shock
+                residuals, explicitly presuming the central bank precisely follows its Taylor mandate and all actors
+                execute strictly backward-looking estimations. To simplify geometry significantly, this is often
+                rewritten employing gamma combinations as <strong>$y_t = \bar{y}_t - \gamma_1(\pi_t - \pi^*_t) +
+                    \gamma_2\epsilon_t$</strong>.</p>
+        </section>
+
+        <section id="dad-slope">
+            <h2>5. Analyzing DAD Slopes and Movements</h2>
+
+            <p>The pure DAD curve accurately reflects a strictly <strong>negative relationship</strong> between
+                prevailing inflation and the total demand for goods and services in the economy. Why is it definitively
+                downward sloping? It roots inherently in the institutional reaction of the Central Bank.</p>
+
+            <div class="exam-tip">
+                <i class="fas fa-thumbtack exam-tip-pin"></i>
+                <div class="exam-tip-content">
+                    <h4>The Central Bank Mandate dictates the DAD Slope</h4>
+                    <p>The DAD slopes downwards specifically because the Central Bank explicitly reacts to rising
+                        inflation by hiking nominal interest rates <em>even faster and mathematically higher</em> than
+                        the sheer inflation rise itself (the Taylor Principle). This forcefully causes real absolute
+                        interest rates to abruptly rise, consequently devastating the total demand for goods.</p>
+                    <hr style="margin: 0.8rem 0; border: none; border-top: 1px dashed var(--tip-text); opacity: 0.3;">
+                    <p><strong>Thought Experiment:</strong> What if the Central Bank was incredibly weak and increased
+                        nominal rates less than inflation? The <em>real interest rate</em> would technically collapse,
+                        drastically stimulating unchecked demand. The entire DAD curve would break structure and flip
+                        upward sloping, destroying the stable anchor.</p>
+                </div>
+            </div>
+
+            <p>Thus, what strictly controls the sheer steepness of the DAD curve? The exact proportional ratio
+                configured in the Central Bank's reaction function. A much higher aggressiveness against inflation (a
+                huge $\theta_\pi$ relative parameter compared to $\theta_y$) mechanically crafts an extremely steep,
+                inelastic DAD slope curve on our graph.</p>
+
+            <p>A change in inflation triggers mere geometrical movement directly along the DAD trace line. However,
+                rigid changes permanently applied to structural potential output, total altering of the inflation goal
+                target, or external demand shocks comprehensively force the physical DAD line to laterally shift.</p>
+
+            <figure>
+                <img src="assets/caca2.png" alt="Dynamic Aggregate Demand Curve Illustration">
+                <figcaption><strong>Figure 2: DAD Curve Illustration.</strong> Displaying the downward sloping
+                    dependency created entirely by Central Bank reaction constraints against inflation deviance.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="intersection">
+            <h2>6. Bringing it Together: Equilibrium Dynamics</h2>
+            <p>The ultimate dynamic, short-run geometry consists squarely of the intersecting matrix of these two newly
+                forged curves (DAD and DAS). Together, they algorithmically evaluate and dictate output and inflation
+                flawlessly simultaneously.</p>
+
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-shipping-fast"></i> The Dynamic Form</h4>
+                    <p>Technically, the DAS curve is <strong>dynamic</strong>. It intrinsically links directly backwards
+                        across physical time to previous states (because $\pi_t$ physically equals previous
+                        $\pi_{t-1}$).</p>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-anchor"></i> The Static Form</h4>
+                    <p>Conversely, the compressed DAD is <strong>not dynamic across time periods</strong>. Its
+                        functional parameters are strictly trapped in the moment 't' without retaining historical tails.
+                    </p>
+                </div>
+            </div>
+
+            <p><strong>Critical Behavior Post-Shock:</strong> Immediately following the initial isolated ripple effect
+                of any structural shock upon the graph, only the DAS curve possesses the capacity to keep shifting
+                sequentially continuously over time segments. The DAD curve remains wholly stationary and unchanged
+                until a fresh brand-new exogenous shock forcefully resets it.</p>
+
+            <figure>
+                <img src="assets/caca3.png" alt="Short-Run Equilibrium Graphical Intersection">
+                <figcaption><strong>Figure 3: Short-Run Equilibrium.</strong> Calculated geometrically entirely by the
+                    stark intersection of DAD and DAS lines. Notably, this raw snapshot often dictates outputs sitting
+                    drastically above/below the 'natural' capacity level, alongside inflation floating loosely
+                    above/below target.</figcaption>
+            </figure>
+
+            <h3>The Explicit Algebraic Solution [Advanced]</h3>
+            <p>Relying exclusively on geometric estimations isn't strictly necessary. By combining both structures
+                perfectly algebraically, mathematicians solve precisely for the intersection, establishing the ultimate
+                endogenous variables completely as strict mathematical formulas directly reacting to shocks alone:</p>
+
+            <div class="equation-box" style="font-size: 1rem; padding: 1.5rem;">
+                $Y_t = \bar{Y}_t + \frac{\alpha\theta_\pi ( \pi^*_t - \pi_{t-1} - \nu_t ) + \epsilon_t}{1 +
+                \alpha(\theta_\pi\phi + \theta_y)}$
+                <br><br>
+                $\pi_t = \frac{(1 + \alpha\theta_y)(\pi_{t-1} + \nu_t) + \alpha\theta_\pi\phi\pi^*_t + \phi\epsilon_t}{1
+                + \alpha(\theta_\pi\phi + \theta_y)}$
+            </div>
+
+            <p>By extracting these ultimate absolute values for the primary variables ($Y_t$ and $\pi_t$), one can
+                mathematically cycle back through the foundational equations recursively to derive the resultant
+                deterministic nominal rate $i_t$, calculating expectations $E_t \pi_{t+1}$, and extracting the raw real
+                rate framework $r_t$.</p>
+
+            <h3>Simulating an Increase in Potential Output</h3>
+            <p>If we apply these absolute matrices to simulate an unexpected but positive economic phenomenon, such as
+                an absolute jump upward in potential capacity ($\bar{y}_t$), the analytical graph strictly commands
+                identical, symmetrical shifts directly mirroring within both the DAD and DAS constructs. This
+                symmetrical slide dictates specifically resulting mathematically in massive long-term output gains while
+                neutralizing inflation fluctuations perfectly towards zero deviance.</p>
+
+            <figure>
+                <img src="assets/caca4.png" alt="Increase in Potential Output Graph">
+                <figcaption><strong>Figure 4: Potential Output Jump Simulation.</strong> The identical identical
+                    symmetric expansion of both demand framing and supply tracks yields a permanent plateau to much
+                    higher physical production without triggering any inflationary penalty.</figcaption>
+            </figure>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
