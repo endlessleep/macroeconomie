@@ -78,22 +78,398 @@
             <p class="page-subtitle"><i class="fas fa-pen-to-square"></i> DMM — Practical Exercises</p>
         </header>
 
-        <section id="coming-soon" style="text-align: center; padding: 4rem 2rem;">
-            <div style="font-size: 4rem; margin-bottom: 1.5rem; color: var(--accent-seminar);">
-                <i class="fas fa-hammer"></i>
-            </div>
-            <h2 style="color: var(--accent-seminar-hover); font-size: 1.8rem;">Exercises Coming Soon</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 500px; margin: 1rem auto;">
-                This seminar page is ready for exercise content. Exercises and solutions will be added here once
-                available.
-            </p>
+        <!-- ==================== EXERCISE 1 ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 1</span>
+            <h3>Understanding the IS Curve</h3>
 
-            <div class="formula-recall" style="max-width: 500px; margin: 2rem auto;">
-                <div class="formula-label"><i class="fas fa-lightbulb"></i> Key Formula for this Seminar</div>
-                <p style="text-align: center; margin-top: 0.5rem; font-size: 1.1rem;">
-                    $y_t = \bar{y}_t - \alpha(r_t - \rho) + \epsilon_t$
+            <div class="formula-recall">
+                <div class="formula-label"><i class="fas fa-lightbulb"></i> Key Formula</div>
+                <p style="text-align: center; margin: 0.5rem 0 0;">$y_t = \bar{y}_t - \alpha(r_t - \rho) + \epsilon_t$
                 </p>
             </div>
+
+            <p>Consider the IS curve equation above and answer the following:</p>
+            <ol class="content-list">
+                <li>How can we define the natural real interest rate?</li>
+                <li>How is it related to monetary policy being tight or loose?</li>
+                <li>Why is the output gap in the IS equation related to the interest rate?</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Question 1 — Natural Real Interest Rate</div>
+                        <p>The natural real interest rate ($\rho$) is the real interest rate at which the economy
+                            produces exactly at its potential output, with no shocks and stable inflation.</p>
+                        <p>When $r_t = \rho$, the IS equation simplifies to:</p>
+                        <div class="equation-box">$r_t = \rho \implies y_t = \bar{y}_t$</div>
+                        <p>At this point, the economy is neither overheating nor in recession. The natural rate can also
+                            be understood as the interest rate that <strong>balances saving and investment</strong> in
+                            the
+                            absence of shocks. It is often called the <em>neutral interest rate</em>, because it neither
+                            stimulates nor restricts economic activity.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Question 2 — Tight vs. Loose Policy</div>
+                        <p>The stance of monetary policy depends on comparing the actual real interest rate ($r_t$) with
+                            the natural rate ($\rho$):</p>
+                        <div class="grid-cards" style="margin-top: 1rem;">
+                            <div class="grid-card" style="border-top-color: #ef4444;">
+                                <h4><i class="fas fa-arrow-up" style="color: #ef4444;"></i> Tight Policy ($r_t > \rho$)
+                                </h4>
+                                <p>Borrowing is expensive → households save more, firms invest less → aggregate demand
+                                    falls → output drops below potential → <strong>negative output gap</strong>.</p>
+                            </div>
+                            <div class="grid-card" style="border-top-color: #22c55e;">
+                                <h4><i class="fas fa-arrow-down" style="color: #22c55e;"></i> Loose Policy ($r_t <
+                                        \rho$)</h4>
+                                        <p>Borrowing is cheap → households consume more, firms invest more → aggregate
+                                            demand
+                                            rises → output exceeds potential → <strong>positive output gap</strong>.</p>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;">The natural rate therefore serves as the <strong>benchmark</strong>
+                            for
+                            evaluating monetary policy stance. When $r_t = \rho$, policy is neutral.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Question 3 — Output Gap and Interest Rate</div>
+                        <p>The output gap ($y_t - \bar{y}_t$) depends on the "interest rate gap" ($r_t - \rho$) because
+                            interest rates directly influence spending decisions:</p>
+                        <ul class="content-list">
+                            <li><strong>Households:</strong> A higher real interest rate increases the return on saving,
+                                making it more attractive to postpone consumption. Current consumption falls.</li>
+                            <li><strong>Firms:</strong> The real interest rate is the cost of borrowing. Higher rates
+                                make
+                                investment projects less profitable, so firms invest less.</li>
+                        </ul>
+                        <p>Since aggregate demand = consumption + investment (+ other components), higher $r_t$ reduces
+                            demand → lower output → negative output gap. The parameter $\alpha$ measures how strongly
+                            output reacts to a change in the interest rate gap.</p>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 2 ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 2</span>
+            <h3>Life-Cycle Hypothesis and Natural Interest Rate</h3>
+
+            <p>Consider the life-cycle hypothesis and its implications for the natural interest rate. For each of the
+                following demographic shifts, discuss the implied effect on the natural interest rate:</p>
+            <ol class="content-list">
+                <li>The share of people in working age increases relative to those not working, as a result of an
+                    earlier baby boom.</li>
+                <li>The expected length of retirement increases due to improvements in health care and longer life
+                    expectancy.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Part 1 — Baby Boom Effect</div>
+                        <p>According to the life-cycle hypothesis, people <strong>save during their working
+                                years</strong>
+                            and spend their savings during retirement.</p>
+                        <p>If the share of working-age people increases (due to a baby boom), more individuals are in
+                            their
+                            saving phase. This <strong>increases aggregate saving</strong> in the economy.</p>
+                        <p>When the supply of savings rises relative to investment demand, the equilibrium interest rate
+                            falls:</p>
+                        <div class="equation-box">
+                            $\text{More workers} \implies \text{Savings} \uparrow \implies \rho \downarrow$
+                        </div>
+                        <p><strong>Result:</strong> The natural real interest rate <strong>decreases</strong>.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Part 2 — Longer Retirement</div>
+                        <p>If people expect to live longer, they need to accumulate <strong>more savings</strong> during
+                            their working years to finance a longer retirement. This means they consume less today and
+                            save
+                            more.</p>
+                        <p>Again, aggregate saving increases, pushing the equilibrium interest rate down:</p>
+                        <div class="equation-box">
+                            $\text{Longer retirement} \implies \text{Savings} \uparrow \implies \rho \downarrow$
+                        </div>
+                        <p><strong>Result:</strong> The natural real interest rate <strong>decreases</strong>. This
+                            mechanism
+                            is often cited as one explanation for the long-term decline in natural interest rates
+                            observed
+                            in many developed countries.</p>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 3 ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 3</span>
+            <h3>Slope of the IS Curve</h3>
+
+            <p>Consider the consumption smoothing theory as the microfoundation for the IS curve. Suppose that consumers
+                become more willing to postpone consumption due to increased financial literacy about the benefits of
+                saving.</p>
+            <ol class="content-list">
+                <li>What happens to the slope of the IS curve?</li>
+                <li>How does this affect the effectiveness of monetary policy?</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Part 1 — Change in Slope</div>
+                        <div class="formula-recall">
+                            <div class="formula-label"><i class="fas fa-lightbulb"></i> Recall</div>
+                            <p style="text-align: center; margin: 0.25rem 0 0;">$y_t = \bar{y}_t - \alpha(r_t - \rho) +
+                                \epsilon_t$</p>
+                        </div>
+                        <p>The parameter $\alpha$ measures how sensitive demand is to interest rate changes.</p>
+                        <p>If consumers are more willing to postpone consumption, they <strong>react more
+                                strongly</strong>
+                            to changes in the interest rate. When $r_t$ rises, they save more (larger reduction in
+                            consumption). When $r_t$ falls, they consume more (larger increase in consumption).</p>
+                        <p>This means $\alpha$ <strong>increases</strong>.</p>
+                        <p><strong>Result:</strong> The IS curve becomes <strong>flatter</strong> (less steep). A given
+                            change in the real interest rate produces a <em>larger</em> change in output.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Part 2 — Effectiveness of Monetary Policy</div>
+                        <p>If the IS curve is flatter, a small change in the interest rate leads to a large change in
+                            output.</p>
+                        <p>Since the central bank controls the economy primarily through interest rates, this means that
+                            <strong>monetary policy becomes more effective</strong>. Smaller rate changes are sufficient
+                            to
+                            generate large changes in aggregate demand and output.
+                        </p>
+                        <div class="equation-box">
+                            $\alpha \uparrow \implies \text{IS flatter} \implies \text{Monetary policy more effective}$
+                        </div>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 4 ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 4</span>
+            <h3>IS Curve — Graphical Analysis</h3>
+
+            <p>On the IS diagram (vertical axis: real interest rate $r$, horizontal axis: output $y$), represent each of
+                the following situations. Determine whether each event causes a <strong>movement along</strong> the IS
+                curve or a <strong>shift</strong> of the IS curve.</p>
+            <ol class="content-list">
+                <li>Increase in nominal interest rates.</li>
+                <li>Drop in real interest rate due to an increase in expected inflation without a corresponding increase
+                    in nominal interest rates.</li>
+                <li>Increase in the neutral interest rate without a change in nominal interest rates.</li>
+                <li>Jump in confidence among firms due to the advent of AI.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Situation 1 — Increase in Nominal Rates</div>
+                        <div class="formula-recall">
+                            <div class="formula-label"><i class="fas fa-lightbulb"></i> Fisher Equation</div>
+                            <p style="text-align: center; margin: 0.25rem 0 0;">$r_t = i_t - E_t\pi_{t+1}$</p>
+                        </div>
+                        <p>If expected inflation stays constant, a higher nominal rate ($i_t \uparrow$) means a higher
+                            real
+                            rate ($r_t \uparrow$). This reduces consumption and investment → output falls.</p>
+                        <p>Since the real interest rate itself changes, this is a <strong>movement along</strong>
+                            the IS curve (upward = lower output).</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Situation 2 — Real Rate Drop from Higher Expected Inflation</div>
+                        <p>If $E_t\pi_{t+1}$ increases while $i_t$ stays constant, then $r_t$ decreases. Lower real
+                            rates
+                            stimulate consumption and investment → output rises.</p>
+                        <p>Again, the real interest rate changes → <strong>movement along</strong> the IS curve
+                            (downward = higher output).</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Situation 3 — Natural Rate Increase (no change in $i_t$)</div>
+                        <p>In the IS equation $y_t = \bar{y}_t - \alpha(r_t - \rho) + \epsilon_t$, if $\rho$ increases,
+                            the gap $(r_t - \rho)$ becomes smaller for any given $r_t$. This means output is
+                            <em>higher</em> at every interest rate level.
+                        </p>
+                        <p>Result: <strong>Rightward shift</strong> of the IS curve.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Situation 4 — Confidence Jump (AI)</div>
+                        <p>Higher firm confidence raises investment demand. In the IS equation, this is captured by a
+                            positive demand shock ($\epsilon_t > 0$). Output increases at every interest rate level.</p>
+                        <p>Result: <strong>Rightward shift</strong> of the IS curve.</p>
+                    </div>
+
+                    <div class="alert-box" style="margin-top: 1.5rem;">
+                        <div class="alert-icon"><i class="fas fa-star"></i></div>
+                        <div class="alert-content">
+                            <h4>Key Rule</h4>
+                            <p>Changes in the <strong>real interest rate</strong> → movement <em>along</em> the IS
+                                curve.<br>
+                                Changes in <strong>structural parameters or shocks</strong> ($\rho$, $\bar{y}_t$,
+                                $\epsilon_t$) → <em>shift</em> of the IS curve.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 5 ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 5</span>
+            <h3>Microfounding the IS Curve</h3>
+
+            <p>Consider a representative household living for two periods $t = 1, 2$. The household earns income $y_1$
+                in
+                period 1 and $y_2$ in period 2, and holds initial financial wealth $f_1$. The household chooses
+                consumption $c_1$, $c_2$ and saving $s_1$ to maximize lifetime utility:</p>
+
+            <div class="equation-box">$\max_{c_1, c_2} \; \ln(c_1) + \beta \ln(c_2)$</div>
+
+            <p>subject to the budget constraints:</p>
+            <p style="text-align: center;">$c_1 + s_1 = y_1 + f_1 \qquad \text{and} \qquad c_2 = y_2 + (1+R)s_1$</p>
+            <p>where $\beta$ is the household's time preference and $R$ is the interest rate. No borrowing constraints.
+            </p>
+
+            <ol class="content-list">
+                <li>State the intertemporal budget constraint.</li>
+                <li>Derive the household's equilibrium condition for optimal $c_1$ and $c_2$ (MRS method).</li>
+                <li>Express $c_1$ and $c_2$ as functions of $y_1, y_2, f_1, R$, and $\beta$.</li>
+                <li>Express saving $s_1$ as a function of $R, y_1, y_2$, and $f_1$.</li>
+                <li>Explain how these results relate to the IS curve.</li>
+                <li>Discuss how an increase in $y_2$ or $\beta$ shifts the IS curve.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+
+                    <div class="step">
+                        <div class="step-label">Q1 — Intertemporal Budget Constraint</div>
+                        <p>From the first-period constraint: $s_1 = y_1 + f_1 - c_1$.</p>
+                        <p>Substituting into the second-period constraint:</p>
+                        <p style="text-align: center;">$c_2 = y_2 + (1+R)(y_1 + f_1 - c_1)$</p>
+                        <p>Rearranging to get the <strong>intertemporal budget constraint</strong>:</p>
+                        <div class="equation-box">
+                            $c_1 + \frac{c_2}{1+R} = y_1 + f_1 + \frac{y_2}{1+R}$
+                        </div>
+                        <p>The present value of consumption equals the present value of lifetime income and wealth.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q2 — Equilibrium Condition (MRS Method)</div>
+                        <p>In equilibrium, the consumer allocates consumption so that the <strong>Marginal Rate of
+                                Substitution (MRS)</strong> equals the relative price of consumption across periods.</p>
+                        <p>The marginal utilities are:</p>
+                        <p style="text-align: center;">
+                            $\frac{\partial U}{\partial c_1} = \frac{1}{c_1} \qquad \text{and} \qquad \frac{\partial
+                            U}{\partial c_2} = \frac{\beta}{c_2}$
+                        </p>
+                        <p>The MRS between period 1 and period 2 consumption is:</p>
+                        <div class="equation-box">
+                            $MRS_{0 \to 1} = \frac{\partial U / \partial c_2}{\partial U / \partial c_1} = \frac{\beta
+                            \, c_1}{c_2}$
+                        </div>
+                        <p>Setting the MRS equal to the relative price $\frac{1}{1+R}$:</p>
+                        <p style="text-align: center;">$\frac{\beta \, c_1}{c_2} = \frac{1}{1+R}$</p>
+                        <p>This gives the <strong>optimal consumption rule</strong>:</p>
+                        <div class="equation-box">$c_2 = \beta(1+R) \, c_1$</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q3 — Solving for $c_1$ and $c_2$</div>
+                        <p>Substitute $c_2 = \beta(1+R)c_1$ into the intertemporal budget constraint:</p>
+                        <p style="text-align: center;">$c_1 + \frac{\beta(1+R)c_1}{1+R} = y_1 + f_1 + \frac{y_2}{1+R}$
+                        </p>
+                        <p>Simplifying:</p>
+                        <p style="text-align: center;">$c_1(1 + \beta) = y_1 + f_1 + \frac{y_2}{1+R}$</p>
+                        <p>Defining <strong>lifetime wealth</strong> as $W_0 = y_1 + f_1 + \frac{y_2}{1+R}$, we get:</p>
+                        <div class="equation-box">
+                            $c_1 = \frac{1}{1+\beta} \, W_0 = \frac{1}{1+\beta}\left(y_1 + f_1 + \frac{y_2}{1+R}\right)$
+                        </div>
+                        <p>And using $c_2 = \beta(1+R)c_1$:</p>
+                        <div class="equation-box">
+                            $c_2 = \frac{\beta}{1+\beta}\left((1+R)(y_1 + f_1) + y_2\right)$
+                        </div>
+                        <p>Households consume a <strong>constant fraction</strong> of their lifetime wealth.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q4 — Saving Function</div>
+                        <p>From $s_1 = y_1 + f_1 - c_1$:</p>
+                        <div class="equation-box">
+                            $s_1 = \frac{1}{1+\beta}\left(\beta(y_1 + f_1) - \frac{y_2}{1+R}\right)$
+                        </div>
+                        <p>Saving increases when current income is high ($y_1 \uparrow$), decreases when future income
+                            is
+                            high ($y_2 \uparrow$, no need to save), and increases when interest rates are high ($R
+                            \uparrow$,
+                            saving is more rewarding).</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q5 — Connection to the IS Curve</div>
+                        <p>The key result is the equilibrium condition:</p>
+                        <p style="text-align: center;">$c_2 = \beta(1+R)c_1$</p>
+                        <p>This shows that the household's consumption choice <strong>depends on the interest
+                                rate</strong>.</p>
+                        <p>When $R$ increases → saving becomes more attractive → households reduce current consumption
+                            $c_1$
+                            → aggregate demand falls → output decreases.</p>
+                        <p>This is exactly the <strong>negative relationship between the interest rate and
+                                output</strong>
+                            captured by the IS curve:</p>
+                        <div class="equation-box">
+                            $R \uparrow \implies c_1 \downarrow \implies y_t \downarrow \quad \text{(IS curve logic)}$
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">Q6 — Shift from $y_2 \uparrow$ or $\beta \uparrow$</div>
+                        <p><strong>Increase in $y_2$:</strong> Higher future income raises lifetime wealth
+                            $W_0 = y_1 + f_1 + \frac{y_2}{1+R}$. This increases current consumption $c_1$ at every
+                            interest rate → aggregate demand rises → <strong>IS curve shifts right</strong>.</p>
+                        <p><strong>Increase in $\beta$:</strong> Households place more value on future consumption. This
+                            changes the optimal allocation across periods and can increase the responsiveness of
+                            consumption to intertemporal trade-offs.</p>
+                        <p>In both cases, current demand increases at every interest rate level, causing the
+                            <strong>IS curve to shift rightward</strong>.
+                        </p>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== FOOTER ==================== -->
+        <section
+            style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-seminar-border); padding-top: 1.5rem;">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                <em>End of Seminar 1 — DMM IS Equation. Based on exercises by Mgr. Ing. Tomáš Pokorný (IES UK).</em>
+            </p>
         </section>
 
     </main>
