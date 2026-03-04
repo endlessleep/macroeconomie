@@ -96,20 +96,28 @@
 
             <div class="content-list">
                 <ol>
-                    <li><strong>Initial Impact:</strong> The supply shock immediately pushes inflation up in the
-                        real world. But when we look at the DAD-DAS graph, we see that output also falls at the same
-                        time. Why?
+                    <li><strong>Initial Impact:</strong> The supply shock ($\nu_t > 0$) directly increases inflation in
+                        the Phillips curve:
+                        <div style="text-align: center; margin: 1rem 0;">$\nu_t \uparrow \implies \pi_t \uparrow$</div>
+                        $\pi_t = \pi_{t-1} + \phi(y_t - \bar{y}_t) + \nu_t$.
                     </li>
-                    <li><strong>The Central Bank Reacts:</strong> The central bank (CB) sees inflation rising
-                        above its target ($\pi_t > \pi^*_t$). Following their strict Taylor Rule,
-                        they immediately increase the nominal interest rate ($i_t$).</li>
-                    <li><strong>The Real Rate Spikes:</strong> Because the CB follows the Taylor
-                        principle, they increase the nominal rate by <em>more</em> than the increase in
-                        inflation. As a result, this pushes the <strong>real interest rate ($r_t$)
-                            upward</strong> above its natural resting point ($\rho$).</li>
-                    <li><strong>Demand Drops:</strong> Faced with very high borrowing costs,
-                        businesses cancel expansion plans, and households delay major purchases. Total demand
-                        drops sharply. Output $y_t$ is forced down heavily below its potential level $\bar{y}_t$.</li>
+                    <li><strong>The CB Reacts:</strong> The central bank sees $\pi_t > \pi^*_t$ and increases the
+                        nominal interest rate ($i_t$):
+                        <div style="text-align: center; margin: 1rem 0;">$\pi_t \uparrow \implies i_t \uparrow$</div>
+                        Rule: $i_t = \pi_t + \rho + \theta_\pi (\pi_t - \pi^*_t) + \theta_y (y_t - \bar{y}_t)$.
+                    </li>
+                    <li><strong>The Real Rate Spikes:</strong> Because $\theta_\pi > 0$, the bank raises $i_t$ by more
+                        than the increase in $\pi_t$. This pushes the <strong>real interest rate ($r_t$)
+                            upward</strong>:
+                        <div style="text-align: center; margin: 1rem 0;">$\Delta i_t > \Delta \pi_t \implies r_t
+                            \uparrow$</div>
+                        Equation: $r_t = i_t - E_t\pi_{t+1}$.
+                    </li>
+                    <li><strong>Demand Drops:</strong> In the IS curve, the higher $r_t$ reduces demand. Output $y_t$
+                        falls below $\bar{y}_t$:
+                        <div style="text-align: center; margin: 1rem 0;">$r_t \uparrow \implies y_t \downarrow$</div>
+                        $y_t = \bar{y}_t - \alpha(r_t - \rho) + \epsilon_t$.
+                    </li>
                 </ol>
             </div>
 
@@ -140,12 +148,13 @@
 
             <h3>Dynamic Adjustments: After the Initial Impact</h3>
             <p>What happens in the periods after the first shock ($t+1$, $t+2$)?</p>
-            <p>Even though the original shock ($\nu_t$) eventually disappears, inflation
-                stubbornly stays above the target. Why? Because of <strong>Expected Inflation</strong>.
-                People remember the recent high inflation ($\pi_{t-1}$) and include it in their current price
-                setting. So, inflation is kept high purely by people's memory of past prices.</p>
-            <p>Because people's memory keeps inflation artificially high, the Central Bank is forced to
-                keep the real interest rate painfully high. As a result, economic output remains low.</p>
+            <p>Even though the original shock ($\nu_t$) eventually disappears, inflation stays high because of
+                <strong>Expected Inflation</strong> ($E_t\pi_{t+1}$). In the Phillips curve, inflation today depends on
+                what people expect for tomorrow.
+            </p>
+            <p>If people use adaptive expectations ($E_t\pi_{t+1} = \pi_t$), they remember the high inflation of the
+                past. This "memory" keeps the DAS curve high, forcing the Central Bank to keep interest rates
+                restrictive and keeping output low for a longer time.</p>
 
             <figure>
                 <img src="assets/pipi1.png" alt="Shock to DAS: Initial Dynamics">
@@ -242,15 +251,28 @@
             </figure>
 
             <h3>The Role of Expectations</h3>
-            <p>Why must the Central Bank cause a recession? Mainly because they are afraid that people will expect
-                higher inflation in the future. The recession is a tool to stop people from assuming that prices will
-                just keep going up.</p>
-            <p>If expectations are <strong>"anchored"</strong> (people trust the Central Bank to fix the problem), they
-                will ignore the temporary price spike. In this case, inflation naturally returns to normal without the
-                Central Bank needing to cause a harsh recession.</p>
-            <p><strong>Lesson:</strong> If people only look at past inflation (adaptive expectations), the economy is
-                unstable and the Central Bank must act aggressively. If people trust the target (anchored expectations),
-                the economy stabilizes much more easily.</p>
+            <p>Why must the Central Bank cause a recession? Because they need to break the cycle of inflation. If people
+                expect prices to rise, they will continue to raise prices, creating a "wage-price spiral". The two main
+                types of expectations are:</p>
+
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-history"></i> Adaptive Expectations ($E_t\pi_{t+1} = \pi_t$)</h4>
+                    <p>People look at the past to predict the future. If inflation was 5% last year, they expect 5% this
+                        year. This creates <strong>inflation inertia</strong>. In the Phillips curve ($\pi_t = \pi_{t-1}
+                        + \dots$), inflation stays high even after the shock is gone. The Central Bank must "starve"
+                        these expectations by keeping interest rates high and creating a recession.</p>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-anchor"></i> Anchored Expectations ($E_t\pi_{t+1} = \pi^*$)</h4>
+                    <p>People trust the Central Bank's target. Even if a shock happens, they believe the bank will fix
+                        it. Because people ignore the temporary spike, inflation returns to the target $\pi^*$ much
+                        faster and without the need for a deep, painful recession.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Lesson:</strong> Adaptive expectations make the economy unstable and
+                require harsh intervention. Anchored expectations act as a natural stabilizer.</p>
         </section>
 
         <!-- ======================= DEMAND SHOCKS ======================= -->
@@ -271,15 +293,22 @@
 
             <div class="content-list">
                 <ol>
-                    <li><strong>Initial Impact:</strong> The demand shock increases output. Factories operate at full
-                        speed and labor gets scarce. This high demand allows companies to raise prices, which pushes
-                        inflation up.</li>
-                    <li><strong>The Central Bank Reacts:</strong> The central bank sees that output is too high ($y_t >
-                        \bar{y}_t$) and inflation is above target ($\pi_t > \pi^*_t$). To cool the economy down, the CB
-                        aggressively increases interest rates.</li>
-                    <li><strong>The Boom is Reduced:</strong> Because the CB increases rates to fight inflation,
-                        borrowing becomes expensive and demand drops. As a result, the final increase in output is much
-                        smaller than the initial shock.</li>
+                    <li><strong>Initial Impact:</strong> The demand shock ($\epsilon_t > 0$) directly increases output
+                        $y_t$ in the IS curve:
+                        <div style="text-align: center; margin: 1rem 0;">$\epsilon_t \uparrow \implies y_t \uparrow$
+                        </div>
+                        $y_t = \bar{y}_t - \alpha(r_t - \rho) + \epsilon_t$.
+                    </li>
+                    <li><strong>Inflation Follows:</strong> Because $y_t > \bar{y}_t$, the output gap is positive, which
+                        pulls inflation up:
+                        <div style="text-align: center; margin: 1rem 0;">$y_t \uparrow \implies \pi_t \uparrow$</div>
+                        Phillips Curve: $\pi_t = E_t\pi_{t+1} + \phi(y_t - \bar{y}_t)$.
+                    </li>
+                    <li><strong>The CB Reacts:</strong> To cool the economy, the CB raises $i_t$ using the Taylor Rule.
+                        This increases the real rate $r_t$ and pushes back against the boom:
+                        <div style="text-align: center; margin: 1rem 0;">$\pi_t \uparrow \text{ and } y_t \uparrow
+                            \implies i_t \uparrow \implies r_t \uparrow \implies y_t \downarrow$</div>
+                    </li>
                 </ol>
             </div>
 
@@ -339,27 +368,30 @@
                 mistake.</p>
 
             <h3>1. The Policy Rate Mistake</h3>
-            <p>Imagine the Central Bank lowers the nominal interest rate for no good reason ($\eta_t < 0$). This lowers
-                    the real interest rate, making borrowing very cheap.</p>
-                    <p>As a result, output rises sharply, which then pulls inflation up. Once the Central Bank realizes
-                        its mistake, it must immediately raise interest rates very high to fix the inflation it just
-                        created.</p>
-                    <p><strong>Key Insight:</strong> Mathematically, this type of policy mistake looks almost exactly
-                        like a standard Demand Shock!</p>
+            <p>Imagine the Central Bank lowers the rate for no reason ($\eta_t < 0$). In the Taylor rule, a mistake
+                    ($\eta_t$) is added: $i_t=\dots + \eta_t$.</p>
+                    <div style="text-align: center; margin: 1rem 0;">$\eta_t \downarrow \implies i_t \downarrow \implies
+                        r_t \downarrow \implies y_t \uparrow \implies \pi_t \uparrow$</div>
+                    <p>As borrowing becomes very cheap ($r_t \downarrow$), output $y_t$ rises. Once the bank realizes
+                        its mistake, it must raise interest rates very high to fix the resulting inflation.</p>
 
                     <h3>2. The Natural Rate Shock</h3>
-                    <p>Sometimes the global "Natural Interest Rate" ($\rho$) drops permanently (for example, due to an
-                        aging population). But the Central Bank might not realize it immediately.</p>
-                    <p>If the natural rate has fallen, but the CB keeps its interest rates at the old, higher level,
-                        then their policy becomes accidentally <strong>too restrictive</strong>. This mistake causes a
-                        recession and low inflation. Once the CB realizes what happened, it will lower its rates to
-                        match the new, lower natural rate.</p>
+                    <p>Sometimes the global "Natural Interest Rate" ($\rho$) drops permanently. If the CB does not
+                        realize this, they keep $i_t$ too high.</p>
+                    <div style="text-align: center; margin: 1rem 0;">$\rho \downarrow \text{ (but } i_t \text{ fixed)}
+                        \implies (r_t - \rho) > 0 \implies y_t \downarrow$</div>
+                    <p>Because the real rate is now "higher" relative to the new lower $\rho$, policy becomes
+                        accidentally <strong>restrictive</strong>. This causes a recession ($y_t \downarrow$) and low
+                        inflation.</p>
 
                     <h3>3. The Disinflation Shock (Changing the Target)</h3>
-                    <p>What if the Central Bank decides to set a new, lower inflation target ($\pi^*_t$)? To force
-                        inflation down to this new target, they must intentionally cause a recession by raising interest
-                        rates. This is famously what Paul Volcker did in the 1980s. The size of this recession depends
-                        on how quickly people believe the new target and adjust their expectations.</p>
+                    <p>The Central Bank sets a lower inflation target ($\pi^*_t$). To reach it, they raise $i_t$
+                        intentionally.</p>
+                    <div style="text-align: center; margin: 1rem 0;">$\pi^*_t \downarrow \implies (\pi_t - \pi^*_t)
+                        \uparrow \implies i_t \uparrow \implies r_t \uparrow \implies y_t \downarrow \implies \pi_t
+                        \downarrow$</div>
+                    <p>By raising interest rates today, they create a recession ($y_t \downarrow$) to force actual
+                        inflation down to the new target.</p>
         </section>
 
         <!-- ======================= CONCLUSION ======================= -->
