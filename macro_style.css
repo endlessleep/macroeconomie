@@ -23,6 +23,12 @@
     --accent-seminar-border: #f9a8d4;
     --accent-seminar-hover: #be185d;
 
+    /* Note Accent - Violet/Purple */
+    --accent-note: #7c3aed;
+    --accent-note-light: #f3e8ff;
+    --accent-note-border: #c4b5fd;
+    --accent-note-hover: #5b21b6;
+
     /* Alert/Post-It Colors */
     --alert-bg: #eff6ff;
     --alert-border: #bfdbfe;

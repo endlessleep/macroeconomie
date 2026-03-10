@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note: Movements vs Shifts - Macroeconomics</title>
+    <meta name="description"
+        content="Dedicated pedagogical note on the difference between shifting curves and moving along curves in the DAD/DAS framework.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                processEscapes: true
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="macro_style.css">
+    <style>
+        /* Specific overrides for the Note page to use the Violet accent */
+        .page-header.note {
+            border-bottom: 4px solid var(--accent-note);
+        }
+
+        .page-header.note .page-subtitle i {
+            color: var(--accent-note);
+        }
+
+        .sidebar a.active.note-link {
+            color: var(--accent-note) !important;
+            font-weight: 600;
+            background-color: var(--bg-sidebar);
+            border-right: 3px solid var(--accent-note);
+        }
+
+        .sidebar a.active.note-link::before {
+            color: var(--accent-note);
+            content: "\f0a4";
+            /* pointer icon */
+        }
+
+        .note-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            border-left: 6px solid var(--accent-note);
+        }
+
+        .note-card h3 {
+            color: var(--accent-note);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .fluo-purple {
+            background-color: #d8b4fe;
+            color: #4c1d95;
+            padding: 0 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="mobile-toggle" id="sidebar-toggle-mobile">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <!-- Sidebar content will be injected uniformly later by script or matching other pages -->
+        <div class="sidebar-header">
+            <div class="logo-text"><i class="fas fa-chart-line"></i> Macroéconomie</div>
+            <button class="toggle-btn" id="sidebar-toggle-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="menu-nav">
+            <div class="menu-item">
+                <div class="accordion-header active">
+                    <i class="fas fa-book-open"></i>
+                    <span class="accordion-title">Dynamic Macro Model</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content" style="max-height: 500px;">
+                    <ul>
+                        <li><a href="index.html">Model Structure</a></li>
+                        <li><a href="equilibrium.html">Model Equilibrium</a></li>
+                        <li><a href="shocks.html">Shock Simulations</a></li>
+                        <li><a href="note_shifts.html" class="active note-link">Note: Movements vs Shifts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-item seminar">
+                <div class="accordion-header">
+                    <i class="fas fa-pen-to-square"></i>
+                    <span class="accordion-title">Seminars</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="seminar1.html">Seminar 1: IS Equation</a></li>
+                        <li><a href="seminar2.html">Seminar 2: Other Equations</a></li>
+                        <li><a href="seminar3.html">Seminar 3: Shocks Analysis</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content" id="main-content">
+        <header class="page-header note">
+            <h1 class="page-title">Movements vs. Shifts</h1>
+            <p class="page-subtitle"><i class="fas fa-lightbulb"></i> Note de Révision : DAD & DAS Curves</p>
+        </header>
+
+        <section class="intro-section">
+            <p class="lead-text">C'est le piège classique des examens de macroéconomie : savoir exactement quand une
+                courbe <strong>se déplace physiquement (Shift)</strong> et quand on <strong>glisse simplement le long de
+                    la courbe (Movement along)</strong>. Cette note de révision rapide te donne la "Règle d'Or"
+                infaillible pour ne plus jamais hésiter.</p>
+        </section>
+
+        <div class="note-card"
+            style="background: linear-gradient(to right, #ffffff, var(--accent-note-light)); border: 2px solid var(--accent-note);">
+            <h3><i class="fas fa-crown"></i> La Règle d'Or Mathématique</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6;">
+                Regarde toujours les <strong>axes géométriques</strong> de ton graphique de référence (ici, le modèle
+                DAD-DAS). L'axe vertical est l'<span class="fluo-yellow">Inflation ($\pi_t$)</span> et l'axe horizontal
+                est la <span class="fluo-yellow">Production ($y_t$)</span>.
+            </p>
+            <ul class="content-list" style="margin-top: 1rem;">
+                <li>Si <strong>N'IMPORTE QUELLE AUTRE VARIABLE</strong> de l'équation change (un choc $\epsilon$, $\nu$,
+                    une cible $\pi^*$, etc.), toute la courbe <span class="fluo-pink">SHIFT (se déplace)</span>.</li>
+                <li>Si l'inflation change de manière endogène et que ça modifie la production (ou inversement), le point
+                    d'équilibre <span class="fluo-purple">MOVES ALONG (glisse le long)</span> de la courbe existante.
+                </li>
+            </ul>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2>1. Quand est-ce que la DAD "Shift" (se déplace) ?</h2>
+        <p>La <span class="fluo-yellow">DAD</span> représente la demande globale impulsée par le taux d'intérêt. La
+            courbe se décale quand <em>quelque chose qui n'est pas l'inflation</em> vient booster ou détruire la
+            demande.</p>
+
+        <div class="grid-cards">
+            <div class="grid-card" style="border-top-color: var(--accent-note);">
+                <h4><i class="fas fa-shopping-cart" style="color: var(--accent-note);"></i> Choc de demande ($\epsilon_t
+                    > 0$)</h4>
+                <p>L'État lance un plan de relance géant, ou les ménages se mettent à consommer massivement. Pour le
+                    <em>même</em> niveau d'inflation qu'hier, il y a soudainement plus de demande.</p>
+                <div style="font-weight: 600; text-align: center; margin-top: 1rem; color: var(--accent-note);">
+                    $\implies$ La DAD SHIFT vers la droite.</div>
+            </div>
+            <div class="grid-card" style="border-top-color: var(--accent-note);">
+                <h4><i class="fas fa-university" style="color: var(--accent-note);"></i> Politique Monétaire ($\pi^*
+                    \downarrow$)</h4>
+                <p>La Banque Centrale baisse sa cible. Elle augmente ses taux d'intérêts pour freiner l'économie. La
+                    demande s'effondre pour chaque niveau d'inflation donné.</p>
+                <div style="font-weight: 600; text-align: center; margin-top: 1rem; color: var(--accent-note);">
+                    $\implies$ La DAD SHIFT vers la gauche.</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2>2. Quand est-ce que la DAS "Shift" (se déplace) ?</h2>
+        <p>La <span class="fluo-yellow">DAS (Phillips Curve)</span> représente la fixation des prix par les entreprises.
+            Elle se décale quand <em>quelque chose qui n'est pas la variation de la demande (l'output gap)</em> vient
+            forcer les prix à monter ou descendre.</p>
+
+        <div class="grid-cards">
+            <div class="grid-card" style="border-top-color: #f59e0b;">
+                <h4><i class="fas fa-gas-pump" style="color: #f59e0b;"></i> Choc d'offre ($\nu_t > 0$)</h4>
+                <p>Le prix du baril de pétrole explose. Les entreprises sont obligées de monter leurs prix
+                    immédiatement, indépendamment de la demande actuelle.</p>
+                <div style="font-weight: 600; text-align: center; margin-top: 1rem; color: #d97706;">$\implies$ La DAS
+                    SHIFT vers le haut.</div>
+            </div>
+            <div class="grid-card" style="border-top-color: #f59e0b;">
+                <h4><i class="fas fa-brain" style="color: #f59e0b;"></i> Anticipations ($\pi_{t-1} \uparrow$)</h4>
+                <p>L'inflation inertia. Si l'inflation passée était haute, les salariés exigent de fortes augmentations,
+                    ce qui force les entreprises à monter les prix.</p>
+                <div style="font-weight: 600; text-align: center; margin-top: 1rem; color: #d97706;">$\implies$ La DAS
+                    SHIFT vers le haut.</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2>3. La conséquence : Le Glissement ("Move Along")</h2>
+        <div class="alert-box">
+            <div class="alert-icon"><i class="fas fa-sync-alt" style="color: var(--alert-text);"></i></div>
+            <div class="alert-content">
+                <p>Le "glissement" est tout simplement la <strong>conséquence automatique</strong> du "shift" de l'autre
+                    courbe ! Quand une courbe se déplace, le point d'intersection $(y_t, \pi_t)$ se déplace <em>le
+                        long</em> de la courbe qui n'a pas bougé pour trouver le nouvel équilibre.</p>
+            </div>
+        </div>
+
+        <div class="note-card">
+            <h4><i class="fas fa-arrow-right" style="color: var(--accent-note);"></i> Scénario d'un choc d'offre ($\nu_t
+                > 0$)</h4>
+            <ol class="content-list">
+                <li>Le pétrole explose. <span class="fluo-pink">La DAS shift vers le haut.</span></li>
+                <li>Le point d'intersection se déplace pour trouver le nouvel équilibre.</li>
+                <li><strong>Conséquence :</strong> L'inflation a monté, donc la Banque Centrale augmente les taux
+                    (Taylor Rule), ce qui refroidit l'économie et fait baisser $y_t$. L'économie a <span
+                        class="fluo-purple">"moved along" la DAD</span> (vers le haut et la gauche).</li>
+            </ol>
+        </div>
+
+        <div class="note-card">
+            <h4><i class="fas fa-arrow-right" style="color: var(--accent-note);"></i> Scénario d'un choc de demande
+                ($\epsilon_t > 0$)</h4>
+            <ol class="content-list">
+                <li>L'État dépense plein d'argent. <span class="fluo-pink">La DAD shift vers la droite.</span></li>
+                <li>Le point d'intersection se déplace temporairement à droite.</li>
+                <li><strong>Conséquence :</strong> L'économie est en surchauffe ($y_t > \bar{y}$), les usines manquent
+                    de main d'oeuvre, donc elles augmentent les salaires et les prix ($\pi_t$ monte). L'économie a <span
+                        class="fluo-purple">"moved along" la DAS</span> (vers le haut et la droite).</li>
+            </ol>
+        </div>
+
+        <div class="exam-tip">
+            <i class="fas fa-star exam-tip-pin" style="color: var(--accent-note);"></i>
+            <div class="exam-tip-content">
+                <h4 style="color: var(--accent-note);">Exception Structurelle : Le Potentiel Naturel ($\bar{y}$)</h4>
+                <p>Comme le paramètre du niveau de production naturel $\bar{y}$ se trouve mathématiquement dans les
+                    <em>deux</em> équations (DAD et DAS), un changement de ce paramètre (ex: une énorme innovation
+                    technologique) <strong>shift les deux courbes en même temps</strong> !</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
