@@ -96,48 +96,81 @@
             </ol>
 
             <details class="solution-toggle">
-                <summary>Show Solution</summary>
-                <div class="solution-content">
+                <summary>Show Solution</summar                <div class="solution-content">
                     <div class="step">
                         <div class="step-label">1 — Modified DAS Curve</div>
-                        <p>We start from the standard Phillips curve: $\pi_t = \pi_t^e + \alpha(y_t - \bar{y}) + \nu_t$.
-                        </p>
-                        <p>Substitute the mechanism $\pi_t^e = \pi^* + \psi(\pi_{t-1} - \pi^*)$:</p>
+                        <p>First, a reminder about the interpretation of $\psi$:</p>
+                        <ul class="content-list">
+                            <li><strong>If $\psi=1$</strong>: Fully adaptive expectations. Expected inflation fully follows last period's inflation: $\pi_t^e = \pi_{t-1}$.</li>
+                            <li><strong>If $\psi=0$</strong>: Fully anchored expectations. Expected inflation is always equal to the target: $\pi_t^e = \pi^*$.</li>
+                            <li><strong>If $0 < \psi < 1$</strong>: Partially anchored expectations. Expected inflation depends partly on last period's inflation gap and partly on the target.</li>
+                        </ul>
+
+                        <p>Rewrite the expectations equation:</p>
                         <div class="equation-box">
-                            $\pi_t = \pi^* + \psi(\pi_{t-1} - \pi^*) + \alpha(y_t - \bar{y}) + \nu_t$
+                            $\pi_t^e = \pi^* + \psi(\pi_{t-1} - \pi^*)$
                         </div>
-                        <p>Interpretation: The smaller $\psi$ is, the weaker the inflation persistence.</p>
+                        <p>Define the <strong>inflation gap</strong> as $\tilde{\pi}_t = \pi_t - \pi^*$. Then expected inflation is:</p>
+                        <div class="equation-box">
+                            $\pi_t^e = \pi^* + \psi \tilde{\pi}_{t-1}$
+                        </div>
+
+                        <p>Substitute this into the Phillips curve / DAS relation:</p>
+                        <div class="equation-box">
+                            $\pi_t = \pi^* + \psi \tilde{\pi}_{t-1} + \phi(y_t - \bar{y}) + \nu_t$
+                        </div>
+                        <p>Subtracting $\pi^*$ from both sides, we get the <strong>modified DAS</strong>:</p>
+                        <div class="equation-box highlight-box">
+                            $\tilde{\pi}_t = \psi \tilde{\pi}_{t-1} + \phi(y_t - \bar{y}) + \nu_t$
+                        </div>
+
+                        <div class="alert-box" style="margin-top: 1rem;">
+                            <div class="alert-icon"><i class="fas fa-info-circle"></i></div>
+                            <div class="alert-content">
+                                <h4>Interpretation</h4>
+                                <p>Persistence is inherited from $\psi$. When $0 < \psi < 1$, inflation is still persistent, but less than under full adaptive expectations.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="step">
-                        <div class="step-label">2 — Path Analysis ($\psi = 0.7$, $\nu_0 = 1$)</div>
-                        <p>Assume $y_t = \bar{y}$ and $\nu_t = 0$ for $t \ge 1$. Start at $\pi_{-1} = \pi^*$.</p>
-                        <ul class="content-list">
-                            <li><strong>Period 0:</strong> $\pi_0 - \pi^* = 0.7(0) + 1 = 1 \implies \pi_0 = \pi^* + 1$
-                            </li>
-                            <li><strong>Period 1:</strong> $\pi_1 - \pi^* = 0.7(1) + 0 = 0.7 \implies \pi_1 = \pi^* + 0.7$
-                            </li>
-                            <li><strong>Period 2:</strong> $\pi_2 - \pi^* = 0.7(0.7) = 0.49 \implies \pi_2 = \pi^* + 0.49$
-                            </li>
-                        </ul>
-                        <p>The gap shrinks geometrically: $1 \to 0.7 \to 0.49$.</p>
+                        <div class="step-label">2 — Path Analysis (t=0, 1, 2)</div>
+                        <p>Parameters: $\psi = 0.7$, $\phi = 0.25$, $\bar{y} = 100$, $\pi^* = 2$. Initial state: $\tilde{\pi}_{t-1} = 0$. One-period shock $\nu_0 = 1$.</p>
+
+                        <div class="concept-card" style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--accent-seminar);">Period $t=0$ (The Shock Hits)</h4>
+                            <p>DAS: $\tilde{\pi}_0 = 0.7(0) + 0.25(y_0 - 100) + 1 \implies \tilde{\pi}_0 = 0.25(y_0 - 100) + 1$</p>
+                            <p>DAD: $y_0 - 100 = -\frac{1}{3}\tilde{\pi}_t$</p>
+                            <p>Substitute DAD into DAS: $\tilde{\pi}_0 = 0.25(-\frac{1}{3}\tilde{\pi}_0) + 1 \implies \frac{13}{12}\tilde{\pi}_0 = 1$</p>
+                            <p>$\boxed{\tilde{\pi}_0 = \frac{12}{13} \approx 0.923} \quad \boxed{\pi_0 \approx 2.923} \quad \boxed{y_0 = \frac{1296}{13} \approx 99.692}$</p>
+                        </div>
+
+                        <div class="concept-card" style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--accent-seminar);">Period $t=1$ (Shock gone, Persistence remains)</h4>
+                            <p>$\nu_1 = 0$, $\psi \tilde{\pi}_0 = 0.7 \cdot \frac{12}{13} = \frac{42}{65}$</p>
+                            <p>DAS: $\tilde{\pi}_1 = \frac{42}{65} - \frac{1}{12}\tilde{\pi}_1 \implies \frac{13}{12}\tilde{\pi}_1 = \frac{42}{65}$</p>
+                            <p>$\boxed{\tilde{\pi}_1 = \frac{42}{65} \cdot \frac{12}{13} = \frac{504}{845} \approx 0.596} \quad \boxed{\pi_1 \approx 2.596} \quad \boxed{y_1 \approx 99.801}$</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4 style="color: var(--accent-seminar);">Period $t=2$ (Continuing slide toward target)</h4>
+                            <p>$\psi \tilde{\pi}_1 = 0.7 \cdot \frac{504}{845} = \frac{3528}{8450}$</p>
+                            <p>$\tilde{\pi}_2 = \frac{3528}{8450} \cdot \frac{12}{13} = \frac{42336}{109850} \approx 0.385$</p>
+                            <p>$\boxed{\tilde{\pi}_2 \approx 0.385} \quad \boxed{\pi_2 \approx 2.385} \quad \boxed{y_2 \approx 99.872}$</p>
+                        </div>
                     </div>
 
                     <div class="step">
                         <div class="step-label">3 — Comparison with $\psi = 1$</div>
-                        <p>With $\psi = 1$: $\pi_t - \pi^* = (\pi_{t-1} - \pi^*) + \nu_t$.</p>
-                        <p>The path would be: $1 \to 1 \to 1$. Inflation does not move back toward target on its own.
-                        </p>
-                        <p><strong>Result:</strong> With $\psi = 0.7$, by period 2, 51% of the initial gap has
-                            disappeared, whereas 0% has disappeared under adaptive expectations.</p>
+                        <p>With <strong>fully adaptive expectations</strong> ($\psi = 1$), inflation does not return to target on its own because $\tilde{\pi}_t = \tilde{\pi}_{t-1}$ once the shock is gone. The path would be $1 \to 1 \to 1$.</p>
+                        <p>With <strong>partially anchored expectations</strong> ($\psi = 0.7$), the economy converges naturally as long as $\psi < 1$. The persistence is decaying rather than permanent.</p>
                     </div>
 
-                    <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
-                        <img src="assets/MOS1.png" alt="Anchored vs Adaptive Expectations"
-                            >
-                        <p class="image-caption">Visualizing the difference in convergence speed.</p>
+                    <div class="image-container">
+                        <img src="assets/MOS1.png" alt="Anchored vs Adaptive Expectations">
+                        <p class="image-caption">Visualizing the difference in convergence speed: anchored expectations act as a "stabilizing magnet".</p>
                     </div>
-                </div>
+                </div>   </div>
             </details>
         </div>
 
