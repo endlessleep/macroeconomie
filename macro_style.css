@@ -19,12 +19,14 @@
 
     /* Seminar Accent - Rose/Pink */
     --accent-seminar: #e11d74;
+    --accent-seminar-rgb: 225, 29, 116;
     --accent-seminar-light: #fce7f3;
     --accent-seminar-border: #f9a8d4;
     --accent-seminar-hover: #be185d;
 
     /* Note Accent - Violet/Purple */
     --accent-note: #7c3aed;
+    --accent-note-rgb: 124, 58, 237;
     --accent-note-light: #f3e8ff;
     --accent-note-border: #c4b5fd;
     --accent-note-hover: #5b21b6;
