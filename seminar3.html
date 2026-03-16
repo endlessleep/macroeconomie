@@ -354,84 +354,53 @@
                 <div class="solution-content">
 
                     <div class="step">
-                        <div class="step-label">(a) — Dynamic Path</div>
-
-                        <h4 style="color: var(--accent-seminar); margin-top: 1rem;">Period 0 (shock period)</h4>
-                        <p>The negative supply shock lowers inflation immediately. The CB cuts rates → real rate falls
-                            → output rises above potential.</p>
-                        <div class="equation-box">
-                            $\pi_0 \downarrow \qquad i_0 \downarrow \qquad r_0 \downarrow \qquad y_0 \uparrow$
-                        </div>
-
-                        <h4 style="color: var(--accent-seminar); margin-top: 1.5rem;">Period 1</h4>
-                        <p>The shock disappears ($\nu_1 = 0$), but inflation was low in period 0, so with adaptive
-                            expectations $\pi_1$ is still below target. The CB keeps rates relatively low. Output
-                            remains above potential but less than in period 0.</p>
-                        <p>The positive output gap pushes inflation <strong>back up</strong> through the Phillips
-                            curve.</p>
-
-                        <h4 style="color: var(--accent-seminar); margin-top: 1.5rem;">Period 2</h4>
-                        <p>Inflation continues moving toward target. As $\pi_t$ rises, the Taylor rule raises $i_t$
-                            and $r_t$ gradually. Output moves closer to potential.</p>
-
-                        <h4 style="color: var(--accent-seminar); margin-top: 1.5rem;">Period 3+</h4>
-                        <p>Adjustment continues. All variables converge back to long-run equilibrium:</p>
-                        <div class="equation-box">
-                            $y \to 100 \qquad \pi \to 2 \qquad r \to 2 \qquad i \to 4$
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">(b) — Mechanism Bringing Inflation Back</div>
-                        <p>After the shock, inflation falls below target. The CB lowers rates, which creates a
-                            <strong>positive output gap</strong>. Through the Phillips curve:
-                        </p>
-                        <div class="equation-box">
-                            $\pi_t = \pi_{t-1} + \phi(\underbrace{y_t - \bar{y}}_{> 0})$
-                        </div>
-                        <p>The positive output gap <strong>gradually pushes inflation upward</strong> each period
-                            until it returns to the target.</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">(c) — Why an Expansion Is Necessary</div>
-                        <p>If the CB did nothing (kept $y_t = \bar{y}$), the Phillips curve would become:</p>
-                        <div class="equation-box">
-                            $\pi_t = \pi_{t-1} + \phi(0) = \pi_{t-1}$
-                        </div>
-                        <p>Inflation would stay <strong>permanently stuck</strong> below target.</p>
-                        <p>To bring inflation back up, the CB must create a temporary expansion ($y_t > \bar{y}$).
-                            The positive output gap is the <em>only</em> mechanism that pushes inflation upward when
-                            there are no supply shocks.</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">(d) — Time Paths</div>
-                        <div class="grid-cards">
-                            <div class="grid-card">
-                                <h4><i class="fas fa-chart-line" style="color: var(--accent-seminar);"></i> Inflation
-                                    $\pi_t$</h4>
-                                <p>Sharp drop in period 0 → then gradual rise back to $\pi^* = 2$ (V-shaped recovery).
-                                </p>
-                            </div>
-                            <div class="grid-card">
-                                <h4><i class="fas fa-industry" style="color: #2563eb;"></i> Output $y_t$</h4>
-                                <p>Output jumps above $Y^*$ in period 0 and then gradually returns to $Y^*$ as the economy converges back to the long-run equilibrium.</p>
-                            </div>
-                            <div class="grid-card">
-                                <h4><i class="fas fa-percent" style="color: #22c55e;"></i> Real Rate $r_t$</h4>
-                                <p>Falls below $\rho = 2$ in period 0 → gradually rises back to 2.</p>
-                            </div>
-                            <div class="grid-card">
-                                <h4><i class="fas fa-university" style="color: #f59e0b;"></i> Nominal Rate $i_t$</h4>
-                                <p>Falls below 4 in period 0 → gradually rises back to 4.</p>
-                            </div>
-                        </div>
-
-                        <!-- PLACEHOLDER -->
+                        <div class="step-label">1 — Dynamic Paths (Periods 1-3)</div>
+                        <p>The paths for output, inflation, and interest rates following the one-period positive supply shock are illustrated below:</p>
+                        
                         <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
-                            <img src="assets/supply_shock_dynamics_paths.png" alt="Supply Shock Dynamics Paths" style="max-width: 500px; width: 100%; border-radius: 8px; box-shadow: var(--shadow-md);">
-                            <p class="image-caption">Time paths for variables after a supply shock</p>
+                            <img src="assets/supply_shock_dynamics_paths.png" alt="Supply Shock Dynamics Paths" style="max-width: 600px; width: 100%; border-radius: 8px; box-shadow: var(--shadow-md);">
+                            <div class="image-caption" style="text-align: left; margin-top: 1rem; font-size: 0.9rem; background: rgba(37, 99, 235, 0.03); padding: 1rem; border-radius: 6px;">
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 0.5rem;"><strong style="color: #2563eb;">Output $y_t$:</strong> Increases slightly after the shock, then gradually declines back toward potential as the economy returns to equilibrium.</li>
+                                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--accent-seminar);">Inflation $\pi_t$:</strong> Drops sharply after the supply shock and then slowly rises back toward the target level over time.</li>
+                                    <li style="margin-bottom: 0.5rem;"><strong style="color: #22c55e;">Real rate $r_t$:</strong> Initially falls due to the drop in inflation, then gradually increases as inflation returns toward target.</li>
+                                    <li><strong style="color: #f59e0b;">Nominal rate $i_t$:</strong> The central bank cuts the nominal rate immediately after the shock, then slowly raises it as inflation recovers.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">2 — The Recursive Mechanism</div>
+                        <p>The mechanism that brings inflation back to target comes from the interaction between the <strong>Phillips curve</strong> and <strong>adaptive expectations</strong> ($\pi_t^e = \pi_{t-1}$).</p>
+                        
+                        <p style="background: rgba(255, 236, 153, 0.2); border-left: 4px solid #fcc419; padding: 0.75rem; border-radius: 0 4px 4px 0;">
+                            After the shock disappears ($\nu_t = 0$), the DAS becomes: 
+                            <span style="display: block; text-align: center; margin-top: 0.5rem;">$\pi_t = \pi_{t-1} + \phi(y_t - \bar{y})$</span>
+                        </p>
+
+                        <p>This explains why inflation returns <strong>step by step</strong>, not immediately:</p>
+                        <ul class="content-list">
+                            <li><strong>Recursive dependency:</strong> Current inflation depends on last period's level. $\pi_1$ depends on $\pi_0$, $\pi_2$ on $\pi_1$, etc.</li>
+                            <li><strong>Gradual adjustment:</strong> Even with an expansion ($y_t > \bar{y}$), the positive output gap only adds a <span style="background: #e7f5ff; color: #1971c2; padding: 2px 4px; border-radius: 3px; font-weight: 600;">small increment</span> $\phi(y_t - \bar{y}) > 0$ to the inherited inflation each period.</li>
+                            <li><strong>Convergence:</strong> Each period, $\pi_t - \pi_{t-1} = \phi(y_t - \bar{y})$. The CB must maintain output above potential for <em>several periods</em> to "lift" inflation back to the target progressively.</li>
+                        </ul>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">3 — Why an Expansion is Required?</div>
+                        <p>After the shock, inflation and expectations are low. According to the Phillips curve $\pi_t = \pi_{t-1} + \phi (y_t - \bar{y})$, if the CB kept output at potential ($y_t = \bar{y}$), inflation would stay <strong>permanently stuck</strong> below target because $\pi_t = \pi_{t-1}$.</p>
+                        <p>To pull inflation up, the CB <strong>must</strong> create a <span style="color: #2563eb; font-weight: 700;">positive output gap</span> ($y_t > \bar{y}$) by cutting rates. This expansion is the <em>only</em> engine available in the model to force $\pi_{t+1} > \pi_t$.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">4 — Graphical Representation</div>
+                        <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
+                            <img src="assets/gro1.png" alt="Negative Supply Shock Reference" style="max-width: 500px; width: 100%; border-radius: 8px; border: 1px solid #dee2e6;">
+                            <p class="image-caption" style="font-style: italic; color: #495057;">
+                                Note: This graph shows the dynamics after a <strong>negative</strong> supply shock. Our exercise is the <strong>positive</strong> version. 
+                                <br>It should be exactly the same diagram but <strong>mirrored</strong>: DAS shifts downward/right, inflation falls below target, and the CB cuts rates to move the economy back toward equilibrium.
+                            </p>
                         </div>
                     </div>
 
