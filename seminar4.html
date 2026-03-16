@@ -75,162 +75,225 @@
     <main class="main-content seminar-content" id="main-content">
         <header class="page-header seminar">
             <h1 class="page-title">Seminar 4: Shock Analysis (continued)</h1>
-            <p class="page-subtitle"><i class="fas fa-pen-to-square"></i> Expectations & AD Shocks — Mathematical impact
-                of credibility on inflation persistence.</p>
+            <p class="page-subtitle"><i class="fas fa-pen-to-square"></i> Expectations & Demand Shocks — Mathematical
+                impact of anchors and shifts.</p>
         </header>
 
-        <section class="intro-card">
-            <div class="intro-content">
-                <p>When expectations are "anchored," households and firms believe the Central Bank will return to its
-                    inflation target regardless of past shocks. This seminar analyzes how anchoring ($\psi < 1$)
-                    breaks the persistence of inflation compared to fully adaptive expectations ($\psi = 1$).</p>
-            </div>
-        </section>
-
-        <!-- ==================== EXERCISE 1: Modified DAS Curve ==================== -->
+        <!-- ==================== EXERCISE 1: Partially Anchored Expectations ==================== -->
         <div class="exercise-block">
             <span class="exercise-number">Exercise 1</span>
-            <h3>Modifying the DAS Curve</h3>
+            <h3>Partially Anchored Expectations</h3>
 
             <p>Assume that inflation expectations follow:
                 $$\pi_t^e - \pi^* = \psi(\pi_{t-1} - \pi^*), \quad 0 < \psi < 1$$
             </p>
             <ol class="content-list">
                 <li>Modify the DAS curve to incorporate this expectations mechanism.</li>
-                <li>Analyze the impact of the parameter $\psi$.</li>
+                <li>For a one-period supply shock $\nu_0 = 1$ with $\psi = 0.7$, calculate the path of inflation for
+                    periods 0, 1, and 2.</li>
+                <li>Compare with fully adaptive expectations ($\psi = 1$). How much faster does inflation return to
+                    target?</li>
             </ol>
 
             <details class="solution-toggle">
                 <summary>Show Solution</summary>
                 <div class="solution-content">
                     <div class="step">
-                        <div class="step-label">1 — Derivation</div>
-                        <p>We start from the standard Phillips curve (the supply side):</p>
+                        <div class="step-label">1 — Modified DAS Curve</div>
+                        <p>We start from the standard Phillips curve: $\pi_t = \pi_t^e + \alpha(y_t - \bar{y}) + \nu_t$.
+                        </p>
+                        <p>Substitute the mechanism $\pi_t^e = \pi^* + \psi(\pi_{t-1} - \pi^*)$:</p>
                         <div class="equation-box">
-                            $\pi_t = \pi_t^e + \alpha(y_t - \bar{y}) + \nu_t$
+                            $\pi_t = \pi^* + \psi(\pi_{t-1} - \pi^*) + \alpha(y_t - \bar{y}) + \nu_t$
                         </div>
-                        <p>Substitute the expectations mechanism $\pi_t^e = \pi^* + \psi(\pi_{t-1} - \pi^*)$ into the
-                            equation:</p>
-                        <div class="equation-box">
-                            $\pi_t = \boxed{\pi^* + \psi(\pi_{t-1} - \pi^*) + \alpha(y_t - \bar{y}) + \nu_t}$
-                        </div>
-                        <p>Or in gap form:</p>
-                        <div class="equation-box">
-                            $\pi_t - \pi^* = \psi(\pi_{t-1} - \pi^*) + \alpha(y_t - \bar{y}) + \nu_t$
-                        </div>
+                        <p>Interpretation: The smaller $\psi$ is, the weaker the inflation persistence.</p>
                     </div>
 
                     <div class="step">
-                        <div class="step-label">2 — Interpretation of $\psi$</div>
+                        <div class="step-label">2 — Path Analysis ($\psi = 0.7$, $\nu_0 = 1$)</div>
+                        <p>Assume $y_t = \bar{y}$ and $\nu_t = 0$ for $t \ge 1$. Start at $\pi_{-1} = \pi^*$.</p>
                         <ul class="content-list">
-                            <li><strong>$\psi = 1$</strong>: Fully adaptive expectations. Current inflation carries
-                                100% of the previous gap. High persistence.</li>
-                            <li><strong>$0 < \psi < 1$</strong>: Partially anchored expectations. Expectations are only
-                                partially backward-looking.</li>
-                            <li><strong>The smaller $\psi$ is</strong>, the more expectations are anchored to the target
-                                $\pi^*$, and the <strong>faster</strong> inflation returns to target after a shock.</li>
+                            <li><strong>Period 0:</strong> $\pi_0 - \pi^* = 0.7(0) + 1 = 1 \implies \pi_0 = \pi^* + 1$
+                            </li>
+                            <li><strong>Period 1:</strong> $\pi_1 - \pi^* = 0.7(1) + 0 = 0.7 \implies \pi_1 = \pi^* + 0.7$
+                            </li>
+                            <li><strong>Period 2:</strong> $\pi_2 - \pi^* = 0.7(0.7) = 0.49 \implies \pi_2 = \pi^* + 0.49$
+                            </li>
                         </ul>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- ==================== EXERCISE 2: Shock Path Analysis ==================== -->
-        <div class="exercise-block">
-            <span class="exercise-number">Exercise 2</span>
-            <h3>Supply Shock Analysis ($\psi = 0.7$)</h3>
-
-            <p>For a one-period positive supply shock $\nu_0 = 1$ with $\psi = 0.7$, calculate the path of inflation for
-                periods 0, 1, and 2. Assume $y_t = \bar{y}$ (output stays at potential).</p>
-
-            <details class="solution-toggle">
-                <summary>Show Solution</summary>
-                <div class="solution-content">
-                    <div class="step">
-                        <div class="step-label">Parameters & Formula</div>
-                        <p>Starting at equilibrium: $\pi_{-1} = \pi^* \implies (\pi_{-1} - \pi^*) = 0$.<br>
-                            Shock: $\nu_0 = 1$ and $\nu_t = 0$ for $t \ge 1$.<br>
-                            Simplified dynamics (assuming $y_t = \bar{y}$):</p>
-                        <div class="equation-box">
-                            $(\pi_t - \pi^*) = 0.7(\pi_{t-1} - \pi^*) + \nu_t$
-                        </div>
+                        <p>The gap shrinks geometrically: $1 \to 0.7 \to 0.49$.</p>
                     </div>
 
                     <div class="step">
-                        <div class="step-label">Period 0</div>
-                        <div class="equation-box">
-                            $(\pi_0 - \pi^*) = 0.7(0) + 1 = 1 \implies \pi_0 = \pi^* + 1$
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">Period 1 (Shock vanishes)</div>
-                        <div class="equation-box">
-                            $(\pi_1 - \pi^*) = 0.7(1) + 0 = 0.7 \implies \pi_1 = \pi^* + 0.7$
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">Period 2</div>
-                        <div class="equation-box">
-                            $(\pi_2 - \pi^*) = 0.7(0.7) = 0.49 \implies \pi_2 = \pi^* + 0.49$
-                        </div>
-                    </div>
-
-                    <p>The inflation gap shrinks geometrically: $1 \to 0.7 \to 0.49$.</p>
-                </div>
-            </details>
-        </div>
-
-        <!-- ==================== EXERCISE 3: Comparison ==================== -->
-        <div class="exercise-block">
-            <span class="exercise-number">Exercise 3</span>
-            <h3>Adaptive vs. Anchored Comparison</h3>
-
-            <p>Compare the previous result with fully adaptive expectations ($\psi = 1$). How much faster does inflation
-                return to target?</p>
-
-            <details class="solution-toggle">
-                <summary>Show Solution</summary>
-                <div class="solution-content">
-                    <div class="step">
-                        <div class="step-label">Case $\psi = 1$ (Adaptive)</div>
-                        <p>Inflation inherited from last period remains identical:</p>
-                        <ul class="content-list">
-                            <li>Period 0: $\pi_0 - \pi^* = 1$</li>
-                            <li>Period 1: $\pi_1 - \pi^* = 1$</li>
-                            <li>Period 2: $\pi_2 - \pi^* = 1$</li>
-                        </ul>
-                        <p>Without CB intervention, inflation gap stays at 1 indefinitely.</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">Conclusion: The Anchoring Benefit</div>
-                        <p>With $\psi = 0.7$, only 70% of the previous gap is carried forward.</p>
-                        <ul class="content-list">
-                            <li>By Period 1: Gap is 0.7 (30% reduction).</li>
-                            <li>By Period 2: Gap is 0.49 (51% reduction).</li>
-                        </ul>
-                        <p><strong>Result:</strong> Partially anchored expectations make inflation converge
-                            <strong>significantly faster</strong>.</p>
+                        <div class="step-label">3 — Comparison with $\psi = 1$</div>
+                        <p>With $\psi = 1$: $\pi_t - \pi^* = (\pi_{t-1} - \pi^*) + \nu_t$.</p>
+                        <p>The path would be: $1 \to 1 \to 1$. Inflation does not move back toward target on its own.
+                        </p>
+                        <p><strong>Result:</strong> With $\psi = 0.7$, by period 2, 51% of the initial gap has
+                            disappeared, whereas 0% has disappeared under adaptive expectations.</p>
                     </div>
 
                     <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
-                        <img src="assets/MOS1.png" alt="Anchored vs Adaptive Expectations" style="max-width: 500px; width: 100%; border-radius: 8px; box-shadow: var(--shadow-md);">
-                        <p class="image-caption">Visualizing the convergence speed difference.</p>
+                        <img src="assets/MOS1.png" alt="Anchored vs Adaptive Expectations"
+                            style="max-width: 500px; width: 100%; border-radius: 8px; box-shadow: var(--shadow-md);">
+                        <p class="image-caption">Visualizing the difference in convergence speed.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 2: Fully Anchored Expectations ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 2</span>
+            <h3>Fully Anchored Expectations</h3>
+
+            <p>Assume expectations are fully anchored: $\psi = 0 \implies \pi_t^e = \pi^*$.</p>
+            <ol class="content-list">
+                <li>Modify DAS accordingly.</li>
+                <li>What happens to inflation following a one-period supply shock?</li>
+                <li>Does the central bank need to create a recession to stabilise inflation?</li>
+                <li>Is the Taylor principle ($\theta_\pi > 0$) still necessary for stability?</li>
+                <li>How does this relate to post-pandemic inflation dynamics?</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <div class="step">
+                        <div class="step-label">1 — Modified DAS</div>
+                        <div class="equation-box">
+                            $\pi_t - \pi^* = \alpha(y_t - \bar{y}) + \nu_t$
+                        </div>
+                        <p>Inflation no longer depends on past inflation. No intrinsic persistence.</p>
                     </div>
 
-                    <div class="alert-box" style="background: rgba(124, 58, 237, 0.05); border-left: 4px solid #7c3aed;">
-                        <div class="alert-icon" style="color: #7c3aed;"><i class="fas fa-microscope"></i></div>
-                        <div class="alert-content">
-                            <h4 style="color: #7c3aed;">Critical Analysis Point</h4>
-                            <p>This entire calculation assumes that <strong>$y_t - \bar{y} = 0$</strong>. In a full
-                                Macro Model, the Central Bank would react to $\pi > \pi^*$ by raising rates and creating
-                                a <strong>negative output gap</strong> to speed up recovery.</p>
-                            <p>If we ignore the CB's reaction (as in this specific exercise), inflation only returns to
-                                target if $\psi < 1$. If $\psi = 1$, the CB <em>must</em> intervene to stop the price
-                                spiral.</p>
+                    <div class="step">
+                        <div class="step-label">2 — Shock Path</div>
+                        <p>At $t=0$, $\pi_0 - \pi^* = 1$. At $t=1$, since $\nu_1=0$ and assuming $y_1 = \bar{y}$, then
+                            $\pi_1 = \pi^*$.</p>
+                        <p>Inflation returns <strong>immediately</strong> to target once the shock disappears.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">3 — Recession Necessity</div>
+                        <p><strong>No.</strong> Unlike the adaptive case, inflation is not propagated by expectations.
+                            Once the shock is gone, inflation falls back naturally without needing a forced contraction.
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">4 — Taylor Principle</div>
+                        <p>It remains important but is <strong>less crucial</strong> for basic stability than under
+                            backward-looking expectations, because there is no expectations-driven "spiral" to break.
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">5 — Post-Pandemic Context</div>
+                        <p>Helps explain why inflation could fall back without a deep recession: long-term expectations
+                            remained anchored around targets even as headline inflation surged due to temporary supply
+                            disruptions.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 3: One-period Demand Shock ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 3</span>
+            <h3>One-period Demand Shock</h3>
+
+            <p>The economy starts in equilibrium. A positive demand shock $\epsilon_0 = 2$ occurs in period 0.</p>
+            <ol class="content-list">
+                <li>Determine the impact on $y_0, \pi_0, r_0$, and $i_0$.</li>
+                <li>Why does output increase by less than the shock?</li>
+                <li>Explain the mechanism connecting the shock to higher inflation.</li>
+                <li>Show the impact graphically in the DAD-DAS diagram.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <div class="step">
+                        <div class="step-label">1 — Impact in Period 0</div>
+                        <p>A positive demand shock shifts DAD right.</p>
+                        <div class="equation-box">
+                            $y_0 \uparrow, \quad \pi_0 \uparrow, \quad r_0 \uparrow, \quad i_0 \uparrow$
                         </div>
+                        <p>Output and inflation rise; the CB reacts by raising nominal and real rates.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">2 — Output vs. Shock Size</div>
+                        <p>Output rises by <strong>less than 2</strong> because the rise in inflation triggers a CB
+                            reaction. The resulting higher real interest rate dampens spending (crowding out part of the
+                            shock).</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">3 — Inflation Mechanism</div>
+                        <p>Shock $\uparrow \implies y_0 > \bar{y} \implies$ Positive output gap $\implies$ Upward
+                            pressure on prices in the Phillips curve $\implies \pi_0 \uparrow$.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">4 — Graphical Impact</div>
+                        <p>DAD shifts rightward. The economy moves upward along the stationary DAS curve.</p>
+                        <div class="alert-box" style="background: rgba(225, 29, 116, 0.03); border: 1px dashed var(--accent-seminar);">
+                            <p style="text-align: center; margin: 0; color: var(--accent-seminar);">[Graphique DAD-DAS
+                                à insérer ici lors de la correction]</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ==================== EXERCISE 4: Demand Shock Dynamics ==================== -->
+        <div class="exercise-block">
+            <span class="exercise-number">Exercise 4</span>
+            <h3>Demand Shock Dynamics</h3>
+
+            <p>Continue from Ex 3 with $\epsilon_t = 0$ for $t \ge 1$.</p>
+            <ol class="content-list">
+                <li>What happens to output in period 1? Why does it fall below potential?</li>
+                <li>Why does inflation remain above target in period 1?</li>
+                <li>Trace the path of all variables for periods 1, 2, and 3.</li>
+                <li>Why must policy remain restrictive after output returns to normal?</li>
+                <li>Sketch the complete time paths through convergence.</li>
+            </ol>
+
+            <details class="solution-toggle">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <div class="step">
+                        <div class="step-label">1 — Period 1: The Undershoot</div>
+                        <p>$\epsilon_1 = 0$, but $\pi_0$ was high. The CB keeps rates high. The restrictive policy
+                            depresses demand, leading to $y_1 < \bar{y}$.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">2 — Inflation Persistence</div>
+                        <p>Inflation remains above target because it inherits the high level from period 0 via
+                            expectations ($\pi_1^e = \pi_0$). It only declines gradually as $y < \bar{y}$ persists.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">3 — Path of Variables</div>
+                        <p><strong>P1:</strong> $y_1 < \bar{y}, \pi_1 > \pi^*, r_1 > r^*, i_1 > i^*$ (Recession for disinflation).<br>
+                           <strong>P2:</strong> Output recovers toward $\bar{y}$, $\pi$ falls toward $\pi^*$, rates ease.<br>
+                           <strong>P3:</strong> All variables converge closer to long-run equilibrium.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-label">4 — Restrictive Policy Logic</div>
+                        <p>Policy must stay restrictive ($r > \rho$) to maintain the negative output gap until
+                            inflation is fully back at target. Early relaxation would let inflation remain stuck above
+                            target.</p>
+                    </div>
+
+                    <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
+                        <img src="assets/MOS2.png" alt="Demand Shock Dynamics"
+                            style="max-width: 500px; width: 100%; border-radius: 8px; box-shadow: var(--shadow-md);">
+                        <p class="image-caption">Time paths: Output undershoot followed by gradual convergence.</p>
                     </div>
                 </div>
             </details>
