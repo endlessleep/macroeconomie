@@ -169,9 +169,46 @@
                     </div>
 
                     <div class="step">
-                        <div class="step-label">3 — Comparison with $\psi = 1$</div>
-                        <p>With <strong>fully adaptive expectations</strong> ($\psi = 1$), inflation does not return to target on its own because $\tilde{\pi}_t = \tilde{\pi}_{t-1}$ once the shock is gone. The path would be $1 \to 1 \to 1$.</p>
-                        <p>With <strong>partially anchored expectations</strong> ($\psi = 0.7$), the economy converges naturally as long as $\psi < 1$. The persistence is decaying rather than permanent.</p>
+                        <div class="step-label">3 — Comparison with Fully Adaptive Expectations ($\psi = 1$)</div>
+                        <p>To compare, we take <strong>$\psi = 1$</strong>. The DAS equation becomes:</p>
+                        <div class="equation-box">
+                            $\tilde{\pi}_t = 1 \cdot \tilde{\pi}_{t-1} + 0.25(y_t - 100) + \nu_t$
+                        </div>
+
+                        <div style="margin-top: 1.5rem;">
+                            <h4 style="color: var(--text-muted); margin-bottom: 0.5rem;"><i class="fas fa-bolt"></i> Period $t=0$</h4>
+                            <p>Since $\tilde{\pi}_{-1}=0$, $\tilde{\pi}_0 = 0.25(y_0 - 100) + 1$. Combined with DAD ($y_0 - 100 = -\frac{1}{3}\tilde{\pi}_0$):</p>
+                            <div class="equation-box" style="border-left: 4px solid var(--text-muted);">
+                                $\boxed{\tilde{\pi}_0 = \frac{12}{13} \approx 0.923} \quad \boxed{\pi_0 \approx 2.923} \quad \boxed{y_0 \approx 99.692}$
+                            </div>
+                            <p><strong>Note:</strong> At $t=0$, the result is <strong>exactly the same</strong> as for $\psi=0.7$ because the lagged term $\psi \tilde{\pi}_{t-1}$ is zero.</p>
+                        </div>
+
+                        <div style="margin-top: 1.5rem;">
+                            <h4 style="color: var(--text-muted); margin-bottom: 0.5rem;"><i class="fas fa-history"></i> Period $t=1$ ($\nu_1 = 0$)</h4>
+                            <p>DAS: $\tilde{\pi}_1 = 1 \cdot \frac{12}{13} + 0.25(y_1 - 100) \implies \tilde{\pi}_1 = \frac{12}{13} - \frac{1}{12}\tilde{\pi}_1$</p>
+                            <div class="equation-box" style="border-left: 4px solid var(--text-muted);">
+                                $\boxed{\tilde{\pi}_1 = \frac{12}{13} \cdot \frac{12}{13} = \frac{144}{169} \approx 0.852} \quad \boxed{\pi_1 \approx 2.852} \quad \boxed{y_1 \approx 99.716}$
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.5rem;">
+                            <h4 style="color: var(--text-muted); margin-bottom: 0.5rem;"><i class="fas fa-arrow-right"></i> Period $t=2$ ($\nu_2 = 0$)</h4>
+                            <p>DAS: $\tilde{\pi}_2 = \frac{144}{169} - \frac{1}{12}\tilde{\pi}_2 \implies \frac{13}{12}\tilde{\pi}_2 = \frac{144}{169}$</p>
+                            <div class="equation-box" style="border-left: 4px solid var(--text-muted);">
+                                $\boxed{\tilde{\pi}_2 = \frac{144}{169} \cdot \frac{12}{13} = \frac{1728}{2197} \approx 0.786} \quad \boxed{\pi_2 \approx 2.786} \quad \boxed{y_2 \approx 99.738}$
+                            </div>
+                        </div>
+
+                        <div class="alert-box" style="margin-top: 1.5rem; background-color: var(--accent-seminar-light); border-color: var(--accent-seminar-border);">
+                            <div class="alert-icon"><i class="fas fa-stopwatch" style="color: var(--accent-seminar);"></i></div>
+                            <div class="alert-content">
+                                <h4>Speed of Return</h4>
+                                <p>With <strong>$\psi = 0.7$</strong> (partially anchored): $\tilde{\pi}_1 \approx 0.596, \; \tilde{\pi}_2 \approx 0.385$. <br>
+                                   With <strong>$\psi = 1$</strong> (fully adaptive): $\tilde{\pi}_1 \approx 0.852, \; \tilde{\pi}_2 \approx 0.786$.</p>
+                                <p><strong>Conclusion:</strong> With $\psi = 0.7$, inflation is less persistent, so it returns to target <strong>much faster</strong> than under fully adaptive expectations ($\psi = 1$).</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="image-container">
