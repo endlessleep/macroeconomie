@@ -183,18 +183,12 @@
 
                     <div class="step">
                         <div class="step-label">Q2 — What if $\theta_\pi < 0$?</div>
-                                <p>If $\theta_\pi < 0$, the CB <em>lowers</em> interest rates when inflation increases.
-                                        This
-                                        creates an <strong>inflationary spiral</strong>:</p>
-                                <div class="equation-box">
-                                    $\pi_t \uparrow \implies i_t \downarrow \implies r_t \downarrow \implies y_t
-                                    \uparrow
-                                    \implies \pi_t \uparrow\uparrow$
-                                </div>
-                                <p>Inflation keeps growing instead of stabilizing. The economy becomes
-                                    <strong>unstable</strong>.
-                                </p>
+                        <p>If $\theta_\pi < 0$, the CB <em>lowers</em> interest rates when inflation increases. This creates an <strong>inflationary spiral</strong>:</p>
+                        <div class="equation-box">
+                            $\pi_t \uparrow \implies i_t \downarrow \implies r_t \downarrow \implies y_t \uparrow \implies \pi_t \uparrow\uparrow$
                         </div>
+                        <p>Inflation keeps growing instead of stabilizing. The economy becomes <strong>unstable</strong>.</p>
+                    </div>
 
                         <div class="step">
                             <div class="step-label">Q3 — $\theta_y = 0$ (No Output Reaction)</div>
@@ -508,6 +502,13 @@
                             $\boxed{y_t \approx 101.23}$
                         </div>
                         <p>Output rises above potential and inflation increases.</p>
+                        
+                        <div class="alert-box" style="margin-top: 1rem; background: rgba(var(--accent-seminar-rgb), 0.05); border-left: 4px solid var(--accent-seminar);">
+                            <div class="alert-content" style="padding-left: 1rem;">
+                                <h4>Economic Intuition</h4>
+                                <p>The initial shock is $\epsilon_t = 2$. If interest rates didn't change, output would rise to $102$. However, output only rises to $101.23$. Why? Because the increase in output triggers inflation (via the Phillips curve), which forces the central bank to raise interest rates (Taylor rule). Higher rates crowd out some demand, partially offsetting the shock.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="step">
@@ -562,13 +563,12 @@
                     <div class="step">
                         <div class="step-label">1 — Negative Supply Shock ($\nu_t > 0$)</div>
                         <div class="formula-recall">
-                            <div class="formula-label"><i class="fas fa-lightbulb"></i> DAS</div>
+                            <div class="formula-label"><i class="fas fa-lightbulb"></i> DAS Response</div>
                             <p style="text-align: center; margin: 0.25rem 0 0;">
                                 $\pi_t = \pi_{t-1} + \phi(y_t - \bar{y}) + \nu_t$</p>
                         </div>
-                        <p>A positive $\nu_t$ increases inflation at every output level (e.g., higher energy prices or
-                            production costs).</p>
-                        <p><strong>Result:</strong> DAS shifts <strong>upward</strong>. DAD does not move.</p>
+                        <p>A positive $\nu_t$ acts as a cost-push shock (e.g., higher energy prices). At every level of output $y_t$, firms must charge higher prices, pushing inflation up.</p>
+                        <p><strong>Result:</strong> Primary <strong>shift of the DAS curve upward</strong>. The DAD equation is unchanged, so the economy moves <em>along</em> the DAD curve to a new equilibrium with higher inflation and lower output.</p>
                     </div>
 
                     <div class="step">
@@ -582,10 +582,8 @@
                         <div class="step-label">3 — Increase in Potential Output ($\bar{y} \uparrow$)</div>
                         <p>$\bar{y}$ appears in <strong>both</strong> equations:</p>
                         <ul class="content-list">
-                            <li><strong>DAS:</strong> higher $\bar{y}$ → smaller output gap → lower inflation → DAS
-                                shifts <strong>downward</strong>.</li>
-                            <li><strong>DAD:</strong> higher $\bar{y}$ → more output at every inflation level → DAD
-                                shifts <strong>right</strong>.</li>
+                            <li><strong>DAS side:</strong> higher $\bar{y}$ means the economy can produce more without overheating $\implies$ smaller output gap $\implies$ lower inflation. The DAS shifts <strong>downward</strong>.</li>
+                            <li><strong>DAD side:</strong> higher $\bar{y}$ increases permanent income and investment capacity. More output is demanded at every inflation level. The DAD shifts <strong>right</strong>.</li>
                         </ul>
                         <p><strong>Result:</strong> Both curves shift. This is like a positive productivity or
                             technology
