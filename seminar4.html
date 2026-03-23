@@ -400,10 +400,10 @@
 
             <p>The economy starts in long-run equilibrium. A positive demand shock $\epsilon_0 = 2$ occurs in period 0 only ($\epsilon_t = 0$ for $t \geq 1$). Assume <strong>adaptive expectations</strong>: $\pi_{t+1}^e = \pi_t$.</p>
             <ol class="content-list">
-                <li>Determine the impact on $y_0, \pi_0, r_0$, and $i_0$.</li>
+                <li>Determine the impact on $y_0, \pi_0, r_0$, and $i_0$ in period 0.</li>
                 <li>Why does output increase by less than the shock?</li>
-                <li>Explain the mechanism connecting the shock to higher inflation.</li>
-                <li>Sketch the complete time paths through convergence.</li>
+                <li>Explain the mechanism through which the demand shock leads to higher inflation.</li>
+                <li>Show the impact graphically in the DAD-DAS diagram.</li>
             </ol>
 
             <details class="solution-toggle">
@@ -414,21 +414,21 @@
                     <div class="step">
                         <div class="step-label"><i class="fas fa-list-ol"></i> Recall — The 5-Equation Model</div>
                         <p>The DAD-DAS system is built from five equations. Here $\alpha$ is the IS slope, $\phi$ the Phillips slope, $\theta_\pi, \theta_y$ the Taylor coefficients, and $\rho$ the natural real rate.</p>
-                        <div style="display: grid; gap: 0.75rem; margin-top: 0.75rem;">
+                        <div style="display: grid; gap: 0.35rem; margin-top: 0.75rem;">
                             <div class="equation-box" style="border-left: 3px solid var(--accent-seminar);">
-                                <strong>(IS)</strong> &nbsp; $y_t = \bar{y} - \alpha(r_t - \rho) + \epsilon_t$
+                                <strong>IS</strong> &nbsp; $y_t = \bar{y} - \alpha(r_t - \rho) + \epsilon_t$
                             </div>
                             <div class="equation-box" style="border-left: 3px solid var(--accent-seminar);">
-                                <strong>(PC/DAS)</strong> &nbsp; $\pi_t = \pi_t^e + \phi(y_t - \bar{y}) + \nu_t$
+                                <strong>PC</strong> &nbsp; $\pi_t = \pi_t^e + \phi(y_t - \bar{y}) + \nu_t$
                             </div>
                             <div class="equation-box" style="border-left: 3px solid var(--accent-seminar);">
-                                <strong>(MP/Taylor)</strong> &nbsp; $i_t = \rho + \pi_t + \theta_\pi(\pi_t - \pi^*) + \theta_y(y_t - \bar{y})$
+                                <strong>MP</strong> &nbsp; $i_t = \rho + \pi_t + \theta_\pi(\pi_t - \pi^*) + \theta_y(y_t - \bar{y})$
                             </div>
                             <div class="equation-box" style="border-left: 3px solid var(--accent-seminar);">
-                                <strong>(Fisher)</strong> &nbsp; $r_t = i_t - \pi_{t+1}^e$
+                                <strong>FE</strong> &nbsp; $r_t = i_t - \pi_{t+1}^e$
                             </div>
                             <div class="equation-box" style="border-left: 3px solid #e9b94e; background: rgba(233,185,78,0.06);">
-                                <strong>(Expectations — Eq. 5)</strong> &nbsp; $\pi_{t+1}^e = \pi_t$ &nbsp; (fully adaptive)
+                                $\pi_{t+1}^e = \pi_t$ &nbsp; (fully adaptive expectations)
                             </div>
                         </div>
                         <p style="margin-top: 0.75rem;">Combining IS, MP and Fisher gives the <strong>DAD curve</strong>: $y_t = \bar{y} - \frac{1}{3}(\pi_t - \pi^*)$ (with $\alpha=1$, $\theta_\pi = 0.5$, $\theta_y = 0.5$, $\phi = 0.25$).</p>
@@ -450,9 +450,7 @@
 
                         <div class="image-container">
                             <img src="assets/con1.png" alt="Convergence paths after demand shock — output, inflation, real and nominal rates">
-                            <p class="image-caption">
-                                <strong>Figure — Time paths after a one-period demand shock:</strong> The 5 panels show the shock itself (period 0), the output overshoot then return, inflation persistence and gradual decline, and real and nominal interest rate dynamics. The key feature: variables converge back to equilibrium, but with lags driven by adaptive expectations.
-                            </p>
+                            <p class="image-caption"><strong>Figure — Time paths after a one-period demand shock.</strong></p>
                         </div>
                     </div>
 
@@ -497,8 +495,11 @@
 
                     <!-- Q4 -->
                     <div class="step">
-                        <div class="step-label">4 — Sketch of Time Paths</div>
-                        <p>See the figure in Q1 above (con1.png): the 5 panels show the full convergence dynamic for output, inflation, real rate, and nominal rate from $t=-1$ (pre-shock) through the shock period $t=0$ and gradual return to equilibrium.</p>
+                        <div class="step-label">4 — Show the Impact Graphically in the DAD-DAS Diagram</div>
+                        <div class="alert-box" style="background: rgba(225, 29, 116, 0.03); border: 1px dashed var(--accent-seminar);">
+                            <p style="text-align: center; margin: 0; color: var(--accent-seminar); font-style: italic;">DAD-DAS diagram — to be inserted</p>
+                        </div>
+                        <p style="margin-top: 0.75rem;">See the figure in Q1.</p>
                     </div>
 
                 </div>
@@ -513,9 +514,9 @@
             <p>Continue from Exercise 3. The shock $\epsilon_0 = 2$ has passed ($\epsilon_t = 0$ for $t \geq 1$). Assume adaptive expectations: $\pi_{t+1}^e = \pi_t$.</p>
             <ol class="content-list">
                 <li>What happens to output in period 1? Why does it fall below potential?</li>
-                <li>Why does inflation remain above target in period 1?</li>
+                <li>Explain why inflation remains above target in period 1 despite output returning to potential.</li>
                 <li>Trace the path of all variables for periods 1, 2, and 3.</li>
-                <li>Why must policy remain restrictive after output returns to normal?</li>
+                <li>Why must the central bank maintain restrictive policy (high real rates) even after output returns to normal?</li>
                 <li>Sketch the complete time paths through convergence.</li>
             </ol>
 
@@ -545,8 +546,8 @@
                         <div class="equation-box">
                             $\pi_1 = \pi_0 + \phi(y_1 - \bar{y})$
                         </div>
-                        <p>Even though $y_1 < \bar{y}$ (negative output gap), which puts <em>downward</em> pressure on inflation, the elevated expected inflation $\pi_0$ keeps actual inflation above target.</p>
-                        <p>The negative output gap gradually erodes inflation: each period, $\phi(y_t - \bar{y}) < 0$ chips away at the inflation gap. But because $\pi_t^e = \pi_{t-1}$, each period inherits the previous level — inflation declines <strong>slowly</strong>, not immediately.</p>
+                        <p>The DAS gives $\pi_1 = \pi_0 + \phi(y_1 - \bar{y})$. The term $\phi(y_1 - \bar{y}) < 0$ (negative output gap) does push inflation <em>down</em> from $\pi_0$ — but not enough to bring it back to $\pi^*$, because $\pi_0 > \pi^*$ was large. Inflation falls, but stays above target.</p>
+                        <p>This is the key: adaptive expectations mean DAS starts at $\pi_0$, not at $\pi^*$. Each period, the negative output gap chips away a little at inflation, but the process is slow — it converges gradually, not immediately.</p>
                     </div>
 
                     <!-- Q3 -->
@@ -614,7 +615,7 @@
                     <!-- Q5 -->
                     <div class="step">
                         <div class="step-label">5 — Sketch of Complete Time Paths</div>
-                        <p>See <strong>Exercise 3 — Q1</strong> above (con1.png): the 5 panels show the full convergence paths from $t =-1$ through $t=0$ (shock) and subsequent periods. Note the output <em>overshoot</em> at $t=0$ followed by the <em>undershoot</em> (recession) at $t=1$, and the slow disinflation path.</p>
+                        <p>See question 1 from previous exercise.</p>
                     </div>
 
                     <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
