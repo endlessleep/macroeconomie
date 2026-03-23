@@ -398,47 +398,109 @@
             <span class="exercise-number">Exercise 3</span>
             <h3>One-period Demand Shock</h3>
 
-            <p>The economy starts in equilibrium. A positive demand shock $\epsilon_0 = 2$ occurs in period 0.</p>
+            <p>The economy starts in long-run equilibrium. A positive demand shock $\epsilon_0 = 2$ occurs in period 0 only ($\epsilon_t = 0$ for $t \geq 1$). Assume <strong>adaptive expectations</strong>: $\pi_{t+1}^e = \pi_t$.</p>
             <ol class="content-list">
                 <li>Determine the impact on $y_0, \pi_0, r_0$, and $i_0$.</li>
                 <li>Why does output increase by less than the shock?</li>
                 <li>Explain the mechanism connecting the shock to higher inflation.</li>
-                <li>Show the impact graphically in the DAD-DAS diagram.</li>
+                <li>Sketch the complete time paths through convergence.</li>
             </ol>
 
             <details class="solution-toggle">
                 <summary>Show Solution</summary>
                 <div class="solution-content">
+
+                    <!-- Recall: 5 equations -->
+                    <div class="step">
+                        <div class="step-label"><i class="fas fa-list-ol"></i> Recall — The 5-Equation Model</div>
+                        <p>The DAD-DAS system is built from five equations. Here $\alpha$ is the IS slope, $\phi$ the Phillips slope, $\theta_\pi, \theta_y$ the Taylor coefficients, and $\rho$ the natural real rate.</p>
+                        <div style="display: grid; gap: 0.75rem; margin-top: 0.75rem;">
+                            <div class="equation-box" style="border-left: 3px solid var(--accent-seminar);">
+                                <strong>(IS)</strong> &nbsp; $y_t = \bar{y} - \alpha(r_t - \rho) + \epsilon_t$
+                            </div>
+                            <div class="equation-box" style="border-left: 3px solid var(--accent-seminar);">
+                                <strong>(PC/DAS)</strong> &nbsp; $\pi_t = \pi_t^e + \phi(y_t - \bar{y}) + \nu_t$
+                            </div>
+                            <div class="equation-box" style="border-left: 3px solid var(--accent-seminar);">
+                                <strong>(MP/Taylor)</strong> &nbsp; $i_t = \rho + \pi_t + \theta_\pi(\pi_t - \pi^*) + \theta_y(y_t - \bar{y})$
+                            </div>
+                            <div class="equation-box" style="border-left: 3px solid var(--accent-seminar);">
+                                <strong>(Fisher)</strong> &nbsp; $r_t = i_t - \pi_{t+1}^e$
+                            </div>
+                            <div class="equation-box" style="border-left: 3px solid #e9b94e; background: rgba(233,185,78,0.06);">
+                                <strong>(Expectations — Eq. 5)</strong> &nbsp; $\pi_{t+1}^e = \pi_t$ &nbsp; (fully adaptive)
+                            </div>
+                        </div>
+                        <p style="margin-top: 0.75rem;">Combining IS, MP and Fisher gives the <strong>DAD curve</strong>: $y_t = \bar{y} - \frac{1}{3}(\pi_t - \pi^*)$ (with $\alpha=1$, $\theta_\pi = 0.5$, $\theta_y = 0.5$, $\phi = 0.25$).</p>
+                    </div>
+
+                    <!-- Q1 -->
                     <div class="step">
                         <div class="step-label">1 — Impact in Period 0</div>
-                        <p>A positive demand shock shifts DAD right.</p>
+                        <p><strong>Parameters:</strong> $\phi = 0.25$, $\bar{y} = 100$, $\pi^* = 2$, $\pi_0^e = \pi^* = 2$ (economy starts in equilibrium). Shock: $\epsilon_0 = 2$.</p>
+                        <p>With the demand shift, the DAD becomes:</p>
                         <div class="equation-box">
-                            $y_0 \uparrow, \quad \pi_0 \uparrow, \quad r_0 \uparrow, \quad i_0 \uparrow$
+                            $y_0 = 100 - \frac{1}{3}(\pi_0 - 2) + \frac{\epsilon_0}{1+\alpha\theta_y}$
                         </div>
-                        <p>Output and inflation rise; the CB reacts by raising nominal and real rates.</p>
-                    </div>
+                        <p>Using the DAD shift from $\epsilon_0 = 2$ (simplified, with equal treatment as IS shift): DAD shifts right by the multiplied shock. Combined with DAS:</p>
+                        <div class="equation-box" style="background: rgba(var(--accent-seminar-rgb), 0.05); border-left: 4px solid var(--accent-seminar);">
+                            $\boxed{y_0 > \bar{y}} \quad \boxed{\pi_0 > \pi^*} \quad \boxed{r_0 > \rho} \quad \boxed{i_0 > \rho + \pi^*}$
+                        </div>
+                        <p>The demand shock shifts DAD rightward → the new intersection with the upward-sloping DAS is at higher output <strong>and</strong> higher inflation. The CB reacts by raising nominal and real rates via the Taylor Rule.</p>
 
-                    <div class="step">
-                        <div class="step-label">2 — Output vs. Shock Size</div>
-                        <p>Output rises by <strong>less than 2</strong> because the rise in inflation triggers a CB
-                            reaction. The resulting higher real interest rate dampens spending (crowding out part of the
-                            shock).</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">3 — Inflation Mechanism</div>
-                        <p>Shock $\uparrow \implies y_0 > \bar{y} \implies$ Positive output gap $\implies$ Upward
-                            pressure on prices in the Phillips curve $\implies \pi_0 \uparrow$.</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">4 — Graphical Impact</div>
-                        <p>DAD shifts rightward. The economy moves upward along the stationary DAS curve.</p>
-                        <div class="alert-box" style="background: rgba(225, 29, 116, 0.03); border: 1px dashed var(--accent-seminar);">
-                            <p style="text-align: center; margin: 0; color: var(--accent-seminar);">[Graphique DAD-DAS
-                                à insérer ici lors de la correction]</p>
+                        <div class="image-container">
+                            <img src="assets/con1.png" alt="Convergence paths after demand shock — output, inflation, real and nominal rates">
+                            <p class="image-caption">
+                                <strong>Figure — Time paths after a one-period demand shock:</strong> The 5 panels show the shock itself (period 0), the output overshoot then return, inflation persistence and gradual decline, and real and nominal interest rate dynamics. The key feature: variables converge back to equilibrium, but with lags driven by adaptive expectations.
+                            </p>
                         </div>
                     </div>
+
+                    <!-- Q2 -->
+                    <div class="step">
+                        <div class="step-label">2 — Why Does Output Increase by Less than the Shock?</div>
+                        <p>Follow the causal chain step by step:</p>
+
+                        <div style="display: grid; gap: 0.6rem; margin: 1rem 0;">
+                            <div style="padding: 0.7rem 1rem; background: rgba(var(--accent-seminar-rgb), 0.04); border-left: 3px solid var(--accent-seminar); border-radius: 6px;">
+                                <strong>Step 1 — Shock hits:</strong> $\epsilon_0 \uparrow \implies$ IS shifts right $\implies y_0 \uparrow$
+                            </div>
+                            <div style="padding: 0.7rem 1rem; background: rgba(var(--accent-seminar-rgb), 0.04); border-left: 3px solid var(--accent-seminar); border-radius: 6px;">
+                                <strong>Step 2 — DAS responds:</strong> $y_0 > \bar{y} \implies$ positive output gap $\implies \pi_0 \uparrow$ (via DAS/Phillips curve)
+                            </div>
+                            <div style="padding: 0.7rem 1rem; background: rgba(var(--accent-seminar-rgb), 0.04); border-left: 3px solid var(--accent-seminar); border-radius: 6px;">
+                                <strong>Step 3 — Taylor Rule fires:</strong> $\pi_0 \uparrow$ raises both $\pi_t$ and $\theta_\pi(\pi_t - \pi^*)$ and $\theta_y(y_t - \bar{y})$ in the MP rule $\implies i_0$ rises by <em>more</em> than $\pi_0$ (Taylor Principle)
+                            </div>
+                            <div style="padding: 0.7rem 1rem; background: rgba(var(--accent-seminar-rgb), 0.04); border-left: 3px solid var(--accent-seminar); border-radius: 6px;">
+                                <strong>Step 4 — Equation 5 (Expectations):</strong> $\pi_1^e = \pi_0 \uparrow \implies$ Fisher equation: $r_0 = i_0 - \pi_1^e$ — because $i_0$ rises by more than $\pi_1^e$, the <em>real</em> rate $r_0$ also rises
+                            </div>
+                            <div style="padding: 0.7rem 1rem; background: rgba(233,185,78,0.08); border-left: 3px solid #e9b94e; border-radius: 6px;">
+                                <strong>Step 5 — Back to IS:</strong> $r_0 \uparrow \implies$ IS dampens: $y_0 - \bar{y} = -\alpha(r_0 - \rho)$ partly offsets the shock $\implies$ output rises, but <strong>less than $\epsilon_0 = 2$</strong>
+                            </div>
+                        </div>
+
+                        <div class="alert-box" style="background-color: var(--accent-seminar-light); border-color: var(--accent-seminar-border);">
+                            <div class="alert-icon"><i class="fas fa-balance-scale" style="color: var(--accent-seminar);"></i></div>
+                            <div class="alert-content">
+                                <h4>Conclusion</h4>
+                                <p>The demand shock increases output, but the resulting inflation triggers the CB's Taylor Rule. The CB raises $i_t$ by more than $\pi_t$ (Taylor Principle), which raises the real rate $r_t$, which dampens the IS — <strong>crowding out</strong> part of the initial demand boost. Output goes up, but less than 2.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="step">
+                        <div class="step-label">3 — Mechanism from Shock to Higher Inflation</div>
+                        <p>$\epsilon_0 \uparrow$ (demand shock) $\implies y_0 > \bar{y}$ (positive output gap) $\implies$ upward pressure on prices via the DAS/Phillips curve $\implies \pi_0 > \pi^*$.</p>
+                        <p>More precisely: DAS gives $\pi_0 = \pi_0^e + \phi(y_0 - \bar{y})$. Since $\pi_0^e = \pi^*$ (we start from equilibrium) and $y_0 > \bar{y}$, we get $\pi_0 > \pi^*$. The larger the output gap, the larger the inflation increase.</p>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="step">
+                        <div class="step-label">4 — Sketch of Time Paths</div>
+                        <p>See the figure in Q1 above (con1.png): the 5 panels show the full convergence dynamic for output, inflation, real rate, and nominal rate from $t=-1$ (pre-shock) through the shock period $t=0$ and gradual return to equilibrium.</p>
+                    </div>
+
                 </div>
             </details>
         </div>
@@ -446,9 +508,9 @@
         <!-- ==================== EXERCISE 4: Demand Shock Dynamics ==================== -->
         <div class="exercise-block">
             <span class="exercise-number">Exercise 4</span>
-            <h3>Demand Shock Dynamics</h3>
+            <h3>Demand Shock — The Multi-Period Dynamics</h3>
 
-            <p>Continue from Ex 3 with $\epsilon_t = 0$ for $t \ge 1$.</p>
+            <p>Continue from Exercise 3. The shock $\epsilon_0 = 2$ has passed ($\epsilon_t = 0$ for $t \geq 1$). Assume adaptive expectations: $\pi_{t+1}^e = \pi_t$.</p>
             <ol class="content-list">
                 <li>What happens to output in period 1? Why does it fall below potential?</li>
                 <li>Why does inflation remain above target in period 1?</li>
@@ -460,40 +522,110 @@
             <details class="solution-toggle">
                 <summary>Show Solution</summary>
                 <div class="solution-content">
+
+                    <!-- Q1 -->
                     <div class="step">
-                        <div class="step-label">1 — Period 1: The Undershoot</div>
-                        <p>$\epsilon_1 = 0$, but $\pi_0$ was high. The CB keeps rates high. The restrictive policy
-                            depresses demand, leading to $y_1 < \bar{y}$.</p>
+                        <div class="step-label">1 — Period 1: Output Falls Below Potential</div>
+                        <p>At $t=1$, the demand shock is gone ($\epsilon_1 = 0$). But from equation 5: $\pi_1^e = \pi_0 > \pi^*$.</p>
+                        <p>DAS: $\pi_1 = \pi_1^e + \phi(y_1 - \bar{y}) = \pi_0 + \phi(y_1 - \bar{y})$</p>
+                        <p>The DAS has <strong>shifted up</strong> because expectations carried over the high inflation from period 0. The DAD, meanwhile, is back to its standard position (no shock), written as:</p>
+                        <div class="equation-box">
+                            $y_1 = \bar{y} - \frac{1}{3}(\pi_1 - \pi^*)$
+                        </div>
+                        <p>Since $\pi_1^e = \pi_0 > \pi^*$, the DAS starts above normal, causing the intersection with DAD to be at <strong>$y_1 < \bar{y}$</strong>: a recession. The CB's reaction to high inflation (high $i_1$) makes real rates stay elevated, depressing IS.</p>
+                        <div class="equation-box" style="background: rgba(var(--accent-seminar-rgb), 0.05); border-left: 4px solid var(--accent-seminar);">
+                            $\boxed{y_1 < \bar{y}} \quad \boxed{\pi_1 > \pi^*} \quad \boxed{r_1 > \rho} \quad \boxed{i_1 > \rho + \pi^*}$
+                        </div>
                     </div>
 
+                    <!-- Q2 -->
                     <div class="step">
-                        <div class="step-label">2 — Inflation Persistence</div>
-                        <p>Inflation remains above target because it inherits the high level from period 0 via
-                            expectations ($\pi_1^e = \pi_0$). It only declines gradually as $y < \bar{y}$ persists.</p>
+                        <div class="step-label">2 — Why Does Inflation Remain Above Target in Period 1?</div>
+                        <p>From equation 5: $\pi_1^e = \pi_0 > \pi^*$. The DAS in period 1 is:</p>
+                        <div class="equation-box">
+                            $\pi_1 = \pi_0 + \phi(y_1 - \bar{y})$
+                        </div>
+                        <p>Even though $y_1 < \bar{y}$ (negative output gap), which puts <em>downward</em> pressure on inflation, the elevated expected inflation $\pi_0$ keeps actual inflation above target.</p>
+                        <p>The negative output gap gradually erodes inflation: each period, $\phi(y_t - \bar{y}) < 0$ chips away at the inflation gap. But because $\pi_t^e = \pi_{t-1}$, each period inherits the previous level — inflation declines <strong>slowly</strong>, not immediately.</p>
                     </div>
 
+                    <!-- Q3 -->
                     <div class="step">
-                        <div class="step-label">3 — Path of Variables</div>
-                        <p><strong>P1:</strong> $y_1 < \bar{y}, \pi_1 > \pi^*, r_1 > r^*, i_1 > i^*$ (Recession for disinflation).<br>
-                           <strong>P2:</strong> Output recovers toward $\bar{y}$, $\pi$ falls toward $\pi^*$, rates ease.<br>
-                           <strong>P3:</strong> All variables converge closer to long-run equilibrium.</p>
+                        <div class="step-label">3 — Path of All Variables (t = 1, 2, 3)</div>
+                        <div style="overflow-x: auto; margin-top: 0.75rem;">
+                            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                                <thead>
+                                    <tr style="background: rgba(var(--accent-seminar-rgb), 0.1);">
+                                        <th style="padding: 0.5rem 1rem; text-align: left; border-bottom: 2px solid var(--accent-seminar-border);">Period</th>
+                                        <th style="padding: 0.5rem 1rem; text-align: center; border-bottom: 2px solid var(--accent-seminar-border);">$y_t$</th>
+                                        <th style="padding: 0.5rem 1rem; text-align: center; border-bottom: 2px solid var(--accent-seminar-border);">$\pi_t$</th>
+                                        <th style="padding: 0.5rem 1rem; text-align: center; border-bottom: 2px solid var(--accent-seminar-border);">$r_t$</th>
+                                        <th style="padding: 0.5rem 1rem; text-align: center; border-bottom: 2px solid var(--accent-seminar-border);">$i_t$</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border-light);">
+                                        <td style="padding: 0.5rem 1rem;">$t=0$ (shock)</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center; color: var(--accent-seminar);">$> \bar{y}$ ↑</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center; color: var(--accent-seminar);">$> \pi^*$ ↑</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center; color: var(--accent-seminar);">$> \rho$ ↑</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center; color: var(--accent-seminar);">$↑↑$ strongly</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-light);">
+                                        <td style="padding: 0.5rem 1rem;">$t=1$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">$< \bar{y}$ ↓ (recession)</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">$> \pi^*$ slightly lower</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">$> \rho$ still high</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">↓ slowly</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-light);">
+                                        <td style="padding: 0.5rem 1rem;">$t=2$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">recovering toward $\bar{y}$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">closer to $\pi^*$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">approaching $\rho$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">easing</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.5rem 1rem;">$t=3$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">$\approx \bar{y}$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">$\approx \pi^*$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">$\approx \rho$</td>
+                                        <td style="padding: 0.5rem 1rem; text-align: center;">$\approx \rho + \pi^*$</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
+                    <!-- Q4 -->
                     <div class="step">
-                        <div class="step-label">4 — Restrictive Policy Logic</div>
-                        <p>Policy must stay restrictive ($r > \rho$) to maintain the negative output gap until
-                            inflation is fully back at target. Early relaxation would let inflation remain stuck above
-                            target.</p>
+                        <div class="step-label">4 — Why Must Policy Remain Restrictive?</div>
+                        <p>Even after output returns to $\bar{y}$, inflation is likely still above $\pi^*$ (because $\pi_t^e = \pi_{t-1} > \pi^*$). If the CB relaxes policy prematurely (cuts $i_t$), the real rate would fall, IS would expand, and $y_t > \bar{y}$ would push inflation back up rather than down.</p>
+                        <p>The negative output gap must be <strong>maintained long enough</strong> that the cumulative downward pressure on $\pi_t$ (via $\phi(y_t - \bar{y}) < 0$) erodes the inflation expectation all the way back to $\pi^*$. Only then can the CB ease.</p>
+                        <div class="alert-box" style="background-color: var(--accent-seminar-light); border-color: var(--accent-seminar-border);">
+                            <div class="alert-icon"><i class="fas fa-gavel" style="color: var(--accent-seminar);"></i></div>
+                            <div class="alert-content">
+                                <h4>Key Point</h4>
+                                <p>The lag between output and inflation (driven by adaptive expectations) is precisely why demand shocks are costly: stabilizing inflation requires a sustained recession, not just a brief tightening.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="step">
+                        <div class="step-label">5 — Sketch of Complete Time Paths</div>
+                        <p>See <strong>Exercise 3 — Q1</strong> above (con1.png): the 5 panels show the full convergence paths from $t =-1$ through $t=0$ (shock) and subsequent periods. Note the output <em>overshoot</em> at $t=0$ followed by the <em>undershoot</em> (recession) at $t=1$, and the slow disinflation path.</p>
                     </div>
 
                     <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
-                        <img src="assets/mos2.png" alt="Demand Shock Dynamics"
-                            >
-                        <p class="image-caption">Time paths: Output undershoot followed by gradual convergence.</p>
+                        <img src="assets/mos2.png" alt="Demand Shock Dynamics">
+                        <p class="image-caption">DAD-DAS illustration of the output undershoot followed by gradual convergence back to equilibrium.</p>
                     </div>
+
                 </div>
             </details>
         </div>
+
 
         <!-- ==================== FOOTER ==================== -->
         <section
