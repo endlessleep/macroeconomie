@@ -253,46 +253,59 @@
                     <!-- Q1 -->
                     <div class="step">
                         <div class="step-label">1 — Modified DAS Curve</div>
-                        <p>Setting $\psi = 0$ in the modified DAS, the term $\psi \tilde{\pi}_{t-1}$ vanishes:</p>
-                        <div class="equation-box highlight-box">
-                            $\tilde{\pi}_t = \phi(y_t - \bar{y}) + \nu_t$
+                        <p>Start from the standard DAS (Phillips curve):</p>
+                        <div class="equation-box">
+                            $\pi_t = \pi_t^e + \phi(y_t - \bar{y}) + \nu_t$
                         </div>
-                        <p>Inflation no longer depends on past inflation. There is <strong>no intrinsic persistence</strong> — inflation is driven only by the current output gap and supply shocks.</p>
+                        <p>With fully anchored expectations, $\psi = 0 \implies \pi_t^e = \pi^*$ for all $t$. Substituting:</p>
+                        <div class="equation-box highlight-box">
+                            $\pi_t = \pi^* + \phi(y_t - \bar{y}) + \nu_t$
+                        </div>
+                        <p>Inflation no longer depends on past inflation. There is <strong>no intrinsic persistence</strong> — it is driven only by the current output gap and supply shocks.</p>
                     </div>
 
                     <!-- Q2 -->
                     <div class="step">
                         <div class="step-label">2 — What happens to inflation after a one-period supply shock?</div>
-                        <p><strong>Parameters:</strong> $\phi = 0.25$, $\bar{y} = 100$, $\pi^* = 2$, $\nu_0 = 1$, $\tilde{\pi}_{-1} = 0$.</p>
+                        <p><strong>Parameters:</strong> $\phi = 0.25$, $\bar{y} = 100$, $\pi^* = 2$. One-period shock: $\nu_0 = 1$ at $t=0$, and $\nu_t = 0$ for $t \geq 1$.</p>
 
                         <div style="margin-top: 1.5rem;">
                             <h4 style="color: var(--accent-seminar); margin-bottom: 0.5rem;"><i class="fas fa-bolt"></i> Period $t=0$ (The Shock Hits)</h4>
-                            <p>DAS: $\tilde{\pi}_0 = 0.25(y_0 - 100) + 1$</p>
-                            <p>DAD: $y_0 = 100 - \frac{1}{3}\tilde{\pi}_0 \implies y_0 - 100 = -\frac{1}{3}\tilde{\pi}_0$</p>
-                            <p>Substituting DAD into DAS:</p>
-                            <p>$\tilde{\pi}_0 = 0.25 \cdot \left(-\frac{1}{3}\tilde{\pi}_0\right) + 1 = -\frac{1}{12}\tilde{\pi}_0 + 1 \implies \frac{13}{12}\tilde{\pi}_0 = 1$</p>
+                            <p>DAS: $\pi_0 = \pi^* + 0.25(y_0 - 100) + \nu_0 = 2 + 0.25(y_0 - 100) + 1$</p>
+                            <p>DAD: $y_0 = 100 - \frac{1}{3}(\pi_0 - \pi^*) = 100 - \frac{1}{3}(\pi_0 - 2)$</p>
+                            <p>So: $y_0 - 100 = -\frac{1}{3}(\pi_0 - 2)$</p>
+                            <p>Substitute DAD into DAS:</p>
+                            <p>$\pi_0 = 3 + 0.25 \cdot \left(-\frac{1}{3}(\pi_0 - 2)\right) = 3 - \frac{1}{12}(\pi_0 - 2)$</p>
+                            <p>$\pi_0 - 3 = -\frac{1}{12}(\pi_0 - 2) \implies 12(\pi_0 - 3) = -(\pi_0 - 2)$</p>
+                            <p>$12\pi_0 - 36 = -\pi_0 + 2 \implies 13\pi_0 = 38$</p>
                             <div class="equation-box" style="background: rgba(var(--accent-seminar-rgb), 0.05); border-left: 4px solid var(--accent-seminar);">
-                                $\boxed{\tilde{\pi}_0 = \frac{12}{13} \approx 0.923} \quad \boxed{\pi_0 = 2 + \frac{12}{13} \approx 2.923} \quad \boxed{y_0 \approx 99.692}$
+                                $\boxed{\pi_0 = \frac{38}{13} \approx 2.923}$
+                            </div>
+                            <p>Then: $y_0 = 100 - \frac{1}{3}\left(\frac{38}{13} - 2\right) = 100 - \frac{1}{3} \cdot \frac{12}{13} = 100 - \frac{4}{13} \approx 99.692$</p>
+                            <div class="equation-box" style="background: rgba(var(--accent-seminar-rgb), 0.05); border-left: 4px solid var(--accent-seminar);">
+                                $\boxed{y_0 \approx 99.692}$
                             </div>
                         </div>
 
                         <div style="margin-top: 2rem;">
                             <h4 style="color: var(--accent-seminar); margin-bottom: 0.5rem;"><i class="fas fa-check-circle"></i> Period $t=1$ (Shock Gone)</h4>
-                            <p>$\nu_1 = 0$. With fully anchored expectations ($\psi = 0$), there is <strong>no lagged inflation term</strong>:</p>
-                            <p>DAS: $\tilde{\pi}_1 = 0.25(y_1 - 100) + 0$</p>
-                            <p>DAD: $y_1 - 100 = -\frac{1}{3}\tilde{\pi}_1$</p>
-                            <p>$\tilde{\pi}_1 = 0.25 \cdot \left(-\frac{1}{3}\tilde{\pi}_1\right) \implies \frac{13}{12}\tilde{\pi}_1 = 0$</p>
+                            <p>$\nu_1 = 0$. With fully anchored expectations: $\pi_1^e = \pi^* = 2$.</p>
+                            <p>DAS: $\pi_1 = 2 + 0.25(y_1 - 100) + 0 = 2 + 0.25(y_1 - 100)$</p>
+                            <p>DAD: $y_1 - 100 = -\frac{1}{3}(\pi_1 - 2)$</p>
+                            <p>Substitute:</p>
+                            <p>$\pi_1 = 2 + 0.25 \cdot \left(-\frac{1}{3}(\pi_1 - 2)\right) = 2 - \frac{1}{12}(\pi_1 - 2)$</p>
+                            <p>$(\pi_1 - 2) = -\frac{1}{12}(\pi_1 - 2) \implies \frac{13}{12}(\pi_1 - 2) = 0$</p>
                             <div class="equation-box" style="background: rgba(var(--accent-seminar-rgb), 0.05); border-left: 4px solid var(--accent-seminar);">
-                                $\boxed{\tilde{\pi}_1 = 0} \quad \boxed{\pi_1 = \pi^* = 2} \quad \boxed{y_1 = 100}$
+                                $\boxed{\pi_1 = \pi^* = 2} \quad \boxed{y_1 = \bar{y} = 100}$
                             </div>
-                            <p>And this holds for all $t \geq 1$: $\boxed{\pi_t = \pi^* = 2}$.</p>
+                            <p>This holds for <strong>all $t \geq 1$</strong>: $\pi_t = \pi^* = 2$.</p>
                         </div>
 
                         <div class="alert-box" style="margin-top: 1.5rem; background-color: var(--accent-seminar-light); border-color: var(--accent-seminar-border);">
                             <div class="alert-icon"><i class="fas fa-info-circle" style="color: var(--accent-seminar);"></i></div>
                             <div class="alert-content">
                                 <h4>Key Insight</h4>
-                                <p>Inflation returns to target <strong>immediately</strong> after the shock disappears. Because people believe inflation will always equal $\pi^*$, their expectations act as a self-fulfilling stabilizer — there is no expectation-driven persistence.</p>
+                                <p>Inflation returns to target <strong>immediately</strong> after the shock disappears. Because $\pi_t^e = \pi^*$ always, expected inflation acts as a self-fulfilling anchor — there is no expectation-driven persistence.</p>
                             </div>
                         </div>
                     </div>
@@ -300,12 +313,12 @@
                     <!-- Q3 -->
                     <div class="step">
                         <div class="step-label">3 — Does the CB need to create a recession?</div>
-                        <p>Recall that at $t=1$, the shock is gone ($\nu_1 = 0$) and expectations are fully anchored ($\pi_1^e = \pi^*$). From the calculation above:</p>
+                        <p>From the calculation in Q2, at $t=1$:</p>
                         <div class="equation-box">
                             $y_1 = \bar{y} = 100$
                         </div>
-                        <p>Output returns to its <strong>natural level</strong> automatically. The central bank does <strong>not need to create a recession</strong> (negative output gap) to bring inflation back to target.</p>
-                        <p>This is the key advantage of fully anchored expectations: the economy self-corrects because there is no expectations-driven inflation spiral to break. The CB's job is much easier.</p>
+                        <p>Output returns to its <strong>natural level automatically</strong>. The central bank does <strong>not need to create a recession</strong> (i.e., no negative output gap is needed) to bring inflation back to target.</p>
+                        <p>This is the key advantage of fully anchored expectations: the economy self-corrects because there is no expectations-driven spiral to break.</p>
                     </div>
 
                     <!-- Q4 -->
@@ -316,32 +329,28 @@
                         <div class="equation-box">
                             $i_t = \pi_t + r^* + \theta_\pi(\pi_t - \pi^*) + \theta_y(y_t - \bar{y})$
                         </div>
-                        <p>The <strong>Taylor Principle</strong> states that $\theta_\pi > 0$: the CB must raise the <em>real</em> interest rate when inflation rises, i.e. the nominal rate must rise by <em>more</em> than the increase in inflation.</p>
-
-                        <p>Under partially anchored expectations, violating this principle ($\theta_\pi \leq 0$) leads to an explosive inflation spiral (upward-sloping DAD). But what about <strong>fully anchored</strong> expectations?</p>
-
-                        <p>Let's test the case <strong>$\theta_\pi = -0.5 < 0$</strong>, keeping $\alpha = 1$, $\theta_y = 0.5$. The DAD equation becomes:</p>
-                        <p>$y_t = \bar{y} - \frac{\theta_y}{\theta_y + \phi(\alpha \theta_\pi + 1)}(\pi_t - \pi^*)$</p>
-                        <p>Plugging in the figures (with $\alpha = 1$, $\phi = 0.25$, $\theta_y = 0.5$, $\theta_\pi = -0.5$):</p>
-                        <p>Denominator factor: $\theta_y + \phi(\alpha \theta_\pi + 1) = 0.5 + 0.25(1 \cdot (-0.5) + 1) = 0.5 + 0.25(0.5) = 0.5 + 0.125 = 0.625$</p>
-                        <p>Slope of DAD: $-\frac{\theta_y}{0.625} = -\frac{0.5}{0.625} = -0.8 \implies$ DAD is still <strong>downward-sloping</strong>.</p>
+                        <p>The <strong>Taylor Principle</strong> ($\theta_\pi > 0$) is required so that the CB raises the <em>real</em> interest rate when inflation rises. Without it, the DAD curve becomes upward-sloping, creating an explosive spiral.</p>
+                        <p>But under fully anchored expectations, let's test what happens if <strong>$\theta_\pi = -0.5 < 0$</strong>, keeping $\alpha = 1$, $\theta_y = 0.5$.</p>
+                        <p>The DAD slope becomes $-\frac{\alpha(1+\theta_\pi)}{1 + \alpha\theta_y} = -\frac{1 \cdot 0.5}{1.5} = -\frac{1}{3}$, so the DAD is:</p>
+                        <div class="equation-box">
+                            $y_t - \bar{y} = -\frac{1}{3}(\pi_t - \pi^*)$ &nbsp; (same as before — DAD remains downward-sloping)
+                        </div>
 
                         <div style="margin-top: 1.5rem;">
                             <h4 style="color: var(--accent-seminar); margin-bottom: 0.5rem;"><i class="fas fa-calculator"></i> Period $t=0$ with $\theta_\pi = -0.5$</h4>
-                            <p>DAS (with $\psi=0$): $\tilde{\pi}_0 = 0.25(y_0 - 100) + 1$</p>
-                            <p>DAD (new slope): $y_0 - 100 = -0.8 \tilde{\pi}_0$</p>
-                            <p>Substitute: $\tilde{\pi}_0 = 0.25(-0.8 \tilde{\pi}_0) + 1 = -0.2\tilde{\pi}_0 + 1$</p>
-                            <p>$1.2\tilde{\pi}_0 = 1 \implies \tilde{\pi}_0 = \frac{1}{1.2} = \frac{5}{6} \approx 0.833$</p>
+                            <p>DAS (with $\pi_0^e = \pi^* = 2$): $\pi_0 = 2 + 0.25(y_0 - 100) + 1$</p>
+                            <p>DAD: $y_0 - 100 = -\frac{1}{3}(\pi_0 - 2)$</p>
+                            <p>This is the <strong>same system as Q2</strong>. The calculation yields:</p>
                             <div class="equation-box" style="border-left: 4px solid var(--text-muted);">
-                                $\boxed{\pi_0 = 2 + \frac{5}{6} \approx 2.833}$
+                                $\boxed{\pi_0 = \frac{38}{13} \approx 2.923}$ &nbsp; <em>(same result as standard Taylor Principle)</em>
                             </div>
                         </div>
 
                         <div style="margin-top: 1.5rem;">
                             <h4 style="color: var(--accent-seminar); margin-bottom: 0.5rem;"><i class="fas fa-check-circle"></i> Period $t=1$ with $\theta_\pi = -0.5$</h4>
-                            <p>$\nu_1 = 0$, $\psi = 0$. Again: $\tilde{\pi}_1 = 0 \implies \pi_1 = \pi^* = 2$.</p>
+                            <p>$\nu_1 = 0$, $\pi_1^e = \pi^* = 2$. The DAS/DAD system is again the same as Q2:</p>
                             <div class="equation-box" style="background: rgba(var(--accent-seminar-rgb), 0.05); border-left: 4px solid var(--accent-seminar);">
-                                $\boxed{\pi_1 = 2}$
+                                $\boxed{\pi_1 = \pi^* = 2}$
                             </div>
                         </div>
 
@@ -349,17 +358,17 @@
                             <div class="alert-icon"><i class="fas fa-lightbulb" style="color: var(--accent-seminar);"></i></div>
                             <div class="alert-content">
                                 <h4>Conclusion on the Taylor Principle</h4>
-                                <p>Even with $\theta_\pi < 0$ (violating the Taylor Principle), inflation still returns to target from $t=1$ onward — as long as expectations are <strong>fully anchored</strong>.</p>
-                                <p><strong>Why?</strong> Because the lagged inflation term is zero ($\tilde{\pi}_{t-1} = 0$ enters with coefficient $\psi = 0$). The CB's reaction function matters much less when expectations themselves act as the stabilizer.</p>
-                                <p>However, the risk is that the CB may <strong>lose credibility</strong> over time. If people observe the CB consistently violating the Taylor principle, they may start to de-anchor their expectations, at which point the stability guarantee disappears.</p>
+                                <p>Even with $\theta_\pi < 0$ (violating the Taylor Principle), inflation still returns to $\pi^*$ from $t=1$ onward — <strong>as long as expectations are fully anchored</strong>.</p>
+                                <p><strong>Why?</strong> Because $\pi_t^e = \pi^*$ always, which eliminates any persistence in the DAS. The CB's reaction function matters much less when expectations themselves act as the stabilizer.</p>
+                                <p>However, the risk is that the CB may <strong>lose credibility</strong> over time. If people observe the CB consistently under-reacting, they may start to de-anchor their expectations ($\psi$ drifts toward 1), at which point the Taylor Principle becomes critical again.</p>
                             </div>
                         </div>
 
                         <div class="image-container">
                             <img src="https://endlessleep.github.io/macroeconomie/assets/pipi4.png" alt="Upward-Sloping DAD — Taylor Principle Violation">
                             <p class="image-caption">
-                                <strong>Figure (for reference):</strong> This graph illustrates what happens when the Taylor Principle is <em>violated</em> ($\theta_\pi \leq 0$): the DAD curve becomes <strong>upward-sloping</strong>. A demand shock pushes DAD right; output and inflation rise; higher inflation raises expected inflation, pushing DAS up. The new intersection keeps output above potential, and inflation spirals indefinitely.
-                                <br><em>Note: This scenario does NOT apply here under fully anchored expectations — even without the Taylor Principle, the inflation spiral is avoided because $\pi_t^e = \pi^*$.</em>
+                                <strong>Figure (for reference):</strong> This graph shows what happens when the Taylor Principle is <em>violated</em> ($\theta_\pi \leq 0$) under <em>non-anchored</em> expectations: the DAD curve becomes <strong>upward-sloping</strong>. A demand shock pushes DAD right; output and inflation rise; higher inflation raises expected inflation, pushing DAS up. The new intersection keeps output above potential, and inflation spirals indefinitely.
+                                <br><em>Note: This explosive scenario does NOT occur here because $\pi_t^e = \pi^*$ always — the anchor short-circuits the spiral.</em>
                             </p>
                         </div>
                     </div>
@@ -367,14 +376,14 @@
                     <!-- Q5 -->
                     <div class="step">
                         <div class="step-label">5 — Post-Pandemic Inflation Dynamics: The Case of Czechia</div>
-                        <p>After the COVID-19 supply shocks of 2021–2022, Czechia experienced a surge in inflation. However, the Czech National Bank <strong>did not raise interest rates enough</strong> to fully offset the inflationary pressure.</p>
-                        <p>Despite this, inflation eventually returned toward target. The key reason: expectations were <strong>partially anchored</strong>. The public still broadly believed in the CB's long-run commitment to price stability, which limited the extent of the expectations-driven spiral.</p>
+                        <p>After the COVID-19 supply shocks of 2021–2022, Czechia experienced a sharp inflation surge. However, the Czech National Bank <strong>did not raise interest rates enough</strong> to fully match the Taylor Principle.</p>
+                        <p>Despite this, inflation eventually returned toward target. The key reason: expectations were <strong>partially anchored</strong> ($0 < \psi < 1$). The public still broadly believed in the CB's long-run commitment to price stability, which limited the expectations-driven persistence.</p>
                         <div class="alert-box" style="background-color: var(--accent-seminar-light); border-color: var(--accent-seminar-border);">
                             <div class="alert-icon"><i class="fas fa-globe-europe" style="color: var(--accent-seminar);"></i></div>
                             <div class="alert-content">
                                 <h4>Link to the Model</h4>
-                                <p>This episode illustrates why anchored expectations are so valuable: even if the CB under-reacts (violating the Taylor Principle), a sufficient degree of anchoring ($\psi$ close to 0) limits inflation persistence and allows the economy to return to target without a deep recession.</p>
-                                <p>The risk, as shown in Q4, is that sustained under-reaction may erode credibility and cause $\psi$ to drift toward 1 — at which point the Taylor Principle once again becomes critical.</p>
+                                <p>This episode illustrates why anchored expectations are so valuable: even if the CB under-reacts (violating the Taylor Principle), a sufficient degree of anchoring limits inflation persistence and allows the economy to return to target without a deep recession.</p>
+                                <p>The risk is that sustained under-reaction erodes credibility and causes $\psi$ to drift toward 1 — at which point the Taylor Principle once again becomes critical for stability.</p>
                             </div>
                         </div>
                     </div>
