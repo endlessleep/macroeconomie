@@ -157,118 +157,157 @@
                     </div>
 
                     <div class="step">
-                        <div class="step-label">Q3 — Period 0 Effects ($\eta_0 = -1$)</div>
-                        <p>Assuming standard parameters ($\alpha = 1, \phi = 0.25, \theta_\pi = 0.5, \theta_y = 0.5$) and no other shocks ($\epsilon_0 = 0$), the DAD slope coefficient is $1/3 \approx 0.33$ and the shock multiplier is $1/1.5 = 2/3 \approx 0.67$.</p>
+                        <div class="step-label">Q3 — Period 0 Effects ($\eta_0 = -1$): Step-by-step Chain Reaction</div>
+                        <p>We use standard parameters: $\alpha = 1,\ \phi = 0.25,\ \theta_\pi = 0.5,\ \theta_y = 0.5,\ \rho = 2,\ \pi^* = 2,\ \bar{y} = 100$, and no other shocks ($\epsilon_0 = 0$).</p>
 
+                        <!-- Step 1 -->
+                        <div style="border-left: 4px solid var(--accent-seminar); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(var(--accent-seminar-rgb), 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--accent-seminar);">① Monetary Policy Rule (MP)</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $i_0 = \rho + \pi_0 + \theta_\pi(\pi_0 - \pi^*) + \theta_y(y_0 - \bar{y}) + \eta_0$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">$\eta_0 = -1 \implies i_0 \downarrow$ <br><span style="color: var(--text-muted);">👉 The central bank sets the nominal interest rate <strong>below</strong> what the Taylor Rule would prescribe — an unexpected rate cut.</span></p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div style="border-left: 4px solid var(--accent-seminar); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(var(--accent-seminar-rgb), 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--accent-seminar);">② Fisher Equation (FE)</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $r_0 = i_0 - \pi_0^e \quad \text{with} \quad \pi_0^e = \pi_{-1} = \pi^* = 2$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">$i_0 \downarrow \implies r_0 \downarrow$ <br><span style="color: var(--text-muted);">👉 The real interest rate falls directly. Borrowing becomes cheaper in real terms.</span></p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div style="border-left: 4px solid var(--accent-seminar); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(var(--accent-seminar-rgb), 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--accent-seminar);">③ IS Curve</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $y_0 = \bar{y} - \alpha(r_0 - \rho)$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">$r_0 \downarrow \implies y_0 \uparrow$ <br><span style="color: var(--text-muted);">👉 Lower real rates stimulate consumption and investment → output rises above potential ($y_0 > \bar{y}$).</span></p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div style="border-left: 4px solid var(--accent-seminar); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(var(--accent-seminar-rgb), 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--accent-seminar);">④ Phillips Curve (PC)</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $\pi_0 = \pi_0^e + \phi(y_0 - \bar{y})$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">$y_0 > \bar{y} \implies \pi_0 \uparrow$ <br><span style="color: var(--text-muted);">👉 The positive output gap ($y_0 > \bar{y}$) creates upward pressure on inflation.</span></p>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div style="border-left: 4px solid #f59e0b; padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(245, 158, 11, 0.05); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: #d97706;">⑤ Fisher Equation — Amplification loop</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $r_0 = i_0 - \pi_0$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">$\pi_0 \uparrow \implies r_0 \downarrow$ further<br><span style="color: var(--text-muted);">👉 The rise in inflation reduces the real interest rate <em>even more</em>, amplifying the initial boom through the IS curve.</span></p>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div style="border-left: 4px solid var(--accent-seminar); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(var(--accent-seminar-rgb), 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--accent-seminar);">⑥ Monetary Policy Rule — Final Reaction</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $i_0 = \rho + \pi_0 + \theta_\pi(\pi_0 - \pi^*) + \theta_y(y_0 - \bar{y}) + \eta_0$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">With $\pi_0 \uparrow$ and $y_0 \uparrow$, the Taylor Rule mechanically pushes $i_0$ back up. <br><span style="color: var(--text-muted);">👉 But this reaction <strong>only partially offsets</strong> the initial cut: the net effect is still $i_0 \downarrow$ (by less than $|\eta_0| = 1$).</span></p>
+                        </div>
+
+                        <!-- Numerical resolution -->
+                        <p style="margin-top: 1.5rem;"><strong>Numerical Resolution</strong> — Solving the DAD/DAS system simultaneously:</p>
                         <ul class="content-list">
-                            <li><strong>DAD$_0$:</strong> $y_0 - 100 = -0.33(\pi_0 - 2) - 0.67(-1)$ $\implies y_0 - 100 = -0.33(\pi_0 - 2) + 0.67$</li>
+                            <li><strong>DAD$_0$:</strong> $y_0 - 100 = -0.33(\pi_0 - 2) + 0.67$</li>
                             <li><strong>DAS$_0$:</strong> $\pi_0 - 2 = 0.25(y_0 - 100)$</li>
                         </ul>
-
-                        <p>Substitute DAS into DAD:</p>
                         <div class="equation-box">
-                            $y_0 - 100 = -0.33 \cdot \left[ 0.25(y_0 - 100) \right] + 0.67$<br>
-                            $y_0 - 100 = -0.083(y_0 - 100) + 0.67$<br>
+                            $y_0 - 100 = -0.33 \cdot [0.25(y_0 - 100)] + 0.67$<br>
                             $1.083(y_0 - 100) = 0.67 \implies y_0 - 100 \approx 0.62$
                         </div>
 
-                        <p><strong>Period 0 Results:</strong></p>
-                        <ul class="content-list">
-                            <li><strong>Output:</strong> $y_0 = 100 + 0.62 = \mathbf{100.62}$ *(Output rises, boom)*</li>
-                            <li><strong>Inflation:</strong> $\pi_0 = 2 + 0.25(0.62) = \mathbf{2.155}$ *(Inflation rises)*</li>
-                            <li><strong>Nominal Rate:</strong> $i_0 = 2.155 + 2 + 0.5(0.155) + 0.5(0.62) - 1 = \mathbf{3.54}$ *(Rate is forcefully lowered)*</li>
-                            <li><strong>Real Rate:</strong> $r_0 = 3.54 - 2.155 = \mathbf{1.385}$ *(Lower than natural rate 2, stimulating demand)*</li>
-                        </ul>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">Q4 — Subsequent Dynamics ($\eta_t = 0$)</div>
-                        <p>In period $t=1$, the central bank stops its discretionary cut and strictly follows the Taylor rule again ($\eta_1=0$). The DAD curve shifts back to its original position.</p>
-                        <p><strong>However</strong>, expected inflation is now higher, based on the period 0 inflation spike ($\pi^e_1 = \pi_0 = 2.155$). This shifts the DAS curve <strong>upward</strong>.</p>
-                        <p>To fight this inherited inflation, the Taylor rule will automatically generate a high real interest rate, pushing the economy into a localized recession ($y_1 < 100$) to "squeeze" the inflation out of the system.</p>
-
-                        <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
-                            <img src="assets/con2.png" alt="Convergence Dynamics after a Monetary Shock" style="max-width: 80%; border-radius: 8px;">
-                            <p class="image-caption">Convergence of Variables: The short boom is followed by a hangover recession to correct the resulting inflation.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </details>
-        </div>
-
-        <!-- ==================== EXERCISE 2: Disinflation ==================== -->
-        <div class="exercise-block" style="margin-top: 3rem;">
-            <span class="exercise-number">Exercise 2</span>
-            <h3>Task 5: Disinflation Strategy</h3>
-
-            <p>The economy is in long-run equilibrium at an unfortunately high level: $\pi = \pi^* = 4$. In period 0, the Central Bank announces a new, lower target: $\pi_{new}^* = 2$.</p>
-
-            <ol class="content-list">
-                <li>What must happen to output for inflation to decline?</li>
-                <li>Calculate the immediate impact on $i_0$ and $r_0$.</li>
-                <li>Trace the path of all variables over time.</li>
-                <li>Show the dynamics in the DAD-DAS diagram.</li>
-            </ol>
-
-            <details class="solution-toggle">
-                <summary>Show Solution</summary>
-                <div class="solution-content">
-
-                    <div class="step">
-                        <div class="step-label">Q1 — The Requirement for Disinflation</div>
-                        <p>From the Phillips curve: $\Delta\pi_t = \phi(y_t - \bar{y})$.</p>
-                        <p>If we want inflation to fall over time ($\Delta\pi_t < 0$), we mathematically require a <strong>negative output gap</strong> ($y_t < \bar{y}$).</p>
-                        <p> Economically, the central bank must intentionally induce a <strong>recession</strong> to reduce aggregate demand, forcing firms to slow their price increases.</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">Q2 — Immediate Impact on Interest Rates</div>
-                        <p>At $t=0$, the new target $\pi^*=2$ is inserted into the Taylor Rule. Since past inflation is stuck at $4$, the rule perceives a massive positive inflation gap ($\pi_0 - \pi^* > 0$).</p>
-                        
-                        <p><strong>Step-by-step resolution:</strong></p>
-                        <p>The DAD curve permanently shifts to the left because of the lower target. Using standard parameters and solving the DAD/DAS system for $\pi^*=2$ and $\pi_{t-1}=4$:</p>
-                        <ul class="content-list">
-                            <li><strong>DAD:</strong> $y_0 - 100 = -0.33(\pi_0 - 2)$</li>
-                            <li><strong>DAS:</strong> $\pi_0 = 4 + 0.25(y_0 - 100)$</li>
-                        </ul>
-                        <p>Substitute DAD into DAS:</p>
-                        <div class="equation-box">
-                            $\pi_0 - 4 = 0.25 \left[ -0.33(\pi_0 - 2) \right]$<br>
-                            $\pi_0 - 4 = -0.083\pi_0 + 0.166$<br>
-                            $1.083\pi_0 = 4.166 \implies \pi_0 \approx \mathbf{3.84}$
-                        </div>
-                        <p>And Output:</p>
-                        <div class="equation-box">
-                            $y_0 - 100 = -0.33(3.84 - 2) = -0.61 \implies y_0 = \mathbf{99.39}$
-                        </div>
-
-                        <p><strong>Impact on interest rates:</strong></p>
-                        <ul class="content-list">
-                            <li><strong>Nominal Rate:</strong> $i_0 = 3.84 + 2 + 0.5(3.84 - 2) + 0.5(-0.61) = 5.84 + 0.92 - 0.305 = \mathbf{6.455}$</li>
-                            <li><strong>Real Rate:</strong> $r_0 = i_0 - \pi_0 = 6.455 - 3.84 = \mathbf{2.615}$</li>
-                        </ul>
-                        <p>Both rates jump immediately. The $r_0$ rises sharply above the natural rate (2), confirming the restrictive policy that causes the recession ($y_0 = 99.39$).</p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-label">Q3 — The Path Over Time</div>
-                        <p>Inflation does not instantly fall to 2. It drops to 3.84 in period 0, then grinds down period after period due to adaptive expectations keeping it sticky.</p>
-                        <p>Output remains trapped in a recession ($y_t < 100$) for several periods, only slowly recovering to 100 as inflation finally approaches the new target of 2.</p>
-
-                        <div class="image-container" style="text-align: center; margin: 1.5rem 0;">
-                            <img src="assets/con3.png" alt="Disinflation Dynamics" style="max-width: 80%; border-radius: 8px;">
-                            <p class="image-caption">Disinflation over time: A prolonged recession is required to break entrenched inflation expectations.</p>
+                        <!-- Final Results -->
+                        <div class="alert-box" style="margin-top: 1.5rem; border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.05);">
+                            <div class="alert-content" style="padding-left: 1rem;">
+                                <h4 style="color: #059669; margin-bottom: 0.75rem;">⚠️ Period 0 Final Results</h4>
+                                <ul style="margin: 0; padding-left: 1.2rem; line-height: 2;">
+                                    <li><strong>Output:</strong> $y_0 = \mathbf{100.62}$ → boom above potential</li>
+                                    <li><strong>Inflation:</strong> $\pi_0 = 2 + 0.25 \times 0.62 = \mathbf{2.155}$ → above target</li>
+                                    <li><strong>Nominal Rate:</strong> $i_0 = 2.155 + 2 + 0.5(0.155) + 0.5(0.62) - 1 = \mathbf{3.54}$ → lowered, but less than $|\eta_0|$</li>
+                                    <li><strong>Real Rate:</strong> $r_0 = 3.54 - 2.155 = \mathbf{1.385}$ → below natural rate $\rho = 2$, confirming stimulus</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
                     <div class="step">
-                        <div class="step-label">Q4 — DAD-DAS Dynamics</div>
-                        <ul class="content-list">
-                            <li><strong>Period 0:</strong> The DAD curve permanently shifts to the left (downward) due to the lowered target $\pi^*=2$. The economy slides down the existing old DAS curve ($DAS_{-1}$) to a lower output and slightly lower inflation ($E_0$).</li>
-                            <li><strong>Periods $1 \dots \infty$:</strong> As inflation slowly falls, expected inflation falls with it. This causes the DAS curve to gradually shift downward in tiny steps every period.</li>
-                            <li><strong>Convergence:</strong> The sequence ends when the DAS curve has fallen fully to intersect the new DAD curve exactly at potential output ($y=100$) and the new target inflation ($\pi=2$).</li>
-                        </ul>
+                        <div class="step-label">Q4 — Dynamics in period $t+1$ ($\eta_{t+1} = 0$)</div>
+                        <p>In period $t+1$, the central bank stops the discretionary cut and returns to the standard Taylor Rule ($\eta_{t+1} = 0$). The DAD curve shifts back to its original position. However, the economy is not back to normal — it has inherited high inflation expectations.</p>
+
+                        <!-- Step 1 t+1 -->
+                        <div style="border-left: 4px solid #6366f1; padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(99, 102, 241, 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: #6366f1;">① Inflation Expectations (DAS shift)</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $\pi_{t+1}^e = \pi_t = 2.155 > \pi^*$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">Under adaptive expectations, agents remember the inflation spike from period 0. <br><span style="color: var(--text-muted);">👉 The DAS curve shifts <strong>upward</strong>: even with no new shock, inflation is expected to remain above target.</span></p>
+                        </div>
+
+                        <!-- Step 2 t+1 -->
+                        <div style="border-left: 4px solid #6366f1; padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(99, 102, 241, 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: #6366f1;">② Phillips Curve (PC)</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $\pi_{t+1} = \pi_{t+1}^e + \phi(y_{t+1} - \bar{y})$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">High $\pi_{t+1}^e$ means $\pi_{t+1} > \pi^*$ even if the output gap is slightly negative.<br><span style="color: var(--text-muted);">👉 Inflation remains above target due to expectation inertia.</span></p>
+                        </div>
+
+                        <!-- Step 3 t+1 -->
+                        <div style="border-left: 4px solid #6366f1; padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(99, 102, 241, 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: #6366f1;">③ Monetary Policy Rule (MP)</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $i_{t+1} = \rho + \pi_{t+1} + \theta_\pi(\pi_{t+1} - \pi^*) + \theta_y(y_{t+1} - \bar{y})$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">$\pi_{t+1} > \pi^* \implies i_{t+1} \uparrow$ <br><span style="color: var(--text-muted);">👉 The Taylor Rule reacts aggressively to above-target inflation, raising the nominal rate.</span></p>
+                        </div>
+
+                        <!-- Step 4 t+1 -->
+                        <div style="border-left: 4px solid #6366f1; padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(99, 102, 241, 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: #6366f1;">④ Fisher Equation (FE)</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $r_{t+1} = i_{t+1} - \pi_{t+1}^e = i_{t+1} - \pi_t$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">$i_{t+1} \uparrow$ while $\pi_{t+1}^e$ is fixed (formed in $t$) $\implies r_{t+1} \uparrow$ <br><span style="color: var(--text-muted);">👉 The real rate rises above the natural rate $\rho$, making borrowing more expensive.</span></p>
+                        </div>
+
+                        <!-- Step 5 t+1 -->
+                        <div style="border-left: 4px solid #6366f1; padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(99, 102, 241, 0.04); border-radius: 0 8px 8px 0;">
+                            <p style="margin: 0 0 0.5rem; font-weight: 700; color: #6366f1;">⑤ IS Curve — Recession</p>
+                            <div class="equation-box" style="margin: 0.5rem 0;">
+                                $y_{t+1} = \bar{y} - \alpha(r_{t+1} - \rho)$
+                            </div>
+                            <p style="margin: 0.5rem 0 0;">$r_{t+1} \uparrow \implies y_{t+1} \downarrow < \bar{y}$ <br><span style="color: var(--text-muted);">👉 Output falls below potential. The economy enters a <strong>temporary recession</strong> — the necessary "hangover" to correct the inflation inherited from period 0.</span></p>
+                        </div>
+
+                        <!-- Economic Interpretation -->
+                        <div class="alert-box" style="margin-top: 1.5rem;">
+                            <div class="alert-icon"><i class="fas fa-rotate-left"></i></div>
+                            <div class="alert-content">
+                                <h4>Economic Interpretation</h4>
+                                <p>In period $t+1$, the central bank stops its discretionary expansion and follows the Taylor Rule again. The DAD curve shifts back to its initial position. However, inflation expectations remain high due to the inflation spike of period 0. This shifts the DAS curve <strong>upward</strong>.</p>
+                                <p>To bring inflation back to target, the central bank must raise the nominal rate enough to push the <em>real</em> rate above $\rho$. This contracts output below $\bar{y}$, creating a short-run recession. This contraction is the necessary cost to gradually squeeze out the inherited inflationary expectations.</p>
+                            </div>
+                        </div>
+
+                        <!-- Graph -->
+                        <div style="border: 2px solid var(--accent-seminar-border); border-left: 6px solid var(--accent-seminar); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; background: linear-gradient(to right, rgba(var(--accent-seminar-rgb), 0.04), transparent);">
+                            <figure style="margin: 0; background: transparent; padding: 0; border: none; box-shadow: none; text-align: center;">
+                                <img src="assets/seminar5ex1.png" alt="Impulse Response Functions — Monetary Policy Shock η₀ = −1" style="max-width: 85%; border-radius: 8px; border: 1px solid var(--border-light);">
+                                <figcaption style="margin-top: 1.2rem; font-size: 0.95rem; color: var(--text-color); font-style: normal; text-align: left; line-height: 1.6;">
+                                    <strong style="color: var(--accent-seminar);"><i class="fas fa-chart-line"></i> Impulse Response Functions: Monetary Policy Shock ($\eta_0 = -1$).</strong><br>
+                                    A one-period unexpected rate cut ($\eta_0 = -1$) triggers an immediate boom in output and inflation in period 0. In period 1, the DAD shifts back but the DAS remains elevated due to high adaptive expectations. The economy enters a hangover recession ($y_{t+1} < \bar{y}$) that progressively drags inflation back to target. All five variables — output, inflation, real rate, nominal rate, and the output gap — converge back to their long-run equilibrium values.
+                                </figcaption>
+                            </figure>
+                        </div>
                     </div>
 
                 </div>
@@ -279,7 +318,7 @@
         <section
             style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-seminar-border); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>End of Seminar 5 — MP Shocks & Disinflation. Utilizing Codex Logic standards.</em>
+                <em>End of Seminar 5 — MP Shocks &amp; Disinflation. Utilizing Codex Logic standards.</em>
             </p>
         </section>
 
