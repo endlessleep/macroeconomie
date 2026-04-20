@@ -481,6 +481,265 @@
 
         </section>
 
+        
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- IS-LM-BP & THE MUNDELL-FLEMING MODEL -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="mundell-fleming">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-sitemap"></i> Modelling the Open Economy: Mundell-Fleming & IS-LM-BP</h2>
+            
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-info-circle"></i></div>
+                <div class="alert-content">
+                    <h4>How to Read This Model Today</h4>
+                    <p>The Mundell-Fleming / IS-LM-BP framework is a benchmark short-run model of the open economy. It is essentially a pedagogical tool rather than a perfect description of reality. It drastically simplifies reality in order to perfectly isolate the key transmission mechanisms of policy in an open economy.</p>
+                    <p>In modern macroeconomics, central banks don't fix the money supply; the LM curve is instead replaced by an MP curve (Taylor rule). We study it to build crucial economic intuition regarding exchange-rate regimes and the impossible trinity.</p>
+                </div>
+            </div>
+
+            <h3>The Baseline Assumptions</h3>
+            <p>We begin by exploring the Mundell-Fleming model, effectively assuming a small open economy with flawless capital mobility. Under this setup, the domestic interest rate is anchored to the global rate ($r = r^*$).</p>
+            
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4>IS* Curve (Goods Market)</h4>
+                    <div class="equation-box" style="margin:0.5rem 0; font-size:1.1rem; padding:0.5rem;">
+                        $Y = C(Y-T) + I(r^*) + G + NX(e)$
+                    </div>
+                    <p>Where $e$ is the nominal exchange rate. The exchange rate acts as the key adjustment variable in an open economy. When domestic policies change, it is often the exchange rate that moves in order to restore equilibrium.</p>
+                </div>
+                <div class="grid-card">
+                    <h4>LM* Curve (Money Market)</h4>
+                    <div class="equation-box" style="margin:0.5rem 0; font-size:1.1rem; padding:0.5rem;">
+                        $M/P = L(r^*, Y)$
+                    </div>
+                    <p>Money supply is rigidly fixed by the central bank. Money demand depends entirely on income $Y$ and the fixed global interest rate $r^*$.</p>
+                </div>
+            </div>
+
+            <p>Our analysis critically hinges on whether the economy uses a <strong>Floating</strong> or a <strong>Fixed</strong> exchange rate regime.</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- FLOATING EXCHANGE RATES: POLICY MECHANISMS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="policy-mechanisms">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-water"></i> Policies Under Floating Exchange Rates</h2>
+
+            <!-- Fiscal Policy -->
+            <div class="concept-card" style="margin-bottom: 2.5rem;">
+                <div class="concept-title"><i class="fas fa-landmark"></i> Fiscal Policy (Ineffective)</div>
+                <div class="concept-body">
+                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A fiscal expansion ($G \uparrow$ or $T \downarrow$) increases domestic demand, which initially raises income ($Y \uparrow$). Higher income increases the demand for money, pushing domestic interest rates upward ($r > r^*$). This immediately attracts massive capital inflows from foreign investors seeking higher yields. These sudden capital inflows cause the domestic currency to immediately appreciate ($e \uparrow$), which catastrophically reduces Net Exports ($NX \downarrow$).</p>
+                    <p><strong>The Final Result:</strong> This appreciation fully offsets the initial expansion in demand. It perfectly crowds out the fiscal shock. Under perfect capital mobility, fiscal policy is largely <strong>ineffective</strong> at changing output.</p>
+                    <figure class="image-container">
+                        <img src="assets/fiscal.png" alt="Fiscal policy in Mundell Fleming">
+                        <figcaption>Fiscal Policy: The IS* curve shifts right initially, but the immediate currency appreciation forces it back. Output $Y$ remains unchanged.</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Monetary Policy -->
+            <div class="concept-card" style="border-left-color: var(--accent-secondary); margin-bottom: 2.5rem;">
+                <div class="concept-title"><i class="fas fa-coins"></i> Monetary Policy (Highly Effective)</div>
+                <div class="concept-body">
+                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A monetary expansion ($M \uparrow$) suddenly shifts the LM curve to the right, driving the domestic interest rate downward ($r < r^*$). Seeking better returns elsewhere, capital rapidly flows out of the country. These capital outflows cause the domestic currency to heavily depreciate ($e \downarrow$). The cheaper currency drastically boosts Net Exports ($NX \uparrow$).</p>
+                    <p><strong>The Final Result:</strong> The rise in net exports violently increases aggregate demand, reinforcing the initial expansion. Therefore, monetary policy is <strong>highly effective</strong> in raising output. <em>The key intuition here is that expansionary monetary policy does not raise absolute world demand; it merely shifts demand away from foreign products toward domestic products.</em></p>
+                    <figure class="image-container">
+                        <img src="assets/monetary.png" alt="Monetary policy in Mundell Fleming">
+                        <figcaption>Monetary Policy: The LM* shifts right. The currency depreciates, pushing NX up and permanently expanding equilibrium output $Y$.</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Trade Policy -->
+            <div class="concept-card" style="border-left-color: #f59e0b; margin-bottom: 2.5rem;">
+                <div class="concept-title"><i class="fas fa-ship"></i> Trade Policy (Ineffective)</div>
+                <div class="concept-body">
+                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A protectionist trade policy (such as tariffs or quotas) artificially reduces imports, structurally improving net exports. This directly shifts the IS curve rightward, raising output and interest rates in the short run. Just like fiscal policy, the higher $r$ instantly attracts massive capital inflows, strongly appreciating the domestic currency. The currency appreciation perfectly kills off the initial gain in net exports.</p>
+                    <p><strong>The Final Result:</strong> Under a floating regime, trade policy has absolutely <strong>no effect on overall output</strong>. <em>In practice, this means that while import restrictions save specific jobs in protected domestic industries, they systematically destroy equivalent jobs in exporting sectors due to the strengthened currency.</em> This merely creates painful frictional unemployment (sectoral shifts).</p>
+                    <figure class="image-container">
+                        <img src="assets/trade.png" alt="Trade policy in Mundell Fleming">
+                        <figcaption>Trade Policy: Protectionism shifts IS* right, but the currency instantly appreciates, neutralizing the shift. Net overall output remains firmly unchanged.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- FIXED REGIME -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="fixed-regime">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-anchor"></i> Fixed Exchange Rates</h2>
+            <p>Under fixed exchange rates, the Central Bank deliberately stands ready to buy or sell the domestic currency for foreign currency at a predetermined, rigid rate. It effectively sacrifices its monetary autonomy to secure the exchange rate.</p>
+            
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4>The Mechanism & Risk</h4>
+                    <p>The CB buys or sells using its foreign reserves. A massive vulnerability is the risk of a <strong>speculative attack</strong> where the CB entirely runs out of reserves. A desperate solution to this is a rigid <em>Currency Board</em>.</p>
+                </div>
+                <div class="grid-card">
+                    <h4>Long Run Flexibility</h4>
+                    <p>Remember that this system strictly fixes the <strong>nominal</strong> rate ($e$). In the very long run, as prices ($P$, $P^*$) become fully flexible, the <strong>real exchange rate ($\epsilon$)</strong> can and will move organically anyway.</p>
+                </div>
+            </div>
+
+            <h3>Policy Effectiveness under Fixed Rates</h3>
+            <p>Because the exchange rate cannot move to absorb shocks, the money supply ($M$) becomes totally endogenous, constantly adjusting to maintain the exact peg.</p>
+            
+            <div class="grid-cards" style="margin-top:2rem;">
+                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#10b981;">
+                    <img src="assets/exp.png" alt="Fiscal expansion fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
+                    <h4 style="justify-content:center;">Fiscal Expansion</h4>
+                    <p style="font-size:0.9rem;">To prevent the currency from appreciating after an IS* rightward shift, the CB prints money (LM* shifts right). Output $Y$ expands heavily. <strong>Highly Effective!</strong></p>
+                </div>
+                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#f43f5e;">
+                    <img src="assets/lm.png" alt="Monetary policy fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
+                    <h4 style="justify-content:center;">Monetary Policy</h4>
+                    <p style="font-size:0.9rem;">An attempt to drop rates causes capital flight. To defend the peg from depreciation, the CB must buy back the money (LM* reverts). <strong>Totally Ineffective!</strong></p>
+                </div>
+                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#f59e0b;">
+                    <img src="assets/rest.png" alt="Trade restriction fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
+                    <h4 style="justify-content:center;">Trade Restrictions</h4>
+                    <p style="font-size:0.9rem;">IS* shifts right from tariff. To stop the resulting appreciation, the CB prints money (LM* shifts right), permanently locking in higher Output $Y$. <strong>Effective!</strong></p>
+                </div>
+            </div>
+            
+            <figure class="image-container" style="margin-top: 3rem;">
+                <img src="assets/sum.png" alt="Summary of Mundell Fleming Policies" style="max-width: 600px;">
+                <figcaption><strong>Summary of Policy Effectiveness:</strong> Look at the diagonal symmetry! Fiscal and Trade policies are potent exclusively under Fixed rates. Monetary policy is potent exclusively under Floating rates.</figcaption>
+            </figure>
+            
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- RISK AND CRISIS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="risk-crisis">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-exclamation-triangle"></i> Risk Differentials and the AD Curve</h2>
+            
+            <p>Until now, we assumed $r = r^*$. But in reality, robust interest rates differ systematically due to imperfect capital mobility, intense transaction costs, or strict capital controls (the "Home Bias").</p>
+
+            <div class="concept-card">
+                <div class="concept-title">Integrating the Risk Premium ($\theta$)</div>
+                <div class="concept-body">
+                    <p>We modify our global interest rate equation to include a country risk premium: <strong>$r = r^* + \theta$</strong>.</p>
+                    <ul class="content-list">
+                        <li>$Y = C(Y - T) + I(r^* + \theta) + G + NX(e)$</li>
+                        <li>$M/P = L(r^* + \theta, Y)$</li>
+                    </ul>
+                    <p><em>What really drives the result</em> of an sudden increase in the risk premium ($\theta \uparrow$)? Investors demand more yield to hold domestic assets. Domestic interest rates spike. Capital violently flees the country. The IS* curve shifts left (investment crashes), while LM* shifts right (money demand crashes). The currency immensely depreciates.</p>
+                    <figure class="image-container" style="margin-top:1.5rem;">
+                        <img src="assets/risk.png" alt="Risk premium increase in Mundell Fleming">
+                        <figcaption>An explosive rise in country risk shifts both curves, violently depreciating the currency ($e \downarrow$).</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-bolt"></i></div>
+                <div class="alert-content">
+                    <h4>Case Study: The 1994 Mexico Peso Crisis</h4>
+                    <p>In early 1994, political instability (the Chiapas uprising, assassinations) combined with rising U.S. rates sent Mexico's risk premium ($\theta$) skyrocketing. The Peso faced colossal downward pressure.</p>
+                    <p>Mexico tried to defend its fixed exchange rate by draining its dollar reserves secretly. When markets realized on Dec 20 that the reserves were nearly annihilated, pure panic triggered a capital flight. The fixed rate violently collapsed (depreciating over 40% in weeks).</p>
+                    <p><em>This creates a trade-off:</em> Fixing an exchange rate grants stability, but leaves you fundamentally defenseless when facing gigantic risk premium shocks and depleted reserves. Interestingly, the crash deeply hurt the US too—Mexican assets owned by Americans lost value, and US border exports collapsed.</p>
+                </div>
+            </div>
+            
+            <p style="margin-top:2rem;"><strong>Mundell-Fleming and Aggregate Demand:</strong> By relaxing the fixed-price assumption, any drop in the general price level ($P \downarrow$) increases real money balances ($M/P \uparrow$), shifting the LM* right. This depreciates the currency and boosts output, neatly derivation the downward-sloping Aggregate Demand (AD) curve from the M-F model.</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- IS-LM-BP & THE IMPOSSIBLE TRINITY -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="large-economy">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-cubes"></i> IS-LM-BP and The Impossible Trinity</h2>
+            
+            <p>For massive economic juggernauts like the US or China, the simple Small Open Economy framework is simply too restrictive. Their capital flows are so immense they manipulate the global interest rate $r^*$.</p>
+            <p>We combine everything by introducing the Balance of Payments (BP) curve into the core: $NX(e) = CF(r)$.</p>
+
+            <figure class="image-container" style="margin: 2rem 0;">
+                <img src="assets/fiscal-expansion-open-economy-transmission.png" alt="IS LM BP Fiscal Expansion" style="max-width: 600px;">
+                <figcaption><strong>Transmission of a Fiscal Expansion (IS-LM-BP):</strong> The addition of the BP curve allows us to explicitly model exact international capital flows and their organic interaction with domestic equilibrium.</figcaption>
+            </figure>
+
+            <div class="concept-card" style="border-left-color: var(--accent-primary);">
+                <div class="concept-title"><i class="fas fa-triangle-exclamation"></i> The Impossible Trinity (Trilemma)</div>
+                <div class="concept-body">
+                    <p>A fundamental mathematical reality of international macroeconomics: A nation absolutely cannot simultaneously possess free capital flows, an independent monetary policy, and a permanently fixed exchange rate.</p>
+                    <p><em>Choosing any two automatically implies sacrificing the third.</em></p>
+                    
+                    <div style="background:var(--bg-main); padding:2rem; border-radius:12px; margin-top:1.5rem; border:1px solid var(--border-light); text-align:center;">
+                        <h4 style="margin-bottom:1.5rem; color:var(--text-main);">The Trilemma Triangle</h4>
+                        
+                        <div style="display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:2rem;">
+                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
+                                <i class="fas fa-money-bill-wave" style="font-size:2rem; color:var(--accent-primary); margin-bottom:0.5rem;"></i>
+                                <h5 style="font-size:1.05rem;">Free Capital Flow</h5>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Money cross borders with zero restrictions.</p>
+                            </div>
+                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
+                                <i class="fas fa-anchor" style="font-size:2rem; color:#f43f5e; margin-bottom:0.5rem;"></i>
+                                <h5 style="font-size:1.05rem;">Fixed Exchange Rate</h5>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Stable currency value peg.</p>
+                            </div>
+                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
+                                <i class="fas fa-university" style="font-size:2rem; color:#10b981; margin-bottom:0.5rem;"></i>
+                                <h5 style="font-size:1.05rem;">Independent Monetary</h5>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">CB sets rates to manage local inflation.</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:2rem; text-align:left; max-width:600px; margin-left:auto; margin-right:auto;">
+                            <p><strong>Option 1 (e.g. U.S.):</strong> Chooses Capital Flows + Independent Policy $\rightarrow$ Sacrifices Peg (Uses Floating Rates).</p>
+                            <p><strong>Option 2 (e.g. Hong Kong):</strong> Chooses Capital Flows + Fixed Peg $\rightarrow$ Sacrifices Independent CB (Must strictly import foreign interest rates).</p>
+                            <p><strong>Option 3 (e.g. China):</strong> Chooses Independent Policy + Fixed Peg $\rightarrow$ Sacrifices Free Movement (Must brutally enforce capital controls).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- INTEREST RATE PARITY -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="interest-parity">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-balance-scale-right"></i> Interest Rate Parity</h2>
+            <p>Interest rate parity inherently reflects the simple idea that investors primarily care about total combined returns, incorporating both raw interest yields and expected currency exchange rate shifts.</p>
+            <p>It demands sufficient capital mobility and expects assets across borders to be structurally perfect substitutes.</p>
+
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4>Uncovered Interest Parity (UIP)</h4>
+                    <p>The investor takes pure risk by NOT hedging. They gamble on the future exchange rate. The arbitrage rule states expected total returns must identical:</p>
+                    <div class="equation-box" style="margin: 0.5rem 0; font-size: 1rem; padding: 0.5rem;">
+                        $i_{CZK,t} - i_{EUR,t} \approx \frac{E_t(e_{t+1}) - e_t}{e_t}$
+                    </div>
+                    <p style="font-size:0.9rem;"><em>Intuition:</em> If Czech rates are strictly higher, mathematical logic demands investors expect a future massive depreciation of the CZK to offset those gains. Empirically, UIP often drastically fails in the short run due to risk premia.</p>
+                </div>
+                <div class="grid-card">
+                    <h4>Covered Interest Parity (CIRP)</h4>
+                    <p>The smartest and safest route. The investor fully hedges the future rate risk using a binding forward contract natively on financial markets. No-arbitrage condition:</p>
+                    <div class="equation-box" style="margin: 0.5rem 0; font-size: 1rem; padding: 0.5rem;">
+                        $i_{CZK,t} - i_{EUR,t} \approx \frac{F_t - S_t}{S_t}$
+                    </div>
+                    <p style="font-size:0.9rem;"><em>Intuition:</em> The interest gap instantly mirrors the forward premium perfectly. Under normal peaceful situations, CIRP stubbornly holds flawlessly, only breaking during extreme financial crises when literal funding evaporates.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- ═══════════════════════════════════════════ -->
         <!-- SUMMARY TOGGLE -->
         <!-- ═══════════════════════════════════════════ -->
@@ -491,6 +750,10 @@
                     <li><strong>Small Open Economy Core Identity:</strong> The crucial engine driving our model rests entirely on $NX = S - I$. Trade imbalances are fundamentally born from capital flow variations.</li>
                     <li><strong>Perfect Mobility:</strong> With frictionless capital flow, a Small Open Economy possesses absolutely zero gravitational pull over the world real interest rate ($r^*$). Therefore, domestic investment strictly mirrors global credit conditions.</li>
                     <li><strong>Price Structural Gaps:</strong> Persistent real-world deviations from basic Purchasing Power Parity (PPP), illustrated precisely by the potent Balassa-Samuelson Effect, structurally explain why high-growth domains suffer relentless inflationary bursts in nontradable sectors.</li>
+                
+                    <li><strong>Mundell-Fleming Policy Framework:</strong> A short-run system determining that Fiscal/Trade policy commands power solely under fixed exchange regimes, whereas Monetary policy claims dominance heavily in floating environments.</li>
+                    <li><strong>The Impossible Trinity:</strong> A systemic trilemma forcing nations to irrevocably surrender one piece of sovereignty: you cannot unite fixed rates, infinite capital movement, and sovereign monetary policy.</li>
+                    <li><strong>Interest Rate Parity:</strong> Establishes that real yields across frontiers equate structurally when factoring in direct foreign exchange speculations (UIP) or heavily contracted futures (CIRP).</li>
                 </ol>
             </div>
         </details>
