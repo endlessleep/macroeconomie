@@ -31,6 +31,13 @@
     --accent-note-border: #c4b5fd;
     --accent-note-hover: #5b21b6;
 
+    /* IS-LM Accent - Crimson/Red */
+    --accent-islm: #ef4444;
+    --accent-islm-rgb: 239, 68, 68;
+    --accent-islm-light: #fef2f2;
+    --accent-islm-border: #fca5a5;
+    --accent-islm-hover: #b91c1c;
+
     /* Alert/Post-It Colors */
     --alert-bg: #eff6ff;
     --alert-border: #bfdbfe;
@@ -281,6 +288,17 @@ body {
 .menu-item.seminar .accordion-content li a:hover,
 .menu-item.seminar .accordion-content li a.active {
     color: var(--accent-seminar-border);
+}
+
+/* IS-LM menu accent */
+.menu-item.islm .accordion-header:hover,
+.menu-item.islm .accordion-header.active {
+    border-left-color: var(--accent-islm);
+}
+
+.menu-item.islm .accordion-content li a:hover,
+.menu-item.islm .accordion-content li a.active {
+    color: var(--accent-islm-border);
 }
 
 .sidebar.collapsed .accordion-content {
@@ -674,6 +692,25 @@ figcaption {
 .page-header.seminar .page-subtitle {
     color: var(--accent-seminar);
     font-weight: 500;
+}
+
+/* IS-LM page header accent */
+.page-header.islm {
+    border-bottom-color: var(--accent-islm);
+}
+
+.page-header.islm .page-title {
+    color: var(--accent-islm-hover);
+}
+
+.page-header.islm .page-subtitle {
+    color: var(--accent-islm);
+    font-weight: 500;
+}
+
+/* IS-LM content h2 accent override */
+.islm-content h2::before {
+    background: var(--accent-islm);
 }
 
 /* Exercise Block */

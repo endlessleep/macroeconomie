@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS-LM & AD Applications</title>
+    <meta name="description" content="Macroeconomics II: IS-LM Applications, Crowding Out, Aggregate Demand, ELB, and Great Depression.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                processEscapes: true
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="macro_style.css">
+    <style>
+        /* Fluo red overrides for inline accents */
+        .fluo-red {
+            background: linear-gradient(104deg, rgba(239,68,68,0) 0.9%, rgba(239,68,68,0.55) 2.4%, rgba(239,68,68,0.35) 5.8%, rgba(239,68,68,0.65) 93%, rgba(239,68,68,0.2) 96%, rgba(239,68,68,0) 98%),
+                        linear-gradient(183deg, rgba(239,68,68,0) 0%, rgba(239,68,68,0.2) 7.9%, rgba(239,68,68,0) 15%);
+            padding: 0 0.25rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .fluo-coral {
+            background: linear-gradient(104deg, rgba(251,113,133,0) 0.9%, rgba(251,113,133,0.55) 2.4%, rgba(251,113,133,0.35) 5.8%, rgba(251,113,133,0.65) 93%, rgba(251,113,133,0.2) 96%, rgba(251,113,133,0) 98%),
+                        linear-gradient(183deg, rgba(251,113,133,0) 0%, rgba(251,113,133,0.2) 7.9%, rgba(251,113,133,0) 15%);
+            padding: 0 0.25rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .fluo-orange {
+            background: linear-gradient(104deg, rgba(251,146,60,0) 0.9%, rgba(251,146,60,0.55) 2.4%, rgba(251,146,60,0.35) 5.8%, rgba(251,146,60,0.65) 93%, rgba(251,146,60,0.2) 96%, rgba(251,146,60,0) 98%),
+                        linear-gradient(183deg, rgba(251,146,60,0) 0%, rgba(251,146,60,0.2) 7.9%, rgba(251,146,60,0) 15%);
+            padding: 0 0.25rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        /* Summary toggle */
+        .summary-toggle {
+            margin-top: 2.5rem;
+            border: 1px solid var(--accent-islm-border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .summary-toggle summary {
+            background: linear-gradient(135deg, var(--accent-islm), var(--accent-islm-hover));
+            color: white;
+            padding: 0.85rem 1.25rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+        .summary-toggle summary::-webkit-details-marker { display: none; }
+        .summary-toggle summary:hover { filter: brightness(1.15); }
+        .summary-toggle summary::before {
+            content: '\f06e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.85rem;
+        }
+        .summary-toggle[open] summary::before { content: '\f070'; }
+        .summary-toggle .summary-content {
+            padding: 1.5rem;
+            background: var(--accent-islm-light);
+            border-top: 1px solid var(--accent-islm-border);
+        }
+    </style>
+</head>
+
+<body>
+    <button class="mobile-toggle" id="sidebar-toggle-mobile">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text"><i class="fas fa-chart-line"></i> Macroéconomie</div>
+            <button class="toggle-btn" id="sidebar-toggle-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="menu-nav">
+            <div class="menu-item">
+                <div class="accordion-header">
+                    <i class="fas fa-book-open"></i>
+                    <span class="accordion-title">Dynamic Macro Model</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="index.html">Model Structure</a></li>
+                        <li><a href="equilibrium.html">Model Equilibrium</a></li>
+                        <li><a href="shocks.html">Shock Simulations</a></li>
+                        <li><a href="note_shifts.html">Note: Movements vs Shifts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-item seminar">
+                <div class="accordion-header">
+                    <i class="fas fa-pen-to-square"></i>
+                    <span class="accordion-title">Seminars</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="seminar1.html">Seminar 1: IS Equation</a></li>
+                        <li><a href="seminar2.html">Seminar 2: Other Equations</a></li>
+                        <li><a href="seminar3.html">Seminar 3: Shocks Analysis</a></li>
+                        <li><a href="seminar4.html">Seminar 4: Shock Analysis</a></li>
+                        <li><a href="seminar5.html">Seminar 5: MP</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-item islm">
+                <div class="accordion-header active">
+                    <i class="fas fa-chart-pie"></i>
+                    <span class="accordion-title">IS-LM Model</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content" style="max-height: 500px;">
+                    <ul>
+                        <li><a href="islm_lecture.html">IS-LM & Bridge to IS-MP</a></li>
+                        <li><a href="islm_applications.html" class="active">IS-LM & AD Applications</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content islm-content" id="main-content">
+        <header class="page-header islm">
+            <h1 class="page-title">IS-LM and AD Applications</h1>
+            <p class="page-subtitle"><i class="fas fa-flask"></i> Multipliers, Crowding Out, Deflation, and the Great Depression — Janíčko, Macroeconomics II</p>
+        </header>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- MULTIPLIERS AT WORK                        -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="multipliers">
+            <h2>Multipliers at Work</h2>
+
+            <p>Ceteris paribus, an increase in government purchases leads to an even <strong>greater</strong> increase in income. This is the <span class="fluo-red">multiplier effect</span>.</p>
+
+            <p>$\Delta Y$ is higher than $\Delta G$. The ratio $\frac{\Delta Y}{\Delta G}$ is the <strong>government-purchases multiplier</strong>: it shows how much income changes in response to a one-unit change in government purchases.</p>
+
+            <p>Fiscal policy has a multiplying effect because the increase in income leads to an increase in consumption, which in turn leads to another increase in income which again raises consumption, and so on.</p>
+
+            <p>A <strong>change in taxes</strong> also has a multiplicative effect. A decrease in taxes by $\Delta T$ immediately raises disposable income by $\Delta T$, leading to an increase in consumption by <span class="fluo-coral">$MPC \times \Delta T$</span>.</p>
+
+            <div class="exam-tip" style="border-left-color: var(--accent-islm-border);">
+                <i class="fas fa-thumbtack exam-tip-pin"></i>
+                <div class="exam-tip-content">
+                    <h4>Interest Rates and the Size of the Multiplier</h4>
+                    <p>In practice, the size of the multiplier depends on <strong>how strongly interest rates respond</strong>, so it may differ across monetary-policy regimes.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CROWDING OUT                               -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="crowding-out">
+            <h2>The Crowding Out Effect</h2>
+
+            <p>As we have already seen, one effect of fiscal stimulation is the shift of the IS curve and an increase in income level. But a <span class="fluo-red">second effect</span> occurs simultaneously:</p>
+
+            <div class="concept-card" style="border-left-color: var(--accent-islm);">
+                <div class="concept-title">The Crowding Out Mechanism</div>
+                <div class="concept-body">
+                    <ol class="content-list" style="margin-bottom: 0;">
+                        <li>As equilibrium income rises, the <strong>demand for money increases</strong>.</li>
+                        <li>If real money balances are unchanged, the <strong>equilibrium interest rate rises</strong>.</li>
+                        <li>The higher interest rate <span class="fluo-coral">reduces interest-sensitive components of demand</span>, especially private investment.</li>
+                    </ol>
+                    <p style="margin-top: 1rem;">Thus, expansionary fiscal policy (increase in government spending or decrease in taxes) causes <span class="fluo-red">crowding out</span> of private investment.</p>
+                </div>
+            </div>
+
+            <figure>
+                <img src="assets/crowding.png" alt="Crowding Out Effect in the IS-LM Model">
+                <figcaption><strong>The Crowding Out Effect.</strong> Fiscal expansion shifts IS rightward, raising both output and the interest rate. The rise in $i$ partially offsets the output gain by reducing private investment.</figcaption>
+            </figure>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- POLICY APPLICATIONS (GRAPHS)               -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="policy-graphs">
+            <h2>Policy Applications</h2>
+
+            <h3>An Increase in the Money Supply</h3>
+            <p>In the traditional IS-LM model, expansionary monetary policy is represented as an increase in real money balances, which shifts the LM curve to the right. This is a useful benchmark for thinking about monetary transmission, although modern central banks usually implement policy by targeting a short-term interest rate.</p>
+            <figure>
+                <img src="assets/monetary.png" alt="An Increase in the Money Supply">
+                <figcaption><strong>An Increase in the Money Supply.</strong> Higher $M/P$ shifts LM rightward, lowering $i$ and raising equilibrium $Y$.</figcaption>
+            </figure>
+
+            <h3>An Increase in Government Purchases</h3>
+            <figure>
+                <img src="assets/gov.png" alt="An Increase in Government Purchases">
+                <figcaption><strong>An Increase in Government Purchases.</strong> Higher $G$ shifts IS rightward. Equilibrium output and the interest rate both rise. The rise in $i$ partially crowds out private investment.</figcaption>
+            </figure>
+
+            <h3>The Response of the Economy to a Tax Increase</h3>
+            <figure>
+                <img src="assets/fed.png" alt="The Response of the Economy to a Tax Increase">
+                <figcaption><strong>The Response of the Economy to a Tax Increase.</strong> Higher taxes reduce disposable income and consumption, shifting IS leftward. Equilibrium output and the interest rate both fall.</figcaption>
+            </figure>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- WHY CONSTANT INTEREST RATE MATTERS         -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="constant-rate">
+            <h2>Why the Constant-Interest-Rate Case Matters</h2>
+
+            <div class="grid-cards">
+                <div class="grid-card" style="border-top-color: var(--accent-secondary);">
+                    <h4><i class="fas fa-lock" style="color: var(--accent-secondary);"></i> Fixed Money Supply</h4>
+                    <p>Fiscal expansion raises money demand and <span class="fluo-orange">pushes the interest rate up</span>. This is the standard IS-LM crowding-out result.</p>
+                </div>
+                <div class="grid-card" style="border-top-color: var(--accent-islm);">
+                    <h4><i class="fas fa-bullseye" style="color: var(--accent-islm);"></i> Fixed Interest Rate</h4>
+                    <p>The central bank <span class="fluo-coral">accommodates higher money demand</span> by supplying liquidity. This case is therefore closer to modern monetary policy practice.</p>
+                </div>
+            </div>
+
+            <p>The fixed interest rate case provides a <span class="fluo-red">natural bridge</span> from the traditional LM curve to the modern MP curve.</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- FROM LM TO MP                              -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="lm-to-mp">
+            <h2>From LM to MP</h2>
+
+            <p>In the traditional IS-LM model, monetary policy works through changes in real money balances and shifts in the LM curve. In practice, modern central banks usually <strong>set a policy interest rate</strong> rather than the money supply.</p>
+
+            <p>This motivates the <span class="fluo-red">IS-MP framework</span>, where the MP curve replaces LM:</p>
+            <ul class="content-list">
+                <li>The MP curve shows how the central bank sets the policy interest rate in response to macroeconomic conditions.</li>
+                <li>A lower policy rate reduces the real interest rate, stimulates investment and demand, and raises equilibrium output.</li>
+                <li>Thus, for policy applications, <span class="fluo-coral">IS-MP is often more realistic than IS-LM</span>.</li>
+            </ul>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- DEMAND AND POLICY SHOCKS                   -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="shocks">
+            <h2>Demand and Policy Shocks</h2>
+
+            <p>Fiscal and monetary policy are not the only forces that move the economy.</p>
+
+            <div class="grid-cards">
+                <div class="grid-card" style="border-top-color: var(--accent-islm);">
+                    <h4><i class="fas fa-shopping-cart" style="color: var(--accent-islm);"></i> IS Shocks</h4>
+                    <p>Exogenous changes in desired spending on goods and services:</p>
+                    <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+                        <li>Changes in business confidence and investment.</li>
+                        <li>Changes in household consumption.</li>
+                        <li>Changes in foreign demand for exports.</li>
+                    </ul>
+                </div>
+                <div class="grid-card" style="border-top-color: var(--accent-islm);">
+                    <h4><i class="fas fa-money-bill-wave" style="color: var(--accent-islm);"></i> LM Shocks</h4>
+                    <p>Exogenous changes in money demand:</p>
+                    <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+                        <li>Financial uncertainty.</li>
+                        <li>Changes in liquidity preference.</li>
+                        <li>Institutional or regulatory changes affecting money holdings.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Deriving the Aggregate Demand Curve</h3>
+            <figure>
+                <img src="assets/ad.png" alt="Deriving the Aggregate Demand Curve with the IS-LM Model">
+                <figcaption><strong>Deriving the Aggregate Demand Curve with the IS–LM Model.</strong> As $P$ rises, $M/P$ falls, LM shifts left, and equilibrium $Y$ falls. Plotting $P$ against $Y$ traces out the downward-sloping AD curve.</figcaption>
+            </figure>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- THE EFFECTIVE LOWER BOUND                  -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="elb">
+            <h2>The Effective Lower Bound (ELB)</h2>
+
+            <p>The effective lower bound arises when nominal policy rates are very close to zero and <span class="fluo-red">cannot be reduced much further</span> by conventional means.</p>
+
+            <ul class="content-list">
+                <li>If expected inflation falls, real interest rates $r = i - \pi^e$ may remain <strong>too high</strong>.</li>
+                <li>As a result, aggregate demand can remain weak even when policy rates are very low.</li>
+                <li>In this environment, <span class="fluo-coral">fiscal policy may be especially powerful</span>, while central banks may rely on unconventional tools such as forward guidance and asset purchases.</li>
+            </ul>
+
+            <div class="concept-card" style="border-left-color: var(--accent-islm);">
+                <div class="concept-title">Key Implications at the ELB</div>
+                <div class="concept-body">
+                    <ul class="content-list" style="margin-bottom: 0;">
+                        <li>Central banks <strong>cannot use conventional rate cuts</strong> to boost demand.</li>
+                        <li>Households and firms expect prices to fall, <span class="fluo-orange">postponing spending</span>.</li>
+                        <li>Fiscal policy (government spending) becomes the <span class="fluo-red">main tool for stimulus</span>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- LIQUIDITY TRAP                             -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="liquidity-trap">
+            <h2>The Liquidity Trap</h2>
+
+            <p>The idea of a liquidity trap goes back to Keynes and later interpretations by Hicks and others.</p>
+
+            <p>At very low nominal interest rates, the demand for liquid assets may become <span class="fluo-red">highly elastic</span>. In that case:</p>
+            <ul class="content-list">
+                <li>Increases in money supply may have <strong>little effect</strong> on interest rates and spending through conventional channels.</li>
+                <li>Investment may remain weak even when nominal rates are close to zero.</li>
+                <li>This helps explain why recessions near the effective lower bound can be <span class="fluo-coral">especially persistent</span>.</li>
+            </ul>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- THE GREAT DEPRESSION: IS AND LM SHOCKS     -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="great-depression">
+            <h2>The Great Depression: Competing Explanations</h2>
+
+            <h3>Shocks to the IS Curve</h3>
+            <p>The <strong>spending explanation</strong> asserts that the Depression was largely due to an exogenous fall in the demand for goods & services — a <span class="fluo-red">leftward shift of the IS curve</span>.</p>
+
+            <p><strong>Evidence:</strong> Output and interest rates <em>both fell</em>, which is what a leftward IS shift would cause.</p>
+
+            <ul class="content-list">
+                <li><strong>Stock market crash:</strong> exogenous shock to $C$. Oct–Dec 1929: S&P 500 fell 17%. Oct 1929–Dec 1933: S&P 500 fell 71%.</li>
+                <li><strong>Drop in investment:</strong> "Correction" after overbuilding in the 1920s. Widespread bank failures made it harder to obtain financing for investment.</li>
+                <li><strong>Contractionary fiscal policy:</strong> Politicians raised tax rates and cut spending to combat increasing deficits.</li>
+            </ul>
+
+            <h3>Shocks to the LM Curve</h3>
+            <p>The <strong>money explanation</strong> asserts that the Depression was largely due to a huge fall in the money supply. <strong>Evidence:</strong> M1 fell 25% during 1929–33.</p>
+
+            <div class="alert-box" style="background: rgba(var(--accent-islm-rgb), 0.05); border: 1px solid var(--accent-islm-border);">
+                <div class="alert-icon" style="color: var(--accent-islm);"><i class="fas fa-triangle-exclamation"></i></div>
+                <div class="alert-content">
+                    <h4 style="color: var(--accent-islm-hover);">However, the interpretation is not straightforward:</h4>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
+                        <li>$P$ fell even more, so $M/P$ actually <em>rose slightly</em> during 1929–31.</li>
+                        <li>Nominal interest rates fell, which does not look like a standard textbook leftward LM shift.</li>
+                        <li>But <span class="fluo-orange">deflation raised real interest rates</span>, and banking distress tightened effective credit conditions.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- FALLING PRICES                             -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="deflation">
+            <h2>Falling Prices: Stabilising and Destabilising Effects</h2>
+
+            <p>The severity of the Depression was related to a <span class="fluo-red">huge deflation</span>: $P$ fell 25% during 1929–1933. This deflation was likely driven by monetary contraction, collapsing demand, and financial distress.</p>
+
+            <h3>The Stabilising Effects of Deflation</h3>
+            <div class="concept-card" style="border-left-color: #22c55e;">
+                <div class="concept-title" style="color: #16a34a;"><i class="fas fa-shield-halved"></i> Two Stabilising Channels</div>
+                <div class="concept-body">
+                    <p><strong>Keynes Effect:</strong></p>
+                    <p>$\downarrow P \Rightarrow \uparrow \frac{M}{P} \Rightarrow$ LM shifts right $\Rightarrow \uparrow Y$</p>
+
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border-light);">
+
+                    <p><strong>Pigou Effect:</strong></p>
+                    <p>$\downarrow P \Rightarrow \uparrow \frac{M}{P} \Rightarrow$ consumers' "wealth" $\uparrow$ $\Rightarrow \uparrow C \Rightarrow$ IS shifts right $\Rightarrow \uparrow Y$</p>
+                </div>
+            </div>
+
+            <h3>The Destabilising Effects of Expected Deflation</h3>
+            <div class="concept-card" style="border-left-color: var(--accent-islm);">
+                <div class="concept-title" style="color: var(--accent-islm);"><i class="fas fa-bolt"></i> Expected Deflation Channel</div>
+                <div class="concept-body">
+                    <p>$\downarrow \pi^e \Rightarrow \uparrow r$ for each value of $i$ $\Rightarrow \downarrow I$ because $I = I(r)$ $\Rightarrow$ planned expenditure & AD $\downarrow$ $\Rightarrow$ income & output $\downarrow$</p>
+                </div>
+            </div>
+
+            <h3>The Destabilising Effects of Unexpected Deflation</h3>
+            <div class="concept-card" style="border-left-color: var(--accent-islm);">
+                <div class="concept-title" style="color: var(--accent-islm);"><i class="fas fa-skull-crossbones"></i> Debt-Deflation Theory</div>
+                <div class="concept-body">
+                    <p>$\downarrow P$ (if unexpected)</p>
+                    <p>$\Rightarrow$ transfers purchasing power from borrowers to lenders</p>
+                    <p>$\Rightarrow$ borrowers spend less, lenders spend more</p>
+                    <p>$\Rightarrow$ if borrowers' propensity to spend is <span class="fluo-red">larger than lenders'</span>, then aggregate spending falls, the IS curve shifts left, and $Y$ falls.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SUMMARY TOGGLE                             -->
+        <!-- ═══════════════════════════════════════════ -->
+        <details class="summary-toggle">
+            <summary><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i> What Have We Learned?</summary>
+            <div class="summary-content">
+                <h4 style="color: var(--accent-islm-hover); margin-bottom: 0.75rem;">Aggregate Demand from IS-LM</h4>
+                <ul class="content-list">
+                    <li>For a given price level, the intersection of IS and LM determines equilibrium output.</li>
+                    <li>A higher price level reduces real money balances, shifts the LM curve left, and lowers equilibrium output.</li>
+                    <li>This gives a <span class="fluo-red">downward-sloping aggregate demand curve</span> in $(P, Y)$ space.</li>
+                    <li>In modern macroeconomics, the analogous demand relationship is often derived from an <strong>IS-MP framework</strong> instead, and using inflation rather than the price level as such.</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- FOOTER -->
+        <section
+            style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-islm-border); padding-top: 1.5rem;">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                <em>End of IS-LM & AD Applications. Utilizing Codex Logic standards.</em>
+            </p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
