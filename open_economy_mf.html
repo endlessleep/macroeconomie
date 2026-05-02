@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelling the Open Economy - IS-LM-BP</title>
-    <meta name="description" content="Macroeconomics Revision: Mundell-Fleming, IS-LM-BP, Impossible Trinity and Interest Rate Parity.">
+    <title>Mundell-Fleming, IS-LM-BP &amp; Interest Rate Parity</title>
+    <meta name="description" content="Macroeconomics Revision: Mundell-Fleming Model, Policy Effectiveness under Fixed/Floating Rates, Impossible Trinity, UIP and CIP.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         window.MathJax = {
@@ -24,39 +23,165 @@
     </script>
     <link rel="stylesheet" href="macro_style.css">
     <style>
+        .fluo-blue {
+            background: linear-gradient(104deg, rgba(96,165,250,0) 0.9%, rgba(96,165,250,0.5) 2.4%, rgba(96,165,250,0.3) 5.8%, rgba(96,165,250,0.6) 93%, rgba(96,165,250,0.2) 96%, rgba(96,165,250,0) 98%),
+                        linear-gradient(183deg, rgba(96,165,250,0) 0%, rgba(96,165,250,0.2) 7.9%, rgba(96,165,250,0) 15%);
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
+        }
+        .fluo-pink {
+            background: linear-gradient(104deg, rgba(244,114,182,0) 0.9%, rgba(244,114,182,0.7) 2.4%, rgba(244,114,182,0.5) 5.8%, rgba(244,114,182,0.8) 93%, rgba(244,114,182,0.3) 96%, rgba(244,114,182,0) 98%),
+                        linear-gradient(183deg, rgba(244,114,182,0) 0%, rgba(244,114,182,0.3) 7.9%, rgba(244,114,182,0) 15%);
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
+        }
+        .fluo-green {
+            background: linear-gradient(104deg, rgba(74,222,128,0) 0.9%, rgba(74,222,128,0.5) 2.4%, rgba(74,222,128,0.3) 5.8%, rgba(74,222,128,0.6) 93%, rgba(74,222,128,0.2) 96%, rgba(74,222,128,0) 98%),
+                        linear-gradient(183deg, rgba(74,222,128,0) 0%, rgba(74,222,128,0.2) 7.9%, rgba(74,222,128,0) 15%);
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
+        }
+
+        /* Summary toggle */
         .summary-toggle {
-            margin-top: 2.5rem;
-            border: 1px solid var(--border-light);
-            border-radius: 10px;
-            overflow: hidden;
+            margin-top: 2.5rem; border: 1px solid var(--border-light);
+            border-radius: 10px; overflow: hidden;
         }
         .summary-toggle summary {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            padding: 0.85rem 1.25rem;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            list-style: none;
-            transition: all 0.3s ease;
+            color: white; padding: 0.85rem 1.25rem; cursor: pointer; font-weight: 600;
+            font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;
+            list-style: none; transition: all 0.3s ease;
         }
         .summary-toggle summary::-webkit-details-marker { display: none; }
         .summary-toggle summary:hover { filter: brightness(1.15); }
         .summary-toggle summary::before {
-            content: '\f06e';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 0.85rem;
+            content: '\f06e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.85rem;
         }
         .summary-toggle[open] summary::before { content: '\f070'; }
         .summary-toggle .summary-content {
-            padding: 1.5rem;
-            background: #f8fafc;
-            border-top: 1px solid var(--border-light);
+            padding: 1.5rem; background: #f8fafc; border-top: 1px solid var(--border-light);
         }
+
+        /* Chain Reaction Box (blue version) */
+        .chain-box {
+            background: #eff6ff; border: 1px solid #bfdbfe;
+            border-left: 5px solid var(--accent-primary); border-radius: 10px;
+            padding: 1.5rem 1.75rem; margin: 1.5rem 0;
+        }
+        .chain-box .chain-title {
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: #1d4ed8;
+            margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.4rem;
+        }
+        .chain-step {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            margin-bottom: 0.6rem; font-size: 1rem;
+        }
+        .chain-step .step-num {
+            background: var(--accent-primary); color: white; border-radius: 50%;
+            width: 22px; height: 22px; min-width: 22px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; margin-top: 2px;
+        }
+        .chain-arrow {
+            text-align: center; color: var(--accent-primary); font-size: 1.1rem;
+            margin: 0.15rem 0 0.15rem 2.05rem;
+        }
+        .chain-result {
+            background: #dbeafe; border: 1px solid #bfdbfe; border-radius: 6px;
+            padding: 0.6rem 0.9rem; margin-top: 1rem;
+            font-weight: 600; color: #1e3a8a; font-size: 0.95rem;
+        }
+        .chain-result.green {
+            background: #dcfce7; border-color: #86efac; color: #14532d;
+        }
+        .chain-result.red {
+            background: #fee2e2; border-color: #fca5a5; color: #7f1d1d;
+        }
+
+        /* Key definitions block */
+        .key-defs {
+            background: white; border: 1px solid var(--border-light);
+            border-top: 4px solid var(--accent-primary); border-radius: 10px;
+            padding: 1.5rem; margin-bottom: 2rem;
+        }
+        .key-defs h4 {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em;
+            color: #1d4ed8; margin-bottom: 1rem; font-weight: 700;
+        }
+        .def-row {
+            display: flex; gap: 0.75rem; padding: 0.6rem 0;
+            border-bottom: 1px dashed var(--border-light); align-items: baseline;
+        }
+        .def-row:last-child { border-bottom: none; }
+        .def-term { font-weight: 700; min-width: 170px; color: var(--bg-sidebar); font-size: 0.95rem; }
+        .def-body { color: var(--text-main); font-size: 0.95rem; }
+
+        /* ══════════════════════════════════════════
+           THE MASTER SYNTHESIS TABLE (Mundell-Fleming)
+           ══════════════════════════════════════════ */
+        .mf-table-wrap {
+            overflow-x: auto; margin: 2rem 0;
+        }
+        .mf-table {
+            width: 100%; border-collapse: collapse; min-width: 700px;
+            border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .mf-table thead tr:first-child th {
+            padding: 1rem; font-size: 1rem; font-weight: 700; letter-spacing: 0.02em;
+        }
+        .mf-table .th-blank { background: #0f172a; }
+        .mf-table .th-float { background: #1d4ed8; color: white; text-align: center; }
+        .mf-table .th-fixed { background: #0e7490; color: white; text-align: center; }
+        .mf-table thead tr:nth-child(2) th {
+            background: rgba(0,0,0,0.15); color: white; padding: 0.6rem 1rem;
+            font-size: 0.85rem; font-weight: 600; text-align: center;
+        }
+        .mf-table thead tr:nth-child(2) .th-sub-float { background: rgba(29,78,216,0.85); }
+        .mf-table thead tr:nth-child(2) .th-sub-fixed { background: rgba(14,116,144,0.85); }
+
+        .mf-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+        .mf-table tbody tr:last-child { border-bottom: none; }
+        .mf-table tbody td {
+            padding: 1rem 1.1rem; font-size: 0.93rem; background: white;
+            vertical-align: top; line-height: 1.55;
+        }
+        .mf-table tbody td.policy-label {
+            font-weight: 700; color: #0f172a; background: #f8fafc;
+            min-width: 140px; border-right: 2px solid #e2e8f0;
+        }
+        .mf-table tbody tr:hover td { background: #f1f5f9; }
+        .mf-table tbody tr:hover td.policy-label { background: #e2e8f0; }
+
+        .badge {
+            display: inline-block; border-radius: 20px; padding: 0.2rem 0.65rem;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.03em; margin-bottom: 0.3rem;
+        }
+        .badge.effective { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+        .badge.ineffective { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+        .badge.partial { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+
+        /* Trilemma visual */
+        .trilemma-grid {
+            display: flex; justify-content: center; align-items: center;
+            flex-wrap: wrap; gap: 2rem; margin: 2rem 0;
+        }
+        .trilemma-card {
+            background: white; padding: 1.5rem; border-radius: 10px;
+            box-shadow: var(--shadow-md); width: 200px; text-align: center;
+            border: 1px solid var(--border-light);
+            transition: transform 0.2s ease;
+        }
+        .trilemma-card:hover { transform: translateY(-3px); }
+        .trilemma-card i { font-size: 2.2rem; margin-bottom: 0.75rem; display: block; }
+        .trilemma-card h5 { font-size: 1rem; color: var(--bg-sidebar); margin-bottom: 0.5rem; }
+        .trilemma-card p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+
+        .option-block {
+            background: white; border: 1px solid var(--border-light);
+            border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem;
+        }
+        .option-block strong { color: var(--bg-sidebar); }
+        .option-block span { color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 
@@ -68,9 +193,7 @@
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-text"><i class="fas fa-chart-line"></i> Macroéconomie</div>
-            <button class="toggle-btn" id="sidebar-toggle-desktop">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="toggle-btn" id="sidebar-toggle-desktop"><i class="fas fa-bars"></i></button>
         </div>
         <nav class="menu-nav">
             <div class="menu-item">
@@ -112,8 +235,8 @@
                 </div>
                 <div class="accordion-content">
                     <ul>
-                        <li><a href="islm_lecture.html">IS-LM & Bridge to IS-MP</a></li>
-                        <li><a href="islm_applications.html">IS-LM & AD Applications</a></li>
+                        <li><a href="islm_lecture.html">IS-LM &amp; Bridge to IS-MP</a></li>
+                        <li><a href="islm_applications.html">IS-LM &amp; AD Applications</a></li>
                     </ul>
                 </div>
             </div>
@@ -125,8 +248,8 @@
                 </div>
                 <div class="accordion-content" style="max-height: 500px;">
                     <ul>
-                        <li><a href="open_economy.html">Open Economy Module</a></li>
-                        <li><a href="open_economy_mf.html" class="active">IS-LM-BP & Extensions</a></li>
+                        <li><a href="open_economy.html">Open Economy — SOE</a></li>
+                        <li><a href="open_economy_mf.html" class="active">Mundell-Fleming &amp; Parity</a></li>
                     </ul>
                 </div>
             </div>
@@ -135,91 +258,117 @@
 
     <main class="main-content" id="main-content">
         <header class="page-header" style="border-bottom-color: var(--accent-primary);">
-            <h1 class="page-title" style="color: var(--accent-primary);">IS-LM-BP & EXTENSIONS</h1>
-            <p class="page-subtitle"><i class="fas fa-sitemap"></i> Modelling the Open Economy, Mundell-Fleming, and Parity</p>
+            <h1 class="page-title" style="color: var(--accent-primary);">Mundell-Fleming &amp; Interest Rate Parity</h1>
+            <p class="page-subtitle"><i class="fas fa-sitemap"></i> IS*-LM* Framework, Policy Effectiveness, Impossible Trinity, UIP and CIP</p>
         </header>
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- IS-LM-BP & THE MUNDELL-FLEMING MODEL -->
+        <!-- OVERVIEW OF THE MODEL                      -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="mundell-fleming">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-compass"></i> The Mundell-Fleming Model</h2>
-            
+        <section id="mf-overview">
+            <h2>The Mundell-Fleming Model — What and Why</h2>
+
             <div class="alert-box">
-                <div class="alert-icon"><i class="fas fa-info-circle"></i></div>
+                <div class="alert-icon"><i class="fas fa-lightbulb"></i></div>
                 <div class="alert-content">
-                    <h4>How to Read This Model Today</h4>
-                    <p>The Mundell-Fleming / IS-LM-BP framework is a benchmark short-run model of the open economy. It is essentially a pedagogical tool rather than a perfect description of reality. It drastically simplifies reality in order to perfectly isolate the key transmission mechanisms of policy in an open economy.</p>
-                    <p>In modern macroeconomics, central banks don't fix the money supply; the LM curve is instead replaced by an MP curve (Taylor rule). We study it to build crucial economic intuition regarding exchange-rate regimes and the impossible trinity.</p>
+                    <h4>This is a Short-Run Model</h4>
+                    <p>Mundell-Fleming (MF) is the <strong>short-run</strong> open-economy extension of IS-LM. Unlike the SOE long-run model (where output is at full employment), MF assumes <em>sticky prices</em> — output is demand-determined. The key question: <strong>does fiscal or monetary policy work, and under which exchange rate regime?</strong></p>
                 </div>
             </div>
 
-            <h3>The Baseline Assumptions</h3>
-            <p>We begin by exploring the Mundell-Fleming model, effectively assuming a small open economy with flawless capital mobility. Under this setup, the domestic interest rate is anchored to the global rate ($r = r^*$).</p>
-            
-            <div class="grid-cards">
-                <div class="grid-card">
-                    <h4>IS* Curve (Goods Market)</h4>
-                    <div class="equation-box" style="margin:0.5rem 0; font-size:1.1rem; padding:0.5rem;">
-                        $Y = C(Y-T) + I(r^*) + G + NX(e)$
-                    </div>
-                    <p>Where $e$ is the nominal exchange rate. The exchange rate acts as the key adjustment variable in an open economy. When domestic policies change, it is often the exchange rate that moves in order to restore equilibrium.</p>
+            <div class="key-defs">
+                <h4><i class="fas fa-key"></i> &nbsp;Model Setup</h4>
+                <div class="def-row">
+                    <span class="def-term">IS* Curve (Goods)</span>
+                    <span class="def-body">$Y = C(Y-T) + I(r^*) + G + NX(e)$. Output depends on domestic demand AND net exports. The exchange rate $e$ is the new adjustment variable. Since $r = r^*$ is fixed, only $e$ (and thus $NX$) can clear the goods market.</span>
                 </div>
-                <div class="grid-card">
-                    <h4>LM* Curve (Money Market)</h4>
-                    <div class="equation-box" style="margin:0.5rem 0; font-size:1.1rem; padding:0.5rem;">
-                        $M/P = L(r^*, Y)$
-                    </div>
-                    <p>Money supply is rigidly fixed by the central bank. Money demand depends entirely on income $Y$ and the fixed global interest rate $r^*$.</p>
+                <div class="def-row">
+                    <span class="def-term">LM* Curve (Money)</span>
+                    <span class="def-body">$M/P = L(r^*, Y)$. Money supply is fixed by the CB; money demand depends on income $Y$ and the fixed world rate $r^*$. For a given $M/P$, LM* determines the equilibrium $Y$ — independently of $e$. LM* is therefore <strong>vertical</strong> in $(Y, e)$ space!</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Perfect Capital Mobility</span>
+                    <span class="def-body">Any incipient deviation of domestic $r$ from $r^*$ triggers instantaneous capital flows that force $r = r^*$. This is the key assumption — it means the exchange rate (not the interest rate) must do all the adjustment.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Exchange Rate Convention ($e$)</span>
+                    <span class="def-body">$e$ = units of domestic currency per unit of foreign currency. $e \uparrow$ = depreciation (domestic goods cheaper → $NX \uparrow$). $e \downarrow$ = appreciation (domestic goods dearer → $NX \downarrow$).</span>
                 </div>
             </div>
-
-            <p>Our analysis critically hinges on whether the economy uses a <strong>Floating</strong> or a <strong>Fixed</strong> exchange rate regime.</p>
         </section>
 
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- FLOATING EXCHANGE RATES: POLICY MECHANISMS -->
+        <!-- FLOATING: FISCAL POLICY                    -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="policy-mechanisms">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-water"></i> Policies Under Floating Exchange Rates</h2>
+        <section id="floating">
+            <h2>Policies Under Floating Exchange Rates</h2>
+            <p>Under floating rates, $e$ is determined by the market and adjusts freely. The CB does not intervene. <span class="fluo-blue">The exchange rate is the shock absorber.</span></p>
 
-            <!-- Fiscal Policy -->
-            <div class="concept-card" style="margin-bottom: 2.5rem;">
-                <div class="concept-title"><i class="fas fa-landmark"></i> Fiscal Policy (Ineffective)</div>
+            <!-- FISCAL -->
+            <div class="concept-card" style="border-left-color: #dc2626; margin-bottom: 2.5rem;">
+                <div class="concept-title"><i class="fas fa-landmark"></i> Fiscal Policy — <span style="color:#dc2626;">INEFFECTIVE</span> under floating rates</div>
                 <div class="concept-body">
-                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A fiscal expansion ($G \uparrow$ or $T \downarrow$) increases domestic demand, which initially raises income ($Y \uparrow$). Higher income increases the demand for money, pushing domestic interest rates upward ($r > r^*$). This immediately attracts massive capital inflows from foreign investors seeking higher yields. These sudden capital inflows cause the domestic currency to immediately appreciate ($e \uparrow$), which catastrophically reduces Net Exports ($NX \downarrow$).</p>
-                    <p><strong>The Final Result:</strong> This appreciation fully offsets the initial expansion in demand. It perfectly crowds out the fiscal shock. Under perfect capital mobility, fiscal policy is largely <strong>ineffective</strong> at changing output.</p>
-                    <figure class="image-container">
-                        <img src="assets/fiscal.png" alt="Fiscal policy in Mundell Fleming">
-                        <figcaption>Fiscal Policy: The IS* curve shifts right initially, but the immediate currency appreciation forces it back. Output $Y$ remains unchanged.</figcaption>
+                    <div class="chain-box">
+                        <div class="chain-title"><i class="fas fa-link"></i> Full Chain Reaction — Fiscal Expansion ($G \uparrow$)</div>
+                        <div class="chain-step"><div class="step-num">1</div><div>$G \uparrow$ → IS* shifts right → at initial $e$, output $Y$ tends to rise</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">2</div><div>Higher $Y$ → money demand $L^d \uparrow$ → domestic $r$ tends to rise above $r^*$</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">3</div><div>Capital inflows to arbitrage the higher return → domestic currency <strong>appreciates</strong> ($e \downarrow$)</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">4</div><div>Appreciation makes domestic goods expensive → $NX \downarrow$ → IS* shifts <em>back</em> to original position</div></div>
+                        <div class="chain-result red">Net effect on $Y$: <strong>zero</strong>. Complete crowding out through the exchange rate. $e \downarrow$ (appreciation). $NX \downarrow$.</div>
+                    </div>
+                    <p><strong>Intuition:</strong> Every dollar of increased government demand is exactly offset by a dollar of lost net exports. Fiscal policy under a float merely changes the <em>composition</em> of demand (more G, less NX) — not the level of output.</p>
+                    <figure>
+                        <img src="assets/fiscal.png" alt="Fiscal policy Mundell-Fleming floating">
+                        <figcaption>IS* shifts right initially. Currency appreciates until IS* returns to its original position. $Y$ unchanged, $e$ falls (appreciation).</figcaption>
                     </figure>
                 </div>
             </div>
 
-            <!-- Monetary Policy -->
-            <div class="concept-card" style="border-left-color: var(--accent-secondary); margin-bottom: 2.5rem;">
-                <div class="concept-title"><i class="fas fa-coins"></i> Monetary Policy (Highly Effective)</div>
+            <!-- MONETARY -->
+            <div class="concept-card" style="border-left-color: #16a34a; margin-bottom: 2.5rem;">
+                <div class="concept-title"><i class="fas fa-coins"></i> Monetary Policy — <span style="color:#16a34a;">HIGHLY EFFECTIVE</span> under floating rates</div>
                 <div class="concept-body">
-                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A monetary expansion ($M \uparrow$) suddenly shifts the LM curve to the right, driving the domestic interest rate downward ($r < r^*$). Seeking better returns elsewhere, capital rapidly flows out of the country. These capital outflows cause the domestic currency to heavily depreciate ($e \downarrow$). The cheaper currency drastically boosts Net Exports ($NX \uparrow$).</p>
-                    <p><strong>The Final Result:</strong> The rise in net exports violently increases aggregate demand, reinforcing the initial expansion. Therefore, monetary policy is <strong>highly effective</strong> in raising output. <em>The key intuition here is that expansionary monetary policy does not raise absolute world demand; it merely shifts demand away from foreign products toward domestic products.</em></p>
-                    <figure class="image-container">
-                        <img src="assets/mon.png" alt="Monetary policy in Mundell Fleming">
-                        <figcaption>Monetary Policy: The LM* shifts right. The currency depreciates, pushing NX up and permanently expanding equilibrium output $Y$.</figcaption>
+                    <div class="chain-box" style="background:#f0fdf4; border-color:#86efac; border-left-color:#16a34a;">
+                        <div class="chain-title" style="color:#14532d;"><i class="fas fa-link"></i> Full Chain Reaction — Monetary Expansion ($M \uparrow$)</div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">1</div><div>$M \uparrow$ → LM* shifts right → at old $e$, output $Y$ tends to rise</div></div>
+                        <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">2</div><div>More liquidity → domestic $r$ tends to fall below $r^*$</div></div>
+                        <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">3</div><div>Capital outflows seeking better returns abroad → domestic currency <strong>depreciates</strong> ($e \uparrow$)</div></div>
+                        <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">4</div><div>Depreciation makes domestic goods cheaper → $NX \uparrow$ → IS* shifts right → $Y$ rises further</div></div>
+                        <div class="chain-result green">Net effect on $Y$: <strong>large positive</strong>. $e \uparrow$ (depreciation). $NX \uparrow$. Monetary expansion is <em>doubly effective</em>.</div>
+                    </div>
+                    <p><strong>Intuition:</strong> Monetary expansion works by stealing demand from foreign producers (expenditure-switching). It is a "beggar-thy-neighbour" policy — domestic output rises at the expense of foreign exporters.</p>
+                    <figure>
+                        <img src="assets/mon.png" alt="Monetary policy Mundell-Fleming floating">
+                        <figcaption>LM* shifts right. Currency depreciates ($e \uparrow$), IS* shifts right too. $Y$ rises substantially.</figcaption>
                     </figure>
                 </div>
             </div>
 
-            <!-- Trade Policy -->
+            <!-- TRADE POLICY -->
             <div class="concept-card" style="border-left-color: #f59e0b; margin-bottom: 2.5rem;">
-                <div class="concept-title"><i class="fas fa-ship"></i> Trade Policy (Ineffective)</div>
+                <div class="concept-title"><i class="fas fa-ship"></i> Trade Policy — <span style="color:#d97706;">INEFFECTIVE</span> under floating rates</div>
                 <div class="concept-body">
-                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A protectionist trade policy (such as tariffs or quotas) artificially reduces imports, structurally improving net exports. This directly shifts the IS curve rightward, raising output and interest rates in the short run. Just like fiscal policy, the higher $r$ instantly attracts massive capital inflows, strongly appreciating the domestic currency. The currency appreciation perfectly kills off the initial gain in net exports.</p>
-                    <p><strong>The Final Result:</strong> Under a floating regime, trade policy has absolutely <strong>no effect on overall output</strong>. <em>In practice, this means that while import restrictions save specific jobs in protected domestic industries, they systematically destroy equivalent jobs in exporting sectors due to the strengthened currency.</em> This merely creates painful frictional unemployment (sectoral shifts).</p>
-                    <figure class="image-container">
-                        <img src="assets/trade.png" alt="Trade policy in Mundell Fleming">
-                        <figcaption>Trade Policy: Protectionism shifts IS* right, but the currency instantly appreciates, neutralizing the shift. Net overall output remains firmly unchanged.</figcaption>
+                    <div class="chain-box" style="background:#fffbeb; border-color:#fde68a; border-left-color:#f59e0b;">
+                        <div class="chain-title" style="color:#78350f;"><i class="fas fa-link"></i> Full Chain Reaction — Tariff or Import Quota</div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">1</div><div>Tariff reduces imports → direct $NX \uparrow$ → IS* shifts right</div></div>
+                        <div class="chain-arrow" style="color:#f59e0b;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">2</div><div>Same mechanism as fiscal expansion: $Y \uparrow$ → $r > r^*$ → capital inflows → currency <strong>appreciates</strong> ($e \downarrow$)</div></div>
+                        <div class="chain-arrow" style="color:#f59e0b;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">3</div><div>Appreciation destroys exports → $NX$ falls back to original level</div></div>
+                        <div class="chain-result" style="background:#fef3c7; border-color:#fde68a; color:#78350f;">Net effect on $Y$: <strong>zero</strong>. Net effect on $NX$: <strong>zero</strong>. Only the composition changes: fewer imports AND fewer exports.</div>
+                    </div>
+                    <p><strong>Policy lesson:</strong> Protectionism in a floating-rate world does not reduce trade deficits. It creates <em>sectoral unemployment</em> (export workers lose jobs) while ostensibly protecting import-competing workers.</p>
+                    <figure>
+                        <img src="assets/trade.png" alt="Trade policy Mundell-Fleming floating">
+                        <figcaption>IS* shifts right from tariff, but currency appreciation brings it back. $Y$ and $NX$ both remain unchanged.</figcaption>
                     </figure>
                 </div>
             </div>
@@ -228,73 +377,186 @@
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- FIXED REGIME -->
+        <!-- FIXED REGIME                               -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="fixed-regime">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-anchor"></i> Fixed Exchange Rates</h2>
-            <p>Under fixed exchange rates, the Central Bank deliberately stands ready to buy or sell the domestic currency for foreign currency at a predetermined, rigid rate. It effectively sacrifices its monetary autonomy to secure the exchange rate.</p>
-            
+        <section id="fixed">
+            <h2>Policies Under Fixed Exchange Rates</h2>
+
+            <p>Under a fixed regime, the CB commits to maintain $e = \bar{e}$. To do this, it <strong>buys or sells foreign currency</strong> using reserves. The cost: <span class="fluo-pink">monetary policy ceases to be independent</span> — $M$ must adjust endogenously to keep $e$ fixed.</p>
+
             <div class="grid-cards">
                 <div class="grid-card">
-                    <h4>The Mechanism & Risk</h4>
-                    <p>The CB buys or sells using its foreign reserves. A massive vulnerability is the risk of a <strong>speculative attack</strong> where the CB entirely runs out of reserves. A desperate solution to this is a rigid <em>Currency Board</em>.</p>
+                    <h4><i class="fas fa-anchor"></i> How it Works</h4>
+                    <p>If $e$ tends to rise (depreciation pressure), the CB <strong>sells</strong> foreign currency (buys domestic) → $M$ shrinks → $e$ returns to $\bar{e}$.</p>
+                    <p>If $e$ tends to fall (appreciation pressure), the CB <strong>buys</strong> foreign currency (sells domestic) → $M$ expands → $e$ returns to $\bar{e}$.</p>
                 </div>
                 <div class="grid-card">
-                    <h4>Long Run Flexibility</h4>
-                    <p>Remember that this system strictly fixes the <strong>nominal</strong> rate ($e$). In the very long run, as prices ($P$, $P^*$) become fully flexible, the <strong>real exchange rate ($\epsilon$)</strong> can and will move organically anyway.</p>
+                    <h4><i class="fas fa-triangle-exclamation" style="color: #dc2626;"></i> The Key Risk: Speculative Attack</h4>
+                    <p>If markets believe the peg will break, they massively sell domestic currency. The CB must intervene, draining reserves. A <strong>currency crisis</strong> occurs when reserves run out before the attack subsides.</p>
+                    <p style="font-size:0.9rem; color: var(--text-muted);">See the Mexico 1994 Peso Crisis case study below.</p>
                 </div>
             </div>
 
-            <h3>Policy Effectiveness under Fixed Rates</h3>
-            <p>Because the exchange rate cannot move to absorb shocks, the money supply ($M$) becomes totally endogenous, constantly adjusting to maintain the exact peg.</p>
-            
-            <div class="grid-cards" style="margin-top:2rem;">
-                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#10b981;">
-                    <img src="assets/exp.png" alt="Fiscal expansion fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
-                    <h4 style="justify-content:center;">Fiscal Expansion</h4>
-                    <p style="font-size:0.9rem;">To prevent the currency from appreciating after an IS* rightward shift, the CB prints money (LM* shifts right). Output $Y$ expands heavily. <strong>Highly Effective!</strong></p>
-                </div>
-                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#f43f5e;">
-                    <img src="assets/lm.png" alt="Monetary policy fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
-                    <h4 style="justify-content:center;">Monetary Policy</h4>
-                    <p style="font-size:0.9rem;">An attempt to drop rates causes capital flight. To defend the peg from depreciation, the CB must buy back the money (LM* reverts). <strong>Totally Ineffective!</strong></p>
-                </div>
-                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#f59e0b;">
-                    <img src="assets/rest.png" alt="Trade restriction fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
-                    <h4 style="justify-content:center;">Trade Restrictions</h4>
-                    <p style="font-size:0.9rem;">IS* shifts right from tariff. To stop the resulting appreciation, the CB prints money (LM* shifts right), permanently locking in higher Output $Y$. <strong>Effective!</strong></p>
+            <h3>Policy Effectiveness Under Fixed Rates</h3>
+
+            <div class="concept-card" style="border-left-color: #16a34a; margin-bottom: 2rem;">
+                <div class="concept-title"><i class="fas fa-landmark"></i> Fiscal Policy — <span style="color:#16a34a;">HIGHLY EFFECTIVE</span> under fixed rates</div>
+                <div class="concept-body">
+                    <div class="chain-box" style="background:#f0fdf4; border-color:#86efac; border-left-color:#16a34a;">
+                        <div class="chain-title" style="color:#14532d;"><i class="fas fa-link"></i> Chain Reaction — $G \uparrow$ under fixed $e$</div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">1</div><div>$G \uparrow$ → IS* shifts right → tendency for $r > r^*$ and $e \downarrow$ (appreciation)</div></div>
+                        <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">2</div><div>CB buys foreign currency to stop appreciation → $M \uparrow$ → LM* shifts right</div></div>
+                        <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">3</div><div>Both IS* (right) and LM* (right) → $Y$ rises substantially. $e$ unchanged.</div></div>
+                        <div class="chain-result green">$Y$ rises strongly. No exchange-rate crowding out. Fiscal policy works!</div>
+                    </div>
+                    <figure>
+                        <img src="assets/exp.png" alt="Fiscal expansion fixed rate" style="max-width:280px;">
+                        <figcaption>IS* shifts right; CB accommodates → LM* also shifts right. Large output expansion.</figcaption>
+                    </figure>
                 </div>
             </div>
-            
-            <figure class="image-container" style="margin-top: 3rem;">
-                <img src="assets/sum.png" alt="Summary of Mundell Fleming Policies" style="max-width: 600px;">
-                <figcaption><strong>Summary of Policy Effectiveness:</strong> Look at the diagonal symmetry! Fiscal and Trade policies are potent exclusively under Fixed rates. Monetary policy is potent exclusively under Floating rates.</figcaption>
-            </figure>
-            
+
+            <div class="concept-card" style="border-left-color: #dc2626; margin-bottom: 2rem;">
+                <div class="concept-title"><i class="fas fa-coins"></i> Monetary Policy — <span style="color:#dc2626;">TOTALLY INEFFECTIVE</span> under fixed rates</div>
+                <div class="concept-body">
+                    <div class="chain-box">
+                        <div class="chain-title"><i class="fas fa-link"></i> Chain Reaction — $M \uparrow$ under fixed $e$</div>
+                        <div class="chain-step"><div class="step-num">1</div><div>CB tries to expand: $M \uparrow$ → LM* shifts right → $r < r^*$ → capital outflows → depreciation pressure</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">2</div><div>To defend the peg, CB must <strong>sell foreign reserves and buy domestic currency back</strong> → $M \downarrow$</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">3</div><div>LM* reverts exactly back to its original position. Net effect: nothing changed.</div></div>
+                        <div class="chain-result red">$Y$ unchanged. The CB's monetary expansion is instantly sterilized by its own peg-defense obligation.</div>
+                    </div>
+                    <figure>
+                        <img src="assets/lm.png" alt="Monetary policy fixed rate" style="max-width:280px;">
+                        <figcaption>LM* shifts right then must revert. No lasting effect on $Y$.</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="concept-card" style="border-left-color: #f59e0b; margin-bottom: 2rem;">
+                <div class="concept-title"><i class="fas fa-ship"></i> Trade Policy — <span style="color:#d97706;">EFFECTIVE</span> under fixed rates</div>
+                <div class="concept-body">
+                    <div class="chain-box" style="background:#fffbeb; border-color:#fde68a; border-left-color:#f59e0b;">
+                        <div class="chain-title" style="color:#78350f;"><i class="fas fa-link"></i> Chain Reaction — Tariff under fixed $e$</div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">1</div><div>Tariff → $NX \uparrow$ → IS* right → appreciation pressure</div></div>
+                        <div class="chain-arrow" style="color:#f59e0b;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">2</div><div>CB buys foreign currency → $M \uparrow$ → LM* shifts right</div></div>
+                        <div class="chain-arrow" style="color:#f59e0b;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">3</div><div>Both curves shift right → $Y$ rises. $e$ unchanged.</div></div>
+                        <div class="chain-result" style="background:#fef3c7; border-color:#fde68a; color:#78350f;">$Y$ rises. $NX$ rises (tariff fully effective here — exchange rate cannot undo it).</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- RISK AND CRISIS -->
+        <!-- MASTER SYNTHESIS TABLE                     -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="risk-crisis">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-exclamation-triangle"></i> Risk Differentials and the AD Curve</h2>
-            
-            <p>Until now, we assumed $r = r^*$. But in reality, robust interest rates differ systematically due to imperfect capital mobility, intense transaction costs, or strict capital controls (the "Home Bias").</p>
+        <section id="synthesis">
+            <h2>Master Synthesis Table — Policy Effectiveness</h2>
+            <p>This is the most exam-important table in the entire open economy module. <span class="fluo-blue">Memorise the diagonal symmetry</span>: what works under floating does not work under fixed, and vice versa.</p>
 
-            <div class="concept-card">
-                <div class="concept-title">Integrating the Risk Premium ($\theta$)</div>
+            <div class="mf-table-wrap">
+                <table class="mf-table">
+                    <thead>
+                        <tr>
+                            <th class="th-blank"></th>
+                            <th class="th-float" colspan="2">🌊 Floating Exchange Rate</th>
+                            <th class="th-fixed" colspan="2">⚓ Fixed Exchange Rate</th>
+                        </tr>
+                        <tr>
+                            <th class="th-blank">Policy</th>
+                            <th class="th-sub-float">Effect on $Y$</th>
+                            <th class="th-sub-float">Mechanism</th>
+                            <th class="th-sub-fixed">Effect on $Y$</th>
+                            <th class="th-sub-fixed">Mechanism</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="policy-label"><i class="fas fa-landmark"></i> Fiscal Policy<br><small style="font-weight:400; color:var(--text-muted);">$G \uparrow$ or $T \downarrow$</small></td>
+                            <td>
+                                <span class="badge ineffective">INEFFECTIVE — $\Delta Y = 0$</span><br>
+                                IS* shifts right → capital inflows → $e \downarrow$ (appreciation) → $NX \downarrow$ → IS* shifts back
+                            </td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Complete exchange-rate crowding out. G ↑ exactly offsets NX ↓.</td>
+                            <td>
+                                <span class="badge effective">HIGHLY EFFECTIVE</span><br>
+                                IS* → right. CB prints money to defend peg → LM* → right. Double expansion.
+                            </td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">No exchange-rate channel. CB accommodates fully.</td>
+                        </tr>
+                        <tr>
+                            <td class="policy-label"><i class="fas fa-coins"></i> Monetary Policy<br><small style="font-weight:400; color:var(--text-muted);">$M \uparrow$</small></td>
+                            <td>
+                                <span class="badge effective">HIGHLY EFFECTIVE</span><br>
+                                LM* → right → $r < r^*$ → capital outflows → $e \uparrow$ (depreciation) → $NX \uparrow$ → IS* → right
+                            </td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Expenditure-switching: depreciation steals foreign demand. Doubly expansionary.</td>
+                            <td>
+                                <span class="badge ineffective">INEFFECTIVE — $\Delta Y = 0$</span><br>
+                                $M \uparrow$ → $r < r^*$ → depreciation pressure → CB must sell reserves → $M \downarrow$ → LM reverts
+                            </td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Monetary policy is endogenous — fully absorbed by peg defense.</td>
+                        </tr>
+                        <tr>
+                            <td class="policy-label"><i class="fas fa-ship"></i> Trade Policy<br><small style="font-weight:400; color:var(--text-muted);">Tariff / Quota</small></td>
+                            <td>
+                                <span class="badge ineffective">INEFFECTIVE — $\Delta Y = 0$, $\Delta NX = 0$</span><br>
+                                NX ↑ → IS* right → appreciation → $NX$ falls back. Less trade, same balance.
+                            </td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Only sectoral reallocation: fewer imports AND fewer exports. Frictional unemployment.</td>
+                            <td>
+                                <span class="badge partial">EFFECTIVE</span><br>
+                                NX ↑ → IS* right → CB accommodates → LM* right → $Y$ rises, NX stays higher.
+                            </td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Exchange rate frozen → NX gain is permanent. But raises global trade tensions.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <figure style="margin-top: 2rem;">
+                <img src="assets/sum.png" alt="Policy effectiveness summary grid" style="max-width: 580px;">
+                <figcaption><strong>Visual Summary:</strong> Note the perfect diagonal symmetry. Fiscal works under fixed, monetary works under floating. Trade policy never raises output in a float.</figcaption>
+            </figure>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- RISK PREMIUM & CRISIS                      -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="risk">
+            <h2>Risk Premium and Currency Crises</h2>
+
+            <p>Our baseline assumes domestic and foreign assets are perfect substitutes, so $r = r^*$ exactly. In practice, a <span class="fluo-pink">country risk premium $\theta$</span> can drive a wedge:</p>
+            <div class="equation-box" style="border-color: var(--accent-primary);">
+                $r = r^* + \theta$
+            </div>
+            <p>A rise in $\theta$ means investors demand extra compensation to hold domestic assets (political risk, default risk, liquidity risk). The IS* and LM* equations both incorporate $\theta$.</p>
+
+            <div class="concept-card" style="border-left-color: var(--accent-primary);">
+                <div class="concept-title">Effect of a Risk Premium Shock ($\theta \uparrow$)</div>
                 <div class="concept-body">
-                    <p>We modify our global interest rate equation to include a country risk premium: <strong>$r = r^* + \theta$</strong>.</p>
-                    <ul class="content-list">
-                        <li>$Y = C(Y - T) + I(r^* + \theta) + G + NX(e)$</li>
-                        <li>$M/P = L(r^* + \theta, Y)$</li>
-                    </ul>
-                    <p><em>What really drives the result</em> of an sudden increase in the risk premium ($\theta \uparrow$)? Investors demand more yield to hold domestic assets. Domestic interest rates spike. Capital violently flees the country. The IS* curve shifts left (investment crashes), while LM* shifts right (money demand crashes). The currency immensely depreciates.</p>
-                    <figure class="image-container" style="margin-top:1.5rem;">
-                        <img src="assets/risk.png" alt="Risk premium increase in Mundell Fleming">
-                        <figcaption>An explosive rise in country risk shifts both curves, violently depreciating the currency ($e \downarrow$).</figcaption>
+                    <div class="chain-box">
+                        <div class="chain-title"><i class="fas fa-link"></i> Chain Reaction — $\theta \uparrow$</div>
+                        <div class="chain-step"><div class="step-num">1</div><div>Higher $\theta$ → effective rate $r = r^* + \theta \uparrow$ → investment $I(r) \downarrow$ → IS* shifts left</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">2</div><div>Simultaneously: higher $r$ → money demand $L^d(r) \downarrow$ → with fixed $M/P$, money market clears at lower $Y$ → LM* shifts right (down)</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">3</div><div>Capital flight: investors sell domestic assets → domestic currency <strong>depreciates sharply</strong> ($e \uparrow$)</div></div>
+                        <div class="chain-result red">Output falls (IS* left dominates). Exchange rate depreciates massively. Classic signs of an emerging-market crisis.</div>
+                    </div>
+                    <figure>
+                        <img src="assets/risk.png" alt="Risk premium shock in Mundell-Fleming">
+                        <figcaption>A sudden rise in country risk: IS* shifts left, LM* shifts right — both amplify the depreciation. Output falls.</figcaption>
                     </figure>
                 </div>
             </div>
@@ -302,65 +564,10 @@
             <div class="alert-box">
                 <div class="alert-icon"><i class="fas fa-bolt"></i></div>
                 <div class="alert-content">
-                    <h4>Case Study: The 1994 Mexico Peso Crisis</h4>
-                    <p>In early 1994, political instability (the Chiapas uprising, assassinations) combined with rising U.S. rates sent Mexico's risk premium ($\theta$) skyrocketing. The Peso faced colossal downward pressure.</p>
-                    <p>Mexico tried to defend its fixed exchange rate by draining its dollar reserves secretly. When markets realized on Dec 20 that the reserves were nearly annihilated, pure panic triggered a capital flight. The fixed rate violently collapsed (depreciating over 40% in weeks).</p>
-                    <p><em>This creates a trade-off:</em> Fixing an exchange rate grants stability, but leaves you fundamentally defenseless when facing gigantic risk premium shocks and depleted reserves. Interestingly, the crash deeply hurt the US too—Mexican assets owned by Americans lost value, and US border exports collapsed.</p>
-                </div>
-            </div>
-            
-            <p style="margin-top:2rem;"><strong>Mundell-Fleming and Aggregate Demand:</strong> By relaxing the fixed-price assumption, any drop in the general price level ($P \downarrow$) increases real money balances ($M/P \uparrow$), shifting the LM* right. This depreciates the currency and boosts output, neatly derivation the downward-sloping Aggregate Demand (AD) curve from the M-F model.</p>
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- IS-LM-BP & THE IMPOSSIBLE TRINITY -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="large-economy">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-cubes"></i> IS-LM-BP and The Impossible Trinity</h2>
-            
-            <p>For massive economic juggernauts like the US or China, the simple Small Open Economy framework is simply too restrictive. Their capital flows are so immense they manipulate the global interest rate $r^*$.</p>
-            <p>We combine everything by introducing the Balance of Payments (BP) curve into the core: $NX(e) = CF(r)$.</p>
-
-            <figure class="image-container" style="margin: 2rem 0;">
-                <img src="assets/fiscal-expansion-open-economy-transmission.png" alt="IS LM BP Fiscal Expansion" style="max-width: 600px;">
-                <figcaption><strong>Transmission of a Fiscal Expansion (IS-LM-BP):</strong> The addition of the BP curve allows us to explicitly model exact international capital flows and their organic interaction with domestic equilibrium.</figcaption>
-            </figure>
-
-            <div class="concept-card" style="border-left-color: var(--accent-primary);">
-                <div class="concept-title"><i class="fas fa-triangle-exclamation"></i> The Impossible Trinity (Trilemma)</div>
-                <div class="concept-body">
-                    <p>A fundamental mathematical reality of international macroeconomics: A nation absolutely cannot simultaneously possess free capital flows, an independent monetary policy, and a permanently fixed exchange rate.</p>
-                    <p><em>Choosing any two automatically implies sacrificing the third.</em></p>
-                    
-                    <div style="background:var(--bg-main); padding:2rem; border-radius:12px; margin-top:1.5rem; border:1px solid var(--border-light); text-align:center;">
-                        <h4 style="margin-bottom:1.5rem; color:var(--text-main);">The Trilemma Triangle</h4>
-                        
-                        <div style="display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:2rem;">
-                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
-                                <i class="fas fa-money-bill-wave" style="font-size:2rem; color:var(--accent-primary); margin-bottom:0.5rem;"></i>
-                                <h5 style="font-size:1.05rem;">Free Capital Flow</h5>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Money cross borders with zero restrictions.</p>
-                            </div>
-                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
-                                <i class="fas fa-anchor" style="font-size:2rem; color:#f43f5e; margin-bottom:0.5rem;"></i>
-                                <h5 style="font-size:1.05rem;">Fixed Exchange Rate</h5>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Stable currency value peg.</p>
-                            </div>
-                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
-                                <i class="fas fa-university" style="font-size:2rem; color:#10b981; margin-bottom:0.5rem;"></i>
-                                <h5 style="font-size:1.05rem;">Independent Monetary</h5>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">CB sets rates to manage local inflation.</p>
-                            </div>
-                        </div>
-
-                        <div style="margin-top:2rem; text-align:left; max-width:600px; margin-left:auto; margin-right:auto;">
-                            <p><strong>Option 1 (e.g. U.S.):</strong> Chooses Capital Flows + Independent Policy $\rightarrow$ Sacrifices Peg (Uses Floating Rates).</p>
-                            <p><strong>Option 2 (e.g. Hong Kong):</strong> Chooses Capital Flows + Fixed Peg $\rightarrow$ Sacrifices Independent CB (Must strictly import foreign interest rates).</p>
-                            <p><strong>Option 3 (e.g. China):</strong> Chooses Independent Policy + Fixed Peg $\rightarrow$ Sacrifices Free Movement (Must brutally enforce capital controls).</p>
-                        </div>
-                    </div>
+                    <h4>Case Study: Mexico Peso Crisis, December 1994</h4>
+                    <p>In 1994, the combination of political shocks (Chiapas uprising, presidential assassination) and rising U.S. interest rates pushed Mexico's risk premium $\theta$ sharply upward. Capital fled the country. Mexico tried to defend its fixed exchange rate (the peso-dollar peg) by selling dollar reserves — but not publicly, so markets didn't know how depleted they were.</p>
+                    <p>On December 20, 1994, Mexico announced a devaluation. Markets saw that reserves had nearly run dry, triggering a full panic. The peso depreciated over 40% in weeks. This is the textbook speculative attack: once the peg looks indefensible, it <em>becomes</em> indefensible as a self-fulfilling prophecy.</p>
+                    <p><strong>Lesson:</strong> A fixed exchange rate provides stability in normal times but is catastrophically fragile when facing large risk-premium shocks and thin reserves.</p>
                 </div>
             </div>
         </section>
@@ -368,52 +575,127 @@
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- INTEREST RATE PARITY -->
+        <!-- IMPOSSIBLE TRINITY                         -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="interest-parity">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-balance-scale-right"></i> Interest Rate Parity</h2>
-            <p>Interest rate parity inherently reflects the simple idea that investors primarily care about total combined returns, incorporating both raw interest yields and expected currency exchange rate shifts.</p>
-            <p>It demands sufficient capital mobility and expects assets across borders to be structurally perfect substitutes.</p>
+        <section id="trilemma">
+            <h2>The Impossible Trinity (Trilemma)</h2>
+
+            <p>The Mundell-Fleming model embeds a fundamental constraint of international macroeconomics: <strong>a country cannot simultaneously achieve all three of the following goals.</strong></p>
+
+            <div class="trilemma-grid">
+                <div class="trilemma-card">
+                    <i class="fas fa-money-bill-transfer" style="color: var(--accent-primary);"></i>
+                    <h5>Free Capital Flows</h5>
+                    <p>No restrictions on cross-border financial transactions.</p>
+                </div>
+                <div class="trilemma-card">
+                    <i class="fas fa-anchor" style="color: #f43f5e;"></i>
+                    <h5>Fixed Exchange Rate</h5>
+                    <p>Stable nominal peg to a foreign currency.</p>
+                </div>
+                <div class="trilemma-card">
+                    <i class="fas fa-university" style="color: #10b981;"></i>
+                    <h5>Independent Monetary Policy</h5>
+                    <p>CB sets interest rates to manage inflation and output.</p>
+                </div>
+            </div>
+
+            <p>Every country in practice must sacrifice one corner of the triangle:</p>
+
+            <div class="option-block">
+                <strong>Option 1 — U.S., Euro Area, UK:</strong> Free Capital Flows + Independent Monetary Policy <span>→ sacrifice the fixed rate → <strong>floating exchange rates</strong>.</span>
+            </div>
+            <div class="option-block">
+                <strong>Option 2 — Hong Kong, Bulgaria (Currency Board):</strong> Free Capital Flows + Fixed Exchange Rate <span>→ sacrifice monetary independence → must <strong>import foreign interest rates</strong> entirely.</span>
+            </div>
+            <div class="option-block">
+                <strong>Option 3 — China (historically):</strong> Fixed Exchange Rate + Independent Monetary Policy <span>→ sacrifice free flows → <strong>capital controls</strong> required.</span>
+            </div>
+
+            <div class="exam-tip" style="border-left-color: var(--alert-border);">
+                <i class="fas fa-thumbtack exam-tip-pin"></i>
+                <div class="exam-tip-content">
+                    <h4>Why the Trilemma is Not Really a Choice</h4>
+                    <p>The trilemma is not a political preference — it is a mathematical constraint embedded in the balance of payments accounting and the interest rate parity condition. Under perfect capital mobility and a fixed rate, the money supply is <em>endogenous</em> by necessity — the CB cannot independently target both $e$ and $M$.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- INTEREST RATE PARITY                      -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="parity">
+            <h2>Interest Rate Parity</h2>
+
+            <p>When investors compare returns across borders, they care about the <strong>total return</strong>: the interest rate <em>plus</em> any expected change in the exchange rate. In equilibrium with perfect substitutes:</p>
 
             <div class="grid-cards">
                 <div class="grid-card">
-                    <h4>Uncovered Interest Parity (UIP)</h4>
-                    <p>The investor takes pure risk by NOT hedging. They gamble on the future exchange rate. The arbitrage rule states expected total returns must identical:</p>
-                    <div class="equation-box" style="margin: 0.5rem 0; font-size: 1rem; padding: 0.5rem;">
-                        $i_{CZK,t} - i_{EUR,t} \approx \frac{E_t(e_{t+1}) - e_t}{e_t}$
+                    <h4><i class="fas fa-dice"></i> Uncovered Interest Parity (UIP)</h4>
+                    <p>The investor takes the currency risk — no hedging. For no-arbitrage:</p>
+                    <div class="equation-box" style="border-color: var(--accent-primary); margin: 0.5rem 0;">
+                        $i_{domestic} - i_{foreign} \approx \dfrac{E_t(e_{t+1}) - e_t}{e_t}$
                     </div>
-                    <p style="font-size:0.9rem;"><em>Intuition:</em> If Czech rates are strictly higher, mathematical logic demands investors expect a future massive depreciation of the CZK to offset those gains. Empirically, UIP often drastically fails in the short run due to risk premia.</p>
+                    <p style="font-size:0.9rem;"><strong>Intuition:</strong> If domestic rates are higher, the market must expect a future domestic depreciation to offset that advantage. Otherwise everyone would borrow abroad and invest domestically — until the rates equalize.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted);"><em>Empirical status:</em> UIP often fails in the short run — the "forward premium puzzle." Currency carry trades (borrow low-rate currency, invest in high-rate) persistently profit, suggesting risk premia or irrationality.</p>
                 </div>
                 <div class="grid-card">
-                    <h4>Covered Interest Parity (CIRP)</h4>
-                    <p>The smartest and safest route. The investor fully hedges the future rate risk using a binding forward contract natively on financial markets. No-arbitrage condition:</p>
-                    <div class="equation-box" style="margin: 0.5rem 0; font-size: 1rem; padding: 0.5rem;">
-                        $i_{CZK,t} - i_{EUR,t} \approx \frac{F_t - S_t}{S_t}$
+                    <h4><i class="fas fa-shield-halved"></i> Covered Interest Parity (CIP)</h4>
+                    <p>The investor hedges the exchange risk with a forward contract. For no-arbitrage:</p>
+                    <div class="equation-box" style="border-color: var(--accent-secondary); margin: 0.5rem 0;">
+                        $i_{domestic} - i_{foreign} \approx \dfrac{F_t - S_t}{S_t}$
                     </div>
-                    <p style="font-size:0.9rem;"><em>Intuition:</em> The interest gap instantly mirrors the forward premium perfectly. Under normal peaceful situations, CIRP stubbornly holds flawlessly, only breaking during extreme financial crises when literal funding evaporates.</p>
+                    <p style="font-size:0.9rem;">Where $F_t$ = forward rate, $S_t$ = spot rate. The interest differential must exactly equal the forward premium.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted);"><em>Empirical status:</em> CIP held tightly until the Global Financial Crisis. Post-2008, large CIP deviations emerged due to balance-sheet constraints at major banks (dollar funding stress). It is now seen as only holding approximately.</p>
                 </div>
             </div>
+
+            <table class="synth-table">
+                <thead>
+                    <tr>
+                        <th>Condition</th>
+                        <th>Hedging</th>
+                        <th>Empirical Status</th>
+                        <th>Breaks Down When?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>UIP</strong></td>
+                        <td>None — full currency risk</td>
+                        <td style="color:#dc2626;">Often violated (carry trades profitable)</td>
+                        <td>Risk premia, irrationality, momentum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CIP</strong></td>
+                        <td>Forward contract</td>
+                        <td style="color:#16a34a;">Held well pre-2008; deviations post-crisis</td>
+                        <td>Bank balance-sheet stress, dollar shortage</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- SUMMARY TOGGLE -->
+        <!-- SUMMARY TOGGLE                             -->
         <!-- ═══════════════════════════════════════════ -->
-        <details class="summary-toggle" style="margin-top: 3rem;">
-            <summary><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i> Key Takeaways</summary>
+        <details class="summary-toggle">
+            <summary><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i> Key Takeaways — Full Recap</summary>
             <div class="summary-content">
-                <ol class="content-list" style="margin-bottom:0;">
-                    <li><strong>Mundell-Fleming Policy Framework:</strong> A short-run system determining that Fiscal/Trade policy commands power solely under fixed exchange regimes, whereas Monetary policy claims dominance heavily in floating environments.</li>
-                    <li><strong>The Impossible Trinity:</strong> A systemic trilemma forcing nations to irrevocably surrender one piece of sovereignty: you cannot unite fixed rates, infinite capital movement, and sovereign monetary policy.</li>
-                    <li><strong>Interest Rate Parity:</strong> Establishes that real yields across frontiers equate structurally when factoring in direct foreign exchange speculations (UIP) or heavily contracted futures (CIRP).</li>
-                </ol>
+                <p><strong>1. Mundell-Fleming Structure.</strong> IS* depends on $NX(e)$; LM* is vertical in $(Y,e)$ space. With perfect capital mobility, $r = r^*$ always. The exchange rate $e$ — not the interest rate — adjusts to clear markets.</p>
+                <p><strong>2. Floating Rates.</strong> Monetary policy is powerful (depreciates currency, boosts NX). Fiscal policy is totally crowded out through exchange-rate appreciation. Trade policy also ineffective — appreciation offsets any NX gain.</p>
+                <p><strong>3. Fixed Rates.</strong> Fiscal policy is powerful (CB accommodates, no exchange-rate offset). Monetary policy is impossible (any expansion is sterilized by peg defense). Trade policy works too.</p>
+                <p><strong>4. Impossible Trinity.</strong> Free capital flows + fixed rate + independent monetary policy cannot coexist. Every country sacrifices one. This is a hard constraint of open-economy macro.</p>
+                <p><strong>5. Parity Conditions.</strong> UIP says expected depreciation offsets interest differentials (frequently violated). CIP says the forward premium equals the interest differential (held well until post-2008 funding stress).</p>
             </div>
         </details>
 
         <!-- FOOTER -->
-        <section
-            style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
+        <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>End of Lecture — IS-LM-BP. Utilizing B2 English level pedagogy.</em>
+                <em>Mundell-Fleming &amp; Interest Rate Parity — Codex Logic Standards. Revised April 2026.</em>
             </p>
         </section>
 

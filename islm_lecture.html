@@ -8,10 +8,9 @@
     <meta name="description" content="Macroeconomics II: IS-LM model, Keynesian Cross, Liquidity Preference, and the transition to IS-MP.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         window.MathJax = {
@@ -24,29 +23,23 @@
     </script>
     <link rel="stylesheet" href="macro_style.css">
     <style>
-        /* Fluo red overrides for inline accents */
         .fluo-red {
             background: linear-gradient(104deg, rgba(239,68,68,0) 0.9%, rgba(239,68,68,0.55) 2.4%, rgba(239,68,68,0.35) 5.8%, rgba(239,68,68,0.65) 93%, rgba(239,68,68,0.2) 96%, rgba(239,68,68,0) 98%),
                         linear-gradient(183deg, rgba(239,68,68,0) 0%, rgba(239,68,68,0.2) 7.9%, rgba(239,68,68,0) 15%);
-            padding: 0 0.25rem;
-            border-radius: 4px;
-            font-weight: 600;
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 600;
         }
         .fluo-coral {
             background: linear-gradient(104deg, rgba(251,113,133,0) 0.9%, rgba(251,113,133,0.55) 2.4%, rgba(251,113,133,0.35) 5.8%, rgba(251,113,133,0.65) 93%, rgba(251,113,133,0.2) 96%, rgba(251,113,133,0) 98%),
                         linear-gradient(183deg, rgba(251,113,133,0) 0%, rgba(251,113,133,0.2) 7.9%, rgba(251,113,133,0) 15%);
-            padding: 0 0.25rem;
-            border-radius: 4px;
-            font-weight: 500;
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
         }
         .fluo-orange {
             background: linear-gradient(104deg, rgba(251,146,60,0) 0.9%, rgba(251,146,60,0.55) 2.4%, rgba(251,146,60,0.35) 5.8%, rgba(251,146,60,0.65) 93%, rgba(251,146,60,0.2) 96%, rgba(251,146,60,0) 98%),
                         linear-gradient(183deg, rgba(251,146,60,0) 0%, rgba(251,146,60,0.2) 7.9%, rgba(251,146,60,0) 15%);
-            padding: 0 0.25rem;
-            border-radius: 4px;
-            font-weight: 500;
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
         }
-        /* Summary toggle (reusing solution-toggle pattern but with IS-LM color) */
+
+        /* Summary / Recap toggle */
         .summary-toggle {
             margin-top: 2.5rem;
             border: 1px solid var(--accent-islm-border);
@@ -55,31 +48,99 @@
         }
         .summary-toggle summary {
             background: linear-gradient(135deg, var(--accent-islm), var(--accent-islm-hover));
-            color: white;
-            padding: 0.85rem 1.25rem;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            list-style: none;
-            transition: all 0.3s ease;
+            color: white; padding: 0.85rem 1.25rem; cursor: pointer;
+            font-weight: 600; font-size: 1.05rem; display: flex;
+            align-items: center; gap: 0.5rem; list-style: none; transition: all 0.3s ease;
         }
         .summary-toggle summary::-webkit-details-marker { display: none; }
         .summary-toggle summary:hover { filter: brightness(1.15); }
         .summary-toggle summary::before {
-            content: '\f06e';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 0.85rem;
+            content: '\f06e'; font-family: 'Font Awesome 6 Free';
+            font-weight: 900; font-size: 0.85rem;
         }
         .summary-toggle[open] summary::before { content: '\f070'; }
         .summary-toggle .summary-content {
-            padding: 1.5rem;
-            background: var(--accent-islm-light);
+            padding: 1.5rem; background: var(--accent-islm-light);
             border-top: 1px solid var(--accent-islm-border);
         }
+
+        /* Chain Reaction Box */
+        .chain-box {
+            background: #fff7f7;
+            border: 1px solid var(--accent-islm-border);
+            border-left: 5px solid var(--accent-islm);
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+        }
+        .chain-box .chain-title {
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: var(--accent-islm-hover);
+            margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.4rem;
+        }
+        .chain-step {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            margin-bottom: 0.6rem; font-size: 1rem;
+        }
+        .chain-step .step-num {
+            background: var(--accent-islm); color: white;
+            border-radius: 50%; width: 22px; height: 22px; min-width: 22px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; margin-top: 2px;
+        }
+        .chain-arrow {
+            text-align: center; color: var(--accent-islm); font-size: 1.1rem;
+            margin: 0.15rem 0 0.15rem 2.05rem;
+        }
+
+        /* Synthesis Table */
+        .synth-table {
+            width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+            font-size: 0.95rem; border-radius: 8px; overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .synth-table th {
+            background: var(--accent-islm); color: white;
+            padding: 0.75rem 1rem; text-align: center; font-weight: 600;
+        }
+        .synth-table th:first-child { text-align: left; }
+        .synth-table td {
+            padding: 0.7rem 1rem; border-bottom: 1px solid var(--border-light);
+            background: white;
+        }
+        .synth-table td:first-child { font-weight: 600; color: var(--bg-sidebar); }
+        .synth-table tr:last-child td { border-bottom: none; }
+        .synth-table tr:hover td { background: var(--accent-islm-light); }
+        .tag-up { color: #16a34a; font-weight: 700; }
+        .tag-down { color: var(--accent-islm-hover); font-weight: 700; }
+        .tag-right { color: var(--accent-primary); font-weight: 700; }
+        .tag-left { color: #b45309; font-weight: 700; }
+
+        /* Definition pill */
+        .def-pill {
+            display: inline-block; background: var(--accent-islm-light);
+            border: 1px solid var(--accent-islm-border); border-radius: 20px;
+            padding: 0.2rem 0.75rem; font-size: 0.85rem; font-weight: 600;
+            color: var(--accent-islm-hover); margin: 0 0.2rem 0.4rem 0;
+        }
+
+        /* Key definitions block */
+        .key-defs {
+            background: white; border: 1px solid var(--border-light);
+            border-top: 4px solid var(--accent-islm); border-radius: 10px;
+            padding: 1.5rem; margin-bottom: 2rem;
+        }
+        .key-defs h4 {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--accent-islm-hover); margin-bottom: 1rem; font-weight: 700;
+        }
+        .def-row {
+            display: flex; gap: 0.75rem; padding: 0.6rem 0;
+            border-bottom: 1px dashed var(--border-light); align-items: baseline;
+        }
+        .def-row:last-child { border-bottom: none; }
+        .def-term { font-weight: 700; min-width: 140px; color: var(--bg-sidebar); font-size: 0.95rem; }
+        .def-body { color: var(--text-main); font-size: 0.95rem; }
     </style>
 </head>
 
@@ -91,9 +152,7 @@
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-text"><i class="fas fa-chart-line"></i> Macroéconomie</div>
-            <button class="toggle-btn" id="sidebar-toggle-desktop">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="toggle-btn" id="sidebar-toggle-desktop"><i class="fas fa-bars"></i></button>
         </div>
         <nav class="menu-nav">
             <div class="menu-item">
@@ -135,8 +194,8 @@
                 </div>
                 <div class="accordion-content" style="max-height: 500px;">
                     <ul>
-                        <li><a href="islm_lecture.html" class="active">IS-LM & Bridge to IS-MP</a></li>
-                        <li><a href="islm_applications.html">IS-LM & AD Applications</a></li>
+                        <li><a href="islm_lecture.html" class="active">IS-LM &amp; Bridge to IS-MP</a></li>
+                        <li><a href="islm_applications.html">IS-LM &amp; AD Applications</a></li>
                     </ul>
                 </div>
             </div>
@@ -148,8 +207,8 @@
                 </div>
                 <div class="accordion-content">
                     <ul>
-                        <li><a href="open_economy.html">Open Economy Module</a></li>
-                        <li><a href="open_economy_mf.html">IS-LM-BP & Extensions</a></li>
+                        <li><a href="open_economy.html">Open Economy — SOE</a></li>
+                        <li><a href="open_economy_mf.html">Mundell-Fleming &amp; Parity</a></li>
                     </ul>
                 </div>
             </div>
@@ -158,114 +217,114 @@
 
     <main class="main-content islm-content" id="main-content">
         <header class="page-header islm">
-            <h1 class="page-title">The IS-LM Model and the Bridge to IS-MP</h1>
-            <p class="page-subtitle"><i class="fas fa-route"></i> From the Keynesian Cross to Aggregate Demand — Janíčko, Macroeconomics II</p>
+            <h1 class="page-title">The IS-LM Model</h1>
+            <p class="page-subtitle"><i class="fas fa-route"></i> From the Keynesian Cross to Aggregate Demand — and the Bridge to IS-MP</p>
         </header>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- OVERVIEW                                    -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="overview">
+            <div class="key-defs">
+                <h4><i class="fas fa-key"></i> &nbsp;What is IS-LM?</h4>
+                <div class="def-row">
+                    <span class="def-term">IS-LM Model</span>
+                    <span class="def-body">A short-run framework that simultaneously determines equilibrium output $Y$ and interest rate $i$ by combining goods-market equilibrium (IS) and money-market equilibrium (LM), taking the price level $P$ as fixed.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">IS Curve</span>
+                    <span class="def-body"><strong>Investment–Saving</strong>: the set of $(Y, i)$ pairs such that the goods market clears, i.e., $Y = C + I + G + NX$. Slopes <strong>downward</strong>.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">LM Curve</span>
+                    <span class="def-body"><strong>Liquidity–Money</strong>: the set of $(Y, i)$ pairs such that the money market clears, i.e., $M/P = L(i,Y)$. Slopes <strong>upward</strong>.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Short Run</span>
+                    <span class="def-body">Prices are sticky — $P$ is fixed. IS-LM determines $(Y^*, i^*)$ for a given $P$. In the long run, $P$ adjusts and output returns to its natural level.</span>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
         <!-- THE KEYNESIAN CROSS                        -->
         <!-- ═══════════════════════════════════════════ -->
         <section id="keynesian-cross">
             <h2>The Keynesian Cross</h2>
-
-            <p>The Keynesian cross is the <span class="fluo-red">building block</span> for the IS curve. It establishes how planned spending by all agents determines the economy's short-run output level.</p>
+            <p>The Keynesian Cross is the <span class="fluo-red">building block of the IS curve</span>. It shows how, for a given interest rate, equilibrium output is determined by planned expenditure.</p>
 
             <h3>Planned vs. Actual Expenditure</h3>
-
             <div class="grid-cards">
                 <div class="grid-card" style="border-top-color: var(--accent-islm);">
                     <h4><i class="fas fa-industry" style="color: var(--accent-islm);"></i> Actual Output ($Y$)</h4>
-                    <p>The total amount of goods and services produced in the economy. Measured by GDP.</p>
+                    <p>Total goods and services produced — measured by GDP. In general, $Y \neq PE$ unless the economy is in equilibrium.</p>
                 </div>
                 <div class="grid-card" style="border-top-color: var(--accent-islm);">
                     <h4><i class="fas fa-clipboard-list" style="color: var(--accent-islm);"></i> Planned Expenditure ($PE$)</h4>
-                    <p>The amount households, firms, government, and foreigners <em>plan</em> to spend:</p>
-                    <div class="equation-box" style="border-color: var(--accent-islm); margin: 0.75rem 0 0;">
-                        $PE = C + I + G + NX$
-                    </div>
+                    <p>What households, firms, the government, and foreigners <em>intend</em> to spend:</p>
+                    <div class="equation-box" style="border-color: var(--accent-islm); margin: 0.75rem 0 0;">$PE = C + I + G + NX$</div>
                 </div>
             </div>
 
             <div class="concept-card" style="border-left-color: var(--accent-islm);">
-                <div class="concept-title">Goods-Market Equilibrium</div>
+                <div class="concept-title">Goods-Market Equilibrium: $Y = PE$</div>
                 <div class="concept-body">
-                    <div class="equation-box" style="border-color: var(--accent-islm); font-size: 1.3rem;">
-                        $Y = PE$
-                    </div>
-                    <p>If firms sell <strong>less</strong> than they produce, inventories rise unexpectedly and firms <strong>reduce</strong> output. If firms sell <strong>more</strong> than they produce, inventories fall unexpectedly and firms <strong>increase</strong> output.</p>
+                    <p>When planned expenditure exceeds output, inventories run down and firms <strong>increase production</strong>. When output exceeds planned spending, inventories pile up and firms <strong>cut production</strong>. The economy self-corrects to $Y = PE$.</p>
                 </div>
             </div>
 
-            <h3>Basic Assumptions</h3>
-            <p>We specify the components of planned expenditure with the following linear structure:</p>
-
+            <h3>The Behavioural Equations</h3>
             <div class="parameter-list">
                 <div class="parameter-item">
                     <div class="parameter-symbol" style="color: var(--accent-islm);">$C$</div>
-                    <div class="parameter-desc"><strong>Consumption:</strong> $C = \bar{C} + c(Y - T)$, where $0 < c < 1$ is the <span class="fluo-coral">marginal propensity to consume</span> (MPC).</div>
+                    <div class="parameter-desc"><strong>Consumption:</strong> $C = \bar{C} + c(Y - T)$, where $c \in (0,1)$ is the <span class="fluo-coral">Marginal Propensity to Consume (MPC)</span>. A $1 increase in disposable income raises consumption by $c.</div>
                 </div>
                 <div class="parameter-item">
                     <div class="parameter-symbol" style="color: var(--accent-islm);">$I$</div>
-                    <div class="parameter-desc"><strong>Investment:</strong> Initially taken as exogenous: $I = \bar{I}$.</div>
+                    <div class="parameter-desc"><strong>Investment:</strong> Initially exogenous — $I = \bar{I}$. Later we make it interest-sensitive to derive the IS curve.</div>
                 </div>
                 <div class="parameter-item">
                     <div class="parameter-symbol" style="color: var(--accent-islm);">$G$</div>
-                    <div class="parameter-desc"><strong>Government Purchases:</strong> Exogenous: $G = \bar{G}$.</div>
-                </div>
-                <div class="parameter-item">
-                    <div class="parameter-symbol" style="color: var(--accent-islm);">$NX$</div>
-                    <div class="parameter-desc"><strong>Net Exports:</strong> Exogenous: $NX = \overline{NX}$.</div>
+                    <div class="parameter-desc"><strong>Government Purchases:</strong> Exogenous policy variable $G = \bar{G}$. Does not include transfers.</div>
                 </div>
                 <div class="parameter-item">
                     <div class="parameter-symbol" style="color: var(--accent-islm);">$T$</div>
-                    <div class="parameter-desc"><strong>Taxes and Transfers:</strong> $T = tY - TR$, where $t$ is the income tax rate and $TR$ are transfers.</div>
+                    <div class="parameter-desc"><strong>Taxes net of Transfers:</strong> $T = tY - TR$, where $t$ is the marginal income tax rate and $TR$ are government transfers. Higher income → higher tax revenue (automatic stabilizer).</div>
                 </div>
             </div>
 
-            <p>Substituting these into the $PE$ equation gives:</p>
+            <h3>Deriving Equilibrium Output</h3>
+            <p>Substituting $T = tY - TR$ into the consumption function:</p>
             <div class="equation-box" style="border-color: var(--accent-islm);">
-                $PE = \bar{C} + c\bigl[Y(1 - t) + TR\bigr] + \bar{I} + \bar{G} + \overline{NX}$
+                $PE = \underbrace{\bar{C} + c \cdot TR + \bar{I} + \bar{G} + \overline{NX}}_{A \; (\text{autonomous expenditure})} + c(1-t) \cdot Y$
             </div>
-
-            <h3>Autonomous Expenditure & Equilibrium Output</h3>
-            <p>We define <span class="fluo-red">autonomous expenditure</span> — the part of spending that does not depend on current income — as:</p>
-            <div class="equation-box" style="border-color: var(--accent-islm);">
-                $A = \bar{C} + c \cdot TR + \bar{I} + \bar{G} + \overline{NX}$
+            <p>Setting $Y = PE$ and solving:</p>
+            <div class="equation-box" style="background: rgba(239,68,68,0.06); border-color: var(--accent-islm); font-size: 1.25rem;">
+                $\boxed{Y^* = \alpha_g \cdot A}, \quad \alpha_g = \dfrac{1}{1 - c(1-t)}$
             </div>
+            <p>$\alpha_g$ is the <span class="fluo-red">government-expenditure multiplier</span>. Since $c(1-t) < 1$, we have $\alpha_g > 1$: a $1 increase in autonomous spending raises equilibrium output by more than $1.</p>
 
-            <p>Planned expenditure can then be written compactly as:</p>
-            <div class="equation-box" style="border-color: var(--accent-islm);">
-                $PE = A + c(1 - t)Y$
-            </div>
-
-            <p>Setting $Y = PE$ and solving for equilibrium output:</p>
-            <div class="equation-box" style="background: rgba(var(--accent-islm-rgb), 0.06); border-color: var(--accent-islm); font-size: 1.2rem;">
-                $Y^* = \dfrac{1}{1 - c(1 - t)} \cdot A = \alpha_g \cdot A$
-            </div>
-            <p>The term $\alpha_g = \dfrac{1}{1 - c(1 - t)}$ is the <span class="fluo-red">government-expenditure multiplier</span>.</p>
-
-            <h3>Adjustment Mechanism</h3>
-            <p>This economy self-corrects through unplanned inventory changes:</p>
-            <ul class="content-list">
-                <li>If $Y_1 > Y^*$: planned expenditure is below output. Firms accumulate <strong>unintended inventories</strong> and <strong>cut production</strong> until $Y$ falls back to $Y^*$.</li>
-                <li>If $Y_2 < Y^*$: planned expenditure exceeds output. Firms <strong>run down inventories</strong> and <strong>raise production</strong> until $Y$ rises to $Y^*$.</li>
-            </ul>
-
-            <h3>Multipliers</h3>
+            <h3>The Two Multipliers</h3>
             <div class="grid-cards">
                 <div class="grid-card" style="border-top-color: var(--accent-islm);">
                     <h4><i class="fas fa-landmark" style="color: var(--accent-islm);"></i> Government-Purchases Multiplier</h4>
-                    <div class="equation-box" style="border-color: var(--accent-islm);">
-                        $\dfrac{dY}{dG} = \dfrac{1}{1 - c(1 - t)} = \alpha_g$
-                    </div>
-                    <p>Higher government purchases <span class="fluo-coral">raise demand directly</span>: each additional \$1 of $G$ enters demand one-for-one and then triggers rounds of induced consumption.</p>
+                    <div class="equation-box" style="border-color: var(--accent-islm);">$\dfrac{dY}{dG} = \alpha_g = \dfrac{1}{1-c(1-t)}$</div>
+                    <p>Each €1 of $G$ enters demand directly (1-for-1), then triggers rounds of induced consumption. The total effect is $\alpha_g > 1$.</p>
                 </div>
                 <div class="grid-card" style="border-top-color: var(--accent-islm);">
-                    <h4><i class="fas fa-hand-holding-dollar" style="color: var(--accent-islm);"></i> Transfer Multiplier</h4>
-                    <div class="equation-box" style="border-color: var(--accent-islm);">
-                        $\dfrac{dY}{dTR} = \dfrac{c}{1 - c(1 - t)}$
-                    </div>
-                    <p>Higher transfers raise <strong>disposable income</strong> and therefore consumption. The multiplier is smaller than $\alpha_g$ because only a fraction $c$ of the transfer is spent immediately.</p>
+                    <h4><i class="fas fa-hand-holding-dollar" style="color: var(--accent-islm);"></i> Transfer / Tax-Cut Multiplier</h4>
+                    <div class="equation-box" style="border-color: var(--accent-islm);">$\dfrac{dY}{dTR} = \dfrac{c}{1-c(1-t)} = c \cdot \alpha_g$</div>
+                    <p>Transfers first raise disposable income; households spend only fraction $c$. So the multiplier is <strong>smaller</strong> than $\alpha_g$ by a factor of $c$.</p>
+                </div>
+            </div>
+
+            <div class="exam-tip" style="border-left-color: var(--accent-islm-border);">
+                <i class="fas fa-thumbtack exam-tip-pin"></i>
+                <div class="exam-tip-content">
+                    <h4>Keynesian Cross multiplier vs. IS-LM multiplier</h4>
+                    <p>In the Keynesian Cross, the interest rate is fixed and the full multiplier $\alpha_g$ applies. In IS-LM, fiscal expansion raises money demand which pushes up $i$, crowding out private investment. The <strong>IS-LM fiscal multiplier is therefore smaller</strong> than $\alpha_g$. See Applications page.</p>
                 </div>
             </div>
         </section>
@@ -276,51 +335,80 @@
         <!-- FROM THE CROSS TO THE IS CURVE             -->
         <!-- ═══════════════════════════════════════════ -->
         <section id="is-curve">
-            <h2>From the Keynesian Cross to the IS Curve</h2>
+            <h2>Deriving the IS Curve</h2>
 
-            <p>We now relax the assumption that investment is exogenous. Instead, we allow investment to depend <strong>negatively</strong> on the interest rate:</p>
-
+            <p>We now <span class="fluo-orange">relax the assumption of exogenous investment</span>. In reality, higher interest rates make borrowing more expensive, reducing firms' incentive to invest:</p>
             <div class="equation-box" style="border-color: var(--accent-islm); font-size: 1.2rem;">
-                $I = \bar{I} - bi, \quad b > 0$
+                $I = \bar{I} - b \cdot i, \quad b > 0$
             </div>
-            <p>The parameter $b$ captures how sensitive investment is to changes in borrowing costs. Higher interest rates make projects less profitable, so firms invest less.</p>
+            <p>The parameter $b$ is the <strong>interest sensitivity of investment</strong>. A larger $b$ makes the IS curve flatter.</p>
 
-            <h3>Aggregate Demand with Interest-Rate-Sensitive Investment</h3>
-            <p>Aggregate demand now becomes:</p>
-            <div class="equation-box" style="border-color: var(--accent-islm);">
-                $AD = A + c(1-t)Y - bi$
+            <h3>The Derivation</h3>
+            <p>Autonomous expenditure now becomes $A - bi$. Plugging into the goods-market equilibrium $Y = PE$:</p>
+            <div class="equation-box" style="background: rgba(239,68,68,0.06); border-color: var(--accent-islm); font-size: 1.15rem;">
+                $Y = \alpha_g (A - bi)$
             </div>
-            <p>For a <em>given</em> interest rate, this is just the Keynesian cross with a <span class="fluo-orange">lower intercept</span> when $i$ is higher.</p>
-
-            <h3>Deriving the IS Curve</h3>
-            <p>Setting $Y = AD$ in goods-market equilibrium and solving:</p>
-            <div class="equation-box" style="background: rgba(var(--accent-islm-rgb), 0.06); border-color: var(--accent-islm); font-size: 1.15rem;">
-                $Y = \alpha_g(A - bi), \quad \alpha_g = \dfrac{1}{1 - c(1-t)}$
-            </div>
-            <p>Equivalently, solving for $i$ to see the IS curve in $(Y, i)$ space:</p>
-            <div class="equation-box" style="background: rgba(var(--accent-islm-rgb), 0.06); border-color: var(--accent-islm); font-size: 1.15rem;">
-                $i = \dfrac{A}{b} - \dfrac{Y}{\alpha_g \cdot b}$
+            <p>Solving for $i$ (to read the IS curve in $(Y,i)$ space):</p>
+            <div class="equation-box" style="background: rgba(239,68,68,0.06); border-color: var(--accent-islm); font-size: 1.15rem;">
+                $\boxed{i = \dfrac{A}{b} - \dfrac{1}{\alpha_g b} \cdot Y}$
             </div>
 
             <div class="concept-card" style="border-left-color: var(--accent-islm);">
-                <div class="concept-title">Why the IS Curve Slopes Downward</div>
+                <div class="concept-title">Why is the IS Curve Downward-Sloping?</div>
                 <div class="concept-body">
-                    <p>Higher interest rates <span class="fluo-red">reduce investment</span>, which lowers planned expenditure, which lowers equilibrium output. Therefore, the IS curve is <strong>downward sloping</strong> in the $(Y, i)$ plane: each point on it represents a goods-market equilibrium for a different level of the interest rate.</p>
+                    <div class="chain-box">
+                        <div class="chain-title"><i class="fas fa-arrow-trend-down"></i> When the interest rate rises ($i \uparrow$)…</div>
+                        <div class="chain-step">
+                            <div class="step-num">1</div>
+                            <div>Investment becomes more expensive → $I \downarrow$ (firms borrow less)</div>
+                        </div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step">
+                            <div class="step-num">2</div>
+                            <div>Planned expenditure $PE$ falls</div>
+                        </div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step">
+                            <div class="step-num">3</div>
+                            <div>Equilibrium output $Y^*$ falls (via the multiplier)</div>
+                        </div>
+                    </div>
+                    <p style="margin-bottom:0;">Thus: $i \uparrow \Rightarrow Y \downarrow$ — the IS curve is <strong>downward-sloping</strong>.</p>
                 </div>
             </div>
 
-            <h3>Fiscal Policy and the IS Curve</h3>
-            <div class="alert-box" style="background: rgba(var(--accent-islm-rgb), 0.05); border: 1px solid var(--accent-islm-border);">
-                <div class="alert-icon" style="color: var(--accent-islm);"><i class="fas fa-arrows-left-right"></i></div>
-                <div class="alert-content">
-                    <h4 style="color: var(--accent-islm-hover);">Shifts of the IS Curve</h4>
-                    <p>The IS curve is drawn for a given fiscal policy. Changes in $G$, $T$, or $TR$ alter autonomous demand $A$ and therefore shift the curve:</p>
-                    <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
-                        <li><strong>Expansionary fiscal policy</strong> (higher $G$, higher $TR$, or lower taxes): raises $A$ → shifts IS <span class="fluo-coral">to the right</span>.</li>
-                        <li><strong>Contractionary fiscal policy</strong> (lower $G$, lower $TR$, or higher taxes): lowers $A$ → shifts IS to the left.</li>
-                    </ul>
-                </div>
-            </div>
+            <h3>Slope and Shifts of the IS Curve</h3>
+            <table class="synth-table">
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Effect on Slope / Position</th>
+                        <th>Why?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$b$ large (sensitive investment)</td>
+                        <td><span class="tag-right">IS flatter</span></td>
+                        <td>A given rise in $i$ kills more investment → large drop in $Y$</td>
+                    </tr>
+                    <tr>
+                        <td>$\alpha_g$ large (large multiplier)</td>
+                        <td><span class="tag-right">IS flatter</span></td>
+                        <td>Each drop in $I$ triggers larger multiplied drop in $Y$</td>
+                    </tr>
+                    <tr>
+                        <td>$G \uparrow$ or $TR \uparrow$ or $T \downarrow$</td>
+                        <td><span class="tag-right">IS shifts right</span></td>
+                        <td>Higher autonomous spending $A \uparrow$ → more output at every $i$</td>
+                    </tr>
+                    <tr>
+                        <td>$G \downarrow$ or $TR \downarrow$ or $T \uparrow$</td>
+                        <td><span class="tag-left">IS shifts left</span></td>
+                        <td>Lower $A$ → less output at every $i$</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <hr class="section-divider">
@@ -329,66 +417,91 @@
         <!-- LIQUIDITY PREFERENCE & THE LM CURVE        -->
         <!-- ═══════════════════════════════════════════ -->
         <section id="lm-curve">
-            <h2>Liquidity Preference and the LM Curve</h2>
+            <h2>The LM Curve: Money Market Equilibrium</h2>
 
-            <p>We now turn to the <strong>market for real money balances</strong>. The LM curve shows combinations of $i$ and $Y$ such that money demand equals money supply.</p>
-
-            <h3>Supply and Demand for Money</h3>
-
-            <div class="grid-cards">
-                <div class="grid-card" style="border-top-color: var(--accent-islm);">
-                    <h4><i class="fas fa-building-columns" style="color: var(--accent-islm);"></i> Money Supply (Fixed)</h4>
-                    <p>In the traditional IS-LM model, the central bank fixes the supply of real money balances in the short run:</p>
-                    <div class="equation-box" style="border-color: var(--accent-islm); margin: 0.75rem 0 0;">
-                        $\left(\dfrac{M}{P}\right)^s = \dfrac{\bar{M}}{\bar{P}}$
-                    </div>
-                    <p style="margin-top: 0.5rem;">$M$ is an exogenous policy variable; $P$ is fixed in the short run. The supply curve is therefore <span class="fluo-red">vertical</span>.</p>
+            <div class="key-defs">
+                <h4><i class="fas fa-coins"></i> &nbsp;Key Definitions — Money Market</h4>
+                <div class="def-row">
+                    <span class="def-term">Money Supply</span>
+                    <span class="def-body">$\left(\frac{M}{P}\right)^s = \frac{\bar{M}}{\bar{P}}$ — fixed by the central bank in the short run. Represented by a vertical line in $(M/P, i)$ space.</span>
                 </div>
-                <div class="grid-card" style="border-top-color: var(--accent-islm);">
-                    <h4><i class="fas fa-wallet" style="color: var(--accent-islm);"></i> Money Demand (Downward)</h4>
-                    <p>The interest rate is the <span class="fluo-coral">opportunity cost</span> of holding money instead of interest-bearing assets. A simple linear specification:</p>
-                    <div class="equation-box" style="border-color: var(--accent-islm); margin: 0.75rem 0 0;">
-                        $\left(\dfrac{M}{P}\right)^d = L(i, Y) = kY - hi$
-                    </div>
-                    <p style="margin-top: 0.5rem;">$k > 0$ (higher income → more transactions → more money demand) and $h > 0$ (higher rate → higher cost of holding money → less demand).</p>
+                <div class="def-row">
+                    <span class="def-term">Money Demand</span>
+                    <span class="def-body">$\left(\frac{M}{P}\right)^d = kY - hi$ — increases with income (transactions motive, $k>0$) and falls with the interest rate (opportunity cost of holding money, $h>0$).</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Opportunity Cost</span>
+                    <span class="def-body">Holding money earns zero return. The interest rate $i$ is what you give up by preferring liquidity over bonds — this is why money demand falls when $i$ rises.</span>
                 </div>
             </div>
 
             <h3>Deriving the LM Curve</h3>
-            <p>Money-market equilibrium requires supply = demand:</p>
-            <div class="equation-box" style="border-color: var(--accent-islm);">
-                $\dfrac{M}{P} = kY - hi$
-            </div>
-            <p>Solving for the interest rate:</p>
-            <div class="equation-box" style="background: rgba(var(--accent-islm-rgb), 0.06); border-color: var(--accent-islm); font-size: 1.15rem;">
-                $i = \dfrac{k}{h}Y - \dfrac{1}{h}\dfrac{M}{P}$
+            <p>Setting supply = demand, $\frac{M}{P} = kY - hi$, and solving for $i$:</p>
+            <div class="equation-box" style="background: rgba(239,68,68,0.06); border-color: var(--accent-islm); font-size: 1.15rem;">
+                $\boxed{i = \dfrac{k}{h}Y - \dfrac{1}{h}\dfrac{M}{P}}$
             </div>
 
             <div class="concept-card" style="border-left-color: var(--accent-islm);">
-                <div class="concept-title">Why the LM Curve Slopes Upward</div>
+                <div class="concept-title">Why is the LM Curve Upward-Sloping?</div>
                 <div class="concept-body">
-                    <p>If income $Y$ rises, households and firms want to hold more money for transactions. But real money balances are <strong>fixed</strong>. The only way to restore equilibrium is for the interest rate to <span class="fluo-red">rise</span>, discouraging money demand until it re-matches the fixed supply.</p>
+                    <div class="chain-box">
+                        <div class="chain-title"><i class="fas fa-arrow-trend-up"></i> When income rises ($Y \uparrow$)…</div>
+                        <div class="chain-step">
+                            <div class="step-num">1</div>
+                            <div>More transactions needed → money demand rises ($L^d \uparrow$)</div>
+                        </div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step">
+                            <div class="step-num">2</div>
+                            <div>With fixed money supply, there is excess demand for money</div>
+                        </div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step">
+                            <div class="step-num">3</div>
+                            <div>People sell bonds to get money → bond prices fall → $i \uparrow$</div>
+                        </div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step">
+                            <div class="step-num">4</div>
+                            <div>Higher $i$ discourages money holding → money market re-equilibrates</div>
+                        </div>
+                    </div>
+                    <p style="margin-bottom:0;">Thus: $Y \uparrow \Rightarrow i \uparrow$ — the LM curve is <strong>upward-sloping</strong>.</p>
                 </div>
             </div>
 
-            <h3>Slope Determinants</h3>
-            <p>The slope of the LM curve is $k/h$:</p>
-            <ul class="content-list">
-                <li>The <strong>greater</strong> the response of money demand to income ($k$ large), the <strong>steeper</strong> the LM curve.</li>
-                <li>The <strong>smaller</strong> the response of money demand to the interest rate ($h$ small), the <strong>steeper</strong> the LM curve.</li>
-            </ul>
-
-            <h3>Monetary Policy and the LM Curve</h3>
-            <div class="alert-box" style="background: rgba(var(--accent-islm-rgb), 0.05); border: 1px solid var(--accent-islm-border);">
-                <div class="alert-icon" style="color: var(--accent-islm);"><i class="fas fa-arrows-up-down"></i></div>
-                <div class="alert-content">
-                    <h4 style="color: var(--accent-islm-hover);">Shifts of the LM Curve</h4>
-                    <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
-                        <li><strong>Increase in $M$</strong> (monetary expansion): higher real money balances → LM shifts <span class="fluo-coral">downward/rightward</span>.</li>
-                        <li><strong>Decrease in $M$</strong> (monetary contraction): lower real money balances → LM shifts upward/leftward.</li>
-                    </ul>
-                </div>
-            </div>
+            <h3>Slope and Shifts of the LM Curve</h3>
+            <table class="synth-table">
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Effect on Slope / Position</th>
+                        <th>Why?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$k$ large (money demand sensitive to $Y$)</td>
+                        <td><span class="tag-up">LM steeper</span></td>
+                        <td>A given rise in $Y$ creates large excess demand → needs a big $i$ rise</td>
+                    </tr>
+                    <tr>
+                        <td>$h$ small (money demand insensitive to $i$)</td>
+                        <td><span class="tag-up">LM steeper</span></td>
+                        <td>Interest rate must rise a lot to reduce money demand by a given amount</td>
+                    </tr>
+                    <tr>
+                        <td>$M \uparrow$ (monetary expansion)</td>
+                        <td><span class="tag-right">LM shifts right (down)</span></td>
+                        <td>More money available → lower $i$ needed to clear market at each $Y$</td>
+                    </tr>
+                    <tr>
+                        <td>$M \downarrow$ (monetary contraction)</td>
+                        <td><span class="tag-left">LM shifts left (up)</span></td>
+                        <td>Less money → higher $i$ needed to clear market at each $Y$</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <hr class="section-divider">
@@ -399,60 +512,74 @@
         <section id="islm-equilibrium">
             <h2>IS-LM Equilibrium</h2>
 
-            <p>Simultaneous equilibrium in the <strong>goods market</strong> and the <strong>money market</strong> occurs at the intersection of the IS and LM curves. This determines the short-run equilibrium levels of output ($Y$) and the interest rate ($i$) for a <em>given</em> price level.</p>
+            <p>Equilibrium occurs at the <span class="fluo-red">intersection of IS and LM</span>, where both markets clear simultaneously. This jointly determines the short-run output level $Y^*$ and interest rate $i^*$ for a given price level $P$.</p>
 
-            <div class="parameter-list">
-                <div class="parameter-item">
-                    <div class="parameter-symbol" style="color: var(--accent-islm); min-width: 40px;">IS</div>
-                    <div class="parameter-desc">$Y = C(Y - T) + I(i) + G + NX$ — equilibrium in the market for goods and services.</div>
+            <div class="grid-cards">
+                <div class="grid-card" style="border-top-color: var(--accent-islm);">
+                    <h4><i class="fas fa-scale-balanced" style="color: var(--accent-islm);"></i> Goods Market (IS)</h4>
+                    <div class="equation-box" style="border-color: var(--accent-islm); margin: 0.5rem 0;">$Y = C(Y-T) + I(i) + G + NX$</div>
+                    <p style="margin:0;">Equilibrium in the market for goods and services.</p>
                 </div>
-                <div class="parameter-item">
-                    <div class="parameter-symbol" style="color: var(--accent-islm); min-width: 40px;">LM</div>
-                    <div class="parameter-desc">$\dfrac{M}{P} = L(i, Y)$ — equilibrium in the market for real money balances.</div>
+                <div class="grid-card" style="border-top-color: var(--accent-islm);">
+                    <h4><i class="fas fa-coins" style="color: var(--accent-islm);"></i> Money Market (LM)</h4>
+                    <div class="equation-box" style="border-color: var(--accent-islm); margin: 0.5rem 0;">$\dfrac{M}{P} = L(i, Y) = kY - hi$</div>
+                    <p style="margin:0;">Equilibrium in the market for real money balances.</p>
                 </div>
             </div>
 
-            <p>The equilibrium pair $(Y^*, i^*)$ solves both equations simultaneously, taking $P$ as fixed in the short run.</p>
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-layer-group"></i></div>
+                <div class="alert-content">
+                    <h4>What moves the equilibrium?</h4>
+                    <ul style="padding-left: 1.25rem; margin-top: 0.5rem;">
+                        <li><strong>Fiscal policy</strong> ($\Delta G$, $\Delta T$, $\Delta TR$): shifts the <strong>IS curve</strong>, changes both $Y^*$ and $i^*$.</li>
+                        <li><strong>Monetary policy</strong> ($\Delta M$): shifts the <strong>LM curve</strong>, changes both $Y^*$ and $i^*$.</li>
+                        <li><strong>Price level change</strong> ($\Delta P$): changes real money balances $M/P$ → shifts LM → traces out the <strong>Aggregate Demand curve</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>From IS-LM to Aggregate Demand (AD)</h3>
+            <p>For each price level $P$, IS and LM jointly determine equilibrium output. As $P$ rises:</p>
+            <div class="chain-box">
+                <div class="chain-title"><i class="fas fa-arrow-trend-up"></i> Price Level rises ($P \uparrow$)…</div>
+                <div class="chain-step"><div class="step-num">1</div><div>Real money supply falls: $M/P \downarrow$</div></div>
+                <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                <div class="chain-step"><div class="step-num">2</div><div>LM shifts left (up) → $i^*$ rises</div></div>
+                <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                <div class="chain-step"><div class="step-num">3</div><div>Higher $i$ reduces investment → $Y^*$ falls</div></div>
+            </div>
+            <p>Plotting equilibrium $Y^*$ against $P$ traces the <span class="fluo-red">downward-sloping Aggregate Demand (AD) curve</span>.</p>
 
             <div class="exam-tip" style="border-left-color: var(--accent-islm-border);">
                 <i class="fas fa-thumbtack exam-tip-pin"></i>
                 <div class="exam-tip-content">
                     <h4>Short Run vs. Long Run</h4>
-                    <p>The IS-LM equilibrium determines short-run output. In the <strong>long run</strong>, prices adjust and output returns to its <strong>natural level</strong>, so the short-run IS-LM equilibrium does not by itself determine long-run output.</p>
+                    <p>IS-LM describes the <strong>short run</strong> with fixed prices. In the long run, prices adjust. Output returns to potential $\bar{Y}$ — fiscal and monetary stimulus do not permanently raise output, only the price level.</p>
                 </div>
             </div>
-
-            <ul class="content-list">
-                <li>Changes in <strong>fiscal policy</strong> ($G$, $T$, $TR$) shift the IS curve.</li>
-                <li>Changes in <strong>real money balances</strong> ($M/P$) shift the LM curve.</li>
-            </ul>
-
-            <h3>From IS-LM to Aggregate Demand</h3>
-            <p>For a given price level $P$, IS and LM determine equilibrium output. If the price level changes, $M/P$ changes, which shifts the LM curve. Tracing the resulting equilibrium levels of output for <span class="fluo-red">different price levels</span> gives the <strong>aggregate demand curve</strong>.</p>
         </section>
 
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- CAVEAT: ONE RATE vs MANY                   -->
+        <!-- A CAVEAT: ONE RATE vs MANY                 -->
         <!-- ═══════════════════════════════════════════ -->
         <section id="caveat-rates">
             <h2>A Caveat: One Rate in the Model, Many in Practice</h2>
 
-            <p>In IS-LM we use one representative interest rate $i$. In practice, the central bank controls a very <strong>short-term policy rate</strong> quite closely. Other market rates — mortgage rates, bank lending rates, corporate bond yields, long-term government yields — also depend on:</p>
-
+            <p>IS-LM uses a single representative interest rate $i$. In reality, there is a whole spectrum of rates — from the overnight policy rate to 30-year mortgages. Other market rates depend on:</p>
             <ul class="content-list">
-                <li>Expected future policy rates;</li>
-                <li>Term premia;</li>
-                <li>Credit and liquidity spreads.</li>
+                <li><strong>Expected future policy rates</strong> (expectations hypothesis of the term structure);</li>
+                <li><strong>Term premia</strong> (compensation for holding long-dated bonds);</li>
+                <li><strong>Credit and liquidity spreads</strong> (risk of default, difficulty selling).</li>
             </ul>
 
             <div class="concept-card" style="border-left-color: var(--accent-islm);">
-                <div class="concept-title">Why This Matters</div>
+                <div class="concept-title">Why This Matters for Monetary Policy</div>
                 <div class="concept-body">
-                    <p>In the traditional LM story, higher money demand raises the equilibrium interest rate if real money balances are fixed. In <strong>modern practice</strong>, however, the central bank often keeps the short-term policy rate near its target by supplying the liquidity the system needs.</p>
-                    <p>A rise in money demand does not mechanically imply that all market interest rates must rise. Central banks nowadays <span class="fluo-orange">give up on controlling money supply</span> as money is largely endogenous, and concentrate more on the <strong>key nominal interest rates</strong>.</p>
-                    <p>These are the key reasons modern macroeconomics often replaces the LM curve with an <span class="fluo-red">MP curve</span>.</p>
+                    <p>In the traditional LM story, the CB controls $M$, and $i$ is determined endogenously. But modern central banks <span class="fluo-orange">target the policy rate directly</span>, letting liquidity adjust endogenously. A change in money demand does not automatically change all market rates.</p>
+                    <p>This is why modern macroeconomics replaces the LM curve with an <span class="fluo-red">MP (Monetary Policy) curve</span>.</p>
                 </div>
             </div>
         </section>
@@ -465,74 +592,78 @@
         <section id="bridge-ismp">
             <h2>The Bridge to IS-MP</h2>
 
-            <p>The IS curve remains central in modern macroeconomics: higher real interest rates reduce investment and aggregate demand. <span class="fluo-red">What changes is the monetary-policy block.</span></p>
-
-            <div class="grid-cards">
-                <div class="grid-card" style="border-top-color: var(--accent-secondary);">
-                    <h4><i class="fas fa-landmark" style="color: var(--accent-secondary);"></i> IS-LM Framework</h4>
-                    <p>The central bank controls the <strong>money supply</strong>. The interest rate is determined endogenously through money-market equilibrium (the LM curve).</p>
-                </div>
-                <div class="grid-card" style="border-top-color: var(--accent-islm);">
-                    <h4><i class="fas fa-bullseye" style="color: var(--accent-islm);"></i> IS-MP Framework</h4>
-                    <p>The central bank <span class="fluo-coral">sets the policy interest rate directly</span>. Liquidity adjusts endogenously to money demand. There is no "money market equilibrium" to solve.</p>
-                </div>
-            </div>
-
-            <h3>Why Replace LM with MP?</h3>
-            <p>The LM curve is based on $\frac{M}{P} = L(i, Y)$. Analytically elegant, but it treats monetary policy as if the central bank primarily fixed the money supply. In practice, modern central banks <strong>announce a policy interest rate</strong>, not a money target. Once that rate is chosen, liquidity adjusts endogenously.</p>
+            <table class="synth-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>IS-LM</th>
+                        <th>IS-MP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CB instrument</td>
+                        <td>Money supply $\bar{M}$</td>
+                        <td>Policy interest rate $\bar{i}$</td>
+                    </tr>
+                    <tr>
+                        <td>Interest rate</td>
+                        <td>Determined endogenously by money market</td>
+                        <td>Set exogenously by CB (MP curve is <strong>horizontal</strong>)</td>
+                    </tr>
+                    <tr>
+                        <td>Monetary expansion</td>
+                        <td>Shift LM right → $i$ falls</td>
+                        <td>MP shifts down → $i$ falls directly</td>
+                    </tr>
+                    <tr>
+                        <td>Fiscal expansion</td>
+                        <td>IS shifts right → $Y$ and $i$ both rise (crowding out)</td>
+                        <td>IS shifts right → $Y$ rises; $i$ unchanged → <span class="fluo-coral">less crowding out</span></td>
+                    </tr>
+                    <tr>
+                        <td>Realism</td>
+                        <td>Historical benchmark (pre-inflation targeting)</td>
+                        <td>Modern: matches how central banks actually operate</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <h3>The MP Curve</h3>
-            <p>In the simplest short-run version:</p>
-            <div class="equation-box" style="border-color: var(--accent-islm);">
-                $i = \bar{i}$
-            </div>
-            <p>More realistically, the central bank follows a <span class="fluo-red">Taylor Rule</span>:</p>
-            <div class="equation-box" style="background: rgba(var(--accent-islm-rgb), 0.06); border-color: var(--accent-islm); font-size: 1.1rem;">
+            <p>In the simplest version, the CB just announces a rate:</p>
+            <div class="equation-box" style="border-color: var(--accent-islm);">$i = \bar{i}$</div>
+            <p>More realistically, the CB follows a <span class="fluo-red">Taylor Rule</span>, adjusting $i$ in response to inflation and the output gap:</p>
+            <div class="equation-box" style="background: rgba(239,68,68,0.06); border-color: var(--accent-islm); font-size: 1.1rem;">
                 $i_t = r^n_t + \pi_t + \phi_\pi(\pi_t - \pi^*) + \phi_y(Y_t - \bar{Y}_t)$
             </div>
 
             <div class="alert-box">
                 <div class="alert-icon"><i class="fas fa-link"></i></div>
                 <div class="alert-content">
-                    <h4>Connecting it All Together</h4>
-                    <p>Combining IS and MP gives a more modern short-run demand framework. Adding inflation dynamics then leads to the <strong>dynamic AD-AS model</strong>, or the <strong>three-equation model</strong> (IS-PC-MP) studied in the first part of this course.</p>
-                    <p>Thus, modern macroeconomics largely <span class="fluo-red">keeps IS</span> but <span class="fluo-red">replaces LM with MP</span>.</p>
+                    <h4>Connecting to the Five-Equation Model</h4>
+                    <p>Combining IS + MP (Taylor Rule) + a Phillips Curve (inflation dynamics) gives the modern <strong>three-equation model</strong> (IS-PC-MP) — or the DAD-DAS dynamic framework studied in the first part of this course. The IS curve is the <em>common thread</em> running through all these frameworks.</p>
                 </div>
             </div>
-
-            <h3>The MP Curve: Static Interpretation</h3>
-            <p>In the static setup, inflation is taken as given. Key implications:</p>
-            <ul class="content-list">
-                <li>The central bank <strong>chooses the policy rate</strong>, so the MP curve is <span class="fluo-coral">horizontal</span>.</li>
-                <li>Liquidity adjusts endogenously to keep the market rate near the target.</li>
-                <li>The IS curve is downward sloping: lower rates increase demand and output.</li>
-                <li><strong>Monetary easing</strong> shifts MP downward → raises equilibrium output.</li>
-                <li><strong>Fiscal expansion</strong> shifts IS right; with a fixed policy rate, <span class="fluo-orange">crowding out is smaller</span> than in the IS-LM model.</li>
-            </ul>
         </section>
 
         <!-- ═══════════════════════════════════════════ -->
         <!-- SUMMARY TOGGLE                             -->
         <!-- ═══════════════════════════════════════════ -->
         <details class="summary-toggle">
-            <summary><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i> What Have We Learned?</summary>
+            <summary><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i> What Have We Learned? — Full Recap</summary>
             <div class="summary-content">
-                <p>The traditional IS-LM model has two main blocks:</p>
-                <ol class="content-list">
-                    <li><strong>IS:</strong> equilibrium in the market for goods and services.</li>
-                    <li><strong>LM:</strong> equilibrium in the market for real money balances.</li>
-                </ol>
-                <p>Their intersection determines <strong>short-run equilibrium output and the interest rate</strong> for a given price level. As the price level changes, the LM curve shifts, tracing out the <strong>aggregate demand curve</strong>.</p>
-                <p>IS-LM remains useful as a <strong>simple benchmark</strong> and as a historical interpretation of Keynesian short-run macroeconomics.</p>
-                <p>Modern macroeconomics, however, usually keeps the IS logic and replaces the LM curve with an <strong>MP curve</strong> that better reflects interest-rate targeting by central banks.</p>
+                <p><strong>1. Keynesian Cross</strong> — For a fixed interest rate, equilibrium output is determined by $Y^* = \alpha_g \cdot A$. Multiplier $\alpha_g > 1$. Transfer multiplier is smaller by factor $c$.</p>
+                <p><strong>2. IS Curve</strong> — Making investment interest-sensitive gives a downward-sloping IS. Fiscal expansions shift it right. Slope depends on $b$ (investment sensitivity) and $\alpha_g$.</p>
+                <p><strong>3. LM Curve</strong> — Upward-sloping: higher income raises money demand, pushing up $i$. Monetary expansion shifts it right (lower $i$). Slope depends on $k/h$.</p>
+                <p><strong>4. Equilibrium</strong> — IS ∩ LM determines $(Y^*, i^*)$. Tracing this for different $P$ levels gives the downward-sloping AD curve.</p>
+                <p><strong>5. IS-MP Bridge</strong> — Modern CBs target $i$ directly → replace LM with a horizontal MP curve. Less crowding out from fiscal policy. Same IS logic, different monetary block.</p>
             </div>
         </details>
 
         <!-- FOOTER -->
-        <section
-            style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-islm-border); padding-top: 1.5rem;">
+        <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-islm-border); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>End of IS-LM Lecture — The Bridge to IS-MP. Utilizing Codex Logic standards.</em>
+                <em>IS-LM Lecture — Codex Logic Standards. Revised April 2026.</em>
             </p>
         </section>
 

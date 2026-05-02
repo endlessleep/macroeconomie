@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Economy Model</title>
-    <meta name="description" content="Macroeconomics Revision: The Open Economy, Small Open Economy Model, Exchange Rates, and the Balassa-Samuelson Effect.">
+    <title>Open Economy — Small Open Economy Model</title>
+    <meta name="description" content="Macroeconomics Revision: The Open Economy, SOE Model, Trade Balance, Exchange Rates, PPP, and the Balassa-Samuelson Effect.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         window.MathJax = {
@@ -24,40 +23,131 @@
     </script>
     <link rel="stylesheet" href="macro_style.css">
     <style>
-        /* Summary toggle custom blue overriding IS-LM red */
+        .fluo-blue {
+            background: linear-gradient(104deg, rgba(96,165,250,0) 0.9%, rgba(96,165,250,0.5) 2.4%, rgba(96,165,250,0.3) 5.8%, rgba(96,165,250,0.6) 93%, rgba(96,165,250,0.2) 96%, rgba(96,165,250,0) 98%),
+                        linear-gradient(183deg, rgba(96,165,250,0) 0%, rgba(96,165,250,0.2) 7.9%, rgba(96,165,250,0) 15%);
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
+        }
+        .fluo-pink {
+            background: linear-gradient(104deg, rgba(244,114,182,0) 0.9%, rgba(244,114,182,0.7) 2.4%, rgba(244,114,182,0.5) 5.8%, rgba(244,114,182,0.8) 93%, rgba(244,114,182,0.3) 96%, rgba(244,114,182,0) 98%),
+                        linear-gradient(183deg, rgba(244,114,182,0) 0%, rgba(244,114,182,0.3) 7.9%, rgba(244,114,182,0) 15%);
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
+        }
+        .fluo-green {
+            background: linear-gradient(104deg, rgba(74,222,128,0) 0.9%, rgba(74,222,128,0.5) 2.4%, rgba(74,222,128,0.3) 5.8%, rgba(74,222,128,0.6) 93%, rgba(74,222,128,0.2) 96%, rgba(74,222,128,0) 98%),
+                        linear-gradient(183deg, rgba(74,222,128,0) 0%, rgba(74,222,128,0.2) 7.9%, rgba(74,222,128,0) 15%);
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
+        }
+        .fluo-yellow {
+            background: linear-gradient(104deg, rgba(253,224,71,0) 0.9%, rgba(253,224,71,0.7) 2.4%, rgba(253,224,71,0.5) 5.8%, rgba(253,224,71,0.8) 93%, rgba(253,224,71,0.3) 96%, rgba(253,224,71,0) 98%),
+                        linear-gradient(183deg, rgba(253,224,71,0) 0%, rgba(253,224,71,0.3) 7.9%, rgba(253,224,71,0) 15%);
+            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
+        }
+
+        /* Summary toggle */
         .summary-toggle {
-            margin-top: 2.5rem;
-            border: 1px solid var(--border-light);
-            border-radius: 10px;
-            overflow: hidden;
+            margin-top: 2.5rem; border: 1px solid var(--border-light);
+            border-radius: 10px; overflow: hidden;
         }
         .summary-toggle summary {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            padding: 0.85rem 1.25rem;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            list-style: none;
-            transition: all 0.3s ease;
+            color: white; padding: 0.85rem 1.25rem; cursor: pointer; font-weight: 600;
+            font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;
+            list-style: none; transition: all 0.3s ease;
         }
         .summary-toggle summary::-webkit-details-marker { display: none; }
         .summary-toggle summary:hover { filter: brightness(1.15); }
         .summary-toggle summary::before {
-            content: '\f06e';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 0.85rem;
+            content: '\f06e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.85rem;
         }
         .summary-toggle[open] summary::before { content: '\f070'; }
         .summary-toggle .summary-content {
-            padding: 1.5rem;
-            background: #f8fafc;
-            border-top: 1px solid var(--border-light);
+            padding: 1.5rem; background: #f8fafc; border-top: 1px solid var(--border-light);
         }
+
+        /* Chain Reaction Box (blue version) */
+        .chain-box {
+            background: #eff6ff; border: 1px solid #bfdbfe;
+            border-left: 5px solid var(--accent-primary); border-radius: 10px;
+            padding: 1.5rem 1.75rem; margin: 1.5rem 0;
+        }
+        .chain-box .chain-title {
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: #1d4ed8;
+            margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.4rem;
+        }
+        .chain-step {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            margin-bottom: 0.6rem; font-size: 1rem;
+        }
+        .chain-step .step-num {
+            background: var(--accent-primary); color: white; border-radius: 50%;
+            width: 22px; height: 22px; min-width: 22px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; margin-top: 2px;
+        }
+        .chain-arrow {
+            text-align: center; color: var(--accent-primary); font-size: 1.1rem;
+            margin: 0.15rem 0 0.15rem 2.05rem;
+        }
+        .chain-result {
+            background: #dbeafe; border: 1px solid #bfdbfe; border-radius: 6px;
+            padding: 0.6rem 0.9rem; margin-top: 1rem;
+            font-weight: 600; color: #1e3a8a; font-size: 0.95rem;
+        }
+
+        /* Synthesis Table */
+        .synth-table {
+            width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+            font-size: 0.95rem; border-radius: 8px; overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .synth-table th {
+            background: var(--accent-primary); color: white;
+            padding: 0.75rem 1rem; text-align: center; font-weight: 600;
+        }
+        .synth-table th:first-child { text-align: left; }
+        .synth-table td {
+            padding: 0.7rem 1rem; border-bottom: 1px solid var(--border-light);
+            background: white; text-align: center;
+        }
+        .synth-table td:first-child { font-weight: 600; color: var(--bg-sidebar); text-align: left; }
+        .synth-table tr:last-child td { border-bottom: none; }
+        .synth-table tr:hover td { background: #eff6ff; }
+        .tag-up { color: #16a34a; font-weight: 700; }
+        .tag-down { color: #dc2626; font-weight: 700; }
+        .tag-none { color: #b45309; font-weight: 700; }
+
+        /* Key definitions block */
+        .key-defs {
+            background: white; border: 1px solid var(--border-light);
+            border-top: 4px solid var(--accent-primary); border-radius: 10px;
+            padding: 1.5rem; margin-bottom: 2rem;
+        }
+        .key-defs h4 {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em;
+            color: #1d4ed8; margin-bottom: 1rem; font-weight: 700;
+        }
+        .def-row {
+            display: flex; gap: 0.75rem; padding: 0.6rem 0;
+            border-bottom: 1px dashed var(--border-light); align-items: baseline;
+        }
+        .def-row:last-child { border-bottom: none; }
+        .def-term { font-weight: 700; min-width: 170px; color: var(--bg-sidebar); font-size: 0.95rem; }
+        .def-body { color: var(--text-main); font-size: 0.95rem; }
+
+        /* Shock scenario header */
+        .shock-header {
+            display: flex; align-items: center; gap: 0.75rem;
+            background: white; border: 1px solid var(--border-light);
+            border-left: 5px solid var(--accent-primary); border-radius: 8px;
+            padding: 0.85rem 1.25rem; margin-bottom: 0.5rem;
+        }
+        .shock-header .shock-icon {
+            font-size: 1.5rem; color: var(--accent-primary);
+        }
+        .shock-header h4 { margin: 0; font-size: 1.1rem; color: var(--bg-sidebar); }
+        .shock-header span { font-size: 0.85rem; color: var(--text-muted); }
     </style>
 </head>
 
@@ -69,9 +159,7 @@
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-text"><i class="fas fa-chart-line"></i> Macroéconomie</div>
-            <button class="toggle-btn" id="sidebar-toggle-desktop">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="toggle-btn" id="sidebar-toggle-desktop"><i class="fas fa-bars"></i></button>
         </div>
         <nav class="menu-nav">
             <div class="menu-item">
@@ -113,8 +201,8 @@
                 </div>
                 <div class="accordion-content">
                     <ul>
-                        <li><a href="islm_lecture.html">IS-LM & Bridge to IS-MP</a></li>
-                        <li><a href="islm_applications.html">IS-LM & AD Applications</a></li>
+                        <li><a href="islm_lecture.html">IS-LM &amp; Bridge to IS-MP</a></li>
+                        <li><a href="islm_applications.html">IS-LM &amp; AD Applications</a></li>
                     </ul>
                 </div>
             </div>
@@ -126,8 +214,8 @@
                 </div>
                 <div class="accordion-content" style="max-height: 500px;">
                     <ul>
-                        <li><a href="open_economy.html" class="active">Open Economy Module</a></li>
-                        <li><a href="open_economy_mf.html">IS-LM-BP & Extensions</a></li>
+                        <li><a href="open_economy.html" class="active">Open Economy — SOE</a></li>
+                        <li><a href="open_economy_mf.html">Mundell-Fleming &amp; Parity</a></li>
                     </ul>
                 </div>
             </div>
@@ -136,94 +224,76 @@
 
     <main class="main-content" id="main-content">
         <header class="page-header" style="border-bottom-color: var(--accent-primary);">
-            <h1 class="page-title" style="color: var(--accent-primary);">OPEN ECONOMY</h1>
-            <p class="page-subtitle"><i class="fas fa-ship"></i> International Trade, Capital Flows, and Exchange Rates</p>
+            <h1 class="page-title" style="color: var(--accent-primary);">Open Economy — SOE Model</h1>
+            <p class="page-subtitle"><i class="fas fa-ship"></i> National Accounting, Trade Balance, Exchange Rates, and Policy Shocks in the Small Open Economy</p>
         </header>
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- WHY DOES INTERNATIONAL TRADE OCCUR? -->
+        <!-- OPENING FRAMEWORK                          -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="trade-reasons">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-earth-americas"></i> Why Does International Trade Occur?</h2>
-            <p>Trade connects different nations globally, allowing them to exchange goods, services, and capital. Economists have developed multiple theories to explain the underlying logic of why countries trade with one another.</p>
-
-            <div class="grid-cards">
-                <div class="grid-card">
-                    <h4><i class="fas fa-wine-bottle"></i> Ricardo</h4>
-                    <p>Even if one country is more efficient at producing absolutely everything, trade still generates mutual benefits if nations specialize according to their <strong>comparative advantage</strong>.</p>
-                    <p class="image-caption"><i class="fas fa-comment-dots"></i> Example: Portugal exports wine, while England exports cloth.</p>
+        <section id="overview">
+            <div class="key-defs">
+                <h4><i class="fas fa-key"></i> &nbsp;Three Levels of Openness</h4>
+                <div class="def-row">
+                    <span class="def-term">Closed Economy</span>
+                    <span class="def-body">No trade, no capital flows. $Y = C + I + G$. Domestic savings must equal domestic investment ($S = I$). Interest rate adjusts to clear the domestic market.</span>
                 </div>
-                <div class="grid-card">
-                    <h4><i class="fas fa-gem"></i> Heckscher-Ohlin</h4>
-                    <p>Countries trade because they have different factor endowments. Some are relatively rich in labour, while others have abundant capital or natural resources.</p>
-                    <p class="image-caption"><i class="fas fa-comment-dots"></i> Example: Australia exports minerals, while Bangladesh exports garments.</p>
+                <div class="def-row">
+                    <span class="def-term">Small Open Economy (SOE)</span>
+                    <span class="def-body">Trades goods and assets freely but is too small to affect world prices. The world real interest rate $r^*$ is <strong>exogenous</strong>. Domestic $r = r^*$ always (perfect capital mobility).</span>
                 </div>
-                <div class="grid-card">
-                    <h4><i class="fas fa-car-side"></i> Krugman</h4>
-                    <p>Countries may trade heavily even when they are fundamentally similar. This happens because specialization lowers average costs via economies of scale, and consumers inherently value <span class="fluo-blue">product variety</span>.</p>
-                    <p class="image-caption"><i class="fas fa-comment-dots"></i> Example: Germany and France both manufacture and trade cars with each other.</p>
-                </div>
-                <div class="grid-card">
-                    <h4><i class="fas fa-gears"></i> Melitz</h4>
-                    <p>Trade patterns are highly dependent on the productivity differences across individual firms within the exact same industry. Only the most robust firms participate in trade.</p>
-                    <p class="image-caption"><i class="fas fa-comment-dots"></i> Example: Only highly productive Czech machinery firms export; smaller ones only sell locally.</p>
+                <div class="def-row">
+                    <span class="def-term">Large Open Economy</span>
+                    <span class="def-body">Large enough that its borrowing/lending affects $r^*$. A mix of closed and SOE: shocks raise $r^*$ partially, affecting both domestic investment and NX.</span>
                 </div>
             </div>
+
+            <p>This page covers the <span class="fluo-blue">classical long-run SOE model</span>, where prices are flexible and output is at full employment. Exchange rate dynamics and the short-run Mundell-Fleming model are covered on the next page.</p>
         </section>
 
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- FINANCIAL OPENNESS & NATIONAL INCOME -->
+        <!-- NATIONAL ACCOUNTING                        -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="financial-openness">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-money-bill-transfer"></i> Financial Openness and National Income</h2>
-            
-            <p>In addition to goods and services, open economies also actively trade financial assets. Domestic residents can purchase foreign assets, and similarly, foreigners can invest in domestic ones.</p>
+        <section id="nat-accounting">
+            <h2>National Income Accounting in an Open Economy</h2>
 
-            <div class="concept-card">
-                <div class="concept-title">Net Capital Outflow (NCO)</div>
-                <div class="concept-body">
-                    <p>We define the Net Capital Outflow ($NCO$) as the difference between domestic purchases of foreign assets and foreign purchases of domestic assets.</p>
-                    <ul class="content-list">
-                        <li>If $\mathbf{NCO > 0}$: The country is a <span class="fluo-blue">net lender</span> to the rest of the world (ROW).</li>
-                        <li>If $\mathbf{NCO < 0}$: The country is a <span class="fluo-pink">net borrower</span> from the rest of the world.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>National Income Accounting in an Open Economy</h3>
-            <p>To understand the flow of money, we look at the expenditure components of the GDP.</p>
             <div class="grid-cards">
                 <div class="grid-card" style="border-top-color: var(--text-muted);">
                     <h4><i class="fas fa-door-closed" style="color: var(--text-muted);"></i> Closed Economy</h4>
-                    <p>Expenditure consists only of domestic consumption, investment, and government purchases.</p>
-                    <div class="equation-box" style="border-color: var(--text-muted); color: var(--text-muted); background: #f8fafc;">
-                        $Y = C + I + G$
-                    </div>
+                    <p>All income is spent domestically.</p>
+                    <div class="equation-box" style="border-color: var(--text-muted); background: #f8fafc; color: var(--text-muted);">$Y = C + I + G$</div>
+                    <p style="margin:0; font-size:0.9rem;">Saving must equal investment: $S \equiv Y - C - G = I$.</p>
                 </div>
-                <div class="grid-card">
-                    <h4><i class="fas fa-door-open"></i> Open Economy</h4>
-                    <p>We must include Net Exports ($NX = X - IM$) because part of domestic production is sold abroad, and domestic expenditure may fall on foreign goods.</p>
-                    <div class="equation-box" style="border-color: var(--accent-primary); background: #eff6ff;">
-                        $Y = C + I + G + NX$
-                    </div>
+                <div class="grid-card" style="border-top-color: var(--accent-primary);">
+                    <h4><i class="fas fa-door-open" style="color: var(--accent-primary);"></i> Open Economy</h4>
+                    <p>Part of domestic production is sold abroad; part of domestic spending falls on imports. We add <strong>Net Exports</strong> $NX = X - IM$.</p>
+                    <div class="equation-box" style="border-color: var(--accent-primary); background: #eff6ff;">$Y = C + I + G + NX$</div>
+                    <p style="margin:0; font-size:0.9rem;">$NX > 0$ = trade surplus (net exporter). $NX < 0$ = trade deficit (net importer).</p>
                 </div>
+            </div>
+
+            <h3>The Fundamental Identity: $NX = S - I$</h3>
+            <p>Rearranging the open-economy GDP equation: $NX = Y - C - I - G$. Since national saving is $S = Y - C - G$:</p>
+
+            <div class="equation-box" style="border-color: var(--accent-primary); font-size: 1.4rem; background: #eff6ff;">
+                $\boxed{NX = S - I}$
             </div>
 
             <div class="alert-box">
                 <div class="alert-icon"><i class="fas fa-balance-scale"></i></div>
                 <div class="alert-content">
-                    <h4>The Fundamental Identity: Trade Balance and Capital Flows</h4>
-                    <p>By rearranging the open economy expenditure equation, we get $NX = Y - (C + I + G)$. Knowing that national saving is defined as $S = Y - C - G$, we arrive at the pivotal identity linking trade and capital flows:</p>
-                    <div class="equation-box" style="margin-top:0.75rem; border-color: var(--accent-secondary); color: var(--text-main);">
-                        $S - I = NX$
-                    </div>
-                    <p style="margin-top: 0.5rem; font-weight: 500;">Because the national income accounting implies $NCO = NX = S - I$, we can conclude:</p>
-                    <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
-                        <li>A <span class="fluo-pink">trade deficit ($NX < 0$)</span> is entirely financed by net capital <strong>inflows</strong> ($S < I$). The country borrows from abroad.</li>
-                        <li>A <span class="fluo-blue">trade surplus ($NX > 0$)</span> directly corresponds to net capital <strong>outflows</strong> ($S > I$). The excess saving is lent abroad.</li>
-                    </ul>
+                    <h4>The Twin Accounting Identity</h4>
+                    <p>This identity also links trade and capital flows. If a country runs a trade deficit ($NX < 0$), it must be borrowing from the rest of the world ($S < I$). If it runs a surplus, it is lending abroad. The identity $NX = NCO$ (Net Capital Outflow) always holds <em>by accounting</em>.</p>
+                    <table class="synth-table" style="margin-top:0.75rem;">
+                        <thead><tr><th>Trade Balance</th><th>Capital Flow</th><th>Interpretation</th></tr></thead>
+                        <tbody>
+                            <tr><td>$NX > 0$ (surplus)</td><td class="tag-up">NCO > 0 (outflow)</td><td>Country lends abroad</td></tr>
+                            <tr><td>$NX < 0$ (deficit)</td><td class="tag-down">NCO < 0 (inflow)</td><td>Country borrows from abroad</td></tr>
+                            <tr><td>$NX = 0$ (balanced)</td><td>NCO = 0</td><td>Autarky in finance</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -231,539 +301,294 @@
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- SMALL OPEN ECONOMY (SOE) MODEL -->
+        <!-- SMALL OPEN ECONOMY                         -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="small-open-economy">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-compress"></i> The Small Open Economy Model (SOE)</h2>
-            
-            <p>To analyze the impact of different policies, we use the classical long-run small open economy model, where output is firmly fixed at full employment ($Y = \bar{Y} = F(\bar{K}, \bar{L})$).</p>
+        <section id="soe-model">
+            <h2>The Small Open Economy (SOE) Model</h2>
 
+            <p>We now build the analytical model. The SOE operates in the <strong>long run</strong>: prices are flexible, output is at full employment $Y = \bar{Y} = F(\bar{K}, \bar{L})$, and capital is perfectly mobile internationally.</p>
+
+            <h3>Key Assumptions</h3>
             <div class="parameter-list">
                 <div class="parameter-item">
-                    <div class="parameter-symbol"><i class="fas fa-check"></i></div>
-                    <div class="parameter-desc"><strong>Price Taker:</strong> The economy is too small to have any impact on the world real interest rate ($r^*$). It is affected by foreign markets but cannot affect them.</div>
+                    <div class="parameter-symbol" style="color: var(--accent-primary);">$r = r^*$</div>
+                    <div class="parameter-desc"><strong>Interest Rate Parity (long run):</strong> With perfect capital mobility, domestic investors can always borrow or lend abroad at $r^*$. Any domestic rate above $r^*$ attracts foreign capital inflows until $r = r^*$. Any rate below triggers outflows. Result: $r$ is pinned at $r^*$.</div>
                 </div>
                 <div class="parameter-item">
-                    <div class="parameter-symbol"><i class="fas fa-bolt"></i></div>
-                    <div class="parameter-desc"><strong>Perfect Capital Mobility:</strong> There are no barriers to international lending or borrowing. Domestic and foreign bonds are perfect substitutes.</div>
+                    <div class="parameter-symbol" style="color: var(--accent-primary);">$Y = \bar{Y}$</div>
+                    <div class="parameter-desc"><strong>Fixed Output:</strong> In the long run, output is determined by factor endowments and technology, not by demand. The SOE model is <em>classical</em>, not Keynesian.</div>
                 </div>
                 <div class="parameter-item">
-                    <div class="parameter-symbol"><i class="fas fa-equals"></i></div>
-                    <div class="parameter-desc"><strong>Interest Rate Parity:</strong> As a consequence, the domestic real interest rate must strictly equal the world real interest rate: <span class="fluo-green" style="font-size:1.1rem; font-weight:bold;">$r = r^*$</span>.</div>
+                    <div class="parameter-symbol" style="color: var(--accent-primary);">$C, I$</div>
+                    <div class="parameter-desc"><strong>Behaviour:</strong> Consumption $C = C(\bar{Y} - T)$ depends on disposable income. Investment $I = I(r^*)$ depends on the world real interest rate. Both are pinned by exogenous variables.</div>
                 </div>
             </div>
 
-            <p style="margin-top: 1.5rem;">Let us establish our behavioral equations:</p>
-            <ul class="content-list">
-                <li>Consumption depends on disposable income: $C = C(Y - T)$</li>
-                <li>Investment is a function of the real interest rate: $I = I(r^*)$</li>
-            </ul>
+            <h3>What Determines $NX$?</h3>
+            <p>Since $Y$, $C$, and $I$ are all determined independently of the trade balance, $NX$ is the <strong>residual</strong> that balances the equation:</p>
 
-            <h3 style="color: var(--accent-secondary);">Implications for Net Exports</h3>
-            <p>Since the interest rate is fixed at the global level ($r^*$), investment is fully determined: $I = I(r^*)$. Thus, the trade balance becomes a direct function of domestic savings and world investment rates:</p>
-            
-            <div class="equation-box" style="border-color: var(--accent-secondary); font-size: 1.5rem;">
-                $NX = S - I(r^*)$
+            <div class="equation-box" style="border-color: var(--accent-primary); font-size: 1.4rem; background: #eff6ff;">
+                $NX = \underbrace{\bar{Y} - C(\bar{Y}-T)}_{\text{National Saving } S} - \;I(r^*)$
             </div>
 
-            <figure class="image-container">
-                <img src="assets/invest.png" alt="Investment function in an open economy">
-                <figcaption><strong>Investment function in an open economy:</strong> Investment relies on a downward-sloping function of the interest rate. Algebraically: $I = I_0 - I_r r$. Factors like business optimism ($I_0$) also affect spending. The exogenous world interest rate $r^*$ effectively pinpoints the country's level of investment.</figcaption>
-            </figure>
+            <div class="concept-card" style="border-left-color: var(--accent-primary);">
+                <div class="concept-title">The Key Insight of the SOE Model</div>
+                <div class="concept-body">
+                    <p>The trade balance is <strong>not determined by trade policy</strong> — it is determined by the gap between national saving and investment. If saving exceeds investment ($S > I$), the excess must be lent abroad, generating a trade surplus. If investment exceeds saving, the gap is filled by foreign borrowing, generating a trade deficit.</p>
+                    <p style="margin-bottom:0;"><span class="fluo-blue">Any policy that changes $S$ or $I$ will change $NX$ — even if it has nothing to do with trade directly.</span></p>
+                </div>
+            </div>
 
-            <h3 style="color: var(--accent-secondary);">Adjustment Mechanisms: Closed vs. Open Economy</h3>
-            
+            <h3>Closed vs. Open Economy: The Adjustment Mechanism</h3>
             <div class="grid-cards">
-                <div class="grid-card" style="display:flex; flex-direction:column; justify-content:space-between;">
-                    <div>
-                        <h4 style="color: var(--text-muted);"><i class="fas fa-door-closed"></i> Adjustment in a Closed Economy</h4>
-                        <p>In a closed system, the domestic interest rate $r$ continuously adjusts to ensure that investment exactly matches national savings ($S = I$).</p>
-                    </div>
-                    <img src="assets/closed.png" alt="Adjustment closed economy graph" style="width:100%; border-radius:6px; margin-top:1rem; border: 1px solid var(--border-light);">
+                <div class="grid-card" style="border-top-color: var(--text-muted);">
+                    <h4><i class="fas fa-door-closed"></i> Closed Economy</h4>
+                    <p>If saving exceeds demand for investment at a given $r$, the interest rate <strong>falls</strong> until $S = I$. The domestic real rate is the endogenous variable.</p>
+                    <figure style="padding:0.75rem; margin:0.75rem 0 0;">
+                        <img src="assets/closed.png" alt="Closed economy S-I equilibrium">
+                        <figcaption>$r$ adjusts until $S = I$ domestically.</figcaption>
+                    </figure>
                 </div>
-                <div class="grid-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top-color: var(--accent-primary);">
-                    <div>
-                        <h4 style="color: var(--accent-primary);"><i class="fas fa-door-open"></i> Adjustment in an Open Economy</h4>
-                        <p>In an open system, $r$ is pinned by $r^*$. Therefore, savings need NOT equal investment. If $S > I$, the gap forms the trade surplus (Net Exports). If $S < I$, it creates a deficit.</p>
-                    </div>
-                    <img src="assets/open.png" alt="Adjustment open economy graph" style="width:100%; border-radius:6px; margin-top:1rem; border: 1px solid var(--border-light);">
+                <div class="grid-card" style="border-top-color: var(--accent-primary);">
+                    <h4><i class="fas fa-door-open" style="color: var(--accent-primary);"></i> Small Open Economy</h4>
+                    <p>$r$ is fixed at $r^*$. If $S \neq I$ at $r^*$, the difference flows across borders as <strong>Net Exports</strong>. The exchange rate (or $NX$) is the endogenous variable.</p>
+                    <figure style="padding:0.75rem; margin:0.75rem 0 0;">
+                        <img src="assets/open.png" alt="Open economy S-I and NX">
+                        <figcaption>$r = r^*$ fixed. $NX = S - I(r^*)$ adjusts.</figcaption>
+                    </figure>
                 </div>
             </div>
-
         </section>
 
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- POLICY SHOCKS -->
+        <!-- POLICY SHOCKS                              -->
         <!-- ═══════════════════════════════════════════ -->
         <section id="policy-shocks">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-sliders-h"></i> Policy Shocks and the Trade Balance</h2>
-            <p>How do various policy measures affect the trade balance? We will observe three straightforward scenarios, leveraging our core framework.</p>
+            <h2>Policy Shocks and the Trade Balance</h2>
+            <p>Using $NX = S - I(r^*)$, we can analyze how different shocks affect the trade balance. The logic is always: <strong>(1) what changes $S$? (2) what changes $I$? (3) what happens to $NX = S - I$?</strong></p>
 
-            <div class="concept-card" style="margin-bottom: 2rem;">
-                <div class="concept-title"><i class="fas fa-home"></i> 1. Fiscal Expansion at Home</div>
+            <!-- Shock 1 -->
+            <div class="concept-card" style="border-left-color: var(--accent-primary); margin-bottom: 2rem;">
+                <div class="concept-title"><i class="fas fa-landmark"></i> Shock 1 — Domestic Fiscal Expansion ($G \uparrow$ or $T \downarrow$)</div>
                 <div class="concept-body">
-                    <p>An expansionary domestic fiscal policy, such as increasing government purchases ($G \uparrow$) or cutting taxes ($T \downarrow$), heavily reduces national saving ($S \downarrow$).</p>
-                    <p>Since $NX = S \downarrow - I$, net exports must fall. The economy reduces its foreign lending and might even move to a trade deficit.</p>
-                    <div style="text-align:center; margin-top:1.5rem;">
-                        <img src="assets/home.png" alt="Fiscal policy at home" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc;">
+                    <div class="chain-box">
+                        <div class="chain-title"><i class="fas fa-link"></i> Chain Reaction</div>
+                        <div class="chain-step"><div class="step-num">1</div><div>$G \uparrow$ or $T \downarrow$ → public saving falls → national saving $S \downarrow$</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">2</div><div>$r^*$ unchanged → investment $I(r^*)$ unchanged</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">3</div><div>$NX = S \downarrow - I$ → trade balance deteriorates</div></div>
+                        <div class="chain-result">Trade surplus shrinks (or deficit grows). The country borrows more from abroad to fund the gap.</div>
+                    </div>
+                    <p style="margin-bottom:0; font-size:0.95rem;"><strong>Key takeaway:</strong> Budget deficits tend to create or worsen trade deficits. This link is called the <span class="fluo-blue">"Twin Deficits"</span> hypothesis.</p>
+                    <div style="text-align:center; margin-top:1.25rem;">
+                        <img src="assets/home.png" alt="Domestic fiscal expansion — SOE" style="max-width:320px; width:100%; border-radius:8px; border:1px solid var(--border-light);">
                     </div>
                 </div>
             </div>
 
-            <div class="concept-card" style="border-left-color: var(--accent-secondary); margin-bottom: 2rem;">
-                <div class="concept-title"><i class="fas fa-globe-europe"></i> 2. Fiscal Expansion Abroad</div>
+            <!-- Shock 2 -->
+            <div class="concept-card" style="border-left-color: #0ea5e9; margin-bottom: 2rem;">
+                <div class="concept-title"><i class="fas fa-globe-europe"></i> Shock 2 — Fiscal Expansion Abroad</div>
                 <div class="concept-body">
-                    <p>If large foreign economies conduct a fiscal expansion, global savings heavily drop, pushing the world interest rate upwards ($r^* \uparrow$).</p>
-                    <p>A higher $r^*$ suppresses domestic investment ($I \downarrow$). With investment down and savings unchanged, the difference $S - I \uparrow$ grows, leading to a <span class="fluo-blue">rise in Net Exports ($NX \uparrow$)</span>.</p>
-                    <div style="text-align:center; margin-top:1.5rem;">
-                        <img src="assets/abroad.png" alt="Fiscal policy abroad" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc;">
+                    <div class="chain-box" style="background: #f0f9ff; border-color: #bae6fd; border-left-color: #0ea5e9;">
+                        <div class="chain-title" style="color: #0369a1;"><i class="fas fa-link"></i> Chain Reaction</div>
+                        <div class="chain-step"><div class="step-num" style="background:#0ea5e9;">1</div><div>Foreign governments expand → world savings fall → $r^* \uparrow$</div></div>
+                        <div class="chain-arrow" style="color:#0ea5e9;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#0ea5e9;">2</div><div>Higher $r^*$ → domestic investment falls: $I(r^* \uparrow) \downarrow$</div></div>
+                        <div class="chain-arrow" style="color:#0ea5e9;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#0ea5e9;">3</div><div>$NX = S - I \downarrow$ → trade surplus grows (the SOE lends more abroad)</div></div>
+                        <div class="chain-result" style="background:#e0f2fe; border-color:#bae6fd; color:#0c4a6e;">$NX \uparrow$ — a foreign fiscal expansion raises the domestic trade surplus.</div>
+                    </div>
+                    <div style="text-align:center; margin-top:1.25rem;">
+                        <img src="assets/abroad.png" alt="Foreign fiscal expansion — SOE" style="max-width:320px; width:100%; border-radius:8px; border:1px solid var(--border-light);">
                     </div>
                 </div>
             </div>
 
+            <!-- Shock 3 -->
             <div class="concept-card" style="border-left-color: #f59e0b; margin-bottom: 2rem;">
-                <div class="concept-title"><i class="fas fa-chart-line"></i> 3. An Increase in Investment Demand</div>
+                <div class="concept-title"><i class="fas fa-chart-line"></i> Shock 3 — Rise in Domestic Investment Demand</div>
                 <div class="concept-body">
-                    <p>If the government implements an investment tax credit or firms suddenly become very optimistic, investment demand jumps ($I_0 \uparrow$). At the fixed $r^*$, total investment surges ($I \uparrow$).</p>
-                    <p>Because savings are unchanged, the surge in investment causes $S - I \downarrow$, generating a dramatic <span class="fluo-pink">fall in NX</span>, and leading to borrowing from abroad.</p>
-                    <div style="text-align:center; margin-top:1.5rem;">
-                        <img src="assets/dmd.png" alt="Investment demand increase" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc;">
+                    <div class="chain-box" style="background: #fffbeb; border-color: #fde68a; border-left-color: #f59e0b;">
+                        <div class="chain-title" style="color: #92400e;"><i class="fas fa-link"></i> Chain Reaction</div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">1</div><div>Investment tax credit or surge in business confidence → $I_0 \uparrow$</div></div>
+                        <div class="chain-arrow" style="color:#f59e0b;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">2</div><div>At $r^*$, investment spending rises: $I \uparrow$</div></div>
+                        <div class="chain-arrow" style="color:#f59e0b;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#f59e0b;">3</div><div>$NX = S - I \uparrow$ → trade deficit grows (must borrow more from abroad)</div></div>
+                        <div class="chain-result" style="background:#fef3c7; border-color:#fde68a; color:#92400e;">$NX \downarrow$ — an investment boom triggers a trade deficit.</div>
                     </div>
-                </div>
-            </div>
-            
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- EXCHANGE RATES & PPP -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="exchange-rates">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-coins"></i> Exchange Rates and Purchasing Power Parity</h2>
-            
-            <div class="grid-cards">
-                <div class="grid-card">
-                    <h4><i class="fas fa-money-bill-wave"></i> Nominal Exchange Rate (E)</h4>
-                    <p>It represents the price of a foreign currency. Measured as units of domestic currency per unit of foreign currency.</p>
-                    <p class="image-caption">Example: $E = 20.80$ CZK/USD means that one physical U.S. dollar costs precisely 20.80 Czech koruna.</p>
-                </div>
-                <div class="grid-card">
-                    <h4><i class="fas fa-shopping-cart"></i> Real Exchange Rate ($\epsilon$)</h4>
-                    <p>The RER measures the relative price of foreign goods in terms of domestic goods. It tells us the true purchasing power.</p>
-                    <div class="equation-box" style="padding: 0.5rem; margin-top: 0.5rem; margin-bottom: 0;">
-                        $\epsilon = \frac{E \cdot P^*}{P}$
-                    </div>
+                    <p style="margin-bottom:0; font-size:0.95rem;"><strong>Key takeaway:</strong> A booming economy that attracts investment naturally runs a trade deficit — this is not necessarily a sign of weakness.</p>
                 </div>
             </div>
 
-            <div class="exam-tip">
+            <h3>Summary Table — Policy Shocks in the SOE</h3>
+            <table class="synth-table">
+                <thead>
+                    <tr>
+                        <th>Shock</th>
+                        <th>Effect on $S$</th>
+                        <th>Effect on $I$</th>
+                        <th>Effect on $NX$</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fiscal expansion at home ($G \uparrow$)</td>
+                        <td class="tag-down">$S \downarrow$</td>
+                        <td>unchanged</td>
+                        <td class="tag-down">$NX \downarrow$ (deficit)</td>
+                    </tr>
+                    <tr>
+                        <td>Fiscal expansion abroad ($r^* \uparrow$)</td>
+                        <td>unchanged</td>
+                        <td class="tag-down">$I \downarrow$</td>
+                        <td class="tag-up">$NX \uparrow$ (surplus)</td>
+                    </tr>
+                    <tr>
+                        <td>Investment demand surge ($I_0 \uparrow$)</td>
+                        <td>unchanged</td>
+                        <td class="tag-up">$I \uparrow$</td>
+                        <td class="tag-down">$NX \downarrow$ (deficit)</td>
+                    </tr>
+                    <tr>
+                        <td>Trade restriction (tariff)</td>
+                        <td>unchanged</td>
+                        <td>unchanged</td>
+                        <td class="tag-none">$NX$ unchanged!</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="exam-tip" style="border-left-color: var(--alert-border);">
                 <i class="fas fa-thumbtack exam-tip-pin"></i>
                 <div class="exam-tip-content">
-                    <h4>Real Exchange Rate Example: The Big Mac Index</h4>
-                    <p>Suppose a Big Mac in Prague costs $P = 115$ CZK, and in New York it costs $P^* = 6.72$ USD. The nominal rate is $E = 20.80$ CZK/USD.</p>
-                    <p>The real exchange rate is: <strong>$\epsilon = 20.80 \times \frac{6.72}{115} \approx 1.21$</strong></p>
-                    <p>This strictly dictates that the U.S. Big Mac is approximately <span class="fluo-blue">21% more expensive</span> than the Czech Big Mac in real terms.</p>
+                    <h4>Why Trade Policy Cannot Fix the Trade Balance in the SOE</h4>
+                    <p>A tariff reduces imports, which raises $NX$ initially. But since $S$ and $I$ are unchanged (a tariff doesn't affect them), the identity $NX = S - I$ means the trade balance cannot change in the long run. The exchange rate (or dollar flows) adjusts to offset the tariff — NX returns to its original level, just with less trade overall (less exports <em>and</em> less imports).</p>
                 </div>
             </div>
-
-            <h3>Arbitrage and The Law of One Price</h3>
-            <p>If there's a significant price gap for identical products across different markets, it inherently creates an arbitrage opportunity. This mechanism drives the principle of <strong>Purchasing Power Parity (PPP)</strong>.</p>
-            <ul class="content-list">
-                <li><strong>The Law of One Price (LOOP):</strong> Over the long term, avoiding arbitrage guarantees identical goods must cost the exact same amount globally.</li>
-                <li><strong>Why does PPP fail?</strong> Goods are not always perfect substitutes. Moreover, transaction costs, prohibitive tariffs, different national tastes, and the presence of <span class="fluo-pink">nontradables</span> drastically impede perfect parity.</li>
-            </ul>
         </section>
 
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- BALASSA SAMUELSON EFFECT -->
+        <!-- EXCHANGE RATES                             -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="balassa-samuelson">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-chart-area"></i> The Balassa-Samuelson Effect</h2>
-            <p>One structural reason PPP persistently fails is due to cross-country differences in labor productivity. The Balassa-Samuelson effect demonstrates why <span class="fluo-blue">wealthier, highly productive countries naturally have higher overarching price levels</span>.</p>
+        <section id="exchange-rates">
+            <h2>Exchange Rates</h2>
+
+            <div class="key-defs">
+                <h4><i class="fas fa-coins"></i> &nbsp;Defining Exchange Rates — Be Careful with Conventions</h4>
+                <div class="def-row">
+                    <span class="def-term">Nominal Rate ($E$)</span>
+                    <span class="def-body">Price of one unit of <em>foreign</em> currency in domestic currency. Example: $E = 20.80$ CZK/USD means 1 dollar costs 20.80 koruna. <strong>$E \uparrow$ = domestic currency depreciates</strong> (it takes more CZK to buy 1 USD).</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Real Rate ($\epsilon$)</span>
+                    <span class="def-body">Relative price of foreign goods in terms of domestic goods. <br>$$\epsilon = \frac{E \cdot P^*}{P}$$ where $P^*$ = foreign price level, $P$ = domestic price level. <br><strong>$\epsilon \uparrow$ = domestic goods become relatively cheaper (depreciation in real terms) → $NX \uparrow$.</strong></span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Appreciation</span>
+                    <span class="def-body">Domestic currency becomes <em>more</em> valuable: $E \downarrow$ (nominal); $\epsilon \downarrow$ (real). Domestic goods become more expensive for foreigners → $NX \downarrow$.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Depreciation</span>
+                    <span class="def-body">Domestic currency becomes <em>less</em> valuable: $E \uparrow$ (nominal); $\epsilon \uparrow$ (real). Domestic goods become cheaper for foreigners → $NX \uparrow$.</span>
+                </div>
+            </div>
+
+            <h3>Net Exports and the Real Exchange Rate</h3>
+            <p>Net exports depend negatively on the real exchange rate (when domestic goods become relatively expensive, we export less and import more):</p>
+            <div class="equation-box" style="border-color: var(--accent-primary); font-size: 1.2rem;">
+                $NX = NX(\epsilon), \quad \dfrac{dNX}{d\epsilon} > 0$
+            </div>
+            <p>Wait — why $> 0$? Because <span class="fluo-blue">$\epsilon \uparrow$ means foreign goods are more expensive relative to domestic goods</span> → domestic consumers switch away from imports, foreigners buy more of our exports → $NX$ rises.</p>
+
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="alert-content">
+                    <h4>Exchange Rate Equilibrium in the SOE</h4>
+                    <p>The real exchange rate $\epsilon^*$ adjusts to ensure the goods market clears: $NX(\epsilon^*) = S - I(r^*)$. This is the key equilibrium condition linking the goods market and the foreign exchange market in the long-run SOE.</p>
+                    <figure style="margin-top:1rem; padding: 0.75rem; background:white; border-radius:8px; border: 1px solid var(--border-light);">
+                        <img src="assets/rate.png" alt="NX and real exchange rate equilibrium" style="max-width:320px; width:100%;">
+                        <figcaption>Equilibrium $\epsilon^*$: the level of the real exchange rate that equates NX with the saving-investment gap.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- PPP & BALASSA-SAMUELSON                    -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="ppp">
+            <h2>Purchasing Power Parity and The Balassa-Samuelson Effect</h2>
+
+            <h3>The Law of One Price and PPP</h3>
+            <p>Arbitrage ensures that identical goods sell for the same price globally (when expressed in a common currency). This is the <strong>Law of One Price (LOOP)</strong>. Extending it to price levels gives <strong>Purchasing Power Parity (PPP)</strong>:</p>
+            <div class="equation-box" style="border-color: var(--accent-primary);">
+                $\text{PPP: } P = E \cdot P^* \quad \Leftrightarrow \quad \epsilon = 1 \text{ always}$
+            </div>
+
+            <p><strong>Why does PPP fail in practice?</strong> Transport costs, tariffs, non-tradable goods (haircuts, rent), and different consumption baskets. The real exchange rate $\epsilon$ persistently deviates from 1.</p>
+
+            <h3>The Balassa-Samuelson Effect</h3>
+            <p>Richer economies systematically have <span class="fluo-blue">higher price levels</span> than PPP would predict. The mechanism runs through sectoral productivity differences.</p>
 
             <div class="grid-cards">
                 <div class="grid-card" style="border-top-color: #10b981;">
-                    <h4><i class="fas fa-truck-fast" style="color: #10b981;"></i> Tradables</h4>
-                    <p>Goods capable of international trade (cars, steel, machinery). Their domestic prices are firmly constrained by intense global competition.</p>
+                    <h4><i class="fas fa-truck-fast" style="color: #10b981;"></i> Tradable Sector</h4>
+                    <p>Goods traded internationally (cars, steel, electronics). Prices are pinned by global competition — a French car and a German car of the same quality must sell at similar prices.</p>
+                    <p style="font-size:0.9rem; color: var(--text-muted);">Productivity differences $\Rightarrow$ wage differences (not price differences) in tradables.</p>
                 </div>
                 <div class="grid-card" style="border-top-color: #f43f5e;">
-                    <h4><i class="fas fa-store" style="color: #f43f5e;"></i> Nontradables</h4>
-                    <p>Services consumed specifically where they are produced (haircuts, rent, restaurants). Prices are dictated exclusively by domestic factors and local wages.</p>
+                    <h4><i class="fas fa-store" style="color: #f43f5e;"></i> Non-Tradable Sector</h4>
+                    <p>Services consumed where produced (haircuts, restaurants, real estate). Prices are set by domestic costs — especially wages — not global competition.</p>
+                    <p style="font-size:0.9rem; color: var(--text-muted);">No arbitrage here — a Prague haircut is cheaper than a London haircut.</p>
                 </div>
             </div>
-
-            <div class="concept-card">
-                <div class="concept-title">The Economic Mechanism Step-by-Step</div>
-                <div class="concept-body">
-                    <p>Imagine a rapidly developing economy:</p>
-                    <ol class="content-list" style="margin-bottom:0;">
-                        <li><strong>Productivity Surge:</strong> Sectoral productivity within the tradable sector ($A_T$) suddenly rises rapidly.</li>
-                        <li><strong>Wage Hike in Tradables:</strong> Generating immense value, these firms can heavily increase their worker wages.</li>
-                        <li><strong>Wage Spillover:</strong> To prevent extreme labor shortages, nontradable sectors (like a barber shop) are overwhelmingly pressured to match those higher wages.</li>
-                        <li><strong>Price Inflation in Nontradables:</strong> Because the barber’s intrinsic productivity ($A_N$) did not grow, his unit labor costs inherently spike. He is forced to raise absolute prices ($P_N \uparrow$) just to survive.</li>
-                        <li><strong>Aggregate Effect:</strong> This directly inflates the overall domestic price level. Therefore, rich, fast-growing economies experience chronic <strong>Real Exchange Rate appreciation</strong>.</li>
-                    </ol>
-                </div>
-            </div>
-
-            <p><strong>A Parallel Concept: Dutch Disease.</strong> While identical in mechanics (pushing up nontradable prices and soaring exchange rates), Dutch Disease stems specifically from a colossal boom in natural resources (like an oil discovery) rather than general manufacturing productivity.</p>
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- BRINGING IT TOGETHER -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="comprehensive">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-project-diagram"></i> NX, Exchange Rates & The Macro Synthesis</h2>
-            
-            <p>The net exports function deeply reflects an inverse relationship with the real exchange rate. If the exchange rate rises, foreign goods become relatively expensive, boosting NX.</p>
-            
-            <div class="equation-box" style="margin-top: 1rem; border-color: var(--accent-primary);">
-                $NX = NX(\epsilon)$, where $\frac{dNX}{d\epsilon} < 0$
-            </div>
-
-            <div class="grid-cards" style="margin-top:2rem;">
-                <div class="grid-card" style="box-shadow: none; border-color: transparent; padding:0; text-align:center;">
-                    <img src="assets/rate.png" alt="Net Exports and Exchange rate relation" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc; margin-bottom:1rem;">
-                    <p style="font-size:0.9rem; font-style:italic;"><strong>Net Exports and $\epsilon$</strong></p>
-                </div>
-                <div class="grid-card" style="box-shadow: none; border-color: transparent; padding:0; text-align:center;">
-                    <img src="assets/identity.png" alt="S-I determines NX graphically" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc; margin-bottom:1rem;">
-                    <p style="font-size:0.9rem; font-style:italic;"><strong>NX and the Saving/Investment Identity</strong></p>
-                </div>
-            </div>
-
-            <div class="alert-box">
-                <div class="alert-icon"><i class="fas fa-layer-group"></i></div>
-                <div class="alert-content">
-                    <h4>A Comprehensive Summary: A Fiscal Expansion in Three Models</h4>
-                    <p>A broad fiscal expansion causes national savings to plummet. We can trace its structural destiny based purely on the economy's exact level of openness and size:</p>
-                    <img src="assets/grid.png" alt="Prediction Grid Model comparison" style="width:100%; max-width:800px; display:block; margin:1rem auto; border-radius:8px; border: 1px solid #ccc;">
-                    
-                    <ul style="margin-bottom:0;">
-                        <li><strong>Closed Economy:</strong> The rate $r$ shoots up, directly crushing investment ($I \downarrow$).</li>
-                        <li><strong>Small Open Economy:</strong> The rate $r$ is trapped by $r^*$. Investment never shifts, but $NX$ collapses entirely.</li>
-                        <li><strong>Large Open Economy:</strong> Experiences a blended shock. Interest rates rise slightly, hurting investment somewhat. NX drops, but less brutally than in a tiny open economy.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Graphical Impacts of Shocks in the Open Economy Model</h3>
-            <p>Let's map out exactly how distinct macroeconomic shocks deform our $S-I$ balance and thus deeply affect our exchange rate equilibrium.</p>
-
-            <div class="grid-cards">
-                <div class="grid-card" style="text-align:center;">
-                    <h4 style="justify-content:center;">Fiscal Expansion at Home</h4>
-                    <img src="assets/home1.png" alt="Fiscal expansion at home alters curve" style="width:100%; max-width:250px; border-radius:6px; margin:1rem 0;">
-                    <p style="font-size:0.9rem;">$S$ shifts left. Trade balance severely drops, causing $\epsilon$ to drastically appreciate.</p>
-                </div>
-                <div class="grid-card" style="text-align:center;">
-                    <h4 style="justify-content:center;">Fiscal Expansion Abroad</h4>
-                    <img src="assets/abroad1.png" alt="Fiscal expansion abroad alters curve" style="width:100%; max-width:250px; border-radius:6px; margin:1rem 0;">
-                    <p style="font-size:0.9rem;">$r^*$ rises, causing domestic $I$ to drop. The $S-I$ gap swells, sending NX higher and $\epsilon$ sharply plummets.</p>
-                </div>
-                <div class="grid-card" style="text-align:center;">
-                    <h4 style="justify-content:center;">Rise in Investment Demand</h4>
-                    <img src="assets/dmd1.png" alt="Investment demand shifts" style="width:100%; max-width:250px; border-radius:6px; margin:1rem 0;">
-                    <p style="font-size:0.9rem;">Increased $I$ shifts the $S-I$ supply curve violently leftward. $\epsilon$ heavily appreciates.</p>
-                </div>
-                <div class="grid-card" style="text-align:center;">
-                    <h4 style="justify-content:center;">Trade Policy Restriction</h4>
-                    <img src="assets/import.png" alt="Trade policy restricts imports" style="width:100%; max-width:250px; border-radius:6px; margin:1rem 0;">
-                    <p style="font-size:0.9rem;">A tariff organically shifts the NX curve upward. While $\epsilon$ artificially appreciates, total true <strong>NX unexpectedly remains totally unaffected</strong> due to rigid $S-I$.</p>
-                </div>
-            </div>
-
-        </section>
-
-        
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- IS-LM-BP & THE MUNDELL-FLEMING MODEL -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="mundell-fleming">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-sitemap"></i> Modelling the Open Economy: Mundell-Fleming & IS-LM-BP</h2>
-            
-            <div class="alert-box">
-                <div class="alert-icon"><i class="fas fa-info-circle"></i></div>
-                <div class="alert-content">
-                    <h4>How to Read This Model Today</h4>
-                    <p>The Mundell-Fleming / IS-LM-BP framework is a benchmark short-run model of the open economy. It is essentially a pedagogical tool rather than a perfect description of reality. It drastically simplifies reality in order to perfectly isolate the key transmission mechanisms of policy in an open economy.</p>
-                    <p>In modern macroeconomics, central banks don't fix the money supply; the LM curve is instead replaced by an MP curve (Taylor rule). We study it to build crucial economic intuition regarding exchange-rate regimes and the impossible trinity.</p>
-                </div>
-            </div>
-
-            <h3>The Baseline Assumptions</h3>
-            <p>We begin by exploring the Mundell-Fleming model, effectively assuming a small open economy with flawless capital mobility. Under this setup, the domestic interest rate is anchored to the global rate ($r = r^*$).</p>
-            
-            <div class="grid-cards">
-                <div class="grid-card">
-                    <h4>IS* Curve (Goods Market)</h4>
-                    <div class="equation-box" style="margin:0.5rem 0; font-size:1.1rem; padding:0.5rem;">
-                        $Y = C(Y-T) + I(r^*) + G + NX(e)$
-                    </div>
-                    <p>Where $e$ is the nominal exchange rate. The exchange rate acts as the key adjustment variable in an open economy. When domestic policies change, it is often the exchange rate that moves in order to restore equilibrium.</p>
-                </div>
-                <div class="grid-card">
-                    <h4>LM* Curve (Money Market)</h4>
-                    <div class="equation-box" style="margin:0.5rem 0; font-size:1.1rem; padding:0.5rem;">
-                        $M/P = L(r^*, Y)$
-                    </div>
-                    <p>Money supply is rigidly fixed by the central bank. Money demand depends entirely on income $Y$ and the fixed global interest rate $r^*$.</p>
-                </div>
-            </div>
-
-            <p>Our analysis critically hinges on whether the economy uses a <strong>Floating</strong> or a <strong>Fixed</strong> exchange rate regime.</p>
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- FLOATING EXCHANGE RATES: POLICY MECHANISMS -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="policy-mechanisms">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-water"></i> Policies Under Floating Exchange Rates</h2>
-
-            <!-- Fiscal Policy -->
-            <div class="concept-card" style="margin-bottom: 2.5rem;">
-                <div class="concept-title"><i class="fas fa-landmark"></i> Fiscal Policy (Ineffective)</div>
-                <div class="concept-body">
-                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A fiscal expansion ($G \uparrow$ or $T \downarrow$) increases domestic demand, which initially raises income ($Y \uparrow$). Higher income increases the demand for money, pushing domestic interest rates upward ($r > r^*$). This immediately attracts massive capital inflows from foreign investors seeking higher yields. These sudden capital inflows cause the domestic currency to immediately appreciate ($e \uparrow$), which catastrophically reduces Net Exports ($NX \downarrow$).</p>
-                    <p><strong>The Final Result:</strong> This appreciation fully offsets the initial expansion in demand. It perfectly crowds out the fiscal shock. Under perfect capital mobility, fiscal policy is largely <strong>ineffective</strong> at changing output.</p>
-                    <figure class="image-container">
-                        <img src="assets/fiscal.png" alt="Fiscal policy in Mundell Fleming">
-                        <figcaption>Fiscal Policy: The IS* curve shifts right initially, but the immediate currency appreciation forces it back. Output $Y$ remains unchanged.</figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <!-- Monetary Policy -->
-            <div class="concept-card" style="border-left-color: var(--accent-secondary); margin-bottom: 2.5rem;">
-                <div class="concept-title"><i class="fas fa-coins"></i> Monetary Policy (Highly Effective)</div>
-                <div class="concept-body">
-                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A monetary expansion ($M \uparrow$) suddenly shifts the LM curve to the right, driving the domestic interest rate downward ($r < r^*$). Seeking better returns elsewhere, capital rapidly flows out of the country. These capital outflows cause the domestic currency to heavily depreciate ($e \downarrow$). The cheaper currency drastically boosts Net Exports ($NX \uparrow$).</p>
-                    <p><strong>The Final Result:</strong> The rise in net exports violently increases aggregate demand, reinforcing the initial expansion. Therefore, monetary policy is <strong>highly effective</strong> in raising output. <em>The key intuition here is that expansionary monetary policy does not raise absolute world demand; it merely shifts demand away from foreign products toward domestic products.</em></p>
-                    <figure class="image-container">
-                        <img src="assets/mon.png" alt="Monetary policy in Mundell Fleming">
-                        <figcaption>Monetary Policy: The LM* shifts right. The currency depreciates, pushing NX up and permanently expanding equilibrium output $Y$.</figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <!-- Trade Policy -->
-            <div class="concept-card" style="border-left-color: #f59e0b; margin-bottom: 2.5rem;">
-                <div class="concept-title"><i class="fas fa-ship"></i> Trade Policy (Ineffective)</div>
-                <div class="concept-body">
-                    <p style="font-weight: 500;"><em>The Chain Reaction:</em> A protectionist trade policy (such as tariffs or quotas) artificially reduces imports, structurally improving net exports. This directly shifts the IS curve rightward, raising output and interest rates in the short run. Just like fiscal policy, the higher $r$ instantly attracts massive capital inflows, strongly appreciating the domestic currency. The currency appreciation perfectly kills off the initial gain in net exports.</p>
-                    <p><strong>The Final Result:</strong> Under a floating regime, trade policy has absolutely <strong>no effect on overall output</strong>. <em>In practice, this means that while import restrictions save specific jobs in protected domestic industries, they systematically destroy equivalent jobs in exporting sectors due to the strengthened currency.</em> This merely creates painful frictional unemployment (sectoral shifts).</p>
-                    <figure class="image-container">
-                        <img src="assets/trade.png" alt="Trade policy in Mundell Fleming">
-                        <figcaption>Trade Policy: Protectionism shifts IS* right, but the currency instantly appreciates, neutralizing the shift. Net overall output remains firmly unchanged.</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- FIXED REGIME -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="fixed-regime">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-anchor"></i> Fixed Exchange Rates</h2>
-            <p>Under fixed exchange rates, the Central Bank deliberately stands ready to buy or sell the domestic currency for foreign currency at a predetermined, rigid rate. It effectively sacrifices its monetary autonomy to secure the exchange rate.</p>
-            
-            <div class="grid-cards">
-                <div class="grid-card">
-                    <h4>The Mechanism & Risk</h4>
-                    <p>The CB buys or sells using its foreign reserves. A massive vulnerability is the risk of a <strong>speculative attack</strong> where the CB entirely runs out of reserves. A desperate solution to this is a rigid <em>Currency Board</em>.</p>
-                </div>
-                <div class="grid-card">
-                    <h4>Long Run Flexibility</h4>
-                    <p>Remember that this system strictly fixes the <strong>nominal</strong> rate ($e$). In the very long run, as prices ($P$, $P^*$) become fully flexible, the <strong>real exchange rate ($\epsilon$)</strong> can and will move organically anyway.</p>
-                </div>
-            </div>
-
-            <h3>Policy Effectiveness under Fixed Rates</h3>
-            <p>Because the exchange rate cannot move to absorb shocks, the money supply ($M$) becomes totally endogenous, constantly adjusting to maintain the exact peg.</p>
-            
-            <div class="grid-cards" style="margin-top:2rem;">
-                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#10b981;">
-                    <img src="assets/exp.png" alt="Fiscal expansion fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
-                    <h4 style="justify-content:center;">Fiscal Expansion</h4>
-                    <p style="font-size:0.9rem;">To prevent the currency from appreciating after an IS* rightward shift, the CB prints money (LM* shifts right). Output $Y$ expands heavily. <strong>Highly Effective!</strong></p>
-                </div>
-                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#f43f5e;">
-                    <img src="assets/lm.png" alt="Monetary policy fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
-                    <h4 style="justify-content:center;">Monetary Policy</h4>
-                    <p style="font-size:0.9rem;">An attempt to drop rates causes capital flight. To defend the peg from depreciation, the CB must buy back the money (LM* reverts). <strong>Totally Ineffective!</strong></p>
-                </div>
-                <div class="grid-card" style="padding:1rem; text-align:center; border-top-color:#f59e0b;">
-                    <img src="assets/rest.png" alt="Trade restriction fixed rate" style="width:100%; max-width:250px; border-radius:6px; margin-bottom:1rem;">
-                    <h4 style="justify-content:center;">Trade Restrictions</h4>
-                    <p style="font-size:0.9rem;">IS* shifts right from tariff. To stop the resulting appreciation, the CB prints money (LM* shifts right), permanently locking in higher Output $Y$. <strong>Effective!</strong></p>
-                </div>
-            </div>
-            
-            <figure class="image-container" style="margin-top: 3rem;">
-                <img src="assets/sum.png" alt="Summary of Mundell Fleming Policies" style="max-width: 600px;">
-                <figcaption><strong>Summary of Policy Effectiveness:</strong> Look at the diagonal symmetry! Fiscal and Trade policies are potent exclusively under Fixed rates. Monetary policy is potent exclusively under Floating rates.</figcaption>
-            </figure>
-            
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- RISK AND CRISIS -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="risk-crisis">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-exclamation-triangle"></i> Risk Differentials and the AD Curve</h2>
-            
-            <p>Until now, we assumed $r = r^*$. But in reality, robust interest rates differ systematically due to imperfect capital mobility, intense transaction costs, or strict capital controls (the "Home Bias").</p>
-
-            <div class="concept-card">
-                <div class="concept-title">Integrating the Risk Premium ($\theta$)</div>
-                <div class="concept-body">
-                    <p>We modify our global interest rate equation to include a country risk premium: <strong>$r = r^* + \theta$</strong>.</p>
-                    <ul class="content-list">
-                        <li>$Y = C(Y - T) + I(r^* + \theta) + G + NX(e)$</li>
-                        <li>$M/P = L(r^* + \theta, Y)$</li>
-                    </ul>
-                    <p><em>What really drives the result</em> of an sudden increase in the risk premium ($\theta \uparrow$)? Investors demand more yield to hold domestic assets. Domestic interest rates spike. Capital violently flees the country. The IS* curve shifts left (investment crashes), while LM* shifts right (money demand crashes). The currency immensely depreciates.</p>
-                    <figure class="image-container" style="margin-top:1.5rem;">
-                        <img src="assets/risk.png" alt="Risk premium increase in Mundell Fleming">
-                        <figcaption>An explosive rise in country risk shifts both curves, violently depreciating the currency ($e \downarrow$).</figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div class="alert-box">
-                <div class="alert-icon"><i class="fas fa-bolt"></i></div>
-                <div class="alert-content">
-                    <h4>Case Study: The 1994 Mexico Peso Crisis</h4>
-                    <p>In early 1994, political instability (the Chiapas uprising, assassinations) combined with rising U.S. rates sent Mexico's risk premium ($\theta$) skyrocketing. The Peso faced colossal downward pressure.</p>
-                    <p>Mexico tried to defend its fixed exchange rate by draining its dollar reserves secretly. When markets realized on Dec 20 that the reserves were nearly annihilated, pure panic triggered a capital flight. The fixed rate violently collapsed (depreciating over 40% in weeks).</p>
-                    <p><em>This creates a trade-off:</em> Fixing an exchange rate grants stability, but leaves you fundamentally defenseless when facing gigantic risk premium shocks and depleted reserves. Interestingly, the crash deeply hurt the US too—Mexican assets owned by Americans lost value, and US border exports collapsed.</p>
-                </div>
-            </div>
-            
-            <p style="margin-top:2rem;"><strong>Mundell-Fleming and Aggregate Demand:</strong> By relaxing the fixed-price assumption, any drop in the general price level ($P \downarrow$) increases real money balances ($M/P \uparrow$), shifting the LM* right. This depreciates the currency and boosts output, neatly derivation the downward-sloping Aggregate Demand (AD) curve from the M-F model.</p>
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- IS-LM-BP & THE IMPOSSIBLE TRINITY -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="large-economy">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-cubes"></i> IS-LM-BP and The Impossible Trinity</h2>
-            
-            <p>For massive economic juggernauts like the US or China, the simple Small Open Economy framework is simply too restrictive. Their capital flows are so immense they manipulate the global interest rate $r^*$.</p>
-            <p>We combine everything by introducing the Balance of Payments (BP) curve into the core: $NX(e) = CF(r)$.</p>
-
-            <figure class="image-container" style="margin: 2rem 0;">
-                <img src="assets/fiscal-expansion-open-economy-transmission.png" alt="IS LM BP Fiscal Expansion" style="max-width: 600px;">
-                <figcaption><strong>Transmission of a Fiscal Expansion (IS-LM-BP):</strong> The addition of the BP curve allows us to explicitly model exact international capital flows and their organic interaction with domestic equilibrium.</figcaption>
-            </figure>
 
             <div class="concept-card" style="border-left-color: var(--accent-primary);">
-                <div class="concept-title"><i class="fas fa-triangle-exclamation"></i> The Impossible Trinity (Trilemma)</div>
+                <div class="concept-title">The Chain Reaction — Balassa-Samuelson</div>
                 <div class="concept-body">
-                    <p>A fundamental mathematical reality of international macroeconomics: A nation absolutely cannot simultaneously possess free capital flows, an independent monetary policy, and a permanently fixed exchange rate.</p>
-                    <p><em>Choosing any two automatically implies sacrificing the third.</em></p>
-                    
-                    <div style="background:var(--bg-main); padding:2rem; border-radius:12px; margin-top:1.5rem; border:1px solid var(--border-light); text-align:center;">
-                        <h4 style="margin-bottom:1.5rem; color:var(--text-main);">The Trilemma Triangle</h4>
-                        
-                        <div style="display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:2rem;">
-                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
-                                <i class="fas fa-money-bill-wave" style="font-size:2rem; color:var(--accent-primary); margin-bottom:0.5rem;"></i>
-                                <h5 style="font-size:1.05rem;">Free Capital Flow</h5>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Money cross borders with zero restrictions.</p>
-                            </div>
-                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
-                                <i class="fas fa-anchor" style="font-size:2rem; color:#f43f5e; margin-bottom:0.5rem;"></i>
-                                <h5 style="font-size:1.05rem;">Fixed Exchange Rate</h5>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Stable currency value peg.</p>
-                            </div>
-                            <div style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--shadow-sm); width:200px;">
-                                <i class="fas fa-university" style="font-size:2rem; color:#10b981; margin-bottom:0.5rem;"></i>
-                                <h5 style="font-size:1.05rem;">Independent Monetary</h5>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">CB sets rates to manage local inflation.</p>
-                            </div>
-                        </div>
-
-                        <div style="margin-top:2rem; text-align:left; max-width:600px; margin-left:auto; margin-right:auto;">
-                            <p><strong>Option 1 (e.g. U.S.):</strong> Chooses Capital Flows + Independent Policy $\rightarrow$ Sacrifices Peg (Uses Floating Rates).</p>
-                            <p><strong>Option 2 (e.g. Hong Kong):</strong> Chooses Capital Flows + Fixed Peg $\rightarrow$ Sacrifices Independent CB (Must strictly import foreign interest rates).</p>
-                            <p><strong>Option 3 (e.g. China):</strong> Chooses Independent Policy + Fixed Peg $\rightarrow$ Sacrifices Free Movement (Must brutally enforce capital controls).</p>
-                        </div>
+                    <div class="chain-box">
+                        <div class="chain-title"><i class="fas fa-cogs"></i> Productivity Surge in Tradables of a Rich/Fast-Growing Economy…</div>
+                        <div class="chain-step"><div class="step-num">1</div><div>Productivity rises in tradables: $A_T \uparrow$ → firms can afford to pay higher wages in that sector</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">2</div><div>Labour market pressure: non-tradable workers demand similar wages (or labour flows toward tradables)</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">3</div><div>Non-tradable productivity $A_N$ is <em>unchanged</em> → higher wages → higher unit labour costs in non-tradables</div></div>
+                        <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num">4</div><div>Non-tradable prices rise: $P_N \uparrow$ → overall price level $P \uparrow$</div></div>
+                        <div class="chain-result">Rich and fast-growing economies tend to have <strong>higher price levels</strong> → their real exchange rate appears "overvalued" relative to PPP — but this is structural, not a misalignment.</div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- INTEREST RATE PARITY -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="interest-parity">
-            <h2 style="color: var(--accent-primary);"><i class="fas fa-balance-scale-right"></i> Interest Rate Parity</h2>
-            <p>Interest rate parity inherently reflects the simple idea that investors primarily care about total combined returns, incorporating both raw interest yields and expected currency exchange rate shifts.</p>
-            <p>It demands sufficient capital mobility and expects assets across borders to be structurally perfect substitutes.</p>
-
-            <div class="grid-cards">
-                <div class="grid-card">
-                    <h4>Uncovered Interest Parity (UIP)</h4>
-                    <p>The investor takes pure risk by NOT hedging. They gamble on the future exchange rate. The arbitrage rule states expected total returns must identical:</p>
-                    <div class="equation-box" style="margin: 0.5rem 0; font-size: 1rem; padding: 0.5rem;">
-                        $i_{CZK,t} - i_{EUR,t} \approx \frac{E_t(e_{t+1}) - e_t}{e_t}$
-                    </div>
-                    <p style="font-size:0.9rem;"><em>Intuition:</em> If Czech rates are strictly higher, mathematical logic demands investors expect a future massive depreciation of the CZK to offset those gains. Empirically, UIP often drastically fails in the short run due to risk premia.</p>
-                </div>
-                <div class="grid-card">
-                    <h4>Covered Interest Parity (CIRP)</h4>
-                    <p>The smartest and safest route. The investor fully hedges the future rate risk using a binding forward contract natively on financial markets. No-arbitrage condition:</p>
-                    <div class="equation-box" style="margin: 0.5rem 0; font-size: 1rem; padding: 0.5rem;">
-                        $i_{CZK,t} - i_{EUR,t} \approx \frac{F_t - S_t}{S_t}$
-                    </div>
-                    <p style="font-size:0.9rem;"><em>Intuition:</em> The interest gap instantly mirrors the forward premium perfectly. Under normal peaceful situations, CIRP stubbornly holds flawlessly, only breaking during extreme financial crises when literal funding evaporates.</p>
+                    <p style="font-size:0.95rem; margin-bottom:0;"><strong>Related: Dutch Disease</strong> — same mechanism, but triggered by a natural resource boom (e.g., oil discovery) rather than general productivity growth. The resource sector bids up wages, hurting the rest of the traded sector's competitiveness.</p>
                 </div>
             </div>
         </section>
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- SUMMARY TOGGLE -->
+        <!-- SUMMARY TOGGLE                             -->
         <!-- ═══════════════════════════════════════════ -->
-        <details class="summary-toggle" style="margin-top: 3rem;">
-            <summary><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i> Key Takeaways</summary>
+        <details class="summary-toggle">
+            <summary><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i> Key Takeaways — Full Recap</summary>
             <div class="summary-content">
-                <ol class="content-list" style="margin-bottom:0;">
-                    <li><strong>Small Open Economy Core Identity:</strong> The crucial engine driving our model rests entirely on $NX = S - I$. Trade imbalances are fundamentally born from capital flow variations.</li>
-                    <li><strong>Perfect Mobility:</strong> With frictionless capital flow, a Small Open Economy possesses absolutely zero gravitational pull over the world real interest rate ($r^*$). Therefore, domestic investment strictly mirrors global credit conditions.</li>
-                    <li><strong>Price Structural Gaps:</strong> Persistent real-world deviations from basic Purchasing Power Parity (PPP), illustrated precisely by the potent Balassa-Samuelson Effect, structurally explain why high-growth domains suffer relentless inflationary bursts in nontradable sectors.</li>
-                
-                    <li><strong>Mundell-Fleming Policy Framework:</strong> A short-run system determining that Fiscal/Trade policy commands power solely under fixed exchange regimes, whereas Monetary policy claims dominance heavily in floating environments.</li>
-                    <li><strong>The Impossible Trinity:</strong> A systemic trilemma forcing nations to irrevocably surrender one piece of sovereignty: you cannot unite fixed rates, infinite capital movement, and sovereign monetary policy.</li>
-                    <li><strong>Interest Rate Parity:</strong> Establishes that real yields across frontiers equate structurally when factoring in direct foreign exchange speculations (UIP) or heavily contracted futures (CIRP).</li>
-                </ol>
+                <p><strong>1. The Core Identity: $NX = S - I$.</strong> This is non-negotiable — it follows from GDP accounting. Any change in the trade balance must be matched by a change in saving or investment. Trade policy alone cannot change $NX$ in the long run.</p>
+                <p><strong>2. SOE with $r = r^*$.</strong> The domestic interest rate is pinned globally. Investment $I(r^*)$ is fixed. Fiscal policy affects saving $S$ → directly changes $NX$. Crowding out happens through the exchange rate, not through the domestic interest rate (as in a closed economy).</p>
+                <p><strong>3. Exchange Rate Conventions.</strong> $E \uparrow$ (or $\epsilon \uparrow$) = depreciation = domestic goods cheaper = $NX \uparrow$. Always think about which variable you are changing and what "rising" means in your convention.</p>
+                <p><strong>4. PPP Failures.</strong> Non-tradables, transport costs, and preferences break PPP. The Balassa-Samuelson effect explains <em>systematic</em> PPP failure: richer countries have higher non-tradable prices due to higher wages from their productive tradable sectors.</p>
+                <p><strong>5. Next Page.</strong> The short-run model (Mundell-Fleming IS-LM-BP) introduces sticky prices, the role of the exchange rate regime (floating vs. fixed), and asks: which policies work in which regime?</p>
             </div>
         </details>
 
         <!-- FOOTER -->
-        <section
-            style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
+        <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>End of Lecture — The Open Economy. Utilizing B2 English level pedagogy.</em>
+                <em>Open Economy — SOE Model. Codex Logic Standards. Revised April 2026.</em>
             </p>
         </section>
 
