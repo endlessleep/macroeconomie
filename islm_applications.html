@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IS-LM &amp; AD Applications</title>
-    <meta name="description" content="Macroeconomics II: IS-LM Applications, Crowding Out, Aggregate Demand, ELB, Deflation, and the Great Depression.">
+    <title>IS-LM Applications &amp; Aggregate Demand</title>
+    <meta name="description" content="Macroeconomics: Applications of the IS-LM model, Crowding Out, Policy shocks, Zero Lower Bound, and the Great Depression.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,17 +28,8 @@
                         linear-gradient(183deg, rgba(239,68,68,0) 0%, rgba(239,68,68,0.2) 7.9%, rgba(239,68,68,0) 15%);
             padding: 0 0.25rem; border-radius: 4px; font-weight: 600;
         }
-        .fluo-coral {
-            background: linear-gradient(104deg, rgba(251,113,133,0) 0.9%, rgba(251,113,133,0.55) 2.4%, rgba(251,113,133,0.35) 5.8%, rgba(251,113,133,0.65) 93%, rgba(251,113,133,0.2) 96%, rgba(251,113,133,0) 98%),
-                        linear-gradient(183deg, rgba(251,113,133,0) 0%, rgba(251,113,133,0.2) 7.9%, rgba(251,113,133,0) 15%);
-            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
-        }
-        .fluo-orange {
-            background: linear-gradient(104deg, rgba(251,146,60,0) 0.9%, rgba(251,146,60,0.55) 2.4%, rgba(251,146,60,0.35) 5.8%, rgba(251,146,60,0.65) 93%, rgba(251,146,60,0.2) 96%, rgba(251,146,60,0) 98%),
-                        linear-gradient(183deg, rgba(251,146,60,0) 0%, rgba(251,146,60,0.2) 7.9%, rgba(251,146,60,0) 15%);
-            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
-        }
 
+        /* Summary toggle */
         .summary-toggle {
             margin-top: 2.5rem; border: 1px solid var(--accent-islm-border);
             border-radius: 10px; overflow: hidden;
@@ -52,16 +43,14 @@
         .summary-toggle summary::-webkit-details-marker { display: none; }
         .summary-toggle summary:hover { filter: brightness(1.15); }
         .summary-toggle summary::before {
-            content: '\f06e'; font-family: 'Font Awesome 6 Free';
-            font-weight: 900; font-size: 0.85rem;
+            content: '\f06e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.85rem;
         }
         .summary-toggle[open] summary::before { content: '\f070'; }
         .summary-toggle .summary-content {
-            padding: 1.5rem; background: var(--accent-islm-light);
-            border-top: 1px solid var(--accent-islm-border);
+            padding: 1.5rem; background: var(--accent-islm-light); border-top: 1px solid var(--accent-islm-border);
         }
 
-        /* Chain Reaction Box */
+        /* Chain Reaction Box (Red version) */
         .chain-box {
             background: #fff7f7; border: 1px solid var(--accent-islm-border);
             border-left: 5px solid var(--accent-islm); border-radius: 10px;
@@ -87,9 +76,17 @@
             margin: 0.15rem 0 0.15rem 2.05rem;
         }
         .chain-result {
-            background: var(--accent-islm-light); border: 1px solid var(--accent-islm-border);
-            border-radius: 6px; padding: 0.6rem 0.9rem; margin-top: 1rem;
-            font-weight: 600; color: var(--accent-islm-hover); font-size: 0.95rem;
+            background: #fee2e2; border: 1px solid #fca5a5; border-radius: 6px;
+            padding: 0.6rem 0.9rem; margin-top: 1rem;
+            font-weight: 600; color: #991b1b; font-size: 0.95rem;
+        }
+
+        /* Definition pill */
+        .def-pill {
+            display: inline-block; background: var(--accent-islm-light);
+            border: 1px solid var(--accent-islm-border); border-radius: 20px;
+            padding: 0.2rem 0.75rem; font-size: 0.85rem; font-weight: 600;
+            color: var(--accent-islm-hover); margin: 0 0.2rem 0.4rem 0;
         }
 
         /* Synthesis Table */
@@ -99,38 +96,22 @@
             box-shadow: var(--shadow-sm);
         }
         .synth-table th {
-            background: var(--accent-islm); color: white;
-            padding: 0.75rem 1rem; text-align: center; font-weight: 600;
+            background: var(--accent-islm); color: white; padding: 0.75rem 1rem;
+            text-align: center; font-weight: 600; border-right: 1px solid rgba(255,255,255,0.2);
         }
         .synth-table th:first-child { text-align: left; }
+        .synth-table th:last-child { border-right: none; }
         .synth-table td {
             padding: 0.7rem 1rem; border-bottom: 1px solid var(--border-light);
-            background: white; text-align: center;
+            border-right: 1px solid var(--border-light); background: white; text-align: center;
         }
         .synth-table td:first-child { font-weight: 600; color: var(--bg-sidebar); text-align: left; }
+        .synth-table td:last-child { border-right: none; }
         .synth-table tr:last-child td { border-bottom: none; }
         .synth-table tr:hover td { background: var(--accent-islm-light); }
-        .tag-up { color: #16a34a; font-weight: 700; }
-        .tag-down { color: var(--accent-islm-hover); font-weight: 700; }
-        .tag-right { color: var(--accent-primary); font-weight: 700; }
-        .tag-neutral { color: #b45309; font-weight: 700; }
-
-        /* Two-column comparison */
-        .compare-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;
-        }
-        @media (max-width: 700px) { .compare-grid { grid-template-columns: 1fr; } }
-        .compare-card {
-            background: white; border-radius: 10px; padding: 1.5rem;
-            border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
-        }
-        .compare-card h4 { font-size: 1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; }
-        .compare-card.red { border-top: 4px solid var(--accent-islm); }
-        .compare-card.red h4 { color: var(--accent-islm-hover); }
-        .compare-card.green { border-top: 4px solid #16a34a; }
-        .compare-card.green h4 { color: #15803d; }
-        .compare-card.blue { border-top: 4px solid var(--accent-primary); }
-        .compare-card.blue h4 { color: #1d4ed8; }
+        .tag-up { color: #16a34a; font-weight: 700; font-size: 1.1rem; }
+        .tag-down { color: var(--accent-islm-hover); font-weight: 700; font-size: 1.1rem; }
+        .tag-dash { color: var(--text-muted); font-weight: 700; }
 
         /* Key definitions block */
         .key-defs {
@@ -147,9 +128,26 @@
             border-bottom: 1px dashed var(--border-light); align-items: baseline;
         }
         .def-row:last-child { border-bottom: none; }
-        .def-term { font-weight: 700; min-width: 160px; color: var(--bg-sidebar); font-size: 0.95rem; }
+        .def-term { font-weight: 700; min-width: 170px; color: var(--bg-sidebar); font-size: 0.95rem; }
         .def-body { color: var(--text-main); font-size: 0.95rem; }
-        
+
+        /* Grid specific to this module */
+        .shock-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;
+        }
+        .shock-card {
+            background: white; border: 1px solid var(--border-light);
+            border-radius: 10px; padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--accent-islm);
+        }
+        .shock-card h4 {
+            color: var(--accent-islm-hover); margin-bottom: 1rem; font-size: 1.1rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .shock-card ul { padding-left: 1.2rem; margin-bottom: 0; color: var(--text-main); font-size: 0.95rem; }
+        .shock-card li { margin-bottom: 0.4rem; }
+
         /* Pedagogy additions */
         .explanation-text {
             line-height: 1.7;
@@ -246,115 +244,54 @@
     <main class="main-content islm-content" id="main-content">
         <header class="page-header islm">
             <h1 class="page-title">IS-LM Applications</h1>
-            <p class="page-subtitle"><i class="fas fa-flask"></i> Multipliers, Crowding Out, Liquidity Trap, Deflation, and the Great Depression</p>
+            <p class="page-subtitle"><i class="fas fa-bolt"></i> Policy Shocks, the Crowding Out Effect, and the Great Depression</p>
         </header>
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- OVERVIEW & MULTIPLIERS                     -->
+        <!-- FISCAL POLICY & CROWDING OUT                -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="overview">
+        <section id="fiscal-policy">
+            <h2>1. Fiscal Policy and the Crowding Out Effect</h2>
+
             <p class="explanation-text">
-                Maintenant que nous avons construit le modèle IS-LM, l'heure est venue de le faire fonctionner. À quoi sert un tel modèle ? Il sert avant tout à évaluer <strong>l'impact des politiques économiques</strong> menées par les gouvernements et les banques centrales. 
+                The government decides to stimulate the economy. It builds highways, hospitals, and recruits civil servants (an increase in government spending, $G \uparrow$). According to the Keynesian Cross we saw in the previous chapter, this should massively increase GDP ($Y$) thanks to the multiplier. The IS curve shifts sharply to the right.
             </p>
             <p class="explanation-text">
-                Si l'État décide de construire des infrastructures massives pour relancer l'économie, de combien le PIB va-t-il réellement augmenter ? C'est ici qu'intervient la notion de multiplicateur budgétaire. Mais attention, le modèle IS-LM nous offre une conclusion cruelle par rapport à la simple "Croix Keynésienne" : le multiplicateur réel est systématiquement rongé de l'intérieur par les marchés financiers.
+                <strong>But the IS-LM model contains a crucial trap.</strong> Because the money market (LM) exists, this fiscal stimulus will not be as powerful as expected. This phenomenon is called the <span class="fluo-red">Crowding Out effect</span>.
             </p>
-            
-            <div class="compare-grid">
-                <div class="compare-card green">
-                    <h4><i class="fas fa-lock-open"></i> Le Multiplicateur Simple (Croix Keynésienne)</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">
-                        Dans un monde imaginaire où le taux d'intérêt ne bouge jamais, un euro dépensé par l'État déclenche une série infinie de consommations. Le résultat est la formule magique : <strong>$\dfrac{dY}{dG} = \alpha_g = \dfrac{1}{1-c(1-t)}$</strong>. Si $\alpha_g = 2$, alors 1 milliard injecté crée 2 milliards de PIB.
-                    </p>
+
+            <div class="chain-box">
+                <div class="chain-title"><i class="fas fa-fist-raised"></i> Mechanism: The battle for capital</div>
+                <div class="chain-step">
+                    <div class="step-num">1</div>
+                    <div><strong>The stimulus:</strong> The government increases $G$. Output $Y$ begins to increase due to the standard Keynesian multiplier. The IS curve shifts to the right.</div>
                 </div>
-                <div class="compare-card red">
-                    <h4><i class="fas fa-lock"></i> Le Multiplicateur Réel (IS-LM)</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">
-                        Dans le monde réel d'IS-LM, le taux d'intérêt <em>réagit</em> à la relance. La hausse de l'activité fait monter la demande de monnaie, ce qui pousse les taux à la hausse. Ces taux plus élevés vont détruire une partie de l'investissement privé. Par conséquent, <strong>$\dfrac{dY}{dG} < \alpha_g$</strong>. L'impact de la politique budgétaire est freiné.
-                    </p>
+                <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                <div class="chain-step">
+                    <div class="step-num">2</div>
+                    <div><strong>The monetary tension:</strong> This new economic activity requires liquidity. People need more cash to carry out these new transactions (Money demand $L^d \uparrow$).</div>
                 </div>
+                <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                <div class="chain-step">
+                    <div class="step-num">3</div>
+                    <div><strong>The rate spike:</strong> Since the Central Bank has not printed more money (LM is unchanged), this shortage of liquidity forces agents to sell bonds. The price of bonds falls, so <strong>the interest rate ($i$) shoots up</strong>.</div>
+                </div>
+                <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
+                <div class="chain-step">
+                    <div class="step-num">4</div>
+                    <div><strong>The Crowding Out:</strong> Faced with these much higher interest rates, private firms cancel their investment projects ($I \downarrow$). The state has "crowded out" private investment.</div>
+                </div>
+                <div class="chain-result">Final result: GDP ($Y$) increases, but much less than what the pure Keynesian multiplier predicted, because the collapse of private investment has erased a part of the gains.</div>
             </div>
-        </section>
 
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- CROWDING OUT                               -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="crowding-out">
-            <h2>L'Effet d'Éviction (Crowding Out)</h2>
-
-            <p class="explanation-text">
-                Ce freinage du multiplicateur porte un nom célèbre en économie : <strong>l'effet d'éviction</strong>. C'est l'un des arguments les plus puissants contre la relance budgétaire. Détaillons son intuition.
-            </p>
-
-            <div class="pedagogy-box">
-                <div class="pedagogy-title">La lutte pour les capitaux</div>
+            <div class="pedagogy-box" style="border-left-color: #0ea5e9;">
+                <div class="pedagogy-title" style="color: #0284c7;">A question of sensitivity</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Imaginez une économie paisible où les entreprises empruntent sur les marchés financiers pour construire des usines. Soudain, le gouvernement décide d'un vaste plan de relance de 50 milliards (une relance de $G$). Pour trouver ces 50 milliards, l'État ne peut pas les imprimer (seule la Banque Centrale peut le faire). <strong>L'État doit donc émettre des obligations sur les marchés financiers.</strong>
+                    Is this crowding out effect severe? It depends on the slope of the curves! 
                     <br><br>
-                    Le marché est inondé de nouvelles obligations publiques. Pour convaincre les investisseurs d'acheter ces milliards de dettes, l'État est obligé d'offrir des rendements plus élevés. Résultat : <strong>le taux d'intérêt général de l'économie augmente</strong>.
-                    <br><br>
-                    Face à cette hausse des taux, que fait notre chef d'entreprise qui voulait construire son usine ? Il trouve désormais que le crédit coûte trop cher. Il annule son projet.
-                    <br><br>
-                    L'investissement public s'est donc partiellement substitué à l'investissement privé. L'État a "évincé" le secteur privé du marché des capitaux. L'activité ($Y$) augmente certes grâce à la dépense publique, mais une partie de ce gain est effacée par la chute de l'investissement privé.
-                </p>
-            </div>
-
-            <p class="explanation-text">
-                Graphiquement, on observe cela par un déplacement de la courbe IS vers la droite. Mais attention : on ne se déplace pas horizontalement sur l'axe des abscisses. L'économie va glisser le long de la courbe LM (qui est croissante), ce qui nous amène à un équilibre plus haut (taux d'intérêt supérieur) et moins à droite (PIB amputé) que prévu.
-            </p>
-
-            <figure>
-                <img src="assets/crowding.png" alt="Crowding Out Effect in the IS-LM Model">
-                <figcaption><strong>L'effet d'éviction.</strong> La relance déplace IS vers la droite. L'équilibre passe à un nouveau croisement où $Y$ a augmenté, mais $i$ aussi. La flèche noire montre le PIB qu'on <em>aurait pu atteindre</em> si les taux n'avaient pas monté. La différence entre ce potentiel et le vrai PIB est l'effet d'éviction.</figcaption>
-            </figure>
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- POLICY GRAPHS                              -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section id="policy-graphs">
-            <h2>Les Politiques Macroéconomiques en Action</h2>
-
-            <p class="explanation-text">
-                Voyons comment utiliser notre graphique IS-LM pas-à-pas pour évaluer trois types de chocs majeurs. La règle d'or est toujours de se poser trois questions : (1) Quelle courbe est affectée directement ? (2) Comment réagit l'autre marché ? (3) Quel est le nouvel équilibre ?
-            </p>
-
-            <div class="grid-cards">
-                <!-- Monetary Expansion -->
-                <div class="grid-card" style="border-top-color: var(--accent-islm);">
-                    <h4><i class="fas fa-money-bill-wave" style="color: var(--accent-islm);"></i> 1. Relance Monétaire ($M \uparrow$)</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">
-                        <strong>Le choc :</strong> La Banque Centrale décide de soutenir l'économie en injectant massivement des liquidités (elle imprime de la monnaie et achète des titres).<br>
-                        <strong>L'ajustement :</strong> Le marché se retrouve avec un excès de cash. Les agents utilisent ce cash pour acheter des obligations, ce qui fait chuter les taux d'intérêt. La courbe LM se déplace vers le bas/droite.<br>
-                        <strong>Le nouvel équilibre :</strong> Les taux très faibles ($i \downarrow$) ravissent les entreprises privées qui relancent tous leurs projets de construction. L'investissement bondit, ce qui relance le PIB ($Y \uparrow$). Il n'y a <strong>pas d'effet d'éviction</strong> ici, au contraire : c'est le secteur privé qui tire la croissance.
-                    </p>
-                    <figure style="padding:0.75rem; margin:0.75rem 0 0;">
-                        <img src="assets/monetary.png" alt="Monetary expansion IS-LM">
-                    </figure>
-                </div>
-                <!-- Fiscal Expansion -->
-                <div class="grid-card" style="border-top-color: var(--accent-islm);">
-                    <h4><i class="fas fa-landmark" style="color: var(--accent-islm);"></i> 2. Relance Budgétaire ($G \uparrow$)</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">
-                        <strong>Le choc :</strong> L'État engage de grandes dépenses d'infrastructure. La dépense autonome augmente brusquement, ce qui déplace la courbe IS vers la droite.<br>
-                        <strong>L'ajustement :</strong> L'activité économique s'accélère, les transactions se multiplient, ce qui crée une forte demande pour l'argent liquide ($L^d \uparrow$). Face à une offre de monnaie inchangée par la Banque Centrale, le coût de l'argent s'envole : les taux d'intérêt montent ($i \uparrow$).<br>
-                        <strong>Le nouvel équilibre :</strong> Nous aboutissons à un PIB plus élevé ($Y \uparrow$) grâce à l'État, mais accompagné de taux d'intérêt plus hauts ($i \uparrow$) qui pénalisent l'investissement privé (l'effet d'éviction).
-                    </p>
-                    <figure style="padding:0.75rem; margin:0.75rem 0 0;">
-                        <img src="assets/gov.png" alt="Fiscal expansion IS-LM">
-                    </figure>
-                </div>
-            </div>
-            
-            <div class="pedagogy-box" style="border-left-color: #dc2626; margin-top: 2rem;">
-                <div class="pedagogy-title" style="color: #b91c1c;">Et si on augmente les impôts ($T \uparrow$) ?</div>
-                <p class="explanation-text" style="margin-bottom:0;">
-                    Il s'agit d'une politique d'austérité. Le mécanisme est parfaitement inversé. Les impôts amputent le revenu disponible des ménages. La consommation s'effondre. La courbe IS se déplace vers la gauche. <br><br>
-                    L'activité ralentit, le chômage monte. Mais il y a un petit effet secondaire bénéfique : comme l'économie tourne au ralenti, la demande de monnaie baisse, et les taux d'intérêt chutent ($i \downarrow$). Les entreprises survivantes profitent de crédits très bon marché. On appelle cela "l'éviction inversée" (crowding in). Au final : $Y \downarrow$ et $i \downarrow$.
+                    If investment is extremely sensitive to the interest rate (a very flat IS curve), the slightest rise in rates will massacre private investment: the crowding out effect is almost total. 
+                    <br>
+                    If money demand does not care about the interest rate (a vertical LM curve), the rates will have to soar to stratospheric levels to restore equilibrium: here again, the crowding out effect is massive.
                 </p>
             </div>
         </section>
@@ -362,76 +299,80 @@
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- DERIVING THE AD CURVE                      -->
+        <!-- MONETARY POLICY                              -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="shocks">
-            <h2>Derivation de la courbe de Demande Globale (AD)</h2>
+        <section id="monetary-policy">
+            <h2>2. Monetary Policy Expansion</h2>
 
             <p class="explanation-text">
-                Dans tout ce qui précède, nous avons supposé que le niveau des prix était fixe (une bonne approximation pour les premiers mois d'un choc). Mais pour relier IS-LM à l'inflation, il faut faire varier le niveau général des prix $P$.
+                Now, suppose the government does nothing, but the Central Bank decides to act. It runs the printing presses and injects liquidity into the economy (an increase in the money supply, $M \uparrow$). The LM curve shifts downward/to the right.
             </p>
 
-            <div class="pedagogy-box">
-                <div class="pedagogy-title">La mécanique de la dépréciation monétaire intérieure</div>
-                <p class="explanation-text" style="margin-bottom:0;">
-                    Imaginez une inflation généralisée dans le pays ($P \uparrow$). Tous les biens coûtent 10% plus cher. Vous avez toujours le même montant sur votre compte en banque, la Banque Centrale n'a pas détruit de billets. Et pourtant, <strong>votre pouvoir d'achat vient de fondre de 10%</strong>. <br><br>
-                    En macroéconomie, on dit que l'offre <em>réelle</em> de monnaie ($\frac{M}{P}$) a baissé. Puisqu'il y a mathématiquement moins de pouvoir d'achat en circulation, l'argent devient plus rare. La courbe LM se déplace vers le haut (ou vers la gauche), provoquant une hausse terrible des taux d'intérêt.<br><br>
-                    Cette envolée des taux étouffe l'investissement, ce qui provoque une chute du PIB ($Y \downarrow$). Ainsi, une hausse des prix détruit mécaniquement la demande.
-                </p>
+            <div class="chain-box" style="background:#f0fdf4; border-color:#86efac; border-left-color:#16a34a;">
+                <div class="chain-title" style="color:#14532d;"><i class="fas fa-coins"></i> Mechanism: The credit channel</div>
+                <div class="chain-step">
+                    <div class="step-num" style="background:#16a34a;">1</div>
+                    <div><strong>The injection:</strong> The Central Bank increases the money supply ($M \uparrow$). The market is flooded with liquidity.</div>
+                </div>
+                <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                <div class="chain-step">
+                    <div class="step-num" style="background:#16a34a;">2</div>
+                    <div><strong>The rate drop:</strong> With too much money on their hands, agents buy bonds. The price of bonds soars, causing <strong>the interest rate ($i$) to plummet</strong>.</div>
+                </div>
+                <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                <div class="chain-step">
+                    <div class="step-num" style="background:#16a34a;">3</div>
+                    <div><strong>The investment boom:</strong> Credit has become incredibly cheap. Firms jump on the opportunity to borrow and build factories. Investment explodes ($I \uparrow$).</div>
+                </div>
+                <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                <div class="chain-step">
+                    <div class="step-num" style="background:#16a34a;">4</div>
+                    <div><strong>The multiplier kicks in:</strong> This new investment generates jobs, which generate consumption, driving up GDP ($Y \uparrow$).</div>
+                </div>
+                <div class="chain-result" style="background:#dcfce7; border-color:#86efac; color:#14532d;">
+                    Final result: The interest rate has fallen, investment is strong, and GDP increases.
+                </div>
             </div>
 
-            <p class="explanation-text">
-                Si nous traçons cette conclusion dans un graphique $(P, Y)$, nous obtenons une courbe décroissante : c'est la courbe de Demande Globale (AD). Plus les prix montent, plus la Banque Centrale maintient l'offre de monnaie nominale fixe, plus la monnaie réelle se raréfie, plus les taux explosent, et plus l'activité s'effondre.
-            </p>
-
-            <figure>
-                <img src="assets/ad.png" alt="Deriving the Aggregate Demand Curve from IS-LM">
-                <figcaption><strong>De IS-LM à AD.</strong> En élevant le niveau des prix (P1 vers P2), on observe que LM glisse vers le haut, écrasant la production de Y1 vers Y2. Ce tracé forme la courbe AD.</figcaption>
-            </figure>
+            <div class="pedagogy-box" style="border-left-color: #8b5cf6;">
+                <div class="pedagogy-title" style="color: #6d28d9;">Policy Mix (The combination)</div>
+                <p class="explanation-text" style="margin-bottom:0;">
+                    What happens if the government and the Central Bank work together? Imagine the state does a fiscal stimulus ($G \uparrow$), which normally causes crowding out. But at the very same moment, the Central Bank prints money ($M \uparrow$) to keep the interest rate artificially low! <br><br>
+                    <strong>Result:</strong> The Central Bank "accommodates" the fiscal policy. The interest rate does not change, crowding out is neutralized, and GDP ($Y$) shoots up to its maximum potential.
+                </p>
+            </div>
         </section>
 
         <hr class="section-divider">
 
         <!-- ═══════════════════════════════════════════ -->
-        <!-- THE EFFECTIVE LOWER BOUND                  -->
+        <!-- THE LIQUIDITY TRAP                          -->
         <!-- ═══════════════════════════════════════════ -->
-        <section id="elb">
-            <h2>Le Piège à Liquidité et la Limite Zéro (Zero Lower Bound)</h2>
+        <section id="liquidity-trap">
+            <h2>3. The Zero Lower Bound and the Liquidity Trap</h2>
 
             <p class="explanation-text">
-                C'est l'un des phénomènes les plus cruciaux de la macroéconomie moderne (observé après la crise de 1929, la crise japonaise des années 90, et la crise de 2008). Que se passe-t-il lorsque la Banque Centrale baisse ses taux, encore et encore, jusqu'à atteindre <strong>0%</strong> ?
+                The monetary policy we just described sounds magical. If there is a crisis, the Central Bank just needs to lower interest rates to restart the machine. But there is a physical limit to this magic: <strong>interest rates cannot easily go below 0%</strong>. This is the <em>Zero Lower Bound (ZLB)</em>.
             </p>
 
-            <div class="pedagogy-box">
-                <div class="pedagogy-title">On ne peut pas pousser sur une ficelle</div>
-                <p class="explanation-text" style="margin-bottom:0;">
-                    Quand les taux d'intérêt atteignent 0% (ou s'en approchent très près, la limite zéro effective), la monnaie et les obligations deviennent parfaitement équivalentes pour les agents : aucune des deux ne rapporte de rendement. <br><br>
-                    Si la Banque Centrale tente de relancer l'économie en imprimant massivement de l'argent et en achetant des obligations, les banques commerciales vont simplement prendre ce cash et le stocker dans leurs coffres, sans le prêter. La demande de monnaie devient <strong>parfaitement élastique</strong> (infinie) à ce taux zéro. C'est ce qu'on appelle un "piège à liquidité". <br><br>
-                    Graphiquement, la courbe LM cesse de descendre et devient complètement <strong>horizontale</strong> au niveau $i=0$. La politique monétaire devient totalement impuissante pour relancer l'activité.
-                </p>
-            </div>
-
-            <p class="explanation-text">
-                Cependant, ce cauchemar monétaire est <strong>le rêve de la politique budgétaire</strong>. 
-            </p>
-
-            <div class="compare-grid">
-                <div class="compare-card red">
-                    <h4><i class="fas fa-ban"></i> Politique Monétaire : Paralysée</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">
-                        Toute augmentation de la masse monétaire déplace LM vers la droite, mais comme la courbe est plate au fond du graphique, l'intersection avec IS ne bouge pas. Le PIB ($Y$) reste dramatiquement bas.
-                    </p>
+            <div class="key-defs">
+                <h4><i class="fas fa-skull-crossbones"></i> The Liquidity Trap</h4>
+                <div class="def-row">
+                    <span class="def-term">The mechanism</span>
+                    <span class="def-body">When the interest rate reaches 0%, bonds no longer pay anything. From an investor's perspective, a bond that pays 0% is exactly the same thing as a wad of cash under a mattress. Money and bonds become <strong>perfect substitutes</strong>.</span>
                 </div>
-                <div class="compare-card green">
-                    <h4><i class="fas fa-rocket"></i> Politique Budgétaire : Surpuissante</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">
-                        Si l'État lance un grand plan de relance (G augmente), la courbe IS se déplace vers la droite. D'habitude, cela crée un effet d'éviction. Mais ici, puisque la courbe LM est parfaitement plate (horizontale), les taux d'intérêt ne montent pas ! L'État profite de l'intégralité du multiplicateur keynésien ($\alpha_g$). L'effet d'éviction est mort.
-                    </p>
+                <div class="def-row">
+                    <span class="def-term">The impotence of the BC</span>
+                    <span class="def-body">If the Central Bank prints money to buy bonds (to inject liquidity), investors simply trade one zero-yield asset for another zero-yield asset. The new money is just hoarded by banks and individuals. It does not enter the real economy.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">The LM curve shape</span>
+                    <span class="def-body">At 0%, the LM curve becomes <strong>perfectly horizontal</strong>. Any increase in the money supply ($M \uparrow$) just stretches this flat line further to the right, without lowering the rate (since it's already at zero) and without increasing GDP. "It's like pushing on a string," as Keynes famously said.</span>
                 </div>
             </div>
-            
-            <p class="explanation-text">
-                C'est pourquoi, lors des grandes crises où les taux tombent à zéro (comme le Covid-19 en 2020), les économistes s'accordent à dire que c'est aux gouvernements de prendre le relais avec de la relance budgétaire (chèques aux ménages, chômage partiel), car les Banques Centrales n'ont plus de munitions conventionnelles.
+
+            <p class="explanation-text" style="font-weight: 600; color: var(--accent-islm-hover);">
+                Conclusion: In a liquidity trap, monetary policy is completely dead. Only a massive fiscal stimulus (Fiscal Policy) can shift the IS curve to save the economy.
             </p>
         </section>
 
@@ -441,43 +382,112 @@
         <!-- THE GREAT DEPRESSION                       -->
         <!-- ═══════════════════════════════════════════ -->
         <section id="great-depression">
-            <h2>La Grande Dépression (1929-1933) à travers le prisme IS-LM</h2>
+            <h2>4. Case Study: The Great Depression (1929-1933)</h2>
 
             <p class="explanation-text">
-                La Grande Dépression est le laboratoire absolu de la macroéconomie. Le PIB américain s'est effondré de 30% et le chômage a frôlé les 25%. Comment le modèle IS-LM explique-t-il ce désastre ? Les économistes débattent de deux hypothèses majeures.
+                Between 1929 and 1933, the US GDP fell by 30% and unemployment exploded. How does the IS-LM model explain the greatest economic catastrophe of the 20th century? Economists are divided between two major hypotheses.
             </p>
 
-            <div class="compare-grid">
-                <div class="compare-card red">
-                    <h4><i class="fas fa-chart-line-down"></i> L'Hypothèse IS (La chute des dépenses)</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">
-                        <strong>L'histoire :</strong> Le krach boursier d'octobre 1929 ruine des milliers d'investisseurs. Un sentiment de panique s'installe. Face à cette incertitude radicale, les entreprises annulent en bloc leurs investissements, et les ménages épargnent massivement par précaution. En prime, les gouvernements de l'époque (effrayés par les déficits) décident de monter les impôts en pleine crise.<br><br>
-                        <strong>La mécanique :</strong> Tout ceci représente une contraction d'une brutalité inouïe de la demande autonome. La courbe IS s'effondre littéralement vers la gauche. Cela explique parfaitement les données historiques : une baisse simultanée du PIB ($Y$) et des taux d'intérêt ($i$).
-                    </p>
+            <div class="shock-grid">
+                <div class="shock-card">
+                    <h4><i class="fas fa-building-circle-xmark"></i> Hypothesis 1: An IS Curve Shock</h4>
+                    <p class="explanation-text">According to this hypothesis, the fault lies in a massive collapse of aggregate demand.</p>
+                    <ul>
+                        <li><strong>Stock market crash of 1929:</strong> Destroyed household wealth, completely collapsing Consumption ($C \downarrow$).</li>
+                        <li><strong>Drop in real estate:</strong> A collapse in residential investment ($I \downarrow$).</li>
+                        <li><strong>Bank failures:</strong> Without banks to lend to them, businesses could no longer invest, even if they wanted to ($I \downarrow$).</li>
+                        <li><strong>Fiscal mistake:</strong> The government actually <em>raised</em> taxes to balance its budget in the middle of a crisis, crushing demand further.</li>
+                    </ul>
+                    <p class="explanation-text" style="margin-top: 0.8rem;"><em>Result: A massive leftward shift of the IS curve.</em></p>
                 </div>
-                <div class="compare-card blue">
-                    <h4><i class="fas fa-money-bill-wave"></i> L'Hypothèse LM (La contraction monétaire)</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">
-                        <strong>L'histoire (défendue par M. Friedman) :</strong> L'erreur ne vient pas (que) des ménages, mais de la Banque Centrale. Une série de faillites bancaires s'est déclenchée. Les gens, paniqués, ont retiré tous leurs dépôts (bank runs), détruisant l'effet multiplicateur du crédit bancaire. La masse monétaire M1 a fondu de 25%.<br><br>
-                        <strong>La mécanique :</strong> La destruction de monnaie aurait violemment décalé la courbe LM vers le haut, étouffant l'économie sous des taux élevés. (Cependant, un détail cloche : les taux d'intérêt nominaux ont en réalité baissé durant cette période. Le mystère réside dans la déflation).
+                
+                <div class="shock-card">
+                    <h4><i class="fas fa-money-bill-transfer"></i> Hypothesis 2: An LM Curve Shock</h4>
+                    <p class="explanation-text">According to Milton Friedman and the monetarists, the fault lies entirely with the Central Bank.</p>
+                    <ul>
+                        <li><strong>The Fed's passivity:</strong> Following the bank runs, the money supply collapsed by 25%.</li>
+                        <li><strong>The contraction:</strong> The Fed refused to inject liquidity to save the failing banks.</li>
+                    </ul>
+                    <p class="explanation-text" style="margin-top: 0.8rem; margin-bottom: 0.8rem;"><em>Result: A massive leftward shift of the LM curve.</em></p>
+                    <p class="explanation-text" style="font-size: 0.85rem; padding: 0.5rem; background: #f8fafc; border-radius: 4px; border-left: 3px solid #94a3b8;">
+                        <strong>The flaw in this theory:</strong> If LM had shifted left, interest rates should have skyrocketed. Yet, nominal interest rates actually <em>fell</em> during the Depression. This points back to the IS shock theory.
                     </p>
                 </div>
             </div>
 
-            <div class="pedagogy-box" style="border-left-color: #7c3aed;">
-                <div class="pedagogy-title" style="color: #6d28d9;">Le coup de grâce : La Déflation par la Dette (Effet Fisher)</div>
+            <h3>The ultimate killer: The Debt-Deflation Fisher Effect</h3>
+            <p class="explanation-text">
+                There is a piece missing from the puzzle. Prices fell drastically during the Depression (massive deflation). Why did this make things so much worse? 
+            </p>
+
+            <div class="pedagogy-box" style="border-left-color: #dc2626; background: #fef2f2;">
+                <div class="pedagogy-title" style="color: #b91c1c;">The destructive cycle of deflation</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Le vrai cauchemar de la Dépression fut la chute des prix (-25%). Au départ, on pourrait croire qu'une baisse des prix est une bonne chose (l'offre réelle de monnaie $M/P$ augmente, ce qui déplace LM vers la droite et relance l'économie). <br><br>
-                    Mais l'économiste Irving Fisher a pointé un effet pervers ravageur : <strong>le fardeau de la dette nominale</strong>. Si vous avez emprunté 10 000$ à la banque, et que soudainement vos salaires et le prix de vos produits baissent de 25% (déflation), votre dette à rembourser est <em>toujours</em> de 10 000$. En termes de "pouvoir d'achat sacrifié", cette dette est devenue monstrueuse. <br><br>
-                    Cette déflation inattendue a ruiné les emprunteurs (entreprises et fermiers) qui ont fait massivement faillite, déclenchant des vagues de licenciements, détruisant encore davantage l'investissement et la consommation. La courbe IS a été tirée toujours plus loin vers la gauche. La spirale déflationniste a rendu la récession incontrôlable.
+                    Remember that investment depends on the <strong>real</strong> interest rate ($r = i - \pi^e$). <br><br>
+                    When deflation hits, expected inflation ($\pi^e$) becomes deeply negative. If your bank lends you money at a nominal rate of 2% ($i = 2\%$), but prices are falling by 10% a year ($\pi^e = -10\%$), the real cost of your loan is $2\% - (-10\%) = 12\%$!<br><br>
+                    <strong>The trap:</strong> Even if the Central Bank lowers nominal rates ($i$) to 0%, the real rate ($r$) remains extremely high because of deflation. This crushes investment, which shifts IS further to the left, which worsens the recession, which causes even more deflation... It is a deadly downward spiral.
                 </p>
             </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SUMMARY TABLE                              -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="summary-table">
+            <h2>Synthesis of Policy Shocks</h2>
+            <p class="explanation-text">
+                Summary of the impact of the different policies in the classic IS-LM framework.
+            </p>
+
+            <table class="synth-table">
+                <thead>
+                    <tr>
+                        <th>Shock</th>
+                        <th>IS Curve</th>
+                        <th>LM Curve</th>
+                        <th>Interest Rate ($i$)</th>
+                        <th>Output / GDP ($Y$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Increase in Gov Spending ($G \uparrow$)</td>
+                        <td>Shifts Right</td>
+                        <td><span class="tag-dash">-</span></td>
+                        <td><span class="tag-up">↑</span> (Crowding Out)</td>
+                        <td><span class="tag-up">↑</span></td>
+                    </tr>
+                    <tr>
+                        <td>Tax Cut ($T \downarrow$)</td>
+                        <td>Shifts Right</td>
+                        <td><span class="tag-dash">-</span></td>
+                        <td><span class="tag-up">↑</span></td>
+                        <td><span class="tag-up">↑</span></td>
+                    </tr>
+                    <tr>
+                        <td>Increase in Money Supply ($M \uparrow$)</td>
+                        <td><span class="tag-dash">-</span></td>
+                        <td>Shifts Right (Down)</td>
+                        <td><span class="tag-down">↓</span></td>
+                        <td><span class="tag-up">↑</span></td>
+                    </tr>
+                    <tr>
+                        <td>Price Level Increase ($P \uparrow$)</td>
+                        <td><span class="tag-dash">-</span></td>
+                        <td>Shifts Left (Up)</td>
+                        <td><span class="tag-up">↑</span></td>
+                        <td><span class="tag-down">↓</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- FOOTER -->
         <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-islm-border); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>IS-LM Applications — Pedagogical Format. Revised May 2026.</em>
+                <em>IS-LM Applications — Pedagogical Format (B2 English). Revised May 2026.</em>
             </p>
         </section>
 
