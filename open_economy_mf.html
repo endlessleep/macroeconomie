@@ -171,7 +171,7 @@
         .option-block strong { color: var(--bg-sidebar); }
         .option-block span { color: var(--text-muted); font-size: 0.9rem; }
         
-        /* Pedagogy additions */
+        /* Pedagogy styles */
         .explanation-text {
             line-height: 1.7;
             margin-bottom: 1.25rem;
@@ -266,100 +266,90 @@
 
     <main class="main-content" id="main-content">
         <header class="page-header" style="border-bottom-color: var(--accent-primary);">
-            <h1 class="page-title" style="color: var(--accent-primary);">Mundell-Fleming &amp; Interest Rate Parity</h1>
-            <p class="page-subtitle"><i class="fas fa-sitemap"></i> IS*-LM* Framework, Policy Effectiveness, Impossible Trinity, UIP and CIP</p>
+            <h1 class="page-title" style="color: var(--accent-primary);">The Mundell-Fleming Model</h1>
+            <p class="page-subtitle"><i class="fas fa-sitemap"></i> Open Economy IS-LM, Policy Effectiveness, and the Trilemma</p>
         </header>
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- OVERVIEW OF THE MODEL                      -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="mf-overview">
-            <h2>1. The Mundell-Fleming Model: IS-LM goes Global</h2>
+            <h2>1. The Model Architecture</h2>
 
             <p class="explanation-text">
-                In the previous chapter (the classic SOE model), we studied the <strong>long run</strong>, where prices are perfectly flexible and the economy always operates at its full potential. 
-                But what happens in the <strong>short run</strong>? What happens when prices are "sticky" and factories can run empty?
-            </p>
-            <p class="explanation-text">
-                To answer this, Robert Mundell and Marcus Fleming had a brilliant idea in the 1960s: take the good old IS-LM model and transpose it into an open economy. It is the ultimate tool to understand whether an economic policy (fiscal or monetary) will be effective or not depending on the exchange rate regime chosen by the country.
+                The Mundell-Fleming model extends the short-run IS-LM framework to an open economy under the assumptions of perfect capital mobility and price stickiness. It provides the analytical framework to evaluate fiscal and monetary policy effectiveness across different exchange rate regimes.
             </p>
 
             <div class="key-defs">
-                <h4><i class="fas fa-key"></i> &nbsp;The Architecture of the Model</h4>
+                <h4><i class="fas fa-key"></i> &nbsp;Structural Equations</h4>
                 <div class="def-row">
                     <span class="def-term">IS* Curve (Goods Market)</span>
-                    <span class="def-body">The equation is $Y = C + I + G + NX(e)$. The big change is $NX(e)$. Aggregate demand now depends on the exchange rate $e$. If $e$ rises (depreciation of our currency), our goods become cheaper for foreigners, $NX$ explodes, and IS* shifts to the right.</span>
+                    <span class="def-body">The locus of equilibrium in the goods market: $Y = C(Y-T) + I(r^*) + G + NX(e)$. Aggregate demand is a function of the exchange rate $e$. A depreciation (increase in $e$) stimulates net exports ($NX \uparrow$), shifting the IS* curve to the right.</span>
                 </div>
                 <div class="def-row">
                     <span class="def-term">LM* Curve (Money Market)</span>
-                    <span class="def-body">The equation is $M/P = L(r^*, Y)$. Notice that money demand depends on the <em>global</em> interest rate $r^*$ (which is externally fixed). The exchange rate $e$ appears nowhere! Consequently, in a graph with $e$ on the vertical axis and $Y$ on the horizontal axis, LM* is a <strong>vertical line</strong>.</span>
+                    <span class="def-body">The locus of equilibrium in the money market: $M/P = L(r^*, Y)$. The money demand function depends on the exogenous world interest rate $r^*$. Because the exchange rate $e$ does not enter the LM* equation, the LM* curve is a vertical line in $(Y, e)$ space.</span>
                 </div>
                 <div class="def-row">
                     <span class="def-term">Perfect Capital Mobility</span>
-                    <span class="def-body">The same unforgiving assumption as in the SOE model: capital moves so fast that our interest rate can never deviate from the global rate. $r = r^*$.</span>
+                    <span class="def-body">Arbitrage ensures the domestic interest rate continuously equals the world interest rate ($r = r^*$). Any incipient deviation immediately triggers capital flows that restore parity.</span>
                 </div>
             </div>
 
             <div class="pedagogy-box" style="border-left-color: #f59e0b;">
-                <div class="pedagogy-title" style="color: #d97706;">Who absorbs the shocks? The vertical axis.</div>
+                <div class="pedagogy-title" style="color: #d97706;">The Endogenous Variable Shift</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    In the classic closed IS-LM model, the vertical axis represented the interest rate $i$. If there was an imbalance, $i$ would rise or fall to bring the economy back to normal.<br><br>
-                    But in Mundell-Fleming, the interest rate is locked at $r^*$! It can no longer move. Who will therefore act as the "shock absorber" for the economy? It is the <strong>Exchange Rate ($e$)</strong>. This is why we place it on the vertical axis of the graph.
+                    In the closed IS-LM model, the interest rate $i$ is the endogenous variable that adjusts to clear the markets, plotted on the vertical axis.<br><br>
+                    In the Mundell-Fleming model, the interest rate is exogenous ($r = r^*$). The equilibrating variable that adjusts to clear the goods market is the <strong>exchange rate ($e$)</strong>, which is therefore plotted on the vertical axis against aggregate output ($Y$).
                 </p>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- FLOATING RATES                             -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="floating">
-            <h2>2. Policy Effectiveness under Floating Rates</h2>
+            <h2>2. Policy Effectiveness under Floating Exchange Rates</h2>
             <p class="explanation-text">
-                Under "floating" exchange rates, the Central Bank lets financial markets dictate the value of the currency. The exchange rate $e$ rises and falls freely according to the supply and demand for foreign currencies.
+                Under a floating exchange rate regime, the central bank refrains from foreign exchange intervention. The exchange rate $e$ adjusts endogenously to clear the foreign exchange market.
             </p>
 
-            <!-- FISCAL -->
             <div class="concept-card" style="border-left-color: #dc2626; margin-bottom: 2.5rem;">
                 <div class="concept-title"><i class="fas fa-landmark"></i> Fiscal Policy — <span style="color:#dc2626;">INEFFECTIVE</span></div>
                 <div class="concept-body">
                     <p class="explanation-text">
-                        In a closed economy, the government could stimulate the economy (at the cost of some crowding out). In a floating open economy, the government stimulus is <strong>completely neutralized</strong> by the flight of exports. Let's trace the mechanism:
+                        An expansionary fiscal policy fails to alter equilibrium aggregate output due to complete crowding out via the exchange rate.
                     </p>
                     <div class="chain-box">
-                        <div class="chain-title"><i class="fas fa-link"></i> Mechanism: Total crowding out by the exchange rate</div>
-                        <div class="chain-step"><div class="step-num">1</div><div><strong>The spark:</strong> The government spends massively ($G \uparrow$). Mechanically, the IS* curve attempts to shift to the right, pushing $Y$ upward.</div></div>
+                        <div class="chain-title"><i class="fas fa-link"></i> Transmission Mechanism: Exchange Rate Crowding Out</div>
+                        <div class="chain-step"><div class="step-num">1</div><div>An exogenous increase in government spending ($G \uparrow$) shifts the IS* curve rightward.</div></div>
                         <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
-                        <div class="chain-step"><div class="step-num">2</div><div><strong>The monetary tension:</strong> With this frantic activity, local agents need more liquidity. The local interest rate attempts to rise (it starts to exceed $r^*$).</div></div>
+                        <div class="chain-step"><div class="step-num">2</div><div>The incipient increase in output raises the transaction demand for money, generating upward pressure on the domestic interest rate ($r > r^*$).</div></div>
                         <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
-                        <div class="chain-step"><div class="step-num">3</div><div><strong>The foreign influx:</strong> Investors worldwide see that local rates are slightly higher. They rush to buy our currency to take advantage of these yields.</div></div>
+                        <div class="chain-step"><div class="step-num">3</div><div>The positive interest rate differential triggers a massive capital inflow from foreign investors.</div></div>
                         <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
-                        <div class="chain-step"><div class="step-num">4</div><div><strong>The fatal appreciation:</strong> This massive demand for our currency makes its value skyrocket. The exchange rate appreciates ($e \downarrow$). Suddenly, our exports cost a fortune for foreigners!</div></div>
+                        <div class="chain-step"><div class="step-num">4</div><div>The increased demand for domestic currency causes an immediate appreciation of the exchange rate ($e \downarrow$).</div></div>
                         <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
-                        <div class="chain-step"><div class="step-num">5</div><div><strong>Back to square one:</strong> Exports collapse ($NX \downarrow$). The IS* curve reverses course until it returns exactly to its starting point.</div></div>
-                        <div class="chain-result red">Final result on $Y$: ZERO. The stimulus effect was killed by the loss of export competitiveness.</div>
+                        <div class="chain-step"><div class="step-num">5</div><div>The appreciation deteriorates the trade balance ($NX \downarrow$), shifting the IS* curve back to its initial position.</div></div>
+                        <div class="chain-result red">Result: The fiscal expansion is perfectly offset by the contraction in net exports. $\Delta Y = 0$.</div>
                     </div>
                 </div>
             </div>
 
-            <!-- MONETARY -->
             <div class="concept-card" style="border-left-color: #16a34a; margin-bottom: 2.5rem;">
                 <div class="concept-title"><i class="fas fa-coins"></i> Monetary Policy — <span style="color:#16a34a;">HIGHLY EFFECTIVE</span></div>
                 <div class="concept-body">
                     <p class="explanation-text">
-                        While the government is powerless, the Central Bank becomes the master of the game. By flooding the market with money, it triggers a fierce competitive devaluation.
+                        Monetary policy operates exclusively through the exchange rate channel, effectively stimulating domestic output by increasing net exports.
                     </p>
                     <div class="chain-box" style="background:#f0fdf4; border-color:#86efac; border-left-color:#16a34a;">
-                        <div class="chain-title" style="color:#14532d;"><i class="fas fa-link"></i> Mechanism: Stealing foreign demand</div>
-                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">1</div><div><strong>The shock:</strong> The Central Bank prints money ($M \uparrow$). The vertical LM* line shifts abruptly to the right.</div></div>
+                        <div class="chain-title" style="color:#14532d;"><i class="fas fa-link"></i> Transmission Mechanism: Competitive Devaluation</div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">1</div><div>An exogenous increase in the money supply ($M \uparrow$) shifts the vertical LM* curve rightward.</div></div>
                         <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
-                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">2</div><div><strong>The capital flight:</strong> With all this money in circulation, the local interest rate attempts to fall below the global rate $r^*$. Local investors, disappointed by these miserable yields, sell their currency to invest abroad.</div></div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">2</div><div>The excess supply of real balances generates downward pressure on the domestic interest rate ($r < r^*$).</div></div>
                         <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
-                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">3</div><div><strong>The saving depreciation:</strong> This massive sale of our currency makes it crash on the foreign exchange markets. The currency depreciates strongly ($e \uparrow$).</div></div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">3</div><div>The negative interest rate differential triggers a massive capital outflow.</div></div>
                         <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
-                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">4</div><div><strong>The export boom:</strong> Our products become incredibly cheap for foreigners. Factory order books explode. $NX$ soars.</div></div>
-                        <div class="chain-result green">Final result on $Y$: STRONG INCREASE. Monetary policy worked by "stealing" demand from neighboring countries (a Beggar-thy-neighbor policy).</div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">4</div><div>The increased supply of domestic currency on foreign exchange markets causes a sharp depreciation ($e \uparrow$).</div></div>
+                        <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
+                        <div class="chain-step"><div class="step-num" style="background:#16a34a;">5</div><div>The depreciation improves competitiveness, increasing net exports ($NX \uparrow$) and stimulating aggregate output.</div></div>
+                        <div class="chain-result green">Result: Monetary expansion successfully increases $Y$ via the trade balance channel.</div>
                     </div>
                 </div>
             </div>
@@ -367,23 +357,19 @@
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- FIXED REGIME                               -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="fixed">
-            <h2>3. Policy Effectiveness under Fixed Rates</h2>
+            <h2>3. Policy Effectiveness under Fixed Exchange Rates</h2>
 
             <p class="explanation-text">
-                Forget everything we just said! Under "fixed" exchange rates, the Central Bank promises to keep the value of the currency constant ($e = \bar{e}$). This is a heavy commitment: <strong>it loses control of its monetary policy</strong>.
+                Under a fixed exchange rate regime (a peg), the central bank commits to maintaining the exchange rate at a predetermined level $\bar{e}$. This commitment requires continuous intervention in the foreign exchange market, fundamentally altering the nature of the money supply.
             </p>
 
             <div class="pedagogy-box" style="border-left-color: #e11d48;">
-                <div class="pedagogy-title" style="color: #be123c;">How to defend a Peg (fixed rate)?</div>
+                <div class="pedagogy-title" style="color: #be123c;">The Endogenous Money Supply</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Imagine the market attacks the currency and wants to push it down. How does the Central Bank maintain the value? It must play the role of buyer of last resort. <strong>It taps into its reserves of gold or dollars, and uses them to massively buy back its own currency on the market.</strong><br><br>
-                    By buying back its own currency, it removes it from circulation. The money supply ($M$) mechanically falls. Conversely, if the currency is too strong, it prints fresh bills and buys foreign currencies, which increases $M$. 
-                    <br><br>
-                    <strong>Crucial conclusion:</strong> Under fixed rates, the money supply $M$ is no longer decided by the Central Bank. It adjusts automatically (it becomes <em>endogenous</em>) solely to maintain the exchange rate.
+                    To prevent currency appreciation, the central bank must sell domestic currency and accumulate foreign reserves, expanding the domestic money supply ($M \uparrow$).<br><br>
+                    To prevent currency depreciation, the central bank must purchase domestic currency using its foreign reserves, contracting the domestic money supply ($M \downarrow$).<br><br>
+                    <strong>Implication:</strong> Under a peg with perfect capital mobility, the central bank relinquishes control over the nominal money supply. The money supply becomes an endogenous variable determined solely by the necessity to clear the foreign exchange market at $\bar{e}$.
                 </p>
             </div>
 
@@ -391,22 +377,22 @@
                 <div class="concept-title"><i class="fas fa-landmark"></i> Fiscal Policy — <span style="color:#16a34a;">HIGHLY EFFECTIVE</span></div>
                 <div class="concept-body">
                     <p class="explanation-text">
-                        The curse of crowding out by the exchange rate is lifted. If the government spends more ($G \uparrow$), this creates an upward pressure on interest rates, which attracts foreign capital. The currency <em>wants</em> to appreciate.
+                        A fiscal expansion ($G \uparrow$) creates incipient upward pressure on the interest rate, inducing capital inflows and pressure for the currency to appreciate.
                     </p>
                     <p class="explanation-text" style="font-weight: 600;">
-                        But the Central Bank opposes it! To prevent the appreciation, it prints money ($M \uparrow$). The LM* curve shifts to the right. Result: the government stimulated the economy, AND the central bank involuntarily helped it by injecting liquidity. GDP ($Y$) explodes.
+                        To maintain the peg, the central bank must supply domestic currency, endogenous increasing the money supply ($M \uparrow$). This shifts the LM* curve rightward, validating the IS* shift without exchange rate crowding out. Output expands fully.
                     </p>
                 </div>
             </div>
 
             <div class="concept-card" style="border-left-color: #dc2626; margin-bottom: 2rem;">
-                <div class="concept-title"><i class="fas fa-coins"></i> Monetary Policy — <span style="color:#dc2626;">IMPOSSIBLE</span></div>
+                <div class="concept-title"><i class="fas fa-coins"></i> Monetary Policy — <span style="color:#dc2626;">INEFFECTIVE (IMPOSSIBLE)</span></div>
                 <div class="concept-body">
                     <p class="explanation-text">
-                        If the Central Bank nonetheless tries to stimulate the economy ($M \uparrow$), it creates a drop in rates, capital flees, and the currency begins to depreciate. 
+                        An attempted monetary expansion ($M \uparrow$) creates incipient downward pressure on the interest rate, inducing capital outflows and pressure for the currency to depreciate.
                     </p>
                     <p class="explanation-text" style="font-weight: 600;">
-                        But, it has promised to maintain the fixed rate! It is therefore forced to <em>immediately</em> buy back all the bills it just printed by selling its reserves ($M \downarrow$). The policy cancels itself out within a second.
+                        To defend the peg, the central bank is forced to immediately purchase the excess domestic currency, draining reserves and contracting the money supply ($M \downarrow$) back to its exact initial level. Independent monetary policy is structurally impossible.
                     </p>
                 </div>
             </div>
@@ -414,13 +400,10 @@
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- MASTER SYNTHESIS TABLE                     -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="synthesis">
-            <h2>Synthesis Table (Most Important)</h2>
+            <h2>Synthesis of Policy Effectiveness</h2>
             <p class="explanation-text">
-                Memorize this perfect symmetry: what works in a floating regime fails in a fixed regime, and vice-versa.
+                The comparative statics of the Mundell-Fleming model demonstrate a strict symmetry: the effectiveness of fiscal and monetary policy is perfectly inverted depending on the exchange rate regime.
             </p>
 
             <div class="mf-table-wrap">
@@ -428,50 +411,50 @@
                     <thead>
                         <tr>
                             <th class="th-blank"></th>
-                            <th class="th-float" colspan="2">🌊 Floating Rates (The market decides)</th>
-                            <th class="th-fixed" colspan="2">⚓ Fixed Rates (The CB intervenes)</th>
+                            <th class="th-float" colspan="2">Floating Regime (Endogenous $e$)</th>
+                            <th class="th-fixed" colspan="2">Fixed Regime (Endogenous $M$)</th>
                         </tr>
                         <tr>
-                            <th class="th-blank">Policy</th>
-                            <th class="th-sub-float">Effect on $Y$</th>
-                            <th class="th-sub-float">Mechanism</th>
-                            <th class="th-sub-fixed">Effect on $Y$</th>
-                            <th class="th-sub-fixed">Mechanism</th>
+                            <th class="th-blank">Policy Instrument</th>
+                            <th class="th-sub-float">Output Effect ($\Delta Y$)</th>
+                            <th class="th-sub-float">Transmission Mechanism</th>
+                            <th class="th-sub-fixed">Output Effect ($\Delta Y$)</th>
+                            <th class="th-sub-fixed">Transmission Mechanism</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="policy-label"><i class="fas fa-landmark"></i> Fiscal<br><small style="font-weight:400; color:var(--text-muted);">$G \uparrow$ or $T \downarrow$</small></td>
+                            <td class="policy-label"><i class="fas fa-landmark"></i> Fiscal Policy<br><small style="font-weight:400; color:var(--text-muted);">$G \uparrow$ or $T \downarrow$</small></td>
                             <td>
                                 <span class="badge ineffective">INEFFECTIVE</span>
                             </td>
-                            <td style="color:var(--text-muted); font-size:0.88rem;">The stimulus appreciates the currency. Exports collapse and cancel the effect.</td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Capital inflows appreciate the currency ($e \downarrow$), completely crowding out net exports.</td>
                             <td>
-                                <span class="badge effective">VERY EFFECTIVE</span>
+                                <span class="badge effective">EFFECTIVE</span>
                             </td>
-                            <td style="color:var(--text-muted); font-size:0.88rem;">The stimulus creates tension, the CB prints bills to defend the peg. Double stimulus.</td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Incipient appreciation forces CB to increase $M$, accommodating the fiscal expansion.</td>
                         </tr>
                         <tr>
-                            <td class="policy-label"><i class="fas fa-coins"></i> Monetary<br><small style="font-weight:400; color:var(--text-muted);">$M \uparrow$</small></td>
+                            <td class="policy-label"><i class="fas fa-coins"></i> Monetary Policy<br><small style="font-weight:400; color:var(--text-muted);">$M \uparrow$</small></td>
                             <td>
-                                <span class="badge effective">VERY EFFECTIVE</span>
+                                <span class="badge effective">EFFECTIVE</span>
                             </td>
-                            <td style="color:var(--text-muted); font-size:0.88rem;">Drop in rates → capital flees → weak currency → export boom.</td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Capital outflows depreciate the currency ($e \uparrow$), stimulating net exports.</td>
                             <td>
                                 <span class="badge ineffective">IMPOSSIBLE</span>
                             </td>
-                            <td style="color:var(--text-muted); font-size:0.88rem;">Any money creation leads to an attack on the currency, forcing the CB to buy it back.</td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Incipient depreciation forces CB to reduce $M$ to defend the peg, neutralizing the policy.</td>
                         </tr>
                         <tr>
-                            <td class="policy-label"><i class="fas fa-ship"></i> Trade<br><small style="font-weight:400; color:var(--text-muted);">Tariffs</small></td>
+                            <td class="policy-label"><i class="fas fa-ship"></i> Trade Policy<br><small style="font-weight:400; color:var(--text-muted);">Import Tariffs</small></td>
                             <td>
                                 <span class="badge ineffective">INEFFECTIVE</span>
                             </td>
-                            <td style="color:var(--text-muted); font-size:0.88rem;">Drop in imports → appreciation → equivalent drop in exports.</td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Reduction in imports appreciates the currency, causing an equivalent reduction in exports.</td>
                             <td>
                                 <span class="badge partial">EFFECTIVE</span>
                             </td>
-                            <td style="color:var(--text-muted); font-size:0.88rem;">The rate cannot appreciate. The gain on the trade balance is preserved.</td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">The exchange rate is fixed. The initial improvement in the trade balance is preserved.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -480,53 +463,50 @@
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- IMPOSSIBLE TRINITY                         -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="trilemma">
             <h2>4. The Impossible Trinity (The Trilemma)</h2>
 
             <p class="explanation-text">
-                What we have just discovered hides a ruthless law of international economics. No country in the world can "have its cake and eat it too". A country can only achieve <strong>two of the three</strong> following goals simultaneously:
+                The Mundell-Fleming framework formalizes a fundamental macroeconomic constraint known as the Impossible Trinity. A nation cannot simultaneously maintain all three of the following policy objectives:
             </p>
 
             <div class="trilemma-grid">
                 <div class="trilemma-card">
                     <i class="fas fa-money-bill-transfer" style="color: var(--accent-primary);"></i>
-                    <h5>1. Free Capital Flow</h5>
-                    <p>Investors can move money in and out of the country without restrictions.</p>
+                    <h5>1. Financial Integration</h5>
+                    <p>Free capital mobility allowing optimal global capital allocation.</p>
                 </div>
                 <div class="trilemma-card">
                     <i class="fas fa-anchor" style="color: #f43f5e;"></i>
-                    <h5>2. Fixed Exchange Rate</h5>
-                    <p>A stable currency, excellent for reassuring importers and exporters.</p>
+                    <h5>2. Exchange Rate Stability</h5>
+                    <p>A fixed exchange rate to eliminate currency risk for trade.</p>
                 </div>
                 <div class="trilemma-card">
                     <i class="fas fa-university" style="color: #10b981;"></i>
-                    <h5>3. Independent Monetary Policy</h5>
-                    <p>The Central Bank can cut interest rates to fight unemployment.</p>
+                    <h5>3. Monetary Autonomy</h5>
+                    <p>Independent control of the interest rate for macroeconomic stabilization.</p>
                 </div>
             </div>
 
             <p class="explanation-text">
-                <strong>Proof by example:</strong>
+                <strong>Macroeconomic Trade-offs:</strong>
             </p>
 
             <div class="option-block">
-                <strong>The US / European Choice:</strong> The Fed and the ECB want to control their interest rates to fight crises (Goal 3), and they want to let Wall Street trade freely (Goal 1). The mathematical consequence? <strong>They sacrifice the fixed rate.</strong> The Dollar and the Euro float.
+                <strong>Option A (USA, Eurozone):</strong> Combining Monetary Autonomy (3) and Financial Integration (1) mathematically requires sacrificing Exchange Rate Stability (2). The currency must float.
             </div>
             <div class="option-block">
-                <strong>The Danish / Bulgarian Choice:</strong> These countries desperately want to keep their currency pegged to the Euro (Goal 2) while allowing capital to flow freely (Goal 1). Consequence? <strong>They sacrifice their monetary sovereignty.</strong> If the ECB raises its rates, the Bulgarian central bank must do exactly the same, even if its economy is in recession.
+                <strong>Option B (Denmark, Bulgaria):</strong> Combining Exchange Rate Stability (2) and Financial Integration (1) mathematically requires sacrificing Monetary Autonomy (3). The central bank must import the monetary policy of the anchor currency.
             </div>
             <div class="option-block">
-                <strong>The Historical Chinese Choice:</strong> China wanted an artificially weak currency (Goal 2) while controlling its internal economy with its own interest rates (Goal 3). How did they manage? <strong>By establishing fierce capital controls (Sacrificing Goal 1).</strong> Citizens were not allowed to move their millions out of the country.
+                <strong>Option C (China, historically):</strong> Combining Exchange Rate Stability (2) and Monetary Autonomy (3) mathematically requires sacrificing Financial Integration (1). The state must impose strict capital controls.
             </div>
         </section>
 
         <!-- FOOTER -->
         <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>Mundell-Fleming &amp; Trilemma — Pedagogical Format (B2 English). Revised May 2026.</em>
+                <em>Mundell-Fleming &amp; Trilemma — Academic Format (B2/C1 English). Revised May 2026.</em>
             </p>
         </section>
 

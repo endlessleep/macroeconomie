@@ -94,7 +94,7 @@
         .def-term { font-weight: 700; min-width: 170px; color: var(--bg-sidebar); font-size: 0.95rem; }
         .def-body { color: var(--text-main); font-size: 0.95rem; }
         
-        /* Pedagogy additions */
+        /* Pedagogy styles */
         .explanation-text {
             line-height: 1.7;
             margin-bottom: 1.25rem;
@@ -190,38 +190,35 @@
     <main class="main-content" id="main-content">
         <header class="page-header" style="border-bottom-color: var(--accent-primary);">
             <h1 class="page-title" style="color: var(--accent-primary);">The Open Economy</h1>
-            <p class="page-subtitle"><i class="fas fa-ship"></i> Trade Balance, Capital Mobility, and Exchange Rates</p>
+            <p class="page-subtitle"><i class="fas fa-ship"></i> Trade Balances, Capital Mobility, and Real Exchange Rates</p>
         </header>
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- THE SOE MODEL                              -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="soe-model">
             <h2>1. The Small Open Economy (SOE) Model</h2>
 
             <p class="explanation-text">
-                Until now, we have reasoned as if our country were alone in the world (a closed economy). But globalization changes the rules of the game. A country can borrow from abroad to consume more than it produces, or conversely, save and lend its wealth to its neighbors.
+                The Small Open Economy (SOE) model extends macroeconomic analysis to international trade and finance. It assumes the domestic economy interacts with global markets without influencing global prices or interest rates.
             </p>
 
             <div class="key-defs">
-                <h4><i class="fas fa-cogs"></i> Crucial Assumptions of the SOE Model</h4>
+                <h4><i class="fas fa-cogs"></i> Structural Assumptions</h4>
                 <div class="def-row">
-                    <span class="def-term">1. Long Run Horizon</span>
-                    <span class="def-body">We are in a long-run framework. Prices are perfectly flexible. Consequently, output ($Y$) is always fixed at its maximum potential level ($\bar{Y}$), dictated by the available capital and labor.</span>
+                    <span class="def-term">1. Long-Run Horizon</span>
+                    <span class="def-body">Prices are perfectly flexible. Consequently, aggregate output ($Y$) is determined exogenously by available factors of production and technology, fixed at its full-employment potential level ($\bar{Y}$).</span>
                 </div>
                 <div class="def-row">
-                    <span class="def-term">2. Small Size</span>
-                    <span class="def-body">The country is "small". This means that its actions do not affect the global economy. If Switzerland decides to double its interest rates, the rest of the world will not even notice.</span>
+                    <span class="def-term">2. Price Taking</span>
+                    <span class="def-body">The domestic economy constitutes a negligible fraction of global markets. Domestic policy shifts or economic shocks have zero impact on the world interest rate or global aggregate demand.</span>
                 </div>
                 <div class="def-row">
                     <span class="def-term">3. Perfect Capital Mobility</span>
-                    <span class="def-body">Money travels instantaneously across borders. Because of this, the local interest rate ($r$) will always be strictly equal to the global interest rate ($r^*$). If the local rate falls, investors flee immediately to another country until the rate returns to $r^*$. <strong>Conclusion: $r = r^*$.</strong></span>
+                    <span class="def-body">Capital flows without friction across international borders seeking the highest return. Arbitrage ensures that the domestic interest rate ($r$) is strictly equal to the exogenous world interest rate ($r^*$).</span>
                 </div>
             </div>
 
-            <h3>The Golden Identity: $NX = S - I$</h3>
+            <h3>The National Income Accounting Identity: $NX = S - I$</h3>
             <p class="explanation-text">
-                This is the most important equation of the chapter. In an open economy, GDP is broken down as follows: $Y = C + I + G + NX$. By rearranging this equation, we discover a profound truth about international trade.
+                The fundamental accounting identity in an open economy defines output as $Y = C + I + G + NX$. Rearranging this identity isolates Net Exports ($NX$) as the difference between domestic production and domestic absorption.
             </p>
             
             <div class="equation-box" style="border-color: var(--accent-primary); font-size: 1.25rem;">
@@ -229,7 +226,7 @@
             </div>
 
             <p class="explanation-text">
-                The left side ($Y - C - G$) represents exactly National Saving ($S$), that is, what remains of the national income once households and the government have consumed. Thus:
+                The term $(Y - C - G)$ constitutes National Saving ($S$), the sum of private saving $(Y - T - C)$ and public saving $(T - G)$. Substituting $S$ into the identity yields the fundamental macroeconomic equilibrium condition for the open economy:
             </p>
 
             <div class="equation-box" style="background: rgba(96,165,250,0.08); border-color: var(--accent-primary); font-size: 1.3rem;">
@@ -237,60 +234,53 @@
             </div>
 
             <div class="pedagogy-box">
-                <div class="pedagogy-title">The story of the farmer and the apple</div>
+                <div class="pedagogy-title">Macroeconomic Interpretation</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Why is the trade balance ($NX$) identical to the difference between saving and investment ($S - I$)? Let's take a simple example.<br><br>
-                    Imagine a country composed of a single farmer. He produces 100 apples ($Y$). He eats 60 apples and the government takes 10 to feed its soldiers. It remains $100 - 60 - 10 = 30$ apples. These 30 apples represent his <strong>Saving ($S$)</strong>.<br><br>
-                    With these 30 apples, he decides to plant 20 of them in the ground to grow new apple trees next year. This is his <strong>Investment ($I$)</strong>. There are exactly 10 apples left over.<br><br>
-                    What happens to these 10 leftover apples? He has no choice but to sell them to a neighboring country! These 10 apples therefore constitute his <strong>Net Exports ($NX$)</strong>. We thus verify perfectly that $NX = S - I$ (10 = 30 - 20).<br><br>
-                    <strong>Economic conclusion:</strong> A country that exports a lot (trade surplus) is simply a country that saves more than it invests locally. It lends its excess savings to the rest of the world. Conversely, a country running a trade deficit is a country that invests or consumes more than it can afford, and must borrow from abroad to finance the difference.
+                    The identity $NX = S - I$ establishes that a nation's trade balance is structurally equivalent to its net capital outflow. <br><br>
+                    If National Saving exceeds domestic Investment ($S > I$), the excess savings are lent abroad, corresponding to a trade surplus ($NX > 0$). Conversely, if domestic investment exceeds national saving ($S < I$), the shortfall must be financed by borrowing from international markets, manifesting as a trade deficit ($NX < 0$). <br><br>
+                    Consequently, trade imbalances are not inherently symptomatic of trade policy inefficiencies, but are direct reflections of underlying macroeconomic savings and investment disparities.
                 </p>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- POLICY SHOCKS IN THE SOE                   -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="policy-shocks">
-            <h2>2. The Impact of Economic Policies</h2>
+            <h2>2. Comparative Statics in the SOE Model</h2>
 
             <p class="explanation-text">
-                Let's use our new identity $NX = S - I$ to understand the effects of public policies. Remember that investment $I$ depends on the world interest rate $r^*$, and saving $S$ depends on the fiscal policy.
+                The equilibrium identity $NX = S(Y, G, T) - I(r^*)$ permits formal analysis of domestic and exogenous shocks. In the long run, $Y$ is fixed at $\bar{Y}$, and $r$ is fixed at $r^*$.
             </p>
 
             <div class="concept-card" style="border-left-color: #dc2626; margin-bottom: 2rem;">
-                <div class="concept-title"><i class="fas fa-landmark"></i> Fiscal Expansion (Increase in $G$ or decrease in $T$)</div>
+                <div class="concept-title"><i class="fas fa-landmark"></i> Domestic Fiscal Expansion ($\Delta G > 0$ or $\Delta T < 0$)</div>
                 <div class="concept-body">
                     <p class="explanation-text">
-                        Suppose the government decides to cut taxes or massively build infrastructure. What is the impact? 
+                        An exogenous increase in government spending or a reduction in taxes decreases public saving, subsequently decreasing total National Saving ($S \downarrow$).
                     </p>
                     <p class="explanation-text" style="font-weight: 600;">
-                        1. Public saving falls drastically, which reduces total national saving ($S \downarrow$).<br>
-                        2. Since $r^*$ is fixed internationally, our local investment ($I$) does not change.<br>
-                        3. Because $NX = S - I$, if $S$ falls and $I$ is constant, then $NX$ must necessarily fall.
+                        Because the domestic interest rate is anchored at $r^*$, domestic investment $I(r^*)$ remains constant. <br>
+                        According to the identity $NX = S - I$, a decline in $S$ with a constant $I$ necessitates an equivalent decline in $NX$.
                     </p>
                     <p class="explanation-text" style="margin-bottom: 0;">
-                        <strong>Conclusion:</strong> A domestic fiscal expansion mechanically causes a trade deficit. This is called the phenomenon of <strong>"Twin Deficits"</strong> (a public deficit creates a trade deficit).
+                        <strong>Implication:</strong> An expansionary fiscal policy mechanically induces a deterioration of the trade balance, formalizing the macroeconomic hypothesis of <strong>Twin Deficits</strong> (a public deficit drives a trade deficit).
                     </p>
                 </div>
             </div>
 
             <div class="concept-card" style="border-left-color: #16a34a;">
-                <div class="concept-title"><i class="fas fa-globe-americas"></i> Global Shock (The world interest rate $r^*$ rises)</div>
+                <div class="concept-title"><i class="fas fa-globe-americas"></i> Exogenous World Interest Rate Shock ($\Delta r^* > 0$)</div>
                 <div class="concept-body">
                     <p class="explanation-text">
-                        Imagine the United States (a massive economy) decides to raise its interest rates, driving up the global rate $r^*$. 
+                        An increase in the world interest rate ($r^* \uparrow$), perhaps driven by fiscal expansion in a large economy, raises the cost of capital domestically due to perfect capital mobility.
                     </p>
                     <p class="explanation-text" style="font-weight: 600;">
-                        1. With higher rates, borrowing becomes very expensive for our local businesses.<br>
-                        2. Consequently, local investment plummets ($I \downarrow$).<br>
-                        3. Saving ($S$) remains unchanged.<br>
-                        4. According to $NX = S - I$, if we subtract a smaller $I$ from a constant $S$, $NX$ explodes upward!
+                        The elevated interest rate depresses domestic interest-sensitive investment ($I \downarrow$). <br>
+                        Assuming domestic fiscal parameters are unchanged, National Saving ($S$) remains constant. <br>
+                        Consequently, the reduction in $I$ relative to a constant $S$ increases net capital outflows, thereby increasing $NX$.
                     </p>
                     <p class="explanation-text" style="margin-bottom: 0;">
-                        <strong>Conclusion:</strong> When the global rate rises, local investment collapses, freeing up capital that will be lent abroad, which translates into a massive trade surplus.
+                        <strong>Implication:</strong> An exogenous increase in global interest rates contracts domestic investment, reallocating domestic savings abroad and generating a trade surplus.
                     </p>
                 </div>
             </div>
@@ -298,66 +288,58 @@
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- EXCHANGE RATES                             -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="exchange-rates">
             <h2>3. The Real Exchange Rate ($\epsilon$)</h2>
 
             <p class="explanation-text">
-                How exactly does $NX$ manage to increase or decrease? Through the exchange rate. We must distinguish between the nominal and the real exchange rate.
+                The equilibrium adjustment of $NX$ to changes in $S$ or $I$ is mediated by the real exchange rate.
             </p>
 
             <div class="key-defs">
                 <div class="def-row">
-                    <span class="def-term">Nominal Rate ($e$)</span>
-                    <span class="def-body">The price of our currency in terms of another. Example: 1 Euro = 1.10 Dollars. If $e$ rises, our currency appreciates.</span>
+                    <span class="def-term">Nominal Exchange Rate ($e$)</span>
+                    <span class="def-body">The relative price of domestic currency in terms of foreign currency (e.g., USD/EUR). An increase in $e$ denotes an appreciation of the domestic currency.</span>
                 </div>
                 <div class="def-row">
-                    <span class="def-term">Real Rate ($\epsilon$)</span>
-                    <span class="def-body">The relative price of our <em>goods</em> compared to foreign goods. It measures true competitiveness. The formula is $\epsilon = e \times \frac{P}{P^*}$ (where $P$ is our domestic price and $P^*$ is the foreign price).</span>
+                    <span class="def-term">Real Exchange Rate ($\epsilon$)</span>
+                    <span class="def-body">The relative price of domestic goods in terms of foreign goods, defined as $\epsilon = e \times \frac{P}{P^*}$. It serves as the primary metric of international competitiveness.</span>
                 </div>
             </div>
 
             <p class="explanation-text">
-                <strong>Crucial mechanism:</strong> Net Exports ($NX$) are a decreasing function of the real exchange rate $\epsilon$. If our goods become relatively very expensive ($\epsilon$ is high), foreigners stop buying our products, and our citizens prefer to buy cheap foreign imports. Therefore, $NX$ collapses.
+                Net Exports are modeled as a monotonically decreasing function of the real exchange rate: $NX = NX(\epsilon)$. A high $\epsilon$ (real appreciation) renders domestic goods relatively expensive, depressing exports and stimulating imports, thereby reducing $NX$.
             </p>
 
             <div class="pedagogy-box" style="border-left-color: #8b5cf6;">
-                <div class="pedagogy-title" style="color: #6d28d9;">How the market adjusts automatically</div>
+                <div class="pedagogy-title" style="color: #6d28d9;">Equilibrium Adjustment Mechanism</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Let's return to our fiscal expansion scenario. We said that $S$ decreases, so $NX$ must decrease. But <em>how</em> does this happen in reality on the financial markets?<br><br>
-                    When national saving $S$ falls, there are fewer local dollars available to be lent abroad. The supply of local currency on the foreign exchange market dries up.<br><br>
-                    Because it becomes rarer, the value of our currency skyrockets! The real exchange rate appreciates ($\epsilon \uparrow$).<br><br>
-                    Because of this strong currency, our exporters are severely penalized, while imported goods become very cheap for our citizens. Thus, exports fall and imports explode. This causes the trade deficit ($NX \downarrow$). The loop is closed!
+                    Consider the case of a domestic fiscal expansion reducing National Saving ($S \downarrow$). <br><br>
+                    The reduction in $S$ diminishes the supply of domestic currency available for foreign investment on the foreign exchange market. The contraction in supply induces an appreciation of the real exchange rate ($\epsilon \uparrow$).<br><br>
+                    This real appreciation erodes the competitiveness of domestic goods, decreasing exports and increasing imports. $NX$ contracts precisely until the new equilibrium $NX(\epsilon) = S - I$ is achieved. The real exchange rate is the equilibrating variable.
                 </p>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- PPP AND BALASSA-SAMUELSON                  -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="ppp">
-            <h2>4. Purchasing Power Parity &amp; Balassa-Samuelson</h2>
+            <h2>4. Purchasing Power Parity (PPP) &amp; Balassa-Samuelson</h2>
 
             <p class="explanation-text">
-                There is an extreme theory of international trade called <strong>Purchasing Power Parity (PPP)</strong>. It is based on the "Law of One Price": an identical good must sell for exactly the same price everywhere in the world, once converted into the same currency. Otherwise, arbitrageurs would buy in the cheap country and resell in the expensive one until prices equalize.
+                Purchasing Power Parity (PPP) is a theoretical framework postulating that the nominal exchange rate adjusts such that an identical basket of goods costs the same across countries. It relies on the Law of One Price and perfect goods arbitrage.
             </p>
 
             <p class="explanation-text">
-                Under pure PPP, the real exchange rate is always equal to 1 ($\epsilon = 1$), meaning the cost of living is strictly identical from one country to another. But anyone who has ever traveled to India or Switzerland knows this is false. Why?
+                Under absolute PPP, the real exchange rate is invariant and equal to unity ($\epsilon = 1$). Consequently, $NX$ becomes perfectly elastic, implying that any deviation in domestic prices relative to foreign prices is immediately offset by nominal exchange rate movements. Empirical evidence, however, demonstrates persistent deviations from PPP.
             </p>
 
             <div class="pedagogy-box" style="border-left-color: #eab308; background: #fefce8;">
-                <div class="pedagogy-title" style="color: #ca8a04;">The Balassa-Samuelson Effect (The Hairdresser Story)</div>
+                <div class="pedagogy-title" style="color: #ca8a04;">The Balassa-Samuelson Effect</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    This effect elegantly explains why the cost of living is always higher in rich countries.<br><br>
-                    <strong>Step 1: The Tradable Sector.</strong> Imagine a German engineer making high-tech cars. Thanks to technology, his productivity is huge. His salary is therefore very high. Cars are exported, so their price is fixed globally (PPP applies here).<br><br>
-                    <strong>Step 2: The Non-Tradable Sector.</strong> Think of a hairdresser in Berlin. Her productivity hasn't changed in 50 years: it takes the same amount of time to cut hair. The service cannot be exported (you don't go to India just to get a haircut).<br><br>
-                    <strong>Step 3: Wage Contagion.</strong> Even though the hairdresser's productivity is low, she has to pay her rent in the same city as the wealthy engineer. To prevent all hairdressers from quitting to go work in the car factories, hair salons are forced to pay high salaries. To afford these high salaries, they must raise the price of a haircut!<br><br>
-                    <strong>Conclusion:</strong> Because of the high productivity in the tradable sector, wages rise everywhere, driving up prices in the non-tradable sector (services, housing). This makes the general price level ($P$) higher in rich countries.
+                    The Balassa-Samuelson effect provides a structural explanation for systematic deviations from PPP, specifically why aggregate price levels are persistently higher in advanced economies.<br><br>
+                    <strong>1. Productivity Differentials:</strong> Advanced economies exhibit significantly higher labor productivity in the tradable goods sector compared to developing economies. The Law of One Price holds for tradables, ensuring global price equalization for these goods.<br><br>
+                    <strong>2. Wage Equalization:</strong> High productivity in the tradable sector dictates high marginal products of labor, resulting in high wages. Assuming perfect domestic labor mobility, these high wages must be matched in the non-tradable sector (e.g., local services) to prevent labor shortages.<br><br>
+                    <strong>3. Price Level Divergence:</strong> Because productivity in the non-tradable sector is relatively uniform across countries, the higher wages in advanced economies manifest as higher prices for non-tradable goods. Consequently, the aggregate price level ($P$), which is a weighted average of tradable and non-tradable prices, is structurally higher in advanced economies.
                 </p>
             </div>
         </section>
@@ -365,7 +347,7 @@
         <!-- FOOTER -->
         <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>Open Economy (SOE) — Pedagogical Format (B2 English). Revised May 2026.</em>
+                <em>Open Economy (SOE) — Academic Format (B2/C1 English). Revised May 2026.</em>
             </p>
         </section>
 

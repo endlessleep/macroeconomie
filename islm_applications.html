@@ -148,7 +148,7 @@
         .shock-card ul { padding-left: 1.2rem; margin-bottom: 0; color: var(--text-main); font-size: 0.95rem; }
         .shock-card li { margin-bottom: 0.4rem; }
 
-        /* Pedagogy additions */
+        /* Pedagogy styles */
         .explanation-text {
             line-height: 1.7;
             margin-bottom: 1.25rem;
@@ -244,230 +244,203 @@
     <main class="main-content islm-content" id="main-content">
         <header class="page-header islm">
             <h1 class="page-title">IS-LM Applications</h1>
-            <p class="page-subtitle"><i class="fas fa-bolt"></i> Policy Shocks, the Crowding Out Effect, and the Great Depression</p>
+            <p class="page-subtitle"><i class="fas fa-bolt"></i> Comparative Statics, Crowding Out, and Macroeconomic Crises</p>
         </header>
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- FISCAL POLICY & CROWDING OUT                -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="fiscal-policy">
             <h2>1. Fiscal Policy and the Crowding Out Effect</h2>
 
             <p class="explanation-text">
-                The government decides to stimulate the economy. It builds highways, hospitals, and recruits civil servants (an increase in government spending, $G \uparrow$). According to the Keynesian Cross we saw in the previous chapter, this should massively increase GDP ($Y$) thanks to the multiplier. The IS curve shifts sharply to the right.
-            </p>
-            <p class="explanation-text">
-                <strong>But the IS-LM model contains a crucial trap.</strong> Because the money market (LM) exists, this fiscal stimulus will not be as powerful as expected. This phenomenon is called the <span class="fluo-red">Crowding Out effect</span>.
+                An expansionary fiscal policy (defined as an exogenous increase in government spending $G$ or a reduction in taxes $T$) shifts the IS curve to the right. While the pure Keynesian Cross predicts an output expansion proportional to the expenditure multiplier, the IS-LM framework demonstrates that this multiplier is attenuated by induced changes in the money market. This attenuation is known as the <span class="fluo-red">Crowding Out effect</span>.
             </p>
 
             <div class="chain-box">
-                <div class="chain-title"><i class="fas fa-fist-raised"></i> Mechanism: The battle for capital</div>
+                <div class="chain-title"><i class="fas fa-fist-raised"></i> Transmission Mechanism: Fiscal Policy Crowding Out</div>
                 <div class="chain-step">
                     <div class="step-num">1</div>
-                    <div><strong>The stimulus:</strong> The government increases $G$. Output $Y$ begins to increase due to the standard Keynesian multiplier. The IS curve shifts to the right.</div>
+                    <div>An exogenous increase in government spending ($G \uparrow$) shifts the IS curve rightward, raising aggregate output ($Y \uparrow$).</div>
                 </div>
                 <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num">2</div>
-                    <div><strong>The monetary tension:</strong> This new economic activity requires liquidity. People need more cash to carry out these new transactions (Money demand $L^d \uparrow$).</div>
+                    <div>The increase in $Y$ stimulates the transaction demand for real money balances ($L^d \uparrow$).</div>
                 </div>
                 <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num">3</div>
-                    <div><strong>The rate spike:</strong> Since the Central Bank has not printed more money (LM is unchanged), this shortage of liquidity forces agents to sell bonds. The price of bonds falls, so <strong>the interest rate ($i$) shoots up</strong>.</div>
+                    <div>Assuming a fixed money supply (exogenous LM), an excess demand for liquidity emerges, forcing bond prices down and the equilibrium interest rate up ($i \uparrow$).</div>
                 </div>
                 <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num">4</div>
-                    <div><strong>The Crowding Out:</strong> Faced with these much higher interest rates, private firms cancel their investment projects ($I \downarrow$). The state has "crowded out" private investment.</div>
+                    <div>The elevated interest rate increases the cost of capital, thereby reducing interest-sensitive private investment ($I \downarrow$).</div>
                 </div>
-                <div class="chain-result">Final result: GDP ($Y$) increases, but much less than what the pure Keynesian multiplier predicted, because the collapse of private investment has erased a part of the gains.</div>
+                <div class="chain-result">Conclusion: The initial fiscal expansion partially crowds out private investment. Final aggregate output increases, but by a smaller magnitude than predicted by the IS multiplier alone $\left( \frac{\partial Y}{\partial G} < \alpha_g \right)$.</div>
             </div>
 
             <div class="pedagogy-box" style="border-left-color: #0ea5e9;">
-                <div class="pedagogy-title" style="color: #0284c7;">A question of sensitivity</div>
+                <div class="pedagogy-title" style="color: #0284c7;">Sensitivity Parameters and the Magnitude of Crowding Out</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Is this crowding out effect severe? It depends on the slope of the curves! 
-                    <br><br>
-                    If investment is extremely sensitive to the interest rate (a very flat IS curve), the slightest rise in rates will massacre private investment: the crowding out effect is almost total. 
-                    <br>
-                    If money demand does not care about the interest rate (a vertical LM curve), the rates will have to soar to stratospheric levels to restore equilibrium: here again, the crowding out effect is massive.
+                    The severity of the crowding out effect depends on the elasticities within the IS and LM equations:<br><br>
+                    <strong>Interest Elasticity of Investment:</strong> A highly elastic investment schedule (flat IS curve) results in severe crowding out, as a small increase in the interest rate precipitates a massive drop in private investment.<br>
+                    <strong>Interest Elasticity of Money Demand:</strong> An inelastic money demand (steep LM curve) implies that the interest rate must rise significantly to clear the money market following a fiscal expansion, leading to severe crowding out.
                 </p>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- MONETARY POLICY                              -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="monetary-policy">
             <h2>2. Monetary Policy Expansion</h2>
 
             <p class="explanation-text">
-                Now, suppose the government does nothing, but the Central Bank decides to act. It runs the printing presses and injects liquidity into the economy (an increase in the money supply, $M \uparrow$). The LM curve shifts downward/to the right.
+                An expansionary monetary policy (an exogenous increase in the nominal money supply $M$) shifts the LM curve downward and to the right, generating a new equilibrium characterized by a lower interest rate and higher aggregate output.
             </p>
 
             <div class="chain-box" style="background:#f0fdf4; border-color:#86efac; border-left-color:#16a34a;">
-                <div class="chain-title" style="color:#14532d;"><i class="fas fa-coins"></i> Mechanism: The credit channel</div>
+                <div class="chain-title" style="color:#14532d;"><i class="fas fa-coins"></i> Transmission Mechanism: The Credit Channel</div>
                 <div class="chain-step">
                     <div class="step-num" style="background:#16a34a;">1</div>
-                    <div><strong>The injection:</strong> The Central Bank increases the money supply ($M \uparrow$). The market is flooded with liquidity.</div>
+                    <div>The central bank executes open market purchases, increasing the nominal money supply ($M \uparrow$).</div>
                 </div>
                 <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num" style="background:#16a34a;">2</div>
-                    <div><strong>The rate drop:</strong> With too much money on their hands, agents buy bonds. The price of bonds soars, causing <strong>the interest rate ($i$) to plummet</strong>.</div>
+                    <div>An excess supply of real balances leads agents to purchase bonds, driving bond yields down ($i \downarrow$).</div>
                 </div>
                 <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num" style="background:#16a34a;">3</div>
-                    <div><strong>The investment boom:</strong> Credit has become incredibly cheap. Firms jump on the opportunity to borrow and build factories. Investment explodes ($I \uparrow$).</div>
+                    <div>The reduced cost of borrowing stimulates interest-sensitive capital expenditure by firms ($I \uparrow$).</div>
                 </div>
                 <div class="chain-arrow" style="color:#16a34a;"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num" style="background:#16a34a;">4</div>
-                    <div><strong>The multiplier kicks in:</strong> This new investment generates jobs, which generate consumption, driving up GDP ($Y \uparrow$).</div>
+                    <div>The exogenous increase in investment induces a multiplied expansion of aggregate output ($Y \uparrow$).</div>
                 </div>
                 <div class="chain-result" style="background:#dcfce7; border-color:#86efac; color:#14532d;">
-                    Final result: The interest rate has fallen, investment is strong, and GDP increases.
+                    Conclusion: Monetary expansion lowers the equilibrium interest rate and raises output by stimulating private investment.
                 </div>
             </div>
 
             <div class="pedagogy-box" style="border-left-color: #8b5cf6;">
-                <div class="pedagogy-title" style="color: #6d28d9;">Policy Mix (The combination)</div>
+                <div class="pedagogy-title" style="color: #6d28d9;">Policy Mix and Accommodative Monetary Policy</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    What happens if the government and the Central Bank work together? Imagine the state does a fiscal stimulus ($G \uparrow$), which normally causes crowding out. But at the very same moment, the Central Bank prints money ($M \uparrow$) to keep the interest rate artificially low! <br><br>
-                    <strong>Result:</strong> The Central Bank "accommodates" the fiscal policy. The interest rate does not change, crowding out is neutralized, and GDP ($Y$) shoots up to its maximum potential.
+                    A coordinated fiscal and monetary expansion (Policy Mix) neutralizes the crowding out effect. If a fiscal expansion ($G \uparrow$) is accompanied by an proportional increase in the money supply ($M \uparrow$), the central bank accommodates the transaction demand for money. The interest rate remains constant, allowing the full expenditure multiplier to materialize on aggregate output.
                 </p>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- THE LIQUIDITY TRAP                          -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="liquidity-trap">
             <h2>3. The Zero Lower Bound and the Liquidity Trap</h2>
 
             <p class="explanation-text">
-                The monetary policy we just described sounds magical. If there is a crisis, the Central Bank just needs to lower interest rates to restart the machine. But there is a physical limit to this magic: <strong>interest rates cannot easily go below 0%</strong>. This is the <em>Zero Lower Bound (ZLB)</em>.
+                The efficacy of monetary policy is strictly bounded by the zero nominal interest rate, a condition known as the Zero Lower Bound (ZLB). At this threshold, the economy enters a liquidity trap, altering the structural parameters of the LM curve.
             </p>
 
             <div class="key-defs">
-                <h4><i class="fas fa-skull-crossbones"></i> The Liquidity Trap</h4>
+                <h4><i class="fas fa-skull-crossbones"></i> The Liquidity Trap Framework</h4>
                 <div class="def-row">
-                    <span class="def-term">The mechanism</span>
-                    <span class="def-body">When the interest rate reaches 0%, bonds no longer pay anything. From an investor's perspective, a bond that pays 0% is exactly the same thing as a wad of cash under a mattress. Money and bonds become <strong>perfect substitutes</strong>.</span>
+                    <span class="def-term">Perfect Substitutability</span>
+                    <span class="def-body">At a 0% nominal interest rate, bonds yield no return over cash. Consequently, money and risk-free bonds become perfect substitutes. The speculative demand for money becomes perfectly elastic.</span>
                 </div>
                 <div class="def-row">
-                    <span class="def-term">The impotence of the BC</span>
-                    <span class="def-body">If the Central Bank prints money to buy bonds (to inject liquidity), investors simply trade one zero-yield asset for another zero-yield asset. The new money is just hoarded by banks and individuals. It does not enter the real economy.</span>
+                    <span class="def-term">Monetary Impotence</span>
+                    <span class="def-body">Open market operations exchange one zero-yield asset for another. Injections of liquidity ($M \uparrow$) are absorbed entirely by hoarded cash balances without depressing the interest rate further or stimulating investment.</span>
                 </div>
                 <div class="def-row">
-                    <span class="def-term">The LM curve shape</span>
-                    <span class="def-body">At 0%, the LM curve becomes <strong>perfectly horizontal</strong>. Any increase in the money supply ($M \uparrow$) just stretches this flat line further to the right, without lowering the rate (since it's already at zero) and without increasing GDP. "It's like pushing on a string," as Keynes famously said.</span>
+                    <span class="def-term">LM Curve Geometry</span>
+                    <span class="def-body">The LM curve becomes perfectly horizontal at the zero lower bound. Exogenous increases in the money supply extend the horizontal segment rightward but fail to alter the equilibrium intersection with the IS curve.</span>
                 </div>
             </div>
 
             <p class="explanation-text" style="font-weight: 600; color: var(--accent-islm-hover);">
-                Conclusion: In a liquidity trap, monetary policy is completely dead. Only a massive fiscal stimulus (Fiscal Policy) can shift the IS curve to save the economy.
+                Implication: In a liquidity trap, monetary policy loses its transmission mechanism. Macroeconomic stabilization relies entirely on fiscal policy interventions to shift the IS curve along the horizontal segment of the LM curve.
             </p>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- THE GREAT DEPRESSION                       -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="great-depression">
-            <h2>4. Case Study: The Great Depression (1929-1933)</h2>
+            <h2>4. Case Study Analysis: The Great Depression (1929-1933)</h2>
 
             <p class="explanation-text">
-                Between 1929 and 1933, the US GDP fell by 30% and unemployment exploded. How does the IS-LM model explain the greatest economic catastrophe of the 20th century? Economists are divided between two major hypotheses.
+                The contraction of US GDP by 30% during the Great Depression provides a foundational application of IS-LM comparative statics. The contraction is theoretically modeled via two competing, yet potentially complementary, hypotheses.
             </p>
 
             <div class="shock-grid">
                 <div class="shock-card">
-                    <h4><i class="fas fa-building-circle-xmark"></i> Hypothesis 1: An IS Curve Shock</h4>
-                    <p class="explanation-text">According to this hypothesis, the fault lies in a massive collapse of aggregate demand.</p>
+                    <h4><i class="fas fa-building-circle-xmark"></i> Hypothesis 1: Exogenous IS Contraction</h4>
+                    <p class="explanation-text">This hypothesis attributes the depression to a severe leftward shift of the IS curve, driven by a collapse in aggregate demand components.</p>
                     <ul>
-                        <li><strong>Stock market crash of 1929:</strong> Destroyed household wealth, completely collapsing Consumption ($C \downarrow$).</li>
-                        <li><strong>Drop in real estate:</strong> A collapse in residential investment ($I \downarrow$).</li>
-                        <li><strong>Bank failures:</strong> Without banks to lend to them, businesses could no longer invest, even if they wanted to ($I \downarrow$).</li>
-                        <li><strong>Fiscal mistake:</strong> The government actually <em>raised</em> taxes to balance its budget in the middle of a crisis, crushing demand further.</li>
+                        <li><strong>Wealth Effect:</strong> The 1929 stock market crash decimated household wealth, precipitating a structural decline in autonomous consumption ($C \downarrow$).</li>
+                        <li><strong>Investment Collapse:</strong> Widespread bank failures destroyed credit intermediation, exogenously reducing private investment ($I \downarrow$).</li>
+                        <li><strong>Procyclical Fiscal Policy:</strong> The implementation of tax increases ($T \uparrow$) to balance the federal budget further contracted aggregate demand.</li>
                     </ul>
-                    <p class="explanation-text" style="margin-top: 0.8rem;"><em>Result: A massive leftward shift of the IS curve.</em></p>
                 </div>
                 
                 <div class="shock-card">
-                    <h4><i class="fas fa-money-bill-transfer"></i> Hypothesis 2: An LM Curve Shock</h4>
-                    <p class="explanation-text">According to Milton Friedman and the monetarists, the fault lies entirely with the Central Bank.</p>
+                    <h4><i class="fas fa-money-bill-transfer"></i> Hypothesis 2: Exogenous LM Contraction</h4>
+                    <p class="explanation-text">The monetarist hypothesis attributes the depression to a leftward shift of the LM curve resulting from central bank inaction.</p>
                     <ul>
-                        <li><strong>The Fed's passivity:</strong> Following the bank runs, the money supply collapsed by 25%.</li>
-                        <li><strong>The contraction:</strong> The Fed refused to inject liquidity to save the failing banks.</li>
+                        <li><strong>Money Supply Contraction:</strong> The Federal Reserve failed to act as a lender of last resort during banking panics, allowing the nominal money supply to contract by approximately 25%.</li>
                     </ul>
-                    <p class="explanation-text" style="margin-top: 0.8rem; margin-bottom: 0.8rem;"><em>Result: A massive leftward shift of the LM curve.</em></p>
-                    <p class="explanation-text" style="font-size: 0.85rem; padding: 0.5rem; background: #f8fafc; border-radius: 4px; border-left: 3px solid #94a3b8;">
-                        <strong>The flaw in this theory:</strong> If LM had shifted left, interest rates should have skyrocketed. Yet, nominal interest rates actually <em>fell</em> during the Depression. This points back to the IS shock theory.
-                    </p>
+                    <p class="explanation-text" style="margin-top: 0.8rem; margin-bottom: 0.8rem;"><em>Contrary Evidence:</em> A pure LM contraction implies an increase in the equilibrium interest rate. However, nominal interest rates declined persistently during this period, reinforcing the primacy of the IS contraction hypothesis.</p>
                 </div>
             </div>
 
-            <h3>The ultimate killer: The Debt-Deflation Fisher Effect</h3>
+            <h3>The Debt-Deflation Fisher Effect</h3>
             <p class="explanation-text">
-                There is a piece missing from the puzzle. Prices fell drastically during the Depression (massive deflation). Why did this make things so much worse? 
+                The analysis is incomplete without accounting for the severe deflation observed during the period. The transmission of deflation to real aggregate demand is formalized by the Fisher effect.
             </p>
 
             <div class="pedagogy-box" style="border-left-color: #dc2626; background: #fef2f2;">
-                <div class="pedagogy-title" style="color: #b91c1c;">The destructive cycle of deflation</div>
+                <div class="pedagogy-title" style="color: #b91c1c;">The Deflationary Spiral Mechanism</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Remember that investment depends on the <strong>real</strong> interest rate ($r = i - \pi^e$). <br><br>
-                    When deflation hits, expected inflation ($\pi^e$) becomes deeply negative. If your bank lends you money at a nominal rate of 2% ($i = 2\%$), but prices are falling by 10% a year ($\pi^e = -10\%$), the real cost of your loan is $2\% - (-10\%) = 12\%$!<br><br>
-                    <strong>The trap:</strong> Even if the Central Bank lowers nominal rates ($i$) to 0%, the real rate ($r$) remains extremely high because of deflation. This crushes investment, which shifts IS further to the left, which worsens the recession, which causes even more deflation... It is a deadly downward spiral.
+                    Investment functions are determined by the <strong>ex ante real interest rate</strong> ($r = i - \pi^e$). <br><br>
+                    Severe deflation generates deeply negative inflation expectations ($\pi^e < 0$). Consequently, even if the central bank reduces the nominal interest rate ($i$) to the zero lower bound, the real interest rate remains highly positive ($r \gg 0$). <br><br>
+                    This elevated real cost of borrowing further depresses investment, inducing a continuous leftward shift of the IS curve, which exacerbates the output contraction and accelerates deflationary pressures in a self-reinforcing spiral.
                 </p>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- SUMMARY TABLE                              -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="summary-table">
-            <h2>Synthesis of Policy Shocks</h2>
+            <h2>Synthesis of Comparative Statics</h2>
             <p class="explanation-text">
-                Summary of the impact of the different policies in the classic IS-LM framework.
+                The following table summarizes the directional effects of exogenous macroeconomic shocks within the standard IS-LM framework.
             </p>
 
             <table class="synth-table">
                 <thead>
                     <tr>
-                        <th>Shock</th>
+                        <th>Exogenous Shock</th>
                         <th>IS Curve</th>
                         <th>LM Curve</th>
-                        <th>Interest Rate ($i$)</th>
-                        <th>Output / GDP ($Y$)</th>
+                        <th>Equilibrium Interest Rate ($i$)</th>
+                        <th>Equilibrium Output ($Y$)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Increase in Gov Spending ($G \uparrow$)</td>
+                        <td>Fiscal Expansion ($G \uparrow$)</td>
                         <td>Shifts Right</td>
                         <td><span class="tag-dash">-</span></td>
                         <td><span class="tag-up">↑</span> (Crowding Out)</td>
                         <td><span class="tag-up">↑</span></td>
                     </tr>
                     <tr>
-                        <td>Tax Cut ($T \downarrow$)</td>
+                        <td>Tax Reduction ($T \downarrow$)</td>
                         <td>Shifts Right</td>
                         <td><span class="tag-dash">-</span></td>
                         <td><span class="tag-up">↑</span></td>
                         <td><span class="tag-up">↑</span></td>
                     </tr>
                     <tr>
-                        <td>Increase in Money Supply ($M \uparrow$)</td>
+                        <td>Monetary Expansion ($M \uparrow$)</td>
                         <td><span class="tag-dash">-</span></td>
                         <td>Shifts Right (Down)</td>
                         <td><span class="tag-down">↓</span></td>
@@ -487,7 +460,7 @@
         <!-- FOOTER -->
         <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-islm-border); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>IS-LM Applications — Pedagogical Format (B2 English). Revised May 2026.</em>
+                <em>IS-LM Applications — Academic Format (B2/C1 English). Revised May 2026.</em>
             </p>
         </section>
 

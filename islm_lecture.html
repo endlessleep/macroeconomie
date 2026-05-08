@@ -33,11 +33,6 @@
                         linear-gradient(183deg, rgba(251,113,133,0) 0%, rgba(251,113,133,0.2) 7.9%, rgba(251,113,133,0) 15%);
             padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
         }
-        .fluo-orange {
-            background: linear-gradient(104deg, rgba(251,146,60,0) 0.9%, rgba(251,146,60,0.55) 2.4%, rgba(251,146,60,0.35) 5.8%, rgba(251,146,60,0.65) 93%, rgba(251,146,60,0.2) 96%, rgba(251,146,60,0) 98%),
-                        linear-gradient(183deg, rgba(251,146,60,0) 0%, rgba(251,146,60,0.2) 7.9%, rgba(251,146,60,0) 15%);
-            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
-        }
 
         /* Summary / Recap toggle */
         .summary-toggle {
@@ -93,37 +88,6 @@
             margin: 0.15rem 0 0.15rem 2.05rem;
         }
 
-        /* Synthesis Table */
-        .synth-table {
-            width: 100%; border-collapse: collapse; margin: 1.5rem 0;
-            font-size: 0.95rem; border-radius: 8px; overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-        .synth-table th {
-            background: var(--accent-islm); color: white;
-            padding: 0.75rem 1rem; text-align: center; font-weight: 600;
-        }
-        .synth-table th:first-child { text-align: left; }
-        .synth-table td {
-            padding: 0.7rem 1rem; border-bottom: 1px solid var(--border-light);
-            background: white;
-        }
-        .synth-table td:first-child { font-weight: 600; color: var(--bg-sidebar); }
-        .synth-table tr:last-child td { border-bottom: none; }
-        .synth-table tr:hover td { background: var(--accent-islm-light); }
-        .tag-up { color: #16a34a; font-weight: 700; }
-        .tag-down { color: var(--accent-islm-hover); font-weight: 700; }
-        .tag-right { color: var(--accent-primary); font-weight: 700; }
-        .tag-left { color: #b45309; font-weight: 700; }
-
-        /* Definition pill */
-        .def-pill {
-            display: inline-block; background: var(--accent-islm-light);
-            border: 1px solid var(--accent-islm-border); border-radius: 20px;
-            padding: 0.2rem 0.75rem; font-size: 0.85rem; font-weight: 600;
-            color: var(--accent-islm-hover); margin: 0 0.2rem 0.4rem 0;
-        }
-
         /* Key definitions block */
         .key-defs {
             background: white; border: 1px solid var(--border-light);
@@ -142,7 +106,7 @@
         .def-term { font-weight: 700; min-width: 140px; color: var(--bg-sidebar); font-size: 0.95rem; }
         .def-body { color: var(--text-main); font-size: 0.95rem; }
         
-        /* New pedagogy styles */
+        /* Pedagogy styles */
         .explanation-text {
             line-height: 1.7;
             margin-bottom: 1.25rem;
@@ -238,124 +202,86 @@
     <main class="main-content islm-content" id="main-content">
         <header class="page-header islm">
             <h1 class="page-title">The IS-LM Model</h1>
-            <p class="page-subtitle"><i class="fas fa-route"></i> From the Keynesian Cross to Aggregate Demand — and the Bridge to IS-MP</p>
+            <p class="page-subtitle"><i class="fas fa-route"></i> General Equilibrium in the Short Run and the Transition to IS-MP</p>
         </header>
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- OVERVIEW                                    -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="overview">
             <p class="explanation-text">
-                Welcome to one of the founding models of modern macroeconomics: the <strong>IS-LM model</strong>. Before diving into the equations, let's step back. The goal of short-run macroeconomics is to understand how a country's output level ($Y$) is determined at a given time, when prices have not yet had time to adjust (we say prices are "rigid" or "sticky", meaning $P$ is fixed).
-            </p>
-            <p class="explanation-text">
-                To understand this, the IS-LM model bridges two worlds that constantly interact: the <strong>goods and services market</strong> (where we produce, consume, and invest) and the <strong>money market</strong> (where the Central Bank injects liquidity and agents decide to hold cash or bonds). It is the intersection of these two markets that will give us the equilibrium of the economy.
+                The IS-LM model formalizes short-run macroeconomic fluctuations under the assumption of <strong>price stickiness</strong>. It identifies the simultaneous equilibrium in two interdependent markets: the goods market (Investment-Saving) and the money market (Liquidity-Money).
             </p>
 
             <div class="key-defs">
-                <h4><i class="fas fa-key"></i> &nbsp;What do "IS" and "LM" stand for?</h4>
+                <h4><i class="fas fa-key"></i> &nbsp;Market Equilibrium Conditions</h4>
                 <div class="def-row">
-                    <span class="def-term">IS Curve (Investment-Saving)</span>
-                    <span class="def-body">It represents the equilibrium in the goods market. "IS" means that Investment is equal to Saving. It gives us all the combinations of interest rate ($i$) and output ($Y$) for which the supply of goods is exactly equal to the demand. It is <strong>downward-sloping</strong>.</span>
+                    <span class="def-term">IS Curve (Goods Market)</span>
+                    <span class="def-body">Represents combinations of the interest rate ($i$) and aggregate output ($Y$) where planned expenditure equals actual production. It is downward-sloping due to the negative interest-elasticity of investment.</span>
                 </div>
                 <div class="def-row">
-                    <span class="def-term">LM Curve (Liquidity-Money)</span>
-                    <span class="def-body">It represents the equilibrium in the money market. "LM" means that the demand for liquidity (Liquidity) is equal to the money supply (Money). It traces the pairs $(Y, i)$ for which the monetary market is in equilibrium. It is <strong>upward-sloping</strong>.</span>
+                    <span class="def-term">LM Curve (Money Market)</span>
+                    <span class="def-body">Represents combinations of $(Y, i)$ where the demand for real money balances equals the exogenously fixed money supply. It is upward-sloping due to the transaction demand for money.</span>
                 </div>
             </div>
-            
-            <p class="explanation-text">
-                Let's now build this model step by step. We will first build the goods market (which will lead to the IS curve), then the money market (the LM curve), before bringing them together.
-            </p>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- THE KEYNESIAN CROSS                        -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="keynesian-cross">
-            <h2>1. The Keynesian Cross: The Foundation of the Goods Market</h2>
+            <h2>1. The Goods Market and the Keynesian Cross</h2>
             <p class="explanation-text">
-                The Keynesian Cross is our starting point. It is a very simple model based on a fundamental idea by John Maynard Keynes: <strong>in the short run, demand creates supply</strong>. If consumers, firms, and the government decide to spend more, firms will draw from their inventories, realize they are selling a lot, and will therefore increase production to meet this demand.
+                The foundation of the IS curve is the Keynesian Cross, which determines equilibrium output holding the interest rate and price level constant. The core premise is that actual output ($Y$) adjusts to meet Planned Expenditure ($PE$).
             </p>
 
             <div class="pedagogy-box">
-                <div class="pedagogy-title">Planned Expenditure vs. Actual Output</div>
+                <div class="pedagogy-title">Equilibrium Condition: $Y = PE$</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Let's imagine the economy produces a certain quantity of goods, let's call it $Y$ (actual output, our GDP). On the other hand, we have what everyone <em>plans</em> to spend, which is called <strong>Planned Expenditure ($PE$)</strong>. <br><br>
-                    If agents plan to spend more than what is produced ($PE > Y$), store shelves empty out. To avoid stockouts, factories restart their machines: $Y$ increases. Conversely, if $PE < Y$, unsold goods accumulate and factories slow down: $Y$ falls. <strong>The economy is in equilibrium only when what is produced is exactly equal to what is demanded: $Y = PE$.</strong>
+                    Planned expenditure is the sum of consumption, investment, and government spending: $PE = C + I + G$.<br>
+                    Inventory adjustments drive the economy toward equilibrium. If $PE > Y$, firms experience unintended inventory depletion and increase production. If $PE < Y$, unintended inventory accumulation leads to production cuts. Equilibrium occurs strictly where $Y = PE$.
                 </p>
             </div>
 
-            <h3>What makes up this demand ($PE$)?</h3>
             <p class="explanation-text">
-                Total demand in an economy is divided into four main blocks. For now, we will assume that investment and government spending are fixed (exogenous) numbers.
+                The components of $PE$ are formalized as follows, treating $I$ and $G$ as exogenous constants for the baseline model:
             </p>
 
             <div class="parameter-list">
                 <div class="parameter-item">
                     <div class="parameter-symbol" style="color: var(--accent-islm);">$C$</div>
-                    <div class="parameter-desc"><strong>Household Consumption:</strong> Households do not consume randomly. Their consumption depends on their disposable income (Income $Y$ minus taxes $T$). The more you earn, the more you consume. The equation is $C = \bar{C} + c(Y - T)$. The parameter $c$ is crucial: it is the <strong>Marginal Propensity to Consume (MPC)</strong>. If $c=0.8$, it means that for every additional dollar earned, the household will spend 80 cents and save 20.</div>
+                    <div class="parameter-desc"><strong>Consumption Function:</strong> $C = \bar{C} + c(Y - T)$. Consumption depends on autonomous spending ($\bar{C}$) and disposable income ($Y - T$). The parameter $c \in (0,1)$ is the <strong>Marginal Propensity to Consume (MPC)</strong>, denoting the fraction of an additional unit of disposable income devoted to consumption.</div>
                 </div>
                 <div class="parameter-item">
-                    <div class="parameter-symbol" style="color: var(--accent-islm);">$I$</div>
-                    <div class="parameter-desc"><strong>Investment:</strong> Purchases of machines or buildings by firms. For now, we assume it is constant: $I = \bar{I}$.</div>
-                </div>
-                <div class="parameter-item">
-                    <div class="parameter-symbol" style="color: var(--accent-islm);">$G$</div>
-                    <div class="parameter-desc"><strong>Government Spending:</strong> State purchases (roads, hospitals, civil servant salaries). It is a political choice, thus constant: $G = \bar{G}$.</div>
-                </div>
-                <div class="parameter-item">
-                    <div class="parameter-symbol" style="color: var(--accent-islm);">$NX$</div>
-                    <div class="parameter-desc"><strong>Net Exports:</strong> What we sell abroad minus what we buy. To simplify this first model, we will group them into autonomous spending.</div>
+                    <div class="parameter-symbol" style="color: var(--accent-islm);">$I$ &amp; $G$</div>
+                    <div class="parameter-desc"><strong>Exogenous Variables:</strong> Investment ($I = \bar{I}$) and Government Spending ($G = \bar{G}$) are assumed constant.</div>
                 </div>
             </div>
 
-            <h3>The Magic of the Keynesian Multiplier</h3>
+            <h3>The Expenditure Multiplier</h3>
             <p class="explanation-text">
-                By substituting these elements into our equilibrium condition $Y = PE$, we obtain a magical equation. Let's look at the formula for equilibrium output:
+                Substituting the consumption function into the equilibrium condition yields the equilibrium output:
             </p>
             
             <div class="equation-box" style="background: rgba(239,68,68,0.06); border-color: var(--accent-islm); font-size: 1.25rem;">
-                $\boxed{Y^* = \alpha_g \cdot A}, \quad \text{with} \quad \alpha_g = \dfrac{1}{1 - c(1-t)}$
+                $\boxed{Y^* = \alpha_g \cdot A}, \quad \text{where} \quad \alpha_g = \dfrac{1}{1 - c(1-t)}$
             </div>
 
             <p class="explanation-text">
-                The term $A$ represents all "autonomous" spending (which does not depend on income, like $\bar{G}$ or $\bar{I}$). But the fascinating term is $\alpha_g$. Since $c$ is between 0 and 1, <strong>$\alpha_g$ is strictly greater than 1</strong>. It is called the <span class="fluo-red">government spending multiplier</span>. 
+                Here, $A$ aggregates all autonomous spending components. The term $\alpha_g$ is the <span class="fluo-red">government spending multiplier</span>. Because $c \in (0,1)$, $\alpha_g > 1$. 
             </p>
 
             <div class="pedagogy-box" style="border-left-color: #16a34a;">
-                <div class="pedagogy-title" style="color: #15803d;">The economic intuition of the multiplier</div>
+                <div class="pedagogy-title" style="color: #15803d;">Mathematical Derivation of the Multiplier</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Why does a 1 million dollar increase in government spending ($G$) cause GDP ($Y$) to increase by <em>more</em> than a million dollars? Imagine the government decides to build a new road for 1 million dollars. This sum is paid to a construction company, which uses it to pay its workers. <br><br>
-                    These workers now have additional income. What will they do with it? They will consume a fraction $c$ of it (say 80%, or $800,000) to buy cars, clothes, food. The sellers of these goods therefore see their income increase by $800,000, and will in turn spend 80% of it ($640,000), and so on. <br><br>
-                    <strong>It is a chain reaction of spending:</strong> the initial government spending creates a first income, which generates consumption, which creates a second income, etc. The sum of this infinite series gives the multiplier $\alpha_g$.
+                    An initial exogenous increase in government spending ($\Delta G$) immediately increases $Y$ by $\Delta G$. This income increase induces secondary consumption spending of $c \Delta G$, which further increases income, inducing tertiary spending of $c^2 \Delta G$, ad infinitum.<br><br>
+                    The total effect on output is the sum of an infinite geometric series: $\Delta Y = \Delta G \cdot (1 + c + c^2 + \dots) = \Delta G \cdot \frac{1}{1 - c}$. Therefore, $\frac{\Delta Y}{\Delta G} = \frac{1}{1 - c}$.
                 </p>
             </div>
-            
-            <p class="explanation-text">
-                There is also a <strong>transfer multiplier</strong> (if the government increases welfare benefits or cuts pure taxes). This multiplier is smaller ($c \cdot \alpha_g$), because welfare is not directly injected into GDP: it is first received by households, who will save a small part before spending the rest. The first "round" of spending is therefore diluted.
-            </p>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- FROM THE CROSS TO THE IS CURVE             -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="is-curve">
             <h2>2. Deriving the IS Curve</h2>
             <p class="explanation-text">
-                The Keynesian Cross is highly instructive, but it has a major flaw: <strong>it assumes that business investment is a fixed amount $\bar{I}$</strong>, fallen from the sky. In reality, investment is an economic decision highly sensitive to financing conditions.
-            </p>
-            
-            <p class="explanation-text">
-                If you are a CEO and you want to build a new factory, you will likely have to borrow from the bank. <strong>The interest rate ($i$) represents the cost of this loan.</strong> If rates are very low (e.g., 1%), many projects become profitable. If rates soar to 10%, only extremely profitable projects will be able to cover this financing cost, and many investments will be canceled.
-            </p>
-
-            <p class="explanation-text">
-                We will therefore modify our investment equation to reflect this reality: investment depends <em>negatively</em> on the interest rate.
+                The assumption of exogenous investment is relaxed to derive the IS curve. Investment is formalized as a decreasing function of the interest rate, representing the cost of borrowing and the opportunity cost of internal funds.
             </p>
 
             <div class="equation-box" style="border-color: var(--accent-islm); font-size: 1.2rem;">
@@ -363,12 +289,7 @@
             </div>
             
             <p class="explanation-text">
-                The parameter $b$ measures the <strong>sensitivity of investment to the interest rate</strong>. The larger $b$ is, the more a small change in rates will cause firms to react massively.
-            </p>
-
-            <h3>From the formula to the curve</h3>
-            <p class="explanation-text">
-                Let's integrate this new reality into our goods market equilibrium ($Y = PE$). Autonomous spending $A$ now contains this term $-bi$. The equation for our output becomes:
+                The parameter $b$ measures the interest elasticity of investment. Substituting this investment function into the goods market equilibrium condition yields the IS equation:
             </p>
             
             <div class="equation-box" style="background: rgba(239,68,68,0.06); border-color: var(--accent-islm); font-size: 1.15rem;">
@@ -376,78 +297,51 @@
             </div>
             
             <p class="explanation-text">
-                This is the equation of the <strong>IS curve</strong>. It describes the goods market completely: for any interest rate level $i$ imposed by the markets, it tells us what the output level $Y$ will be that balances supply and demand. By isolating it with respect to $i$, we can plot it on a graph with $i$ on the vertical axis and $Y$ on the horizontal axis.
+                The IS curve maps the locus of $(Y, i)$ combinations ensuring goods market equilibrium. Its slope is negative: a higher interest rate reduces investment, which, via the multiplier effect, contracts equilibrium output.
             </p>
 
             <div class="chain-box">
-                <div class="chain-title"><i class="fas fa-arrow-trend-down"></i> Causal intuition: Why is IS downward-sloping?</div>
+                <div class="chain-title"><i class="fas fa-arrow-trend-down"></i> Transmission Mechanism: Interest Rate to Output</div>
                 <div class="chain-step">
                     <div class="step-num">1</div>
-                    <div><strong>Initial shock:</strong> Imagine the Central Bank decides to raise interest rates ($i \uparrow$). Credit becomes more expensive.</div>
+                    <div>An exogenous increase in the interest rate ($i \uparrow$) raises the cost of capital.</div>
                 </div>
                 <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num">2</div>
-                    <div><strong>Firms' reaction:</strong> Faced with these costly loans, firms cancel their construction and machinery purchase projects. Investment falls ($I \downarrow$).</div>
+                    <div>Firms reduce capital expenditure, leading to a decline in aggregate investment ($I \downarrow$).</div>
                 </div>
                 <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num">3</div>
-                    <div><strong>Impact on aggregate demand:</strong> Since investment is a component of demand, total Planned Expenditure falls.</div>
+                    <div>The reduction in autonomous spending induces a multiplied contraction in aggregate income ($Y \downarrow$).</div>
                 </div>
-                <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
-                <div class="chain-step">
-                    <div class="step-num">4</div>
-                    <div><strong>The multiplier kicks in:</strong> Construction companies lay off workers, workers lose purchasing power, they consume less... GDP falls by an amplified amount ($Y \downarrow$).</div>
-                </div>
-                <p class="explanation-text" style="margin-top: 1rem; margin-bottom: 0;">
-                    <strong>Logical conclusion:</strong> An increase in the interest rate depresses economic activity. The relationship between $i$ and $Y$ is inverse. This is why the IS curve <em>slopes downward</em> to the right.
-                </p>
             </div>
 
-            <h3>Shifts in the IS curve</h3>
             <p class="explanation-text">
-                It is fundamental to distinguish a movement <em>along</em> the curve from a shift <em>of</em> the curve. 
-                If the interest rate changes, we move along the IS curve. 
-                But if a factor <strong>other than the interest rate</strong> modifies aggregate demand (for example, the government decides to build new schools, $G \uparrow$), then the entire relationship changes: for <em>a given interest rate</em>, demand will be stronger. The IS curve <strong>shifts to the right</strong>.
+                Changes in the interest rate result in movements along the IS curve. Conversely, changes in autonomous spending components (e.g., fiscal policy shocks such as $\Delta G$ or $\Delta T$) cause parallel shifts of the IS curve.
             </p>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- LIQUIDITY PREFERENCE & THE LM CURVE        -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="lm-curve">
-            <h2>3. The LM Curve: Equilibrium in the Money Market</h2>
+            <h2>3. The Money Market and the LM Curve</h2>
             <p class="explanation-text">
-                We have solved half the problem. We know how the real economy reacts to interest rates. But where does this interest rate come from? It is formed in another market: <strong>the money market</strong>. This is where the LM curve comes in.
-            </p>
-            
-            <p class="explanation-text">
-                To understand LM, we must understand the concept of <strong>Liquidity Preference</strong>. At any given time, you have a certain amount of wealth. You can choose to hold it in two forms:
-                <br>1. <strong>Money (cash or checking account):</strong> It is highly liquid, you can buy a sandwich immediately with it. Disadvantage: it yields nothing (interest rate = 0%).
-                <br>2. <strong>Bonds (financial securities):</strong> They are not liquid (you cannot pay your baker with a stock). But in exchange for this inconvenience, they pay you a return: the famous interest rate $i$.
+                The LM curve models equilibrium in the money market based on Keynes's theory of Liquidity Preference, which posits that the interest rate adjusts to balance the supply and demand for real money balances.
             </p>
 
             <div class="pedagogy-box">
-                <div class="pedagogy-title">Money Demand (Liquidity Demand, $L^d$)</div>
+                <div class="pedagogy-title">The Demand for Real Balances ($L^d$)</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Your choice to hold more or less cash will depend on two opposing forces:
-                    <br><br>
-                    <strong>The transaction motive (The income effect, $Y$):</strong> If your income increases, or if the economy is booming and GDP ($Y$) is very high, you make more purchases. You need more cash in your wallet to pay for your groceries. So, when $Y$ increases, money demand increases (parameter $k > 0$).
-                    <br><br>
-                    <strong>The speculative motive / Opportunity cost (The interest rate effect, $i$):</strong> Holding cash has an invisible price: it's the money you lose by not investing that cash. This forgone return is the interest rate. If savings accounts suddenly jump to 10%, you will rush to empty your checking account to buy bonds. The opportunity cost of money has become too high. So, when the interest rate $i$ rises, people flee cash: money demand falls (parameter $h > 0$).
+                    Money demand is determined by two primary motives:<br><br>
+                    <strong>1. The Transaction Motive ($kY$):</strong> Real balances are held to facilitate transactions. As aggregate income ($Y$) rises, the volume of transactions increases, proportionally increasing money demand ($k > 0$).<br><br>
+                    <strong>2. The Speculative Motive ($-hi$):</strong> The nominal interest rate represents the opportunity cost of holding non-interest-bearing money instead of bonds. As $i$ rises, agents substitute money for bonds, reducing money demand ($h > 0$).
                 </p>
             </div>
 
             <p class="explanation-text">
-                This gives us our money demand equation: $\left(\frac{M}{P}\right)^d = kY - hi$. Facing this demand, we have <strong>the money supply</strong> ($\frac{\bar{M}}{\bar{P}}$), which is rigidly fixed (exogenous) by the Central Bank (the ECB or the Fed).
-            </p>
-
-            <h3>Monetary equilibrium and the LM curve</h3>
-            <p class="explanation-text">
-                Equilibrium in the money market is reached when liquidity demand equals the supply fixed by the Central Bank. By setting them equal and isolating the interest rate, we get:
+                The demand for real balances is thus formulated as $\left(\frac{M}{P}\right)^d = kY - hi$. Equilibrium requires this demand to equal the exogenous real money supply $\frac{\bar{M}}{\bar{P}}$, controlled by the central bank.
             </p>
 
             <div class="equation-box" style="background: rgba(239,68,68,0.06); border-color: var(--accent-islm); font-size: 1.15rem;">
@@ -455,113 +349,85 @@
             </div>
 
             <p class="explanation-text">
-                This is the equation of the <strong>LM curve</strong>. Unlike IS, look at the sign in front of $Y$: it is positive. The LM curve is <strong>upward-sloping</strong>. Why? Let's deconstruct the mechanism.
+                The LM equation demonstrates a positive relationship between $Y$ and $i$. 
             </p>
 
             <div class="chain-box">
-                <div class="chain-title"><i class="fas fa-arrow-trend-up"></i> Causal intuition: Why is LM upward-sloping?</div>
+                <div class="chain-title"><i class="fas fa-arrow-trend-up"></i> Transmission Mechanism: Output to Interest Rate</div>
                 <div class="chain-step">
                     <div class="step-num">1</div>
-                    <div><strong>Initial shock on the economy:</strong> Suppose GDP rises sharply ($Y \uparrow$). Firms are operating at full capacity, hiring multiplies.</div>
+                    <div>An expansion in aggregate output ($Y \uparrow$) increases the transaction demand for money.</div>
                 </div>
                 <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num">2</div>
-                    <div><strong>Need for liquidity:</strong> To make all these new purchases and pay these new wages, agents massively need cash. Money demand surges ($L^d \uparrow$).</div>
+                    <div>Assuming a fixed money supply, an excess demand for real balances emerges.</div>
                 </div>
                 <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num">3</div>
-                    <div><strong>The conflict with fixed supply:</strong> The Central Bank, however, has not printed any new bills. There is therefore a shortage of money in the market (excess demand).</div>
+                    <div>Agents attempt to liquidate bonds to acquire cash, driving bond prices down.</div>
                 </div>
                 <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
                 <div class="chain-step">
                     <div class="step-num">4</div>
-                    <div><strong>Liquidating assets:</strong> To obtain this missing cash, households and banks will sell their bonds en masse. What happens when everyone sells the same security? Its price collapses.</div>
+                    <div>Given the inverse relationship between bond prices and yields, the interest rate rises ($i \uparrow$) until the speculative demand falls enough to restore equilibrium.</div>
                 </div>
-                <div class="chain-arrow"><i class="fas fa-arrow-down"></i></div>
-                <div class="chain-step">
-                    <div class="step-num">5</div>
-                    <div><strong>The interest rate adjustment:</strong> In finance, a bond's price moves inversely to its yield. If bond prices plummet, interest rates shoot up ($i \uparrow$). These new, very high rates will ultimately discourage agents from holding money, bringing the market back to equilibrium.</div>
-                </div>
-                <p class="explanation-text" style="margin-top: 1rem; margin-bottom: 0;">
-                    <strong>Logical conclusion:</strong> An increase in GDP mechanically causes tensions in the money market that drive up interest rates. The relationship between $Y$ and $i$ is therefore positive: the LM curve <em>slopes upward</em> to the right.
-                </p>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- IS-LM EQUILIBRIUM                          -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="islm-equilibrium">
-            <h2>4. General IS-LM Equilibrium and Aggregate Demand</h2>
+            <h2>4. General Equilibrium and Aggregate Demand</h2>
             <p class="explanation-text">
-                We now have our two scissor blades. 
-                On one side (IS), the interest rate dictates investment and therefore the level of economic activity.
-                On the other (LM), the level of economic activity generates a need for liquidity that dictates the interest rate.
-            </p>
-            <p class="explanation-text">
-                The economy finds its rest only at <strong>the intersection of these two curves</strong>. At this precise point, and nowhere else, the goods market clears perfectly without inventory accumulation, AND the money market is serene, with no agents desperately trying to sell bonds. This magical point gives us the short-run equilibrium pair $(Y^*, i^*)$ of our economy.
+                General short-run equilibrium is defined uniquely at the intersection of the IS and LM curves. The resulting pair $(Y^*, i^*)$ ensures simultaneous market clearing in both the goods and money markets.
             </p>
 
             <div class="pedagogy-box" style="border-left-color: #f59e0b;">
-                <div class="pedagogy-title" style="color: #d97706;">From IS-LM to the Aggregate Demand (AD) Curve</div>
+                <div class="pedagogy-title" style="color: #d97706;">Derivation of the Aggregate Demand (AD) Curve</div>
                 <p class="explanation-text" style="margin-bottom:0;">
-                    Remember our initial assumption: all this was calculated assuming the price level ($P$) was <em>fixed</em>. But what would happen if prices were suddenly higher?<br><br>
-                    If inflation strikes and $P$ rises, the quantity of physical bills in circulation does not change, but <strong>the purchasing power of these bills collapses</strong>. The <em>real</em> money supply ($\frac{M}{P}$) decreases. <br>
-                    Faced with this "scarcity" of real money, the LM curve will shift upward (rates rise because money becomes scarce). <br>
-                    These high rates will depress investment (a movement along IS), which will cause equilibrium GDP ($Y^*$) to fall.<br><br>
-                    <strong>The result?</strong> A higher price level generates a lower equilibrium GDP. If we plot this relationship on a graph with $P$ on the vertical axis and $Y$ on the horizontal axis, we get a downward-sloping curve: this is the famous <strong>Aggregate Demand (AD) curve</strong> you saw in the AS-AD model.
+                    The IS-LM model assumes a fixed price level $P$. Relaxing this assumption reveals the Aggregate Demand (AD) curve.<br><br>
+                    An exogenous increase in the price level ($P \uparrow$) reduces the real money supply ($\frac{M}{P} \downarrow$). This leftward shift of the LM curve forces the equilibrium interest rate higher. The elevated interest rate subsequently depresses investment, causing equilibrium output to contract along the IS curve.<br><br>
+                    Consequently, the locus of equilibrium output levels associated with varying price levels forms a downward-sloping relationship in $(Y, P)$ space, defining the AD curve.
                 </p>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- THE BRIDGE TO IS-MP                        -->
-        <!-- ═══════════════════════════════════════════ -->
         <section id="bridge-ismp">
-            <h2>5. The Bridge to Modernity: From IS-LM to the IS-MP Model</h2>
+            <h2>5. The Transition to the IS-MP Model</h2>
             <p class="explanation-text">
-                The IS-LM model, as just presented to you, dominated macroeconomics for decades. It is a brilliant model, but it contains a flaw in realism regarding the LM curve. 
-            </p>
-            <p class="explanation-text">
-                In our LM story, the Central Bank rigidly controls the quantity of bills ($M$), and lets the interest rate ($i$) fluctuate wildly according to market demand shocks. <strong>However, in today's real world, no major Central Bank operates this way.</strong>
+                While the IS-LM framework assumes an exogenous money supply $M$, modern monetary policy implementation relies on targeting a short-term nominal interest rate rather than monetary aggregates. The IS-MP (Monetary Policy) model updates the LM component to reflect this institutional reality.
             </p>
 
             <div class="compare-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; margin-bottom: 1.5rem;">
                 <div style="background: white; padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--text-muted); border-left: 1px solid var(--border-light); border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-                    <h4 style="color: var(--text-muted); margin-bottom: 1rem;"><i class="fas fa-history"></i> The classical view (IS-LM)</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">The Fed fixes $M$. If the government stimulates the economy, money demand explodes. The Fed does nothing, so interest rates skyrocket uncontrollably, destroying private investment.</p>
+                    <h4 style="color: var(--text-muted); margin-bottom: 1rem;"><i class="fas fa-history"></i> IS-LM Framework</h4>
+                    <p class="explanation-text" style="font-size: 0.95rem;">The central bank fixes $M$. Demand shocks (shifts in IS) cause endogenous fluctuations in the interest rate as money demand varies along a fixed LM curve, leading to crowding out effects.</p>
                 </div>
                 <div style="background: white; padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--accent-islm); border-left: 1px solid var(--border-light); border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-                    <h4 style="color: var(--accent-islm-hover); margin-bottom: 1rem;"><i class="fas fa-satellite-dish"></i> The modern view (IS-MP)</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">The ECB or the Fed do not target the money supply. They announce a <strong>target interest rate</strong> (e.g., "The policy rate is 3%"). They will then print as much money as necessary every day to keep this rate exactly at 3%. The monetary curve becomes a horizontal line.</p>
+                    <h4 style="color: var(--accent-islm-hover); margin-bottom: 1rem;"><i class="fas fa-satellite-dish"></i> IS-MP Framework</h4>
+                    <p class="explanation-text" style="font-size: 0.95rem;">The central bank sets a target interest rate $\bar{i}$ and endogenously accommodates any shifts in money demand via open market operations. The monetary equilibrium is represented by a horizontal MP curve.</p>
                 </div>
             </div>
 
-            <h3>The MP (Monetary Policy) Curve</h3>
             <p class="explanation-text">
-                In contemporary macroeconomic models (like those studied at the beginning of the semester), the upward-sloping LM curve is therefore replaced by a <strong>horizontal MP curve</strong>.
+                The MP curve is formalized as an interest rate rule, often following a Taylor Rule specification:
             </p>
             <div class="equation-box" style="border-color: var(--accent-islm);">
-                $i = \bar{i} \quad \text{or via the Taylor rule: } \quad i_t = r^n_t + \pi_t + \phi_\pi(\pi_t - \pi^*_t) + \phi_y(Y_t - \bar{Y}_t)$
+                $i_t = r^n_t + \pi_t + \phi_\pi(\pi_t - \pi^*_t) + \phi_y(Y_t - \bar{Y}_t)$
             </div>
             <p class="explanation-text">
-                This shift from IS-LM to IS-MP considerably changes how we analyze fiscal policies (as we will see in the applications), because a government stimulus no longer automatically causes an interest rate spike, since the Central Bank accommodates money demand to maintain its target rate. 
-            </p>
-            <p class="explanation-text">
-                However, <strong>the "real" block of the economy, the IS curve, remains exactly the same</strong>. Understanding IS-LM is therefore an indispensable step to mastering the plumbing of modern macroeconomics.
+                The IS equation remains structurally identical in both models. The transition to IS-MP modifies solely the comparative statics of policy shocks, eliminating automatic crowding out associated with an upward-sloping LM curve unless the central bank actively adjusts its policy rate in response to output gaps.
             </p>
         </section>
 
         <!-- FOOTER -->
         <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-islm-border); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>IS-LM Lecture — Pedagogical Format (B2 English). Revised May 2026.</em>
+                <em>IS-LM Lecture — Academic Format (B2/C1 English). Revised May 2026.</em>
             </p>
         </section>
 
