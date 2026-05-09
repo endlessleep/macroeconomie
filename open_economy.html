@@ -459,21 +459,142 @@
         <section id="ppp">
             <h2>4. Purchasing Power Parity (PPP) &amp; Balassa-Samuelson</h2>
 
+            <!-- PPP Core Idea -->
+            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">The Core Idea</h3>
             <p class="explanation-text">
-                Purchasing Power Parity (PPP) is a theoretical framework postulating that the nominal exchange rate adjusts such that an identical basket of goods costs the same across countries. It relies on the Law of One Price and perfect goods arbitrage.
+                Purchasing Power Parity (PPP) states that exchange rates should adjust so that the same basket of goods has the same price in every country, once prices are converted into the same currency.
+            </p>
+            <p class="explanation-text">
+                The underlying logic rests on the <strong>Law of One Price</strong>: in competitive markets with no trade barriers, identical goods must sell at the same price internationally. If a good is cheaper in one country, consumers and firms will buy it there, driving demand up in that country until the price difference disappears. This process is called <strong>goods arbitrage</strong>.
             </p>
 
+            <!-- Intuitive Example -->
+            <div class="pedagogy-box" style="border-left-color: #f59e0b; background: #fffbeb;">
+                <div class="pedagogy-title" style="color: #b45309;">Intuitive Example</div>
+                <p class="explanation-text" style="margin-bottom: 0.5rem;">Suppose the same basket of goods costs:</p>
+                <div class="equation-box" style="border-color: #fcd34d; background: white; color: #92400e; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
+                    $100 \text{ € in Europe}, \quad 120 \text{ \$ in the United States}$
+                </div>
+                <p class="explanation-text" style="margin-bottom: 0.5rem;">PPP implies the equilibrium nominal exchange rate should be:</p>
+                <div class="equation-box" style="border-color: #fcd34d; background: white; color: #92400e; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
+                    $1 \text{ €} = 1.20 \text{ \$}$
+                </div>
+                <p class="explanation-text" style="margin-bottom: 0;">At this exchange rate, €100 converts exactly to $120, so the basket costs the same in both currencies. If the exchange rate were different — say 1€ = 1.50$ — the European basket would appear cheaper for American consumers, who would switch to buying European goods. This demand would drive the euro up until parity is restored.</p>
+            </div>
+
+            <!-- Key Intuition -->
+            <div class="pedagogy-box" style="border-left-color: #3b82f6; background: #eff6ff; margin-top: 1.5rem;">
+                <div class="pedagogy-title" style="color: #1d4ed8;">Key Intuition: Why Arbitrage Enforces PPP</div>
+                <p class="explanation-text" style="margin-bottom: 0.5rem;">Under PPP:</p>
+                <ul class="explanation-text" style="margin-bottom: 0;">
+                    <li>No country remains permanently "cheaper" or "more expensive" than another.</li>
+                    <li>If a price gap appears, consumers shift spending toward the cheaper country.</li>
+                    <li>This increases demand for the cheaper country's currency, causing it to appreciate.</li>
+                    <li>Exchange rates and/or prices then adjust until purchasing power is equalised across countries.</li>
+                </ul>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
+
+            <!-- Real Exchange Rate -->
+            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">The Real Exchange Rate</h3>
             <p class="explanation-text">
-                Under absolute PPP, the real exchange rate is invariant and equal to unity ($\epsilon = 1$). Consequently, $NX$ becomes perfectly elastic, implying that any deviation in domestic prices relative to foreign prices is immediately offset by nominal exchange rate movements. Empirical evidence, however, demonstrates persistent deviations from PPP.
+                The real exchange rate ($\epsilon$) measures the relative price of domestic goods compared to foreign goods. It is the key variable for assessing a country's <strong>international competitiveness</strong>.
+            </p>
+
+            <div class="key-defs">
+                <div class="def-row">
+                    <span class="def-term">Nominal Exchange Rate ($e$)</span>
+                    <span class="def-body">The relative price of domestic currency in terms of foreign currency. An increase in $e$ means the domestic currency can buy more foreign currency — it has <em>appreciated</em>.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Real Exchange Rate ($\epsilon$)</span>
+                    <span class="def-body">The relative price of domestic goods in terms of foreign goods, defined as $\epsilon = \frac{eP}{P^*}$. It captures how expensive domestic production is relative to foreign production.</span>
+                </div>
+            </div>
+
+            <p class="explanation-text" style="font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Key Formula</p>
+            <div class="equation-box" style="font-size: 1.25rem; margin-bottom: 1rem;">
+                $\epsilon = \frac{e \cdot P}{P^*}$
+            </div>
+            <p class="explanation-text">with $e$ = nominal exchange rate, $P$ = domestic price level, $P^*$ = foreign price level.</p>
+
+            <div class="pedagogy-box" style="border-left-color: #8b5cf6; background: #f5f3ff;">
+                <div class="pedagogy-title" style="color: #6d28d9;">Interpreting the Real Exchange Rate</div>
+                <ul class="explanation-text" style="margin-bottom: 0;">
+                    <li>If $\epsilon > 1$: domestic goods are <strong>relatively expensive</strong> — competitiveness is low. Exports fall, imports rise, $NX \downarrow$.</li>
+                    <li>If $\epsilon < 1$: domestic goods are <strong>relatively cheap</strong> — competitiveness is high. Exports rise, imports fall, $NX \uparrow$.</li>
+                    <li>If $\epsilon = 1$: domestic and foreign goods are priced identically — this is the PPP benchmark.</li>
+                </ul>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
+
+            <!-- Absolute PPP -->
+            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">Absolute PPP</h3>
+            <p class="explanation-text">
+                Under <strong>absolute PPP</strong>, the nominal exchange rate adjusts so that the same basket of goods costs exactly the same in every country after currency conversion. This is written as:
+            </p>
+            <div class="equation-box" style="font-size: 1.25rem; margin-bottom: 1rem;">
+                $e \cdot P = P^*$
+            </div>
+            <p class="explanation-text">
+                This means: if you convert the domestic price $P$ into foreign currency using the exchange rate $e$, you get exactly the foreign price $P^*$. Now substitute this condition into the real exchange rate formula:
+            </p>
+            <div class="equation-box" style="font-size: 1.15rem; margin-bottom: 0.5rem;">
+                $\epsilon = \frac{eP}{P^*} = \frac{P^*}{P^*} = 1$
+            </div>
+
+            <div class="pedagogy-box" style="border-left-color: #10b981; background: #ecfdf5; margin-top: 1rem;">
+                <div class="pedagogy-title" style="color: #059669;">Under Absolute PPP: $\epsilon = 1$</div>
+                <ul class="explanation-text" style="margin-bottom: 0;">
+                    <li>Domestic and foreign goods have <strong>identical purchasing power</strong>.</li>
+                    <li>There is no persistent price advantage for either country.</li>
+                    <li>Any nominal price difference is exactly offset by the exchange rate.</li>
+                    <li>Net exports are <strong>perfectly elastic</strong> with respect to $\epsilon$: even a tiny deviation in relative prices triggers unlimited arbitrage flows.</li>
+                </ul>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
+
+            <!-- Consequences for NX -->
+            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">Consequences for Net Exports</h3>
+            <p class="explanation-text">
+                Under strict PPP, $NX$ becomes a function of $\epsilon$ that reacts very strongly to any price deviation. The mechanism is:
+            </p>
+            <ul class="explanation-text" style="margin-bottom: 1rem;">
+                <li>If domestic goods become slightly more expensive ($\epsilon \uparrow$), consumers — both domestic and foreign — switch toward cheaper foreign goods.</li>
+                <li>Exports decrease immediately; imports increase immediately.</li>
+                <li>The resulting shift in currency demand then pushes the exchange rate back toward parity.</li>
+            </ul>
+            <p class="explanation-text">
+                In practice, PPP holds better in the long run than the short run. In the short run, prices are sticky and exchange rates are volatile, so $\epsilon$ can deviate significantly from 1. Empirical evidence consistently shows that PPP deviations can persist for years.
+            </p>
+
+            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
+
+            <!-- Balassa-Samuelson -->
+            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">Structural Deviations: The Balassa-Samuelson Effect</h3>
+            <p class="explanation-text">
+                Even in the long run, PPP fails to hold perfectly across countries with different income levels. The Balassa-Samuelson effect explains why price levels are <em>systematically higher</em> in rich countries.
             </p>
 
             <div class="pedagogy-box" style="border-left-color: #eab308; background: #fefce8;">
-                <div class="pedagogy-title" style="color: #ca8a04;">The Balassa-Samuelson Effect</div>
-                <p class="explanation-text" style="margin-bottom:0;">
-                    The Balassa-Samuelson effect provides a structural explanation for systematic deviations from PPP, specifically why aggregate price levels are persistently higher in advanced economies.<br><br>
-                    <strong>1. Productivity Differentials:</strong> Advanced economies exhibit significantly higher labor productivity in the tradable goods sector compared to developing economies. The Law of One Price holds for tradables, ensuring global price equalization for these goods.<br><br>
-                    <strong>2. Wage Equalization:</strong> High productivity in the tradable sector dictates high marginal products of labor, resulting in high wages. Assuming perfect domestic labor mobility, these high wages must be matched in the non-tradable sector (e.g., local services) to prevent labor shortages.<br><br>
-                    <strong>3. Price Level Divergence:</strong> Because productivity in the non-tradable sector is relatively uniform across countries, the higher wages in advanced economies manifest as higher prices for non-tradable goods. Consequently, the aggregate price level ($P$), which is a weighted average of tradable and non-tradable prices, is structurally higher in advanced economies.
+                <div class="pedagogy-title" style="color: #ca8a04;">The Balassa-Samuelson Effect: Step by Step</div>
+
+                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 1: Productivity differentials in tradables</p>
+                <p class="explanation-text" style="margin-bottom: 1rem;">
+                    Advanced economies are much more productive in the <strong>tradable goods sector</strong> (manufacturing, technology) than developing economies. The Law of One Price equalises the prices of tradable goods internationally, so advanced economies earn more per unit of output in that sector.
+                </p>
+
+                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 2: Wages equalise domestically</p>
+                <p class="explanation-text" style="margin-bottom: 1rem;">
+                    High productivity in tradables generates high wages. Because workers can move freely across sectors domestically, wages in the <strong>non-tradable sector</strong> (haircuts, restaurants, local services) must match — otherwise workers leave for the tradable sector. High wages flow into services.
+                </p>
+
+                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 3: Non-tradable prices become structurally high</p>
+                <p class="explanation-text" style="margin-bottom: 0;">
+                    Since productivity in non-tradables is roughly similar across countries, higher wages translate directly into higher prices for non-tradable goods in rich countries. The overall price level $P$ — a weighted average of tradable and non-tradable prices — is therefore persistently higher in advanced economies, causing a structural overvaluation relative to PPP.
                 </p>
             </div>
         </section>
