@@ -451,28 +451,53 @@
         <section id="bridge-ismp">
             <h2>5. The Transition to the IS-MP Model</h2>
             <p class="explanation-text">
-                While the IS-LM framework assumes an exogenous money supply $M$, modern monetary policy implementation relies on targeting a short-term nominal interest rate rather than monetary aggregates. The IS-MP (Monetary Policy) model updates the LM component to reflect this institutional reality.
+                The traditional IS-LM framework assumes that the central bank strictly controls the nominal money supply ($M$). However, modern monetary policy implementation relies on targeting a short-term nominal interest rate rather than controlling monetary aggregates. The IS-MP (Monetary Policy) model updates the LM component to reflect this institutional reality.
             </p>
 
-            <div class="compare-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; margin-bottom: 1.5rem;">
-                <div style="background: white; padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--text-muted); border-left: 1px solid var(--border-light); border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-                    <h4 style="color: var(--text-muted); margin-bottom: 1rem;"><i class="fas fa-history"></i> IS-LM Framework</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">The central bank fixes $M$. Demand shocks (shifts in IS) cause endogenous fluctuations in the interest rate as money demand varies along a fixed LM curve, leading to crowding out effects.</p>
+            <div class="pedagogy-box" style="border-left-color: #64748b;">
+                <div class="pedagogy-title" style="color: #475569;">1. The Limitation of the IS-LM Framework</div>
+                <p class="explanation-text" style="margin-bottom: 0.5rem;">
+                    In the IS-LM model, the central bank fixes $M$. Consequently, the interest rate $i$ is a purely endogenous variable that must adjust to clear the money market whenever output $Y$ changes:
+                </p>
+                <div class="equation-box" style="border-color: #cbd5e1; background: white; color: #475569; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
+                    $Y \uparrow \Rightarrow L^d \uparrow \Rightarrow i \uparrow$
                 </div>
-                <div style="background: white; padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--accent-islm); border-left: 1px solid var(--border-light); border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-                    <h4 style="color: var(--accent-islm-hover); margin-bottom: 1rem;"><i class="fas fa-satellite-dish"></i> IS-MP Framework</h4>
-                    <p class="explanation-text" style="font-size: 0.95rem;">The central bank sets a target interest rate $\bar{i}$ and endogenously accommodates any shifts in money demand via open market operations. The monetary equilibrium is represented by a horizontal MP curve.</p>
-                </div>
+                <p class="explanation-text" style="margin-bottom: 0;">
+                    This mechanism generates an upward-sloping LM curve and structural crowding out effects. However, central banks today do not operate this way; they do not allow interest rates to fluctuate purely as a byproduct of money demand shifts.
+                </p>
             </div>
 
-            <p class="explanation-text">
-                The MP curve is formalized as an interest rate rule, often following a Taylor Rule specification:
-            </p>
-            <div class="equation-box" style="border-color: var(--accent-islm);">
-                $i_t = r^n_t + \pi_t + \phi_\pi(\pi_t - \pi^*_t) + \phi_y(Y_t - \bar{Y}_t)$
+            <div class="pedagogy-box" style="border-left-color: #ef4444; background: #fef2f2;">
+                <div class="pedagogy-title" style="color: #b91c1c;">2. The IS-MP Framework Reality</div>
+                <p class="explanation-text" style="margin-bottom: 0.5rem;">
+                    In the IS-MP model, the central bank directly sets a target interest rate $\bar{i}$. To maintain this target, it endogenously adjusts the money supply through continuous open market operations, perfectly accommodating any shifts in money demand:
+                </p>
+                <div class="equation-box" style="border-color: #fca5a5; background: white; color: #b91c1c; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
+                    $L^d \uparrow \Rightarrow M^s \uparrow \Rightarrow i = \bar{i}$
+                </div>
+                <p class="explanation-text" style="margin-bottom: 0;">
+                    Because the central bank commits to a specific interest rate, the monetary equilibrium is no longer an upward-sloping LM curve, but a <strong>horizontal MP (Monetary Policy) line</strong>. Crowding out only occurs if the central bank actively decides to raise the target rate.
+                </p>
             </div>
+
+            <div class="pedagogy-box" style="border-left-color: #3b82f6; background: #eff6ff;">
+                <div class="pedagogy-title" style="color: #1d4ed8;">3. Formalizing the MP Curve: The Taylor Rule</div>
+                <p class="explanation-text" style="margin-bottom: 0.5rem;">
+                    How does the central bank choose its target interest rate $\bar{i}$? The MP curve is formalized as an interest rate reaction function, typically modeled using the Taylor Rule. It adjusts the nominal interest rate systematically in response to inflation deviations and output gaps:
+                </p>
+                <div class="equation-box" style="border-color: #93c5fd; background: white; color: #1d4ed8; padding: 1rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
+                    $i_t = r^n_t + \pi_t + \phi_\pi(\pi_t - \pi^*_t) + \phi_y(Y_t - \bar{Y}_t)$
+                </div>
+                <ul class="explanation-text" style="margin-top: 0; margin-bottom: 0; padding-left: 1.5rem;">
+                    <li>$r^n_t$: The natural real interest rate.</li>
+                    <li>$\pi_t - \pi^*_t$: The inflation gap (current inflation vs. target inflation).</li>
+                    <li>$Y_t - \bar{Y}_t$: The output gap (current output vs. potential output).</li>
+                    <li>$\phi_\pi, \phi_y$: The central bank's reaction sensitivities to inflation and output respectively.</li>
+                </ul>
+            </div>
+            
             <p class="explanation-text">
-                The IS equation remains structurally identical in both models. The transition to IS-MP modifies solely the comparative statics of policy shocks, eliminating automatic crowding out associated with an upward-sloping LM curve unless the central bank actively adjusts its policy rate in response to output gaps.
+                In conclusion, the IS equation remains structurally identical in both models. Transitioning from IS-LM to IS-MP simply replaces the assumption of an exogenous money supply with the more realistic assumption of an endogenous money supply anchored by an interest rate rule.
             </p>
         </section>
 
