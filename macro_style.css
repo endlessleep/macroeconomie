@@ -547,7 +547,7 @@ strong {
 }
 
 .image-container img {
-    max-width: 400px; /* Reduced from 500/600px */
+    max-width: 300px;
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -579,7 +579,7 @@ figure {
 }
 
 figure img {
-    max-width: 400px;
+    max-width: 300px;
     width: 100%;
     height: auto;
     border-radius: 6px;
