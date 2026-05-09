@@ -474,28 +474,67 @@
 
 
             <h3>Graphical Impacts of Shocks in the Open Economy Model</h3>
-            <p>Let's map out exactly how distinct macroeconomic shocks deform our $S-I$ balance and thus deeply affect our exchange rate equilibrium.</p>
+            <p class="explanation-text">The following cases illustrate how distinct macroeconomic shocks disrupt the $S-I$ balance and reshape the real exchange rate equilibrium.</p>
 
             <div class="grid-cards">
-                <div class="grid-card" style="text-align:center;">
-                    <h4 style="justify-content:center;">Fiscal Expansion at Home</h4>
-                    <img src="assets/home1.png" alt="Fiscal expansion at home alters curve" style="width:100%; max-width:220px; border-radius:6px; margin:1rem 0;">
-                    <p style="font-size:0.9rem;">$S$ shifts left. Trade balance severely drops, causing $\epsilon$ to drastically appreciate.</p>
+                <!-- CASE 1: FISCAL AT HOME -->
+                <div class="grid-card" style="border-top-color: #ef4444;">
+                    <h4 style="justify-content:center;"><i class="fas fa-home"></i> Fiscal Expansion at Home</h4>
+                    <img src="assets/home1.png" alt="Fiscal expansion at home alters curve" style="width:100%; max-width:220px; border-radius:6px; margin:1rem 0; display: block; margin-left: auto; margin-right: auto;">
+                    
+                    <div style="font-size: 0.88rem; line-height: 1.5;">
+                        <strong style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-primary);">Economic Interpretation</strong>
+                        <p style="margin: 0.4rem 0;">A domestic fiscal expansion reduces national saving ($S \downarrow$). Since domestic investment is pinned by $r^*$, the decline in saving directly reduces $S-I$ (Net Capital Outflow). Domestic residents supply fewer funds abroad, causing the currency to appreciate: <strong>$\epsilon \uparrow$</strong>. This reduces exports and stimulates imports.</p>
+                        
+                        <div style="background: #f8fafc; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-light); text-align: center; margin-top: 0.5rem;">
+                            <span style="font-weight: 700; color: #b91c1c;">$G\uparrow \Rightarrow S\downarrow \Rightarrow NCO\downarrow \Rightarrow \epsilon\uparrow \Rightarrow NX\downarrow$</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid-card" style="text-align:center;">
-                    <h4 style="justify-content:center;">Fiscal Expansion Abroad</h4>
-                    <img src="assets/abroad1.png" alt="Fiscal expansion abroad alters curve" style="width:100%; max-width:220px; border-radius:6px; margin:1rem 0;">
-                    <p style="font-size:0.9rem;">$r^*$ rises, causing domestic $I$ to drop. The $S-I$ gap swells, sending NX higher and $\epsilon$ sharply plummets.</p>
+
+                <!-- CASE 2: FISCAL ABROAD -->
+                <div class="grid-card" style="border-top-color: #10b981;">
+                    <h4 style="justify-content:center;"><i class="fas fa-globe-europe"></i> Fiscal Expansion Abroad</h4>
+                    <img src="assets/abroad1.png" alt="Fiscal expansion abroad alters curve" style="width:100%; max-width:220px; border-radius:6px; margin:1rem 0; display: block; margin-left: auto; margin-right: auto;">
+                    
+                    <div style="font-size: 0.88rem; line-height: 1.5;">
+                        <strong style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-primary);">Economic Interpretation</strong>
+                        <p style="margin: 0.4rem 0;">Expansionary policy abroad raises the world interest rate ($r^* \uparrow$), increasing borrowing costs and reducing domestic investment ($I \downarrow$). With saving unchanged, $S-I$ (NCO) rises. More domestic currency is supplied abroad, generating a real depreciation: <strong>$\epsilon \downarrow$</strong>. Competitiveness improves, and $NX$ increases.</p>
+                        
+                        <div style="background: #f8fafc; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-light); text-align: center; margin-top: 0.5rem;">
+                            <span style="font-weight: 700; color: #15803d;">$r^*\uparrow \Rightarrow I\downarrow \Rightarrow NCO\uparrow \Rightarrow \epsilon\downarrow \Rightarrow NX\uparrow$</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid-card" style="text-align:center;">
-                    <h4 style="justify-content:center;">Rise in Investment Demand</h4>
-                    <img src="assets/dmd1.png" alt="Investment demand shifts" style="width:100%; max-width:220px; border-radius:6px; margin:1rem 0;">
-                    <p style="font-size:0.9rem;">Increased $I$ shifts the $S-I$ supply curve violently leftward. $\epsilon$ heavily appreciates.</p>
+
+                <!-- CASE 3: INVESTMENT DEMAND -->
+                <div class="grid-card" style="border-top-color: #f59e0b;">
+                    <h4 style="justify-content:center;"><i class="fas fa-chart-line"></i> Rise in Investment Demand</h4>
+                    <img src="assets/dmd1.png" alt="Investment demand shifts" style="width:100%; max-width:220px; border-radius:6px; margin:1rem 0; display: block; margin-left: auto; margin-right: auto;">
+                    
+                    <div style="font-size: 0.88rem; line-height: 1.5;">
+                        <strong style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-primary);">Economic Interpretation</strong>
+                        <p style="margin: 0.4rem 0;">An increase in domestic investment demand ($I \uparrow$) shrinks the $S-I$ gap. Fewer funds are available for foreign investment, reducing net capital outflow. The supply of domestic currency abroad falls, leading to a real appreciation: <strong>$\epsilon \uparrow$</strong>. Domestic goods become more expensive, lowering net exports.</p>
+                        
+                        <div style="background: #f8fafc; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-light); text-align: center; margin-top: 0.5rem;">
+                            <span style="font-weight: 700; color: #92400e;">$I\uparrow \Rightarrow NCO\downarrow \Rightarrow \epsilon\uparrow \Rightarrow NX\downarrow$</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid-card" style="text-align:center;">
-                    <h4 style="justify-content:center;">Trade Policy Restriction</h4>
-                    <img src="assets/import.png" alt="Trade policy restricts imports" style="width:100%; max-width:220px; border-radius:6px; margin:1rem 0;">
-                    <p style="font-size:0.9rem;">A tariff organically shifts the NX curve upward. While $\epsilon$ artificially appreciates, total true <strong>NX unexpectedly remains totally unaffected</strong> due to rigid $S-I$.</p>
+
+                <!-- CASE 4: TRADE POLICY -->
+                <div class="grid-card" style="border-top-color: #0ea5e9;">
+                    <h4 style="justify-content:center;"><i class="fas fa-ship"></i> Trade Policy Restriction</h4>
+                    <img src="assets/import.png" alt="Trade policy restricts imports" style="width:100%; max-width:220px; border-radius:6px; margin:1rem 0; display: block; margin-left: auto; margin-right: auto;">
+                    
+                    <div style="font-size: 0.88rem; line-height: 1.5;">
+                        <strong style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-primary);">Economic Interpretation</strong>
+                        <p style="margin: 0.4rem 0;">An import restriction temporarily boosts $NX$, creating excess demand for domestic currency. The resulting appreciation (<strong>$\epsilon \uparrow$</strong>) offsets the initial effect by reducing exports. Since $S-I$ is unchanged, the trade balance remains ultimately constant: <strong>$NX = \text{constant}$</strong>.</p>
+                        
+                        <div style="background: #f8fafc; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-light); text-align: center; margin-top: 0.5rem;">
+                            <span style="font-weight: 700; color: #0284c7;">$\text{Tariff} \Rightarrow \epsilon\uparrow \Rightarrow X\downarrow, M\uparrow \Rightarrow NX \text{ constant}$</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
