@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Economy: The Small Open Economy Model</title>
-    <meta name="description" content="Macroeconomics Revision: Small Open Economy, National Accounting, Perfect Capital Mobility, Real Exchange Rate, PPP, and the Balassa-Samuelson effect.">
+    <title>Open Economy Model</title>
+    <meta name="description" content="Macroeconomics Revision: The Open Economy, Small Open Economy Model, Exchange Rates, and the Balassa-Samuelson Effect.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         window.MathJax = {
@@ -23,95 +24,39 @@
     </script>
     <link rel="stylesheet" href="macro_style.css">
     <style>
-        .fluo-blue {
-            background: linear-gradient(104deg, rgba(96,165,250,0) 0.9%, rgba(96,165,250,0.5) 2.4%, rgba(96,165,250,0.3) 5.8%, rgba(96,165,250,0.6) 93%, rgba(96,165,250,0.2) 96%, rgba(96,165,250,0) 98%),
-                        linear-gradient(183deg, rgba(96,165,250,0) 0%, rgba(96,165,250,0.2) 7.9%, rgba(96,165,250,0) 15%);
-            padding: 0 0.25rem; border-radius: 4px; font-weight: 500;
-        }
-
-        /* Summary toggle */
+        /* Summary toggle custom blue overriding IS-LM red */
         .summary-toggle {
-            margin-top: 2.5rem; border: 1px solid var(--border-light);
-            border-radius: 10px; overflow: hidden;
+            margin-top: 2.5rem;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            overflow: hidden;
         }
         .summary-toggle summary {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white; padding: 0.85rem 1.25rem; cursor: pointer; font-weight: 600;
-            font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;
-            list-style: none; transition: all 0.3s ease;
+            color: white;
+            padding: 0.85rem 1.25rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+            transition: all 0.3s ease;
         }
         .summary-toggle summary::-webkit-details-marker { display: none; }
         .summary-toggle summary:hover { filter: brightness(1.15); }
         .summary-toggle summary::before {
-            content: '\f06e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.85rem;
+            content: '\f06e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.85rem;
         }
         .summary-toggle[open] summary::before { content: '\f070'; }
         .summary-toggle .summary-content {
-            padding: 1.5rem; background: #f8fafc; border-top: 1px solid var(--border-light);
-        }
-
-        /* Chain Reaction Box (blue version) */
-        .chain-box {
-            background: #eff6ff; border: 1px solid #bfdbfe;
-            border-left: 5px solid var(--accent-primary); border-radius: 10px;
-            padding: 1.5rem 1.75rem; margin: 1.5rem 0;
-        }
-        .chain-box .chain-title {
-            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.06em; color: #1d4ed8;
-            margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.4rem;
-        }
-        .chain-step {
-            display: flex; align-items: flex-start; gap: 0.75rem;
-            margin-bottom: 0.6rem; font-size: 1rem;
-        }
-        .chain-step .step-num {
-            background: var(--accent-primary); color: white; border-radius: 50%;
-            width: 22px; height: 22px; min-width: 22px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: 700; margin-top: 2px;
-        }
-        .chain-arrow {
-            text-align: center; color: var(--accent-primary); font-size: 1.1rem;
-            margin: 0.15rem 0 0.15rem 2.05rem;
-        }
-
-        /* Key definitions block */
-        .key-defs {
-            background: white; border: 1px solid var(--border-light);
-            border-top: 4px solid var(--accent-primary); border-radius: 10px;
-            padding: 1.5rem; margin-bottom: 2rem;
-        }
-        .key-defs h4 {
-            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em;
-            color: #1d4ed8; margin-bottom: 1rem; font-weight: 700;
-        }
-        .def-row {
-            display: flex; gap: 0.75rem; padding: 0.6rem 0;
-            border-bottom: 1px dashed var(--border-light); align-items: baseline;
-        }
-        .def-row:last-child { border-bottom: none; }
-        .def-term { font-weight: 700; min-width: 170px; color: var(--bg-sidebar); font-size: 0.95rem; }
-        .def-body { color: var(--text-main); font-size: 0.95rem; }
-        
-        /* Pedagogy styles */
-        .explanation-text {
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-            color: var(--text-main);
-        }
-        .pedagogy-box {
+            padding: 1.5rem;
             background: #f8fafc;
-            border-left: 4px solid var(--accent-primary);
-            padding: 1.25rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .pedagogy-title {
-            font-weight: 700;
-            color: #1d4ed8;
-            margin-bottom: 0.5rem;
-            font-size: 1.05rem;
+            border-top: 1px solid var(--border-light);
         }
     </style>
 </head>
@@ -124,7 +69,9 @@
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-text"><i class="fas fa-chart-line"></i> Macroéconomie</div>
-            <button class="toggle-btn" id="sidebar-toggle-desktop"><i class="fas fa-bars"></i></button>
+            <button class="toggle-btn" id="sidebar-toggle-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
         <nav class="menu-nav">
             <div class="menu-item">
@@ -166,8 +113,8 @@
                 </div>
                 <div class="accordion-content">
                     <ul>
-                        <li><a href="islm_lecture.html">IS-LM &amp; Bridge to IS-MP</a></li>
-                        <li><a href="islm_applications.html">IS-LM &amp; AD Applications</a></li>
+                        <li><a href="islm_lecture.html">IS-LM & Bridge to IS-MP</a></li>
+                        <li><a href="islm_applications.html">IS-LM & AD Applications</a></li>
                     </ul>
                 </div>
             </div>
@@ -179,8 +126,7 @@
                 </div>
                 <div class="accordion-content" style="max-height: 500px;">
                     <ul>
-                        <li><a href="open_economy.html" class="active">Open Economy — SOE</a></li>
-                        <li><a href="open_economy_mf.html">Mundell-Fleming &amp; Parity</a></li>
+                        <li><a href="open_economy.html" class="active">Open Economy Module</a></li>
                     </ul>
                 </div>
             </div>
@@ -189,420 +135,371 @@
 
     <main class="main-content" id="main-content">
         <header class="page-header" style="border-bottom-color: var(--accent-primary);">
-            <h1 class="page-title" style="color: var(--accent-primary);">The Open Economy</h1>
-            <p class="page-subtitle"><i class="fas fa-ship"></i> Trade Balances, Capital Mobility, and Real Exchange Rates</p>
+            <h1 class="page-title" style="color: var(--accent-primary);">OPEN ECONOMY</h1>
+            <p class="page-subtitle"><i class="fas fa-ship"></i> International Trade, Capital Flows, and Exchange Rates</p>
         </header>
 
-        <section id="soe-model">
-            <h2>1. The Small Open Economy (SOE) Model</h2>
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- WHY DOES INTERNATIONAL TRADE OCCUR? -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="trade-reasons">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-earth-americas"></i> Why Does International Trade Occur?</h2>
+            <p>Trade connects different nations globally, allowing them to exchange goods, services, and capital. Economists have developed multiple theories to explain the underlying logic of why countries trade with one another.</p>
 
-            <p class="explanation-text">
-                The Small Open Economy (SOE) model extends macroeconomic analysis to international trade and finance. It assumes the domestic economy interacts with global markets without influencing global prices or interest rates.
-            </p>
-
-            <div class="key-defs">
-                <h4><i class="fas fa-cogs"></i> Structural Assumptions</h4>
-                <div class="def-row">
-                    <span class="def-term">1. Long-Run Horizon</span>
-                    <span class="def-body">Prices are perfectly flexible. Consequently, aggregate output ($Y$) is determined exogenously by available factors of production and technology, fixed at its full-employment potential level ($\bar{Y}$).</span>
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-wine-bottle"></i> Ricardo</h4>
+                    <p>Even if one country is more efficient at producing absolutely everything, trade still generates mutual benefits if nations specialize according to their <strong>comparative advantage</strong>.</p>
+                    <p class="image-caption"><i class="fas fa-comment-dots"></i> Example: Portugal exports wine, while England exports cloth.</p>
                 </div>
-                <div class="def-row">
-                    <span class="def-term">2. Price Taking</span>
-                    <span class="def-body">The domestic economy constitutes a negligible fraction of global markets. Domestic policy shifts or economic shocks have zero impact on the world interest rate or global aggregate demand.</span>
+                <div class="grid-card">
+                    <h4><i class="fas fa-gem"></i> Heckscher-Ohlin</h4>
+                    <p>Countries trade because they have different factor endowments. Some are relatively rich in labour, while others have abundant capital or natural resources.</p>
+                    <p class="image-caption"><i class="fas fa-comment-dots"></i> Example: Australia exports minerals, while Bangladesh exports garments.</p>
                 </div>
-                <div class="def-row">
-                    <span class="def-term">3. Perfect Capital Mobility</span>
-                    <span class="def-body">Capital flows without friction across international borders seeking the highest return. Arbitrage ensures that the domestic interest rate ($r$) is strictly equal to the exogenous world interest rate ($r^*$).</span>
+                <div class="grid-card">
+                    <h4><i class="fas fa-car-side"></i> Krugman</h4>
+                    <p>Countries may trade heavily even when they are fundamentally similar. This happens because specialization lowers average costs via economies of scale, and consumers inherently value <span class="fluo-blue">product variety</span>.</p>
+                    <p class="image-caption"><i class="fas fa-comment-dots"></i> Example: Germany and France both manufacture and trade cars with each other.</p>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-gears"></i> Melitz</h4>
+                    <p>Trade patterns are highly dependent on the productivity differences across individual firms within the exact same industry. Only the most robust firms participate in trade.</p>
+                    <p class="image-caption"><i class="fas fa-comment-dots"></i> Example: Only highly productive Czech machinery firms export; smaller ones only sell locally.</p>
                 </div>
             </div>
+        </section>
 
-            <h3>The National Income Accounting Identity: $NX = S - I$</h3>
-            <p class="explanation-text">
-                The fundamental accounting identity in an open economy defines output as $Y = C + I + G + NX$. Rearranging this identity isolates Net Exports ($NX$) as the difference between domestic production and domestic absorption.
-            </p>
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- FINANCIAL OPENNESS & NATIONAL INCOME -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="financial-openness">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-money-bill-transfer"></i> Financial Openness and National Income</h2>
             
-            <div class="equation-box" style="border-color: var(--accent-primary); font-size: 1.25rem;">
-                $Y - C - G = I + NX$
-            </div>
+            <p>In addition to goods and services, open economies also actively trade financial assets. Domestic residents can purchase foreign assets, and similarly, foreigners can invest in domestic ones.</p>
 
-            <p class="explanation-text">
-                The term $(Y - C - G)$ constitutes National Saving ($S$), the sum of private saving $(Y - T - C)$ and public saving $(T - G)$. Substituting $S$ into the identity yields the fundamental macroeconomic equilibrium condition for the open economy:
-            </p>
-
-            <div class="equation-box" style="background: rgba(96,165,250,0.08); border-color: var(--accent-primary); font-size: 1.3rem;">
-                $\boxed{NX = S - I}$
-            </div>
-
-            <div class="pedagogy-box">
-                <div class="pedagogy-title">Macroeconomic Interpretation</div>
-                <p class="explanation-text" style="margin-bottom:0;">
-                    The identity $NX = S - I$ establishes that a nation's trade balance is structurally equivalent to its net capital outflow. <br><br>
-                    If National Saving exceeds domestic Investment ($S > I$), the excess savings are lent abroad, corresponding to a trade surplus ($NX > 0$). Conversely, if domestic investment exceeds national saving ($S < I$), the shortfall must be financed by borrowing from international markets, manifesting as a trade deficit ($NX < 0$). <br><br>
-                    Consequently, trade imbalances are not inherently symptomatic of trade policy inefficiencies, but are direct reflections of underlying macroeconomic savings and investment disparities.
-                </p>
-            </div>
-        </section>
-
-        <hr class="section-divider">
-
-        <section id="policy-shocks">
-            <h2>2. Comparative Statics in the SOE Model</h2>
-
-            <p class="explanation-text">
-                The equilibrium identity $NX = S(Y, G, T) - I(r^*)$ permits formal analysis of domestic and exogenous shocks. In the long run, $Y$ is fixed at $\bar{Y}$, and $r$ is fixed at $r^*$.
-            </p>
-
-            <div class="pedagogy-box" style="border-left-color: #3b82f6; background: #eff6ff; margin-bottom: 2rem;">
-                <div class="pedagogy-title" style="color: #1d4ed8;">Fundamental Identity Reminder</div>
-                <div class="equation-box" style="border-color: #93c5fd; background: white; color: #1d4ed8; padding: 0.75rem; margin-bottom: 1rem; font-size: 1.25rem;">
-                    $NX = S - I$
-                </div>
-                <ul class="explanation-text" style="margin-bottom: 0;">
-                    <li>If $S < I$: The country borrows from abroad $\Rightarrow$ <strong>Capital inflow</strong> $\Rightarrow$ <strong>Trade deficit</strong> ($NX < 0$).</li>
-                    <li>If $S > I$: The country lends to the rest of the world $\Rightarrow$ <strong>Capital outflow</strong> $\Rightarrow$ <strong>Trade surplus</strong> ($NX > 0$).</li>
-                </ul>
-            </div>
-
-            <div class="pedagogy-box" style="border-left-color: #dc2626; background: #fef2f2;">
-                <div class="pedagogy-title" style="color: #b91c1c;">1. Domestic Fiscal Expansion: lower saving, unchanged investment, trade deficit</div>
-                
-                <p class="explanation-text" style="margin-bottom: 1rem;">
-                    A domestic fiscal expansion means either an increase in government spending ($G \uparrow$) or a decrease in taxes ($T \downarrow$).
-                </p>
-                
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 1: National saving decreases</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    Public saving is defined as $S_{public} = T - G$. If government spending increases or taxes decrease, public saving falls. Since national saving includes public saving, total national saving also decreases:
-                </p>
-                <div class="equation-box" style="border-color: #fca5a5; background: white; color: #b91c1c; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $S \downarrow$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #7f1d1d;">
-                    <em>Economic intuition:</em> The government absorbs more national resources, so less income is left available as national saving.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 2: Domestic investment remains constant</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    In a small open economy with perfect capital mobility, the domestic interest rate is strictly anchored to the world interest rate ($r = r^*$). Since the domestic fiscal shock does not alter $r^*$, the domestic cost of capital does not change. Therefore, domestic investment remains constant:
-                </p>
-                <div class="equation-box" style="border-color: #fca5a5; background: white; color: #b91c1c; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
-                    $I = \text{constant}$
-                </div>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 3: Net exports decrease</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    Using the fundamental identity $NX = S - I$. Since saving falls while investment remains constant ($S \downarrow, I = \text{constant}$), we get:
-                </p>
-                <div class="equation-box" style="border-color: #fca5a5; background: white; color: #b91c1c; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $NX \downarrow$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #7f1d1d;">
-                    <em>Economic intuition:</em> The country now saves less than it invests domestically. It needs foreign financing, generating a capital inflow. On the real side, this manifests as a trade deficit: the country imports more than it exports.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Final Chain & Implication</p>
-                <div class="equation-box" style="border-color: #fca5a5; background: white; color: #b91c1c; padding: 0.75rem; margin-bottom: 1rem; font-size: 1.1rem;">
-                    $G \uparrow \text{ or } T \downarrow \Rightarrow S \downarrow \Rightarrow S < I \Rightarrow \text{Capital Inflow} \Rightarrow NX \downarrow \Rightarrow \text{Trade Deficit}$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 0;">
-                    Expansionary fiscal policy structurally deteriorates the trade balance. This formalizes the logic of the <strong>Twin Deficits hypothesis</strong>: a larger public deficit systematically generates a larger trade deficit.
-                </p>
-            </div>
-
-            <div class="pedagogy-box" style="border-left-color: #16a34a; background: #f0fdf4;">
-                <div class="pedagogy-title" style="color: #15803d;">2. Increase in the World Interest Rate: unchanged saving, lower investment, trade surplus</div>
-                
-                <p class="explanation-text" style="margin-bottom: 1rem;">
-                    An exogenous world interest rate shock means an increase in the global cost of capital ($r^* \uparrow$).
-                </p>
-                
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 1: Domestic investment decreases</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    In a small open economy ($r = r^*$). Therefore, when the world interest rate increases, the domestic interest rate instantly increases. Borrowing becomes more expensive, and fewer investment projects remain profitable. As a result, domestic investment falls:
-                </p>
-                <div class="equation-box" style="border-color: #86efac; background: white; color: #15803d; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
-                    $I \downarrow$
-                </div>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 2: National saving remains constant</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    Assuming domestic fiscal policy is unchanged and consumption does not directly depend on the interest rate, national saving remains constant:
-                </p>
-                <div class="equation-box" style="border-color: #86efac; background: white; color: #15803d; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $S = \text{constant}$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #14532d;">
-                    <em>Economic intuition:</em> Households and the government are saving the exact same amount as before, but firms now want to invest less because capital is more expensive.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 3: Net exports increase</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    Using the fundamental identity $NX = S - I$. Since saving remains constant while investment falls ($S = \text{constant}, I \downarrow$), we get:
-                </p>
-                <div class="equation-box" style="border-color: #86efac; background: white; color: #15803d; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $NX \uparrow$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #14532d;">
-                    <em>Economic intuition:</em> The country now saves more than it invests domestically. The unused domestic saving is invested or lent abroad, creating a capital outflow. On the real side, this manifests as a trade surplus: the country exports more than it imports.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Final Chain & Implication</p>
-                <div class="equation-box" style="border-color: #86efac; background: white; color: #15803d; padding: 0.75rem; margin-bottom: 1rem; font-size: 1.1rem;">
-                    $r^* \uparrow \Rightarrow r \uparrow \Rightarrow I \downarrow \Rightarrow S > I \Rightarrow \text{Capital Outflow} \Rightarrow NX \uparrow \Rightarrow \text{Trade Surplus}$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 0;">
-                    A rise in the world interest rate reduces domestic investment and pushes excess domestic saving abroad. This structurally generates a trade surplus.
-                </p>
-            </div>
-        </section>
-
-        <hr class="section-divider">
-
-        <section id="exchange-rates">
-            <h2>3. The Real Exchange Rate ($\epsilon$)</h2>
-
-            <p class="explanation-text">
-                The equilibrium adjustment of $NX$ to changes in $S$ or $I$ is mediated by the real exchange rate.
-            </p>
-
-            <div class="key-defs">
-                <div class="def-row">
-                    <span class="def-term">Nominal Exchange Rate ($e$)</span>
-                    <span class="def-body">The relative price of domestic currency in terms of foreign currency (e.g., USD/EUR). An increase in $e$ denotes an appreciation of the domestic currency.</span>
-                </div>
-                <div class="def-row">
-                    <span class="def-term">Real Exchange Rate ($\epsilon$)</span>
-                    <span class="def-body">The relative price of domestic goods in terms of foreign goods, defined as $\epsilon = e \times \frac{P}{P^*}$. It serves as the primary metric of international competitiveness.</span>
+            <div class="concept-card">
+                <div class="concept-title">Net Capital Outflow (NCO)</div>
+                <div class="concept-body">
+                    <p>We define the Net Capital Outflow ($NCO$) as the difference between domestic purchases of foreign assets and foreign purchases of domestic assets.</p>
+                    <ul class="content-list">
+                        <li>If $\mathbf{NCO > 0}$: The country is a <span class="fluo-blue">net lender</span> to the rest of the world (ROW).</li>
+                        <li>If $\mathbf{NCO < 0}$: The country is a <span class="fluo-pink">net borrower</span> from the rest of the world.</li>
+                    </ul>
                 </div>
             </div>
 
-            <p class="explanation-text">
-                Net Exports are modeled as a monotonically decreasing function of the real exchange rate: $NX = NX(\epsilon)$. A high $\epsilon$ (real appreciation) renders domestic goods relatively expensive, depressing exports and stimulating imports, thereby reducing $NX$.
-            </p>
-
-            <div class="pedagogy-box" style="border-left-color: #8b5cf6; background: #f5f3ff;">
-                <div class="pedagogy-title" style="color: #6d28d9;">Exchange Rate Adjustment Behind the Trade Balance Effect</div>
-                
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    The previous section established that a domestic fiscal expansion reduces national saving:
-                </p>
-                <div class="equation-box" style="border-color: #c4b5fd; background: white; color: #6d28d9; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $G \uparrow \text{ or } T \downarrow \Rightarrow S \downarrow$
+            <h3>National Income Accounting in an Open Economy</h3>
+            <p>To understand the flow of money, we look at the expenditure components of the GDP.</p>
+            <div class="grid-cards">
+                <div class="grid-card" style="border-top-color: var(--text-muted);">
+                    <h4><i class="fas fa-door-closed" style="color: var(--text-muted);"></i> Closed Economy</h4>
+                    <p>Expenditure consists only of domestic consumption, investment, and government purchases.</p>
+                    <div class="equation-box" style="border-color: var(--text-muted); color: var(--text-muted); background: #f8fafc;">
+                        $Y = C + I + G$
+                    </div>
                 </div>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    Since domestic investment remains constant in a small open economy, the identity $NX = S - I$ implies:
-                </p>
-                <div class="equation-box" style="border-color: #c4b5fd; background: white; color: #6d28d9; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $NX \downarrow$
+                <div class="grid-card">
+                    <h4><i class="fas fa-door-open"></i> Open Economy</h4>
+                    <p>We must include Net Exports ($NX = X - IM$) because part of domestic production is sold abroad, and domestic expenditure may fall on foreign goods.</p>
+                    <div class="equation-box" style="border-color: var(--accent-primary); background: #eff6ff;">
+                        $Y = C + I + G + NX$
+                    </div>
                 </div>
-                <p class="explanation-text" style="margin-bottom: 1.5rem;">
-                    However, this identity only gives the final accounting result. It does not yet explain how exports and imports actually adjust. The adjustment occurs through the <strong>real exchange rate ($\epsilon$)</strong>.
-                </p>
+            </div>
 
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 1: Lower saving reduces net capital outflow</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    When national saving falls, the country has fewer domestic funds available to lend or invest abroad. Therefore:
-                </p>
-                <div class="equation-box" style="border-color: #c4b5fd; background: white; color: #6d28d9; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $S \downarrow \Rightarrow \text{Net Capital Outflow} \downarrow$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #4c1d95;">
-                    <em>Economic intuition:</em> Residents buy fewer foreign assets because less domestic saving is available. If Net Capital Outflow (NCO) becomes negative, it means the country receives more foreign capital than it sends abroad—it is effectively borrowing from the rest of the world.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 2: Lower capital outflow reduces the supply of domestic currency</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    To buy foreign assets, domestic residents normally need to exchange domestic currency for foreign currency. If they buy fewer foreign assets, they sell less domestic currency on the foreign exchange market. Therefore:
-                </p>
-                <div class="equation-box" style="border-color: #c4b5fd; background: white; color: #6d28d9; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $\text{Supply of Domestic Currency} \downarrow$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 1.5rem;">
-                    This makes the domestic currency scarcer on the foreign exchange market.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 3: The domestic currency appreciates</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    Because the domestic currency becomes scarcer, its relative value increases. Therefore:
-                </p>
-                <div class="equation-box" style="border-color: #c4b5fd; background: white; color: #6d28d9; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $\epsilon \uparrow$
-                </div>
-                <p class="explanation-text" style="margin-bottom: 1.5rem;">
-                    This is a real appreciation.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 4: Appreciation reduces net exports</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    A real appreciation makes domestic goods more expensive relative to foreign goods. As a result:
-                </p>
-                <ul class="explanation-text" style="margin-bottom: 0.5rem;">
-                    <li>Exports decrease, because domestic goods become more expensive for foreigners;</li>
-                    <li>Imports increase, because foreign goods become cheaper for domestic consumers.</li>
-                </ul>
-                <div class="equation-box" style="border-color: #c4b5fd; background: white; color: #6d28d9; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $X \downarrow,\quad M \uparrow \Rightarrow NX \downarrow$
-                </div>
-
-                <p class="explanation-text" style="font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Conclusion</p>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">
-                    The real exchange rate is the adjustment variable that translates the fall in national saving into a fall in net exports. The complete mechanism is:
-                </p>
-                <div class="equation-box" style="border-color: #c4b5fd; background: white; color: #6d28d9; padding: 0.75rem; margin-bottom: 0; font-size: 1.1rem;">
-                    $G \uparrow \text{ or } T \downarrow \Rightarrow S \downarrow \Rightarrow \text{Net Capital Outflow} \downarrow \Rightarrow \text{Currency Supply} \downarrow \Rightarrow \epsilon \uparrow \Rightarrow X \downarrow, M \uparrow \Rightarrow NX \downarrow$
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-balance-scale"></i></div>
+                <div class="alert-content">
+                    <h4>The Fundamental Identity: Trade Balance and Capital Flows</h4>
+                    <p>By rearranging the open economy expenditure equation, we get $NX = Y - (C + I + G)$. Knowing that national saving is defined as $S = Y - C - G$, we arrive at the pivotal identity linking trade and capital flows:</p>
+                    <div class="equation-box" style="margin-top:0.75rem; border-color: var(--accent-secondary); color: var(--text-main);">
+                        $S - I = NX$
+                    </div>
+                    <p style="margin-top: 0.5rem; font-weight: 500;">Because the national income accounting implies $NCO = NX = S - I$, we can conclude:</p>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
+                        <li>A <span class="fluo-pink">trade deficit ($NX < 0$)</span> is entirely financed by net capital <strong>inflows</strong> ($S < I$). The country borrows from abroad.</li>
+                        <li>A <span class="fluo-blue">trade surplus ($NX > 0$)</span> directly corresponds to net capital <strong>outflows</strong> ($S > I$). The excess saving is lent abroad.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <hr class="section-divider">
 
-        <section id="ppp">
-            <h2>4. Purchasing Power Parity (PPP) &amp; Balassa-Samuelson</h2>
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SMALL OPEN ECONOMY (SOE) MODEL -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="small-open-economy">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-compress"></i> The Small Open Economy Model (SOE)</h2>
+            
+            <p>To analyze the impact of different policies, we use the classical long-run small open economy model, where output is firmly fixed at full employment ($Y = \bar{Y} = F(\bar{K}, \bar{L})$).</p>
 
-            <!-- PPP Core Idea -->
-            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">The Core Idea</h3>
-            <p class="explanation-text">
-                Purchasing Power Parity (PPP) states that exchange rates should adjust so that the same basket of goods has the same price in every country, once prices are converted into the same currency.
-            </p>
-            <p class="explanation-text">
-                The underlying logic rests on the <strong>Law of One Price</strong>: in competitive markets with no trade barriers, identical goods must sell at the same price internationally. If a good is cheaper in one country, consumers and firms will buy it there, driving demand up in that country until the price difference disappears. This process is called <strong>goods arbitrage</strong>.
-            </p>
-
-            <!-- Intuitive Example -->
-            <div class="pedagogy-box" style="border-left-color: #f59e0b; background: #fffbeb;">
-                <div class="pedagogy-title" style="color: #b45309;">Intuitive Example</div>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">Suppose the same basket of goods costs:</p>
-                <div class="equation-box" style="border-color: #fcd34d; background: white; color: #92400e; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $100 \text{ € in Europe}, \quad 120 \text{ \$ in the United States}$
+            <div class="parameter-list">
+                <div class="parameter-item">
+                    <div class="parameter-symbol"><i class="fas fa-check"></i></div>
+                    <div class="parameter-desc"><strong>Price Taker:</strong> The economy is too small to have any impact on the world real interest rate ($r^*$). It is affected by foreign markets but cannot affect them.</div>
                 </div>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">PPP implies the equilibrium nominal exchange rate should be:</p>
-                <div class="equation-box" style="border-color: #fcd34d; background: white; color: #92400e; padding: 0.5rem; margin-bottom: 0.5rem; font-size: 1.15rem;">
-                    $1 \text{ €} = 1.20 \text{ \$}$
+                <div class="parameter-item">
+                    <div class="parameter-symbol"><i class="fas fa-bolt"></i></div>
+                    <div class="parameter-desc"><strong>Perfect Capital Mobility:</strong> There are no barriers to international lending or borrowing. Domestic and foreign bonds are perfect substitutes.</div>
                 </div>
-                <p class="explanation-text" style="margin-bottom: 0;">At this exchange rate, €100 converts exactly to $120, so the basket costs the same in both currencies. If the exchange rate were different — say 1€ = 1.50$ — the European basket would appear cheaper for American consumers, who would switch to buying European goods. This demand would drive the euro up until parity is restored.</p>
-            </div>
-
-            <!-- Key Intuition -->
-            <div class="pedagogy-box" style="border-left-color: #3b82f6; background: #eff6ff; margin-top: 1.5rem;">
-                <div class="pedagogy-title" style="color: #1d4ed8;">Key Intuition: Why Arbitrage Enforces PPP</div>
-                <p class="explanation-text" style="margin-bottom: 0.5rem;">Under PPP:</p>
-                <ul class="explanation-text" style="margin-bottom: 0;">
-                    <li>No country remains permanently "cheaper" or "more expensive" than another.</li>
-                    <li>If a price gap appears, consumers shift spending toward the cheaper country.</li>
-                    <li>This increases demand for the cheaper country's currency, causing it to appreciate.</li>
-                    <li>Exchange rates and/or prices then adjust until purchasing power is equalised across countries.</li>
-                </ul>
-            </div>
-
-            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
-
-            <!-- Real Exchange Rate -->
-            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">The Real Exchange Rate</h3>
-            <p class="explanation-text">
-                The real exchange rate ($\epsilon$) measures the relative price of domestic goods compared to foreign goods. It is the key variable for assessing a country's <strong>international competitiveness</strong>.
-            </p>
-
-            <div class="key-defs">
-                <div class="def-row">
-                    <span class="def-term">Nominal Exchange Rate ($e$)</span>
-                    <span class="def-body">The relative price of domestic currency in terms of foreign currency. An increase in $e$ means the domestic currency can buy more foreign currency — it has <em>appreciated</em>.</span>
-                </div>
-                <div class="def-row">
-                    <span class="def-term">Real Exchange Rate ($\epsilon$)</span>
-                    <span class="def-body">The relative price of domestic goods in terms of foreign goods, defined as $\epsilon = \frac{eP}{P^*}$. It captures how expensive domestic production is relative to foreign production.</span>
+                <div class="parameter-item">
+                    <div class="parameter-symbol"><i class="fas fa-equals"></i></div>
+                    <div class="parameter-desc"><strong>Interest Rate Parity:</strong> As a consequence, the domestic real interest rate must strictly equal the world real interest rate: <span class="fluo-green" style="font-size:1.1rem; font-weight:bold;">$r = r^*$</span>.</div>
                 </div>
             </div>
 
-            <p class="explanation-text" style="font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Key Formula</p>
-            <div class="equation-box" style="font-size: 1.25rem; margin-bottom: 1rem;">
-                $\epsilon = \frac{e \cdot P}{P^*}$
-            </div>
-            <p class="explanation-text">with $e$ = nominal exchange rate, $P$ = domestic price level, $P^*$ = foreign price level.</p>
-
-            <div class="pedagogy-box" style="border-left-color: #8b5cf6; background: #f5f3ff;">
-                <div class="pedagogy-title" style="color: #6d28d9;">Interpreting the Real Exchange Rate</div>
-                <ul class="explanation-text" style="margin-bottom: 0;">
-                    <li>If $\epsilon > 1$: domestic goods are <strong>relatively expensive</strong> — competitiveness is low. Exports fall, imports rise, $NX \downarrow$.</li>
-                    <li>If $\epsilon < 1$: domestic goods are <strong>relatively cheap</strong> — competitiveness is high. Exports rise, imports fall, $NX \uparrow$.</li>
-                    <li>If $\epsilon = 1$: domestic and foreign goods are priced identically — this is the PPP benchmark.</li>
-                </ul>
-            </div>
-
-            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
-
-            <!-- Absolute PPP -->
-            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">Absolute PPP</h3>
-            <p class="explanation-text">
-                Under <strong>absolute PPP</strong>, the nominal exchange rate adjusts so that the same basket of goods costs exactly the same in every country after currency conversion. This is written as:
-            </p>
-            <div class="equation-box" style="font-size: 1.25rem; margin-bottom: 1rem;">
-                $e \cdot P = P^*$
-            </div>
-            <p class="explanation-text">
-                This means: if you convert the domestic price $P$ into foreign currency using the exchange rate $e$, you get exactly the foreign price $P^*$. Now substitute this condition into the real exchange rate formula:
-            </p>
-            <div class="equation-box" style="font-size: 1.15rem; margin-bottom: 0.5rem;">
-                $\epsilon = \frac{eP}{P^*} = \frac{P^*}{P^*} = 1$
-            </div>
-
-            <div class="pedagogy-box" style="border-left-color: #10b981; background: #ecfdf5; margin-top: 1rem;">
-                <div class="pedagogy-title" style="color: #059669;">Under Absolute PPP: $\epsilon = 1$</div>
-                <ul class="explanation-text" style="margin-bottom: 0;">
-                    <li>Domestic and foreign goods have <strong>identical purchasing power</strong>.</li>
-                    <li>There is no persistent price advantage for either country.</li>
-                    <li>Any nominal price difference is exactly offset by the exchange rate.</li>
-                    <li>Net exports are <strong>perfectly elastic</strong> with respect to $\epsilon$: even a tiny deviation in relative prices triggers unlimited arbitrage flows.</li>
-                </ul>
-            </div>
-
-            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
-
-            <!-- Consequences for NX -->
-            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">Consequences for Net Exports</h3>
-            <p class="explanation-text">
-                Under strict PPP, $NX$ becomes a function of $\epsilon$ that reacts very strongly to any price deviation. The mechanism is:
-            </p>
-            <ul class="explanation-text" style="margin-bottom: 1rem;">
-                <li>If domestic goods become slightly more expensive ($\epsilon \uparrow$), consumers — both domestic and foreign — switch toward cheaper foreign goods.</li>
-                <li>Exports decrease immediately; imports increase immediately.</li>
-                <li>The resulting shift in currency demand then pushes the exchange rate back toward parity.</li>
+            <p style="margin-top: 1.5rem;">Let us establish our behavioral equations:</p>
+            <ul class="content-list">
+                <li>Consumption depends on disposable income: $C = C(Y - T)$</li>
+                <li>Investment is a function of the real interest rate: $I = I(r^*)$</li>
             </ul>
-            <p class="explanation-text">
-                In practice, PPP holds better in the long run than the short run. In the short run, prices are sticky and exchange rates are volatile, so $\epsilon$ can deviate significantly from 1. Empirical evidence consistently shows that PPP deviations can persist for years.
-            </p>
 
-            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
-
-            <!-- Balassa-Samuelson -->
-            <h3 style="font-size: 1.15rem; color: var(--bg-sidebar); margin-bottom: 0.75rem;">Structural Deviations: The Balassa-Samuelson Effect</h3>
-            <p class="explanation-text">
-                Even in the long run, PPP fails to hold perfectly across countries with different income levels. The Balassa-Samuelson effect explains why price levels are <em>systematically higher</em> in rich countries.
-            </p>
-
-            <div class="pedagogy-box" style="border-left-color: #eab308; background: #fefce8;">
-                <div class="pedagogy-title" style="color: #ca8a04;">The Balassa-Samuelson Effect: Step by Step</div>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 1: Productivity differentials in tradables</p>
-                <p class="explanation-text" style="margin-bottom: 1rem;">
-                    Advanced economies are much more productive in the <strong>tradable goods sector</strong> (manufacturing, technology) than developing economies. The Law of One Price equalises the prices of tradable goods internationally, so advanced economies earn more per unit of output in that sector.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 2: Wages equalise domestically</p>
-                <p class="explanation-text" style="margin-bottom: 1rem;">
-                    High productivity in tradables generates high wages. Because workers can move freely across sectors domestically, wages in the <strong>non-tradable sector</strong> (haircuts, restaurants, local services) must match — otherwise workers leave for the tradable sector. High wages flow into services.
-                </p>
-
-                <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 3: Non-tradable prices become structurally high</p>
-                <p class="explanation-text" style="margin-bottom: 0;">
-                    Since productivity in non-tradables is roughly similar across countries, higher wages translate directly into higher prices for non-tradable goods in rich countries. The overall price level $P$ — a weighted average of tradable and non-tradable prices — is therefore persistently higher in advanced economies, causing a structural overvaluation relative to PPP.
-                </p>
+            <h3 style="color: var(--accent-secondary);">Implications for Net Exports</h3>
+            <p>Since the interest rate is fixed at the global level ($r^*$), investment is fully determined: $I = I(r^*)$. Thus, the trade balance becomes a direct function of domestic savings and world investment rates:</p>
+            
+            <div class="equation-box" style="border-color: var(--accent-secondary); font-size: 1.5rem;">
+                $NX = S - I(r^*)$
             </div>
+
+            <figure class="image-container">
+                <img src="assets/invest.png" alt="Investment function in an open economy">
+                <figcaption><strong>Investment function in an open economy:</strong> Investment relies on a downward-sloping function of the interest rate. Algebraically: $I = I_0 - I_r r$. Factors like business optimism ($I_0$) also affect spending. The exogenous world interest rate $r^*$ effectively pinpoints the country's level of investment.</figcaption>
+            </figure>
+
+            <h3 style="color: var(--accent-secondary);">Adjustment Mechanisms: Closed vs. Open Economy</h3>
+            
+            <div class="grid-cards">
+                <div class="grid-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+                    <div>
+                        <h4 style="color: var(--text-muted);"><i class="fas fa-door-closed"></i> Adjustment in a Closed Economy</h4>
+                        <p>In a closed system, the domestic interest rate $r$ continuously adjusts to ensure that investment exactly matches national savings ($S = I$).</p>
+                    </div>
+                    <img src="assets/closed.png" alt="Adjustment closed economy graph" style="width:100%; border-radius:6px; margin-top:1rem; border: 1px solid var(--border-light);">
+                </div>
+                <div class="grid-card" style="display:flex; flex-direction:column; justify-content:space-between; border-top-color: var(--accent-primary);">
+                    <div>
+                        <h4 style="color: var(--accent-primary);"><i class="fas fa-door-open"></i> Adjustment in an Open Economy</h4>
+                        <p>In an open system, $r$ is pinned by $r^*$. Therefore, savings need NOT equal investment. If $S > I$, the gap forms the trade surplus (Net Exports). If $S < I$, it creates a deficit.</p>
+                    </div>
+                    <img src="assets/open.png" alt="Adjustment open economy graph" style="width:100%; border-radius:6px; margin-top:1rem; border: 1px solid var(--border-light);">
+                </div>
+            </div>
+
         </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- POLICY SHOCKS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="policy-shocks">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-sliders-h"></i> Policy Shocks and the Trade Balance</h2>
+            <p>How do various policy measures affect the trade balance? We will observe three straightforward scenarios, leveraging our core framework.</p>
+
+            <div class="concept-card" style="margin-bottom: 2rem;">
+                <div class="concept-title"><i class="fas fa-home"></i> 1. Fiscal Expansion at Home</div>
+                <div class="concept-body">
+                    <p>An expansionary domestic fiscal policy, such as increasing government purchases ($G \uparrow$) or cutting taxes ($T \downarrow$), heavily reduces national saving ($S \downarrow$).</p>
+                    <p>Since $NX = S \downarrow - I$, net exports must fall. The economy reduces its foreign lending and might even move to a trade deficit.</p>
+                    <div style="text-align:center; margin-top:1.5rem;">
+                        <img src="assets/home.png" alt="Fiscal policy at home" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card" style="border-left-color: var(--accent-secondary); margin-bottom: 2rem;">
+                <div class="concept-title"><i class="fas fa-globe-europe"></i> 2. Fiscal Expansion Abroad</div>
+                <div class="concept-body">
+                    <p>If large foreign economies conduct a fiscal expansion, global savings heavily drop, pushing the world interest rate upwards ($r^* \uparrow$).</p>
+                    <p>A higher $r^*$ suppresses domestic investment ($I \downarrow$). With investment down and savings unchanged, the difference $S - I \uparrow$ grows, leading to a <span class="fluo-blue">rise in Net Exports ($NX \uparrow$)</span>.</p>
+                    <div style="text-align:center; margin-top:1.5rem;">
+                        <img src="assets/abroad.png" alt="Fiscal policy abroad" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card" style="border-left-color: #f59e0b; margin-bottom: 2rem;">
+                <div class="concept-title"><i class="fas fa-chart-line"></i> 3. An Increase in Investment Demand</div>
+                <div class="concept-body">
+                    <p>If the government implements an investment tax credit or firms suddenly become very optimistic, investment demand jumps ($I_0 \uparrow$). At the fixed $r^*$, total investment surges ($I \uparrow$).</p>
+                    <p>Because savings are unchanged, the surge in investment causes $S - I \downarrow$, generating a dramatic <span class="fluo-pink">fall in NX</span>, and leading to borrowing from abroad.</p>
+                    <div style="text-align:center; margin-top:1.5rem;">
+                        <img src="assets/dmd.png" alt="Investment demand increase" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc;">
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- EXCHANGE RATES & PPP -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="exchange-rates">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-coins"></i> Exchange Rates and Purchasing Power Parity</h2>
+            
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-money-bill-wave"></i> Nominal Exchange Rate (E)</h4>
+                    <p>It represents the price of a foreign currency. Measured as units of domestic currency per unit of foreign currency.</p>
+                    <p class="image-caption">Example: $E = 20.80$ CZK/USD means that one physical U.S. dollar costs precisely 20.80 Czech koruna.</p>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-shopping-cart"></i> Real Exchange Rate ($\epsilon$)</h4>
+                    <p>The RER measures the relative price of foreign goods in terms of domestic goods. It tells us the true purchasing power.</p>
+                    <div class="equation-box" style="padding: 0.5rem; margin-top: 0.5rem; margin-bottom: 0;">
+                        $\epsilon = \frac{E \cdot P^*}{P}$
+                    </div>
+                </div>
+            </div>
+
+            <div class="exam-tip">
+                <i class="fas fa-thumbtack exam-tip-pin"></i>
+                <div class="exam-tip-content">
+                    <h4>Real Exchange Rate Example: The Big Mac Index</h4>
+                    <p>Suppose a Big Mac in Prague costs $P = 115$ CZK, and in New York it costs $P^* = 6.72$ USD. The nominal rate is $E = 20.80$ CZK/USD.</p>
+                    <p>The real exchange rate is: <strong>$\epsilon = 20.80 \times \frac{6.72}{115} \approx 1.21$</strong></p>
+                    <p>This strictly dictates that the U.S. Big Mac is approximately <span class="fluo-blue">21% more expensive</span> than the Czech Big Mac in real terms.</p>
+                </div>
+            </div>
+
+            <h3>Arbitrage and The Law of One Price</h3>
+            <p>If there's a significant price gap for identical products across different markets, it inherently creates an arbitrage opportunity. This mechanism drives the principle of <strong>Purchasing Power Parity (PPP)</strong>.</p>
+            <ul class="content-list">
+                <li><strong>The Law of One Price (LOOP):</strong> Over the long term, avoiding arbitrage guarantees identical goods must cost the exact same amount globally.</li>
+                <li><strong>Why does PPP fail?</strong> Goods are not always perfect substitutes. Moreover, transaction costs, prohibitive tariffs, different national tastes, and the presence of <span class="fluo-pink">nontradables</span> drastically impede perfect parity.</li>
+            </ul>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- BALASSA SAMUELSON EFFECT -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="balassa-samuelson">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-chart-area"></i> The Balassa-Samuelson Effect</h2>
+            <p>One structural reason PPP persistently fails is due to cross-country differences in labor productivity. The Balassa-Samuelson effect demonstrates why <span class="fluo-blue">wealthier, highly productive countries naturally have higher overarching price levels</span>.</p>
+
+            <div class="grid-cards">
+                <div class="grid-card" style="border-top-color: #10b981;">
+                    <h4><i class="fas fa-truck-fast" style="color: #10b981;"></i> Tradables</h4>
+                    <p>Goods capable of international trade (cars, steel, machinery). Their domestic prices are firmly constrained by intense global competition.</p>
+                </div>
+                <div class="grid-card" style="border-top-color: #f43f5e;">
+                    <h4><i class="fas fa-store" style="color: #f43f5e;"></i> Nontradables</h4>
+                    <p>Services consumed specifically where they are produced (haircuts, rent, restaurants). Prices are dictated exclusively by domestic factors and local wages.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">The Economic Mechanism Step-by-Step</div>
+                <div class="concept-body">
+                    <p>Imagine a rapidly developing economy:</p>
+                    <ol class="content-list" style="margin-bottom:0;">
+                        <li><strong>Productivity Surge:</strong> Sectoral productivity within the tradable sector ($A_T$) suddenly rises rapidly.</li>
+                        <li><strong>Wage Hike in Tradables:</strong> Generating immense value, these firms can heavily increase their worker wages.</li>
+                        <li><strong>Wage Spillover:</strong> To prevent extreme labor shortages, nontradable sectors (like a barber shop) are overwhelmingly pressured to match those higher wages.</li>
+                        <li><strong>Price Inflation in Nontradables:</strong> Because the barber’s intrinsic productivity ($A_N$) did not grow, his unit labor costs inherently spike. He is forced to raise absolute prices ($P_N \uparrow$) just to survive.</li>
+                        <li><strong>Aggregate Effect:</strong> This directly inflates the overall domestic price level. Therefore, rich, fast-growing economies experience chronic <strong>Real Exchange Rate appreciation</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <p><strong>A Parallel Concept: Dutch Disease.</strong> While identical in mechanics (pushing up nontradable prices and soaring exchange rates), Dutch Disease stems specifically from a colossal boom in natural resources (like an oil discovery) rather than general manufacturing productivity.</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- BRINGING IT TOGETHER -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="comprehensive">
+            <h2 style="color: var(--accent-primary);"><i class="fas fa-project-diagram"></i> NX, Exchange Rates & The Macro Synthesis</h2>
+            
+            <p>The net exports function deeply reflects an inverse relationship with the real exchange rate. If the exchange rate rises, foreign goods become relatively expensive, boosting NX.</p>
+            
+            <div class="equation-box" style="margin-top: 1rem; border-color: var(--accent-primary);">
+                $NX = NX(\epsilon)$, where $\frac{dNX}{d\epsilon} < 0$
+            </div>
+
+            <div class="grid-cards" style="margin-top:2rem;">
+                <div class="grid-card" style="box-shadow: none; border-color: transparent; padding:0; text-align:center;">
+                    <img src="assets/rate.png" alt="Net Exports and Exchange rate relation" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc; margin-bottom:1rem;">
+                    <p style="font-size:0.9rem; font-style:italic;"><strong>Net Exports and $\epsilon$</strong></p>
+                </div>
+                <div class="grid-card" style="box-shadow: none; border-color: transparent; padding:0; text-align:center;">
+                    <img src="assets/identity.png" alt="S-I determines NX graphically" style="max-width:350px; width:100%; border-radius:8px; border: 1px solid #ccc; margin-bottom:1rem;">
+                    <p style="font-size:0.9rem; font-style:italic;"><strong>NX and the Saving/Investment Identity</strong></p>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-layer-group"></i></div>
+                <div class="alert-content">
+                    <h4>A Comprehensive Summary: A Fiscal Expansion in Three Models</h4>
+                    <p>A broad fiscal expansion causes national savings to plummet. We can trace its structural destiny based purely on the economy's exact level of openness and size:</p>
+                    <img src="assets/grid.png" alt="Prediction Grid Model comparison" style="width:100%; max-width:800px; display:block; margin:1rem auto; border-radius:8px; border: 1px solid #ccc;">
+                    
+                    <ul style="margin-bottom:0;">
+                        <li><strong>Closed Economy:</strong> The rate $r$ shoots up, directly crushing investment ($I \downarrow$).</li>
+                        <li><strong>Small Open Economy:</strong> The rate $r$ is trapped by $r^*$. Investment never shifts, but $NX$ collapses entirely.</li>
+                        <li><strong>Large Open Economy:</strong> Experiences a blended shock. Interest rates rise slightly, hurting investment somewhat. NX drops, but less brutally than in a tiny open economy.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Graphical Impacts of Shocks in the Open Economy Model</h3>
+            <p>Let's map out exactly how distinct macroeconomic shocks deform our $S-I$ balance and thus deeply affect our exchange rate equilibrium.</p>
+
+            <div class="grid-cards">
+                <div class="grid-card" style="text-align:center;">
+                    <h4 style="justify-content:center;">Fiscal Expansion at Home</h4>
+                    <img src="assets/home1.png" alt="Fiscal expansion at home alters curve" style="width:100%; max-width:250px; border-radius:6px; margin:1rem 0;">
+                    <p style="font-size:0.9rem;">$S$ shifts left. Trade balance severely drops, causing $\epsilon$ to drastically appreciate.</p>
+                </div>
+                <div class="grid-card" style="text-align:center;">
+                    <h4 style="justify-content:center;">Fiscal Expansion Abroad</h4>
+                    <img src="assets/abroad1.png" alt="Fiscal expansion abroad alters curve" style="width:100%; max-width:250px; border-radius:6px; margin:1rem 0;">
+                    <p style="font-size:0.9rem;">$r^*$ rises, causing domestic $I$ to drop. The $S-I$ gap swells, sending NX higher and $\epsilon$ sharply plummets.</p>
+                </div>
+                <div class="grid-card" style="text-align:center;">
+                    <h4 style="justify-content:center;">Rise in Investment Demand</h4>
+                    <img src="assets/dmd1.png" alt="Investment demand shifts" style="width:100%; max-width:250px; border-radius:6px; margin:1rem 0;">
+                    <p style="font-size:0.9rem;">Increased $I$ shifts the $S-I$ supply curve violently leftward. $\epsilon$ heavily appreciates.</p>
+                </div>
+                <div class="grid-card" style="text-align:center;">
+                    <h4 style="justify-content:center;">Trade Policy Restriction</h4>
+                    <img src="assets/import.png" alt="Trade policy restricts imports" style="width:100%; max-width:250px; border-radius:6px; margin:1rem 0;">
+                    <p style="font-size:0.9rem;">A tariff organically shifts the NX curve upward. While $\epsilon$ artificially appreciates, total true <strong>NX unexpectedly remains totally unaffected</strong> due to rigid $S-I$.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SUMMARY TOGGLE -->
+        <!-- ═══════════════════════════════════════════ -->
+        <details class="summary-toggle" style="margin-top: 3rem;">
+            <summary><i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i> Key Takeaways</summary>
+            <div class="summary-content">
+                <ol class="content-list" style="margin-bottom:0;">
+                    <li><strong>Small Open Economy Core Identity:</strong> The crucial engine driving our model rests entirely on $NX = S - I$. Trade imbalances are fundamentally born from capital flow variations.</li>
+                    <li><strong>Perfect Mobility:</strong> With frictionless capital flow, a Small Open Economy possesses absolutely zero gravitational pull over the world real interest rate ($r^*$). Therefore, domestic investment strictly mirrors global credit conditions.</li>
+                    <li><strong>Price Structural Gaps:</strong> Persistent real-world deviations from basic Purchasing Power Parity (PPP), illustrated precisely by the potent Balassa-Samuelson Effect, structurally explain why high-growth domains suffer relentless inflationary bursts in nontradable sectors.</li>
+                </ol>
+            </div>
+        </details>
 
         <!-- FOOTER -->
-        <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
+        <section
+            style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>Open Economy (SOE) — Academic Format (B2/C1 English). Revised May 2026.</em>
+                <em>End of Lecture — The Open Economy. Utilizing B2 English level pedagogy.</em>
             </p>
         </section>
 
