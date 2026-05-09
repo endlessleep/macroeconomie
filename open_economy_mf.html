@@ -281,7 +281,7 @@
                 <h4><i class="fas fa-key"></i> &nbsp;Structural Equations</h4>
                 <div class="def-row">
                     <span class="def-term">IS* Curve (Goods Market)</span>
-                    <span class="def-body">The locus of equilibrium in the goods market: $Y = C(Y-T) + I(r^*) + G + NX(e)$. Aggregate demand is a function of the exchange rate $e$. A depreciation (increase in $e$) stimulates net exports ($NX \uparrow$), shifting the IS* curve to the right.</span>
+                    <span class="def-body">The locus of equilibrium in the goods market: $Y = C(Y-T) + I(r^*) + G + NX(e)$. Aggregate demand is a function of the exchange rate $e$. A depreciation (decrease in $e$) stimulates net exports ($NX \uparrow$), shifting the IS* curve to the right.</span>
                 </div>
                 <div class="def-row">
                     <span class="def-term">LM* Curve (Money Market)</span>
@@ -329,7 +329,7 @@
                     The positive interest rate differential triggers a massive capital inflow from foreign investors seeking higher returns. The increased demand for domestic currency causes an immediate nominal and real appreciation of the exchange rate:
                 </p>
                 <div class="equation-box" style="border-color: #fca5a5; background: white; color: #b91c1c; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
-                    \text{Capital Inflows} \Rightarrow \text{Demand for Currency} \uparrow \Rightarrow e \downarrow
+                    \text{Capital Inflows} \Rightarrow \text{Demand for Currency} \uparrow \Rightarrow e \uparrow
                 </div>
 
                 <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 3: Trade Balance Deterioration</p>
@@ -337,7 +337,7 @@
                     The appreciation erodes international competitiveness, deteriorating the trade balance and shifting the IS* curve back to its initial position:
                 </p>
                 <div class="equation-box" style="border-color: #fca5a5; background: white; color: #b91c1c; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
-                    $e \downarrow \Rightarrow NX \downarrow \Rightarrow Y \downarrow$
+                    $e \uparrow \Rightarrow NX \downarrow \Rightarrow Y \downarrow$
                 </div>
 
                 <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Conclusion</p>
@@ -370,7 +370,7 @@
                     The negative interest rate differential triggers a massive capital outflow. The increased supply of domestic currency on foreign exchange markets causes a sharp depreciation:
                 </p>
                 <div class="equation-box" style="border-color: #86efac; background: white; color: #15803d; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
-                    \text{Capital Outflows} \Rightarrow \text{Supply of Currency} \uparrow \Rightarrow e \uparrow
+                    \text{Capital Outflows} \Rightarrow \text{Supply of Currency} \uparrow \Rightarrow e \downarrow
                 </div>
 
                 <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 3: Trade Balance Improvement</p>
@@ -378,7 +378,7 @@
                     The depreciation improves competitiveness, increasing net exports and stimulating aggregate output:
                 </p>
                 <div class="equation-box" style="border-color: #86efac; background: white; color: #15803d; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
-                    $e \uparrow \Rightarrow NX \uparrow \Rightarrow Y \uparrow$
+                    $e \downarrow \Rightarrow NX \uparrow \Rightarrow Y \uparrow$
                 </div>
 
                 <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Conclusion</p>
@@ -419,7 +419,7 @@
                     A fiscal expansion creates incipient upward pressure on the interest rate, inducing capital inflows and pressure for the currency to appreciate:
                 </p>
                 <div class="equation-box" style="border-color: #86efac; background: white; color: #15803d; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
-                    $G \uparrow \Rightarrow r > r^* \Rightarrow \text{Appreciation Pressure } (e \downarrow)$
+                    $G \uparrow \Rightarrow r > r^* \Rightarrow \text{Appreciation Pressure } (e \uparrow)$
                 </div>
 
                 <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 2: Central Bank Defense</p>
@@ -449,7 +449,7 @@
                     An attempted monetary expansion creates incipient downward pressure on the interest rate, inducing capital outflows and pressure for the currency to depreciate:
                 </p>
                 <div class="equation-box" style="border-color: #fca5a5; background: white; color: #b91c1c; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.15rem;">
-                    $M \uparrow \Rightarrow r < r^* \Rightarrow \text{Depreciation Pressure } (e \uparrow)$
+                    $M \uparrow \Rightarrow r < r^* \Rightarrow \text{Depreciation Pressure } (e \downarrow)$
                 </div>
 
                 <p class="explanation-text" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--bg-sidebar);">Step 2: Central Bank Defense</p>
@@ -502,7 +502,7 @@
                             <td>
                                 <span class="badge ineffective">INEFFECTIVE</span>
                             </td>
-                            <td style="color:var(--text-muted); font-size:0.88rem;">Capital inflows appreciate the currency ($e \downarrow$), completely crowding out net exports.</td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Capital inflows appreciate the currency ($e \uparrow$), completely crowding out net exports.</td>
                             <td>
                                 <span class="badge effective">EFFECTIVE</span>
                             </td>
@@ -513,7 +513,7 @@
                             <td>
                                 <span class="badge effective">EFFECTIVE</span>
                             </td>
-                            <td style="color:var(--text-muted); font-size:0.88rem;">Capital outflows depreciate the currency ($e \uparrow$), stimulating net exports.</td>
+                            <td style="color:var(--text-muted); font-size:0.88rem;">Capital outflows depreciate the currency ($e \downarrow$), stimulating net exports.</td>
                             <td>
                                 <span class="badge ineffective">IMPOSSIBLE</span>
                             </td>
