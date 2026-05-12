@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FX & Interest Rate Parity — Macroeconomics Revision</title>
+    <meta name="description" content="Revision guide for FX markets and Interest Rate Parities (UIP, CIP, and Real Interest Parity).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                processEscapes: true
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="macro_style.css">
+</head>
+
+<body>
+    <!-- Sidebar Toggle (Mobile) -->
+    <div class="mobile-toggle" id="mobile-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text">Macro <span style="color: var(--accent-secondary);">Revision</span></div>
+            <button class="toggle-btn" id="toggle-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <nav class="menu-nav">
+            <div class="menu-item">
+                <a href="index.html" class="accordion-header">
+                    <i class="fas fa-home"></i>
+                    <span class="accordion-title">Overview</span>
+                </a>
+            </div>
+
+            <!-- IS-LM Section -->
+            <div class="menu-item islm">
+                <div class="accordion-header">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="accordion-title">The IS-LM Model</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="islm_lecture.html">Theory &amp; Intuition</a></li>
+                        <li><a href="islm_applications.html">Policy Applications</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Open Economy Section -->
+            <div class="menu-item open-econ">
+                <div class="accordion-header active">
+                    <i class="fas fa-globe"></i>
+                    <span class="accordion-title">Open Economy</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content" style="max-height: 500px;">
+                    <ul>
+                        <li><a href="open_economy.html">Open Economy — SOE</a></li>
+                        <li><a href="open_economy_mf.html">Mundell-Fleming &amp; Parity</a></li>
+                        <li><a href="open_economy_parity.html" class="active">FX &amp; Interest Parity</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Seminar / Exercises -->
+            <div class="menu-item seminar">
+                <div class="accordion-header">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="accordion-title">Seminars</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="seminar1.html">Seminar 1</a></li>
+                        <li><a href="seminar2.html">Seminar 2</a></li>
+                        <li><a href="seminar3.html">Seminar 3</a></li>
+                        <li><a href="seminar4.html">Seminar 4</a></li>
+                        <li><a href="seminar5.html">Seminar 5</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="main-content">
+        <header class="page-header">
+            <h1 class="page-title">FX and Interest Rate Parities</h1>
+            <p class="page-subtitle">Revision Block: Comparing Financial Returns Across Borders</p>
+        </header>
+
+        <!-- 1. GENERAL IDEA -->
+        <section id="general-idea">
+            <div class="pedagogy-box">
+                <div class="pedagogy-title"><i class="fas fa-lightbulb"></i> The General Principle</div>
+                <p>This section studies how investors compare financial assets denominated in different currencies. An investor does not only compare interest rates ($i_{domestic}$ vs $i_{foreign}$); they must also factor in the <strong>exchange rate</strong>, as investing abroad involves currency conversion today and conversion back in the future.</p>
+                <div class="equation-box" style="font-size: 1.25rem; font-weight: 700; color: var(--accent-primary);">
+                    \text{Interest Return} + \text{Exchange Gain/Loss}
+                </div>
+            </div>
+        </section>
+
+        <!-- 2, 3, 4. EXCHANGE RATES -->
+        <section id="fx-definitions">
+            <h2><i class="fas fa-tags"></i> Key Exchange Rate Concepts</h2>
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-clock"></i> Spot Rate ($e_t$)</h4>
+                    <p>The exchange rate for immediate transactions today.</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);"><em>Example:</em> $e_t = 25$ CZK/EUR means one Euro costs 25 CZK today.</p>
+                    <ul style="font-size: 0.85rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                        <li><strong>$e_t \uparrow$</strong> (25 to 26): CZK depreciates.</li>
+                        <li><strong>$e_t \downarrow$</strong> (25 to 24): CZK appreciates.</li>
+                    </ul>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-bullseye"></i> Expected Rate ($E_t(e_{t+1})$)</h4>
+                    <p>The exchange rate investors <strong>expect today</strong> for the future. It is not guaranteed and carries uncertainty.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">Critical for Uncovered Interest Parity (UIP).</p>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-file-contract"></i> Forward Rate ($F_t$)</h4>
+                    <p>The rate fixed <strong>today by contract</strong> for a transaction that will happen in the future. It removes all exchange-rate uncertainty.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">Critical for Covered Interest Parity (CIP).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5, 6. UIP -->
+        <section id="uip">
+            <h2><i class="fas fa-shield-halved"></i> Uncovered Interest Parity (UIP)</h2>
+            <p class="explanation-text">UIP compares expected returns across currencies when the investor does <strong>not</strong> cover exchange-rate risk.</p>
+            
+            <div class="concept-card">
+                <div class="concept-title">The UIP Intuition</div>
+                <div class="concept-body">
+                    <p>Investors should be indifferent between domestic and foreign assets once expected currency movements are factored in. If one country offers a higher interest rate, it must be offset by an expected depreciation of its currency.</p>
+                    <div class="equation-box" style="background: #fef2f2; border-color: #fca5a5; color: #b91c1c;">
+                        $i_d > i_f \Rightarrow \text{Domestic currency is expected to depreciate}$
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-icon"><i class="fas fa-exchange-alt"></i></div>
+                <div class="alert-content">
+                    <h4>The UIP Distinction: Immediate vs. Future</h4>
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Immediate Reaction:</strong> $i_d \uparrow \Rightarrow \text{Capital Inflows} \Rightarrow \text{Currency Appreciates TODAY}$.</li>
+                        <li><strong>Future Adjustment:</strong> $i_d > i_f \Rightarrow \text{Expected Future DEPRECIATION}$ (to equalize returns).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. HOW TO SOLVE -->
+        <section id="solving-parity">
+            <div class="pedagogy-box" style="border-left-color: #10b981; background: #f0fdf4;">
+                <div class="pedagogy-title" style="color: #15803d;"><i class="fas fa-tools"></i> How to Solve a UIP Exercise</div>
+                <ol class="content-list">
+                    <li><strong>Identify variables:</strong> Find $e_t$, $i_d$, and $i_f$ from the prompt.</li>
+                    <li><strong>Apply the equation:</strong> Use the specific formula provided in the question (quotations vary!).</li>
+                    <li><strong>Solve for expectations:</strong> Calculate $E_t(e_{t+1})$.</li>
+                    <li><strong>Compare:</strong> If $e_t$ is (domestic/foreign):
+                        <ul style="margin-top: 0.5rem; list-style: none;">
+                            <li><i class="fas fa-caret-right" style="color: #10b981;"></i> $E_t(e_{t+1}) > e_t \Rightarrow$ Expected <strong>Depreciation</strong>.</li>
+                            <li><i class="fas fa-caret-right" style="color: #10b981;"></i> $E_t(e_{t+1}) < e_t \Rightarrow$ Expected <strong>Appreciation</strong>.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 8, 9, 10, 11. CIP & ARBITRAGE -->
+        <section id="cip">
+            <h2><i class="fas fa-lock"></i> Covered Interest Parity (CIP)</h2>
+            <div class="grid-cards">
+                <div class="grid-card" style="border-top-color: var(--accent-secondary);">
+                    <h4>The CIP Principle</h4>
+                    <p>Once the future rate is locked in via $F_t$, domestic and foreign investments must offer the same <strong>riskless</strong> return. Otherwise, arbitrage is possible.</p>
+                </div>
+                <div class="grid-card" style="border-top-color: var(--accent-secondary);">
+                    <h4>Dominance Rule</h4>
+                    <p>"Which investment dominates?" means "Which gives a higher final return?" Compare $i_d$ vs. the covered strategy $(e_t, i_f, F_t)$.</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">Arbitrage Strategy</div>
+                <div class="concept-body">
+                    <p>The rule is simple: <strong>Borrow in the low-return strategy, invest in the high-return strategy.</strong></p>
+                    <ul class="content-list">
+                        <li>If covered foreign return > domestic: Borrow domestic $\rightarrow$ Convert at $e_t$ $\rightarrow$ Invest at $i_f$ $\rightarrow$ Lock exit with $F_t$.</li>
+                        <li>If domestic return > covered foreign: Borrow foreign $\rightarrow$ Convert at $e_t$ $\rightarrow$ Invest at $i_d$ $\rightarrow$ Lock exit with $F_t$.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12, 13. REAL INTEREST PARITY -->
+        <section id="real-parity">
+            <h2><i class="fas fa-percentage"></i> Real Interest Parity</h2>
+            <p class="explanation-text">Investors care about <strong>real returns</strong>, not just nominal ones. A country may have a high nominal rate, but if its inflation is higher, the real return may be lower.</p>
+            
+            <div class="pedagogy-box" style="border-left-color: #7c3aed; background: #f5f3ff;">
+                <div class="pedagogy-title" style="color: #6d28d9;">Calculation Workflow</div>
+                <ol class="content-list" style="margin-bottom: 0;">
+                    <li>Compute domestic real return: $r_d \approx i_d - E_t \pi_d$</li>
+                    <li>Compute foreign real return: $r_f \approx i_f - E_t \pi_f$</li>
+                    <li><strong>Compare:</strong> Parity holds if $r_d = r_f$.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- FINAL SUMMARY -->
+        <section id="summary-table">
+            <div class="key-defs" style="margin-top: 3rem;">
+                <h4><i class="fas fa-list-check"></i> Final Revision Summary</h4>
+                <div class="def-row">
+                    <span class="def-term">UIP</span>
+                    <span class="def-body">Uses $E_t(e_{t+1})$. Expected returns with <strong>exchange-rate risk</strong>. High $i \rightarrow$ Expected depreciation.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">CIP</span>
+                    <span class="def-body">Uses $F_t$. Covered <strong>riskless returns</strong>. Any deviation allows risk-free arbitrage.</span>
+                </div>
+                <div class="def-row">
+                    <span class="def-term">Real Parity</span>
+                    <span class="def-body">Adjusts for <strong>inflation</strong>. High nominal rates do not guarantee high real gains.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                <em>FX &amp; Interest Parity Revision Block — Academic Format. Revised May 2026.</em>
+            </p>
+        </section>
+    </main>
+
+    <script>
+        // Basic sidebar logic
+        const toggleBtn = document.getElementById('toggle-btn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const mobileToggle = document.getElementById('mobile-toggle');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            toggleBtn.querySelector('i').classList.toggle('fa-chevron-right');
+            toggleBtn.querySelector('i').classList.toggle('fa-chevron-left');
+        });
+
+        mobileToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Accordion logic
+        const accordions = document.querySelectorAll('.accordion-header');
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                const content = acc.nextElementSibling;
+                if (content) {
+                    const isOpen = content.style.maxHeight;
+                    // Close others
+                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+                    
+                    if (!isOpen) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        acc.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Open current accordion on load
+        window.addEventListener('load', () => {
+            const activeLink = document.querySelector('.accordion-content a.active');
+            if (activeLink) {
+                const content = activeLink.closest('.accordion-content');
+                const header = content.previousElementSibling;
+                content.style.maxHeight = content.scrollHeight + "px";
+                header.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
