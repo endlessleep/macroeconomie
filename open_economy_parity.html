@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FX & Interest Rate Parity — Macroeconomics Revision</title>
-    <meta name="description" content="Revision guide for FX markets and Interest Rate Parities (UIP, CIP, and Real Interest Parity).">
+    <meta name="description" content="Formal analysis of Uncovered (UIP), Covered (CIRP), and Real Interest Rate Parity. Model derivations and empirical limits.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,6 +22,32 @@
         };
     </script>
     <link rel="stylesheet" href="macro_style.css">
+    <style>
+        .formula-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .formula-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        .math-block {
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +73,6 @@
                 </a>
             </div>
 
-            <!-- IS-LM Section -->
             <div class="menu-item islm">
                 <div class="accordion-header">
                     <i class="fas fa-chart-line"></i>
@@ -62,7 +87,6 @@
                 </div>
             </div>
 
-            <!-- Open Economy Section -->
             <div class="menu-item open-econ">
                 <div class="accordion-header active">
                     <i class="fas fa-globe"></i>
@@ -78,7 +102,6 @@
                 </div>
             </div>
 
-            <!-- Seminar / Exercises -->
             <div class="menu-item seminar">
                 <div class="accordion-header">
                     <i class="fas fa-graduation-cap"></i>
@@ -101,162 +124,131 @@
     <!-- MAIN CONTENT -->
     <main class="main-content" id="main-content">
         <header class="page-header">
-            <h1 class="page-title">FX and Interest Rate Parities</h1>
-            <p class="page-subtitle">Revision Block: Comparing Financial Returns Across Borders</p>
+            <h1 class="page-title">Interest Rate Parities</h1>
+            <p class="page-subtitle">Academic Summary — Theory, Derivations &amp; Empirical Realities</p>
         </header>
 
-        <!-- 1. GENERAL IDEA -->
-        <section id="general-idea">
-            <div class="pedagogy-box">
-                <div class="pedagogy-title"><i class="fas fa-lightbulb"></i> The General Principle</div>
-                <p>This section studies how investors compare financial assets denominated in different currencies. An investor does not only compare interest rates ($i_{domestic}$ vs $i_{foreign}$); they must also factor in the <strong>exchange rate</strong>, as investing abroad involves currency conversion today and conversion back in the future.</p>
-                <div class="equation-box" style="font-size: 1.25rem; font-weight: 700; color: var(--accent-primary);">
-                    \text{Interest Return} + \text{Exchange Gain/Loss}
-                </div>
-            </div>
-        </section>
-
-        <!-- 2, 3, 4. EXCHANGE RATES -->
-        <section id="fx-definitions">
-            <h2><i class="fas fa-tags"></i> Key Exchange Rate Concepts</h2>
-            <div class="grid-cards">
-                <div class="grid-card">
-                    <h4><i class="fas fa-clock"></i> Spot Rate ($e_t$)</h4>
-                    <p>The exchange rate for immediate transactions today.</p>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);"><em>Example:</em> $e_t = 25$ CZK/EUR means one Euro costs 25 CZK today.</p>
-                    <ul style="font-size: 0.85rem; margin-top: 0.5rem; padding-left: 1.2rem;">
-                        <li><strong>$e_t \uparrow$</strong> (25 to 26): CZK depreciates.</li>
-                        <li><strong>$e_t \downarrow$</strong> (25 to 24): CZK appreciates.</li>
-                    </ul>
-                </div>
-                <div class="grid-card">
-                    <h4><i class="fas fa-bullseye"></i> Expected Rate ($E_t(e_{t+1})$)</h4>
-                    <p>The exchange rate investors <strong>expect today</strong> for the future. It is not guaranteed and carries uncertainty.</p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">Critical for Uncovered Interest Parity (UIP).</p>
-                </div>
-                <div class="grid-card">
-                    <h4><i class="fas fa-file-contract"></i> Forward Rate ($F_t$)</h4>
-                    <p>The rate fixed <strong>today by contract</strong> for a transaction that will happen in the future. It removes all exchange-rate uncertainty.</p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">Critical for Covered Interest Parity (CIP).</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5, 6. UIP -->
-        <section id="uip">
-            <h2><i class="fas fa-shield-halved"></i> Uncovered Interest Parity (UIP)</h2>
-            <p class="explanation-text">UIP compares expected returns across currencies when the investor does <strong>not</strong> cover exchange-rate risk.</p>
-            
-            <div class="concept-card">
-                <div class="concept-title">The UIP Intuition</div>
+        <!-- 1. BASIC IDEA -->
+        <section id="foundations">
+            <div class="concept-card" style="border-left-color: var(--accent-primary);">
+                <div class="concept-title"><i class="fas fa-link"></i> Foundations of Interest Rate Parity</div>
                 <div class="concept-body">
-                    <p>Investors should be indifferent between domestic and foreign assets once expected currency movements are factored in. If one country offers a higher interest rate, it must be offset by an expected depreciation of its currency.</p>
-                    <div class="equation-box" style="background: #fef2f2; border-color: #fca5a5; color: #b91c1c;">
-                        $i_d > i_f \Rightarrow \text{Domestic currency is expected to depreciate}$
-                    </div>
-                </div>
-            </div>
-
-            <div class="alert-box">
-                <div class="alert-icon"><i class="fas fa-exchange-alt"></i></div>
-                <div class="alert-content">
-                    <h4>The UIP Distinction: Immediate vs. Future</h4>
-                    <ul style="margin-bottom: 0;">
-                        <li><strong>Immediate Reaction:</strong> $i_d \uparrow \Rightarrow \text{Capital Inflows} \Rightarrow \text{Currency Appreciates TODAY}$.</li>
-                        <li><strong>Future Adjustment:</strong> $i_d > i_f \Rightarrow \text{Expected Future DEPRECIATION}$ (to equalize returns).</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. HOW TO SOLVE -->
-        <section id="solving-parity">
-            <div class="pedagogy-box" style="border-left-color: #10b981; background: #f0fdf4;">
-                <div class="pedagogy-title" style="color: #15803d;"><i class="fas fa-tools"></i> How to Solve a UIP Exercise</div>
-                <ol class="content-list">
-                    <li><strong>Identify variables:</strong> Find $e_t$, $i_d$, and $i_f$ from the prompt.</li>
-                    <li><strong>Apply the equation:</strong> Use the specific formula provided in the question (quotations vary!).</li>
-                    <li><strong>Solve for expectations:</strong> Calculate $E_t(e_{t+1})$.</li>
-                    <li><strong>Compare:</strong> If $e_t$ is (domestic/foreign):
-                        <ul style="margin-top: 0.5rem; list-style: none;">
-                            <li><i class="fas fa-caret-right" style="color: #10b981;"></i> $E_t(e_{t+1}) > e_t \Rightarrow$ Expected <strong>Depreciation</strong>.</li>
-                            <li><i class="fas fa-caret-right" style="color: #10b981;"></i> $E_t(e_{t+1}) < e_t \Rightarrow$ Expected <strong>Appreciation</strong>.</li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- 8, 9, 10, 11. CIP & ARBITRAGE -->
-        <section id="cip">
-            <h2><i class="fas fa-lock"></i> Covered Interest Parity (CIP)</h2>
-            <div class="grid-cards">
-                <div class="grid-card" style="border-top-color: var(--accent-secondary);">
-                    <h4>The CIP Principle</h4>
-                    <p>Once the future rate is locked in via $F_t$, domestic and foreign investments must offer the same <strong>riskless</strong> return. Otherwise, arbitrage is possible.</p>
-                </div>
-                <div class="grid-card" style="border-top-color: var(--accent-secondary);">
-                    <h4>Dominance Rule</h4>
-                    <p>"Which investment dominates?" means "Which gives a higher final return?" Compare $i_d$ vs. the covered strategy $(e_t, i_f, F_t)$.</p>
-                </div>
-            </div>
-
-            <div class="concept-card">
-                <div class="concept-title">Arbitrage Strategy</div>
-                <div class="concept-body">
-                    <p>The rule is simple: <strong>Borrow in the low-return strategy, invest in the high-return strategy.</strong></p>
+                    <p>Interest rate parity links domestic interest rates, foreign interest rates, and the exchange rate market. It is the cornerstone of international finance equilibrium.</p>
+                    <p><strong>Two Core Assumptions:</strong></p>
                     <ul class="content-list">
-                        <li>If covered foreign return > domestic: Borrow domestic $\rightarrow$ Convert at $e_t$ $\rightarrow$ Invest at $i_f$ $\rightarrow$ Lock exit with $F_t$.</li>
-                        <li>If domestic return > covered foreign: Borrow foreign $\rightarrow$ Convert at $e_t$ $\rightarrow$ Invest at $i_d$ $\rightarrow$ Lock exit with $F_t$.</li>
+                        <li><strong>High Capital Mobility:</strong> Capital can move across borders sufficiently and quickly to exploit return differentials.</li>
+                        <li><strong>Asset Substitutability:</strong> Domestic and foreign assets are close substitutes in investors' portfolios.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 12, 13. REAL INTEREST PARITY -->
-        <section id="real-parity">
-            <h2><i class="fas fa-percentage"></i> Real Interest Parity</h2>
-            <p class="explanation-text">Investors care about <strong>real returns</strong>, not just nominal ones. A country may have a high nominal rate, but if its inflation is higher, the real return may be lower.</p>
-            
-            <div class="pedagogy-box" style="border-left-color: #7c3aed; background: #f5f3ff;">
-                <div class="pedagogy-title" style="color: #6d28d9;">Calculation Workflow</div>
-                <ol class="content-list" style="margin-bottom: 0;">
-                    <li>Compute domestic real return: $r_d \approx i_d - E_t \pi_d$</li>
-                    <li>Compute foreign real return: $r_f \approx i_f - E_t \pi_f$</li>
-                    <li><strong>Compare:</strong> Parity holds if $r_d = r_f$.</li>
-                </ol>
+        <!-- 2. UIP -->
+        <section id="uip">
+            <h2><i class="fas fa-shield-halved"></i> Uncovered Interest Rate Parity (UIP)</h2>
+            <p class="explanation-text">UIP compares returns on domestic and foreign assets when the investor <strong>does not hedge</strong> exchange rate risk. It relies on arbitrage to equalize expected returns.</p>
+
+            <div class="formula-card">
+                <div class="formula-title">Exact Equilibrium Condition</div>
+                <div class="math-block">
+                    $(1 + i_{CZK,t}) = \frac{E_t(e_{CZK/EUR,t+1})}{e_{CZK/EUR,t}} (1 + i_{EUR,t})$
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Where $e_{CZK/EUR}$ is the price of 1 EUR in CZK ($e \uparrow = $ depreciation of CZK).</p>
+            </div>
+
+            <div class="formula-card" style="background: #eff6ff; border-color: #bfdbfe;">
+                <div class="formula-title" style="color: #1e40af;">Linear Approximation (Standard form)</div>
+                <div class="math-block" style="background: rgba(255,255,255,0.8);">
+                    $i_{CZK,t} - i_{EUR,t} \approx \frac{E_t(e_{t+1}) - e_t}{e_t}$
+                </div>
+                <p style="font-size: 0.9rem; font-weight: 500;"><strong>Interpretation:</strong> The interest rate differential between two countries should equal the expected percentage change in the exchange rate.</p>
+            </div>
+
+            <div class="pedagogy-box" style="border-left-color: #f59e0b; background: #fffbeb; margin-top: 1.5rem;">
+                <div class="pedagogy-title" style="color: #92400e;"><i class="fas fa-exclamation-triangle"></i> Why does UIP often fail in practice?</div>
+                <p>Empirically, UIP performs poorly in the short run due to several factors:</p>
+                <ul class="content-list" style="margin-bottom: 0;">
+                    <li><strong>Exchange Rate Risk Premia:</strong> Investors demand extra compensation for the risk of holding a foreign currency.</li>
+                    <li><strong>Imperfect Substitutability:</strong> Not all assets are identical; local regulations and liquidity matter.</li>
+                    <li><strong>Expectation Errors:</strong> Market expectations are often biased or change rapidly due to news.</li>
+                </ul>
             </div>
         </section>
 
-        <!-- FINAL SUMMARY -->
-        <section id="summary-table">
+        <!-- 3. CIRP -->
+        <section id="cirp">
+            <h2><i class="fas fa-lock"></i> Covered Interest Rate Parity (CIRP)</h2>
+            <p class="explanation-text">CIRP assumes the investor <strong>hedges</strong> exchange rate risk by signing a <strong>forward contract</strong> today. This removes all uncertainty from the future conversion.</p>
+
+            <div class="formula-card">
+                <div class="formula-title">No-Arbitrage Condition (Exact)</div>
+                <div class="math-block">
+                    $(1 + i_{CZK,t}) = \frac{F_{CZK/EUR,t}}{S_{CZK/EUR,t}} (1 + i_{EUR,t})$
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">$S_t$: Current spot exchange rate. $F_t$: Forward exchange rate agreed today.</p>
+            </div>
+
+            <div class="formula-card" style="background: #f0fdf4; border-color: #86efac;">
+                <div class="formula-title" style="color: #166534;">Linear Approximation</div>
+                <div class="math-block" style="background: rgba(255,255,255,0.8);">
+                    $i_{CZK,t} - i_{EUR,t} \approx \frac{F_t - S_t}{S_t}$
+                </div>
+                <p style="font-size: 0.9rem; font-weight: 500;"><strong>Interpretation:</strong> The interest differential must equal the forward premium or discount. If not, a <strong>riskless arbitrage</strong> opportunity exists.</p>
+            </div>
+
+            <div class="grid-cards">
+                <div class="grid-card">
+                    <h4><i class="fas fa-circle-check"></i> Reliability</h4>
+                    <p>In normal times, CIRP holds much better than UIP because $F_t$ is an observable market price, not an unobserved expectation.</p>
+                </div>
+                <div class="grid-card">
+                    <h4><i class="fas fa-circle-xmark"></i> Deviations</h4>
+                    <p>Small gaps can appear due to transaction costs, bid-ask spreads, or taxes. Large gaps occur during <strong>financial stress</strong> when arbitrage becomes capital-constrained.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. REAL PARITY -->
+        <section id="real-parity">
+            <h2><i class="fas fa-chart-area"></i> Real Interest Parity</h2>
+            <p class="explanation-text">If we account for expected inflation, we can compare real returns across countries.</p>
+
+            <div class="equation-box" style="font-size: 1.3rem; padding: 1.5rem; background: #fdf4ff; border-color: #f5d0fe; color: #701a75;">
+                $i_{CZK,t} - E_t\pi_{CZK,t+1} = i_{EUR,t} - E_t\pi_{EUR,t+1}$
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Crucial Insight:</strong> Expected real interest rates should be equal across countries. However, this is a <strong>stronger condition</strong> than UIP because it requires both capital mobility and a version of Purchasing Power Parity (PPP) in expectations.</p>
+        </section>
+
+        <!-- 5. SUMMARY TABLE -->
+        <section id="uip-vs-cirp">
             <div class="key-defs" style="margin-top: 3rem;">
-                <h4><i class="fas fa-list-check"></i> Final Revision Summary</h4>
+                <h4><i class="fas fa-code-compare"></i> UIP vs. CIRP: The Core Difference</h4>
                 <div class="def-row">
-                    <span class="def-term">UIP</span>
-                    <span class="def-body">Uses $E_t(e_{t+1})$. Expected returns with <strong>exchange-rate risk</strong>. High $i \rightarrow$ Expected depreciation.</span>
+                    <span class="def-term">Data Source</span>
+                    <span class="def-body">UIP uses unobserved <strong>expectations</strong>; CIRP uses observed <strong>forward contracts</strong>.</span>
                 </div>
                 <div class="def-row">
-                    <span class="def-term">CIP</span>
-                    <span class="def-body">Uses $F_t$. Covered <strong>riskless returns</strong>. Any deviation allows risk-free arbitrage.</span>
+                    <span class="def-term">Risk</span>
+                    <span class="def-body">UIP involves <strong>exchange rate risk</strong>; CIRP is <strong>risk-free</strong> (covered).</span>
                 </div>
                 <div class="def-row">
-                    <span class="def-term">Real Parity</span>
-                    <span class="def-body">Adjusts for <strong>inflation</strong>. High nominal rates do not guarantee high real gains.</span>
+                    <span class="def-term">Empirical Fit</span>
+                    <span class="def-body">UIP fails frequently; CIRP generally holds except during systemic financial crises.</span>
                 </div>
             </div>
         </section>
 
         <!-- FOOTER -->
-        <section style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
+        <footer style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--border-light); padding-top: 1.5rem;">
             <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
-                <em>FX &amp; Interest Parity Revision Block — Academic Format. Revised May 2026.</em>
+                <em>Macroeconomics II — Martin Janíčko (IES FSV). Revised May 2026.</em>
             </p>
-        </section>
+        </footer>
     </main>
 
     <script>
-        // Basic sidebar logic
+        // Sidebar logic
         const toggleBtn = document.getElementById('toggle-btn');
         const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('main-content');
@@ -280,10 +272,8 @@
                 const content = acc.nextElementSibling;
                 if (content) {
                     const isOpen = content.style.maxHeight;
-                    // Close others
                     document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
                     document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-                    
                     if (!isOpen) {
                         content.style.maxHeight = content.scrollHeight + "px";
                         acc.classList.add('active');
@@ -292,7 +282,6 @@
             });
         });
 
-        // Open current accordion on load
         window.addEventListener('load', () => {
             const activeLink = document.querySelector('.accordion-content a.active');
             if (activeLink) {
