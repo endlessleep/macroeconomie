@@ -47,7 +47,112 @@
             border-radius: 8px;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
+        
+        /* Class Recap Styles */
+        .recap-section {
+            margin: 3.5rem 0;
+            background: #faf5ff; /* light purple background */
+            border: 2px solid #e9d5ff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+        .recap-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e9d5ff;
+            padding-bottom: 0.75rem;
+        }
+        .recap-header h3 {
+            color: #6b21a8;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .recap-header h3::before {
+            display: none !important; /* override generic pseudo-elements */
+        }
+        .recap-header i {
+            color: #9333ea;
+        }
+        .recap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .recap-box {
+            background: white;
+            border: 1px solid #f3e8ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+        }
+        .recap-box:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: #c4b5fd;
+        }
+        .recap-box h4 {
+            color: #5b21b6;
+            font-size: 1.15rem;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid #f3e8ff;
+            padding-bottom: 0.5rem;
+        }
+        .recap-box h4 i {
+            color: #7c3aed;
+        }
+        .recap-box p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+        .recap-math-inline {
+            background: #f5f3ff;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+        .recap-key-sentence {
+            background: #faf5ff;
+            border-left: 3px solid #7c3aed;
+            padding: 0.75rem;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: 500;
+            color: #5b21b6;
+            margin-top: auto;
+        }
+        .recap-exercise-note {
+            background: #fff1f2;
+            border: 1px solid #ffe4e6;
+            color: #be123c;
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .recap-exercise-note strong {
+            color: #9f1239;
+        }
     </style>
+
 </head>
 
 <body>
@@ -120,6 +225,18 @@
                         <li><a href="open_economy.html">Open Economy — SOE</a></li>
                         <li><a href="open_economy_mf.html">Mundell-Fleming &amp; Parity</a></li>
                         <li><a href="open_economy_parity.html" class="active">FX &amp; Interest Parity</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-item fiscal">
+                <div class="accordion-header">
+                    <i class="fas fa-landmark"></i>
+                    <span class="accordion-title">Public Finance</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="public_finance.html">Government &amp; Public Debt ★</a></li>
                     </ul>
                 </div>
             </div>
@@ -240,6 +357,75 @@
                 <div class="def-row">
                     <span class="def-term">Empirical Fit</span>
                     <span class="def-body">UIP fails frequently; CIRP generally holds except during systemic financial crises.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CLASS RECAP (Dernier Cours de Macro) -->
+        <section id="class-recap" class="recap-section">
+            <div class="recap-header">
+                <h3><i class="fas fa-graduation-cap"></i> Dernier Cours : Parity &amp; Exercises Recap</h3>
+            </div>
+            
+            <div class="recap-grid">
+                <!-- 1. UIP -->
+                <div class="recap-box">
+                    <h4><i class="fas fa-unlock"></i> 1. UIP — Uncovered</h4>
+                    <p>Compares expected returns when the investor <strong>does not protect</strong> themselves against exchange-rate risk. The future exchange rate is uncertain.</p>
+                    
+                    <p><strong>Key Object:</strong> <span class="recap-math-inline">$E_t(e_{t+1})$</span> (expected future exchange rate).</p>
+                    
+                    <p><strong>Logic:</strong> A higher interest rate must be compensated by an expected currency depreciation, otherwise arbitrage would exist.</p>
+                    
+                    <div class="recap-exercise-note">
+                        <strong>Application (CZK/EUR) :</strong><br>
+                        Comme $i_{CZK} > i_{EUR}$, la couronne (CZK) doit déprécier.<br>
+                        Avec $e_t = \text{CZK/EUR}$, la dépréciation se traduit par $e_t \uparrow$ (l'euro coûte plus de CZK).
+                    </div>
+                    
+                    <div class="recap-key-sentence">
+                        <strong>Key concept:</strong> Interest-rate differences are offset by expected exchange-rate changes.
+                    </div>
+                </div>
+
+                <!-- 2. CIP -->
+                <div class="recap-box">
+                    <h4><i class="fas fa-lock"></i> 2. CIP — Covered</h4>
+                    <p>Compares riskless covered returns. The investor <strong>does protect</strong> themselves against exchange-rate risk by using a forward contract.</p>
+                    
+                    <p><strong>Key Object:</strong> <span class="recap-math-inline">$F_t$</span> (forward exchange rate fixed today for a future currency exchange).</p>
+                    
+                    <p><strong>Logic:</strong> The domestic return must equal the foreign return converted back with $F_t$. Any difference yields riskless arbitrage.</p>
+                    
+                    <div class="recap-exercise-note" style="background: #ecfdf5; border-color: #d1fae5; color: #065f46;">
+                        <strong style="color: #047857;">Application (CZK/EUR) :</strong><br>
+                        Sans arbitrage, $F_t = 25.49$ mais le taux réel est $F_t = 26$.<br>
+                        L'investissement en EUR domine car le taux à terme $F_t$ est trop favorable (26 CZK/EUR reçus au futur), malgré $i_{CZK} > i_{EUR}$.
+                    </div>
+                    
+                    <div class="recap-key-sentence" style="border-left-color: #10b981; background: #f0fdf4; color: #065f46;">
+                        <strong>Key concept:</strong> Once locked in with a forward contract, domestic and foreign investments must give the same riskless return.
+                    </div>
+                </div>
+
+                <!-- 3. REAL INTEREST PARITY -->
+                <div class="recap-box">
+                    <h4><i class="fas fa-scale-balanced"></i> 3. Real Interest Parity</h4>
+                    <p>Compares real returns instead of nominal. Inflation is the key factor since it erodes purchasing power.</p>
+                    
+                    <p><strong>Key Equation:</strong> <span class="recap-math-inline">$r = i - E_t\pi$</span> (Real rate = nominal rate minus expected inflation).</p>
+                    
+                    <p><strong>Logic:</strong> A country can have a higher nominal interest rate, but not necessarily a higher real return if its expected inflation is also higher.</p>
+                    
+                    <div class="recap-exercise-note" style="background: #fffbeb; border-color: #fef3c7; color: #92400e;">
+                        <strong style="color: #b45309;">Application (CZK/EUR) :</strong><br>
+                        Ici, $r_{CZK} = 3\%$ et $r_{EUR} = 1.5\%$.<br>
+                        La parité d'intérêt réelle ne tient pas ($3\% \neq 1.5\%$).
+                    </div>
+                    
+                    <div class="recap-key-sentence" style="border-left-color: #f59e0b; background: #fffbeb; color: #78350f;">
+                        <strong>Key concept:</strong> Investors compare purchasing-power returns, so expected inflation must be subtracted from nominal rates.
+                    </div>
                 </div>
             </div>
         </section>

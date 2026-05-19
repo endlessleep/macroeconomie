@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Finance & Government Debt — Last Macro Lecture</title>
+    <meta name="description" content="Final macroeconomics lecture: Government revenues, expenditures, budget deficits, public debt, intertemporal budget constraints, and debt sustainability.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                processEscapes: true
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="macro_style.css">
+    <style>
+        /* ===== Fiscal / Public Finance Accent — Emerald Teal ===== */
+        :root {
+            --accent-fiscal: #059669;
+            --accent-fiscal-dark: #047857;
+            --accent-fiscal-light: #ecfdf5;
+            --accent-fiscal-border: #a7f3d0;
+            --accent-fiscal-hover: #065f46;
+        }
+
+        /* Page header */
+        .page-header.fiscal {
+            border-bottom-color: var(--accent-fiscal);
+            position: relative;
+        }
+        .page-header.fiscal .page-title {
+            color: var(--accent-fiscal-hover);
+        }
+        .page-header.fiscal .page-subtitle {
+            color: var(--accent-fiscal);
+            font-weight: 500;
+        }
+
+        /* Last-lecture badge */
+        .last-lecture-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: linear-gradient(135deg, var(--accent-fiscal), #10b981);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.35);
+        }
+
+        /* h2 fiscal accent bar */
+        .fiscal-content h2::before {
+            background: var(--accent-fiscal);
+        }
+
+        /* Fiscal formula box */
+        .fiscal-formula {
+            background: var(--accent-fiscal-light);
+            border: 2px solid var(--accent-fiscal-border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .fiscal-formula .formula-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-fiscal-dark);
+            margin-bottom: 0.75rem;
+        }
+        .fiscal-formula .formula-math {
+            font-size: 1.3rem;
+            color: var(--accent-fiscal-hover);
+        }
+        .fiscal-formula .formula-note {
+            font-size: 0.85rem;
+            color: #374151;
+            margin-top: 0.75rem;
+            line-height: 1.5;
+        }
+
+        /* Intertemporal formula — bigger & special */
+        .intertemporal-box {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 2px solid var(--accent-fiscal);
+            border-radius: 14px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.12);
+        }
+        .intertemporal-box .itb-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-fiscal-dark);
+            margin-bottom: 1rem;
+        }
+        .intertemporal-box .itb-math {
+            font-size: 1.1rem;
+        }
+        .intertemporal-box .itb-legend {
+            margin-top: 1.25rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .itb-leg-item {
+            background: white;
+            border: 1px solid var(--accent-fiscal-border);
+            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.82rem;
+            color: var(--accent-fiscal-hover);
+            font-weight: 500;
+        }
+        .itb-leg-item span {
+            font-weight: 700;
+        }
+
+        /* Revenue / Expenditure grid */
+        .rev-exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 800px) { .rev-exp-grid { grid-template-columns: 1fr; } }
+
+        .rev-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            border-top: 4px solid var(--accent-fiscal);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .rev-card.exp-card { border-top-color: #f59e0b; }
+
+        .rev-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--bg-sidebar);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .rev-card h4 i { color: var(--accent-fiscal); }
+        .rev-card.exp-card h4 i { color: #f59e0b; }
+
+        .rev-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .rev-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            color: var(--text-main);
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+        }
+        .rev-card ul li:last-child { border-bottom: none; }
+        .rev-card ul li::before {
+            content: "▸";
+            color: var(--accent-fiscal);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .rev-card.exp-card ul li::before { color: #f59e0b; }
+
+        /* Deficit types */
+        .deficit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .deficit-box {
+            background: white;
+            border-radius: 10px;
+            padding: 1.25rem;
+            border: 1px solid var(--border-light);
+            border-left: 5px solid var(--accent-fiscal);
+            box-shadow: var(--shadow-sm);
+        }
+        .deficit-box.cyclical { border-left-color: #8b5cf6; }
+        .deficit-box.structural { border-left-color: #f59e0b; }
+        .deficit-box.primary { border-left-color: #3b82f6; }
+        .deficit-box.total { border-left-color: var(--accent-fiscal); }
+
+        .deficit-box h5 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            color: var(--bg-sidebar);
+        }
+        .deficit-box p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Stat callouts */
+        .stat-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        .stat-callout {
+            flex: 1;
+            min-width: 150px;
+            background: var(--accent-fiscal-light);
+            border: 1px solid var(--accent-fiscal-border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            text-align: center;
+        }
+        .stat-callout .stat-val {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-fiscal-dark);
+            line-height: 1.1;
+        }
+        .stat-callout .stat-label {
+            font-size: 0.8rem;
+            color: var(--accent-fiscal-hover);
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        /* Sustainability checklist */
+        .sustain-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .sustain-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--accent-fiscal-border);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .sustain-item i {
+            color: var(--accent-fiscal);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .sustain-item p { margin: 0; font-size: 0.9rem; color: var(--text-main); }
+        .sustain-item strong { color: var(--accent-fiscal-dark); }
+
+        /* Argentina case */
+        .case-study {
+            background: #fffbeb;
+            border: 2px solid #fde68a;
+            border-radius: 14px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .case-study h4 {
+            color: #92400e;
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .case-study ul {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+        .case-study ul li {
+            font-size: 0.92rem;
+            color: #78350f;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        .case-study .case-lesson {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 0.85rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #78350f;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        /* Key takeaway box */
+        .key-takeaway {
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+            border: 2px solid var(--accent-fiscal);
+            border-radius: 14px;
+            padding: 1.75rem;
+            margin: 2rem 0;
+        }
+        .key-takeaway h4 {
+            color: var(--accent-fiscal-hover);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .key-takeaway ul {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+        .key-takeaway ul li {
+            font-size: 0.92rem;
+            color: #1f2937;
+            margin-bottom: 0.6rem;
+            line-height: 1.5;
+        }
+
+        /* Warning box */
+        .warning-box {
+            background: #fff1f2;
+            border: 1px solid #fecdd3;
+            border-left: 5px solid #e11d48;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+            color: #9f1239;
+            line-height: 1.6;
+        }
+        .warning-box strong { color: #881337; }
+
+        /* Section divider */
+        hr.fiscal-divider {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent-fiscal-border), transparent);
+            margin: 3rem 0;
+        }
+
+        /* Crowding-out formula */
+        .national-accounts-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .national-accounts-box .na-equation {
+            font-size: 1.25rem;
+            text-align: center;
+            margin: 0.75rem 0;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px dashed var(--accent-fiscal-border);
+        }
+        .na-note {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+        .na-tag {
+            background: var(--accent-fiscal-light);
+            border: 1px solid var(--accent-fiscal-border);
+            color: var(--accent-fiscal-dark);
+            border-radius: 6px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* sidebar fiscal accent */
+        .menu-item.fiscal .accordion-header:hover,
+        .menu-item.fiscal .accordion-header.active {
+            border-left-color: var(--accent-fiscal);
+        }
+        .menu-item.fiscal .accordion-content li a:hover,
+        .menu-item.fiscal .accordion-content li a.active {
+            color: #6ee7b7;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar Toggle (Mobile) -->
+    <button class="mobile-toggle" id="sidebar-toggle-mobile">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text"><i class="fas fa-chart-line"></i> Macroéconomie</div>
+            <button class="toggle-btn" id="sidebar-toggle-desktop">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="menu-nav">
+            <div class="menu-item">
+                <div class="accordion-header">
+                    <i class="fas fa-book-open"></i>
+                    <span class="accordion-title">Dynamic Macro Model</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="index.html">Model Structure</a></li>
+                        <li><a href="equilibrium.html">Model Equilibrium</a></li>
+                        <li><a href="shocks.html">Shock Simulations</a></li>
+                        <li><a href="note_shifts.html">Note: Movements vs Shifts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-item seminar">
+                <div class="accordion-header">
+                    <i class="fas fa-pen-to-square"></i>
+                    <span class="accordion-title">Seminars</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="seminar1.html">Seminar 1: IS Equation</a></li>
+                        <li><a href="seminar2.html">Seminar 2: Other Equations</a></li>
+                        <li><a href="seminar3.html">Seminar 3: Shocks Analysis</a></li>
+                        <li><a href="seminar4.html">Seminar 4: Shock Analysis</a></li>
+                        <li><a href="seminar5.html">Seminar 5: MP</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-item islm">
+                <div class="accordion-header">
+                    <i class="fas fa-chart-pie"></i>
+                    <span class="accordion-title">IS-LM Model</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="islm_lecture.html">IS-LM &amp; Bridge to IS-MP</a></li>
+                        <li><a href="islm_applications.html">IS-LM &amp; AD Applications</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-item open-econ">
+                <div class="accordion-header">
+                    <i class="fas fa-globe"></i>
+                    <span class="accordion-title">Open Economy</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="open_economy.html">Open Economy — SOE</a></li>
+                        <li><a href="open_economy_mf.html">Mundell-Fleming &amp; Parity</a></li>
+                        <li><a href="open_economy_parity.html">FX &amp; Interest Parity</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-item fiscal">
+                <div class="accordion-header active">
+                    <i class="fas fa-landmark"></i>
+                    <span class="accordion-title">Public Finance</span>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="accordion-content" style="max-height: 500px;">
+                    <ul>
+                        <li><a href="public_finance.html" class="active">Government &amp; Public Debt ★</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content fiscal-content" id="main-content">
+        <header class="page-header fiscal">
+            <div class="last-lecture-badge"><i class="fas fa-flag-checkered"></i> Dernier Cours — Macro II</div>
+            <h1 class="page-title">Public Finance &amp; Government Debt</h1>
+            <p class="page-subtitle">Government Role, Budget Constraints, Debt Sustainability &amp; Borrowing Limits</p>
+        </header>
+
+        <!-- ════════════════════════════════════
+             1. ROLE OF GOVERNMENT
+        ════════════════════════════════════ -->
+        <section id="role-govt">
+            <h2><i class="fas fa-university"></i> 1. The Role of Government</h2>
+
+            <div class="concept-card" style="border-left-color: var(--accent-fiscal);">
+                <div class="concept-title" style="color: var(--accent-fiscal-hover);"><i class="fas fa-building-columns"></i> Three Core Functions</div>
+                <div class="concept-body">
+                    <div class="deficit-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 0.5rem;">
+                        <div class="deficit-box primary" style="border-left-color: var(--accent-fiscal);">
+                            <h5><i class="fas fa-boxes-stacked" style="color:var(--accent-fiscal); margin-right:0.3rem;"></i> Provision</h5>
+                            <p>Providing public goods and services (education, defence, health) that the market would underprovide.</p>
+                        </div>
+                        <div class="deficit-box structural" style="border-left-color: #8b5cf6;">
+                            <h5><i class="fas fa-scale-balanced" style="color:#8b5cf6; margin-right:0.3rem;"></i> Redistribution</h5>
+                            <p>Redistributing income and wealth across households through transfers, taxes and social programmes.</p>
+                        </div>
+                        <div class="deficit-box cyclical" style="border-left-color: #3b82f6;">
+                            <h5><i class="fas fa-chart-line" style="color:#3b82f6; margin-right:0.3rem;"></i> Stabilization</h5>
+                            <p>Macroeconomic stabilization — smoothing the business cycle through fiscal and monetary policy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>The size of government is most commonly measured by the <strong>ratio of general government expenditure to GDP</strong>.</p>
+
+            <div class="stat-row">
+                <div class="stat-callout">
+                    <div class="stat-val">35–55%</div>
+                    <div class="stat-label">of GDP — Typical range in developed economies</div>
+                </div>
+                <div class="stat-callout">
+                    <div class="stat-val">~43%</div>
+                    <div class="stat-label">of GDP — Czech Republic (general govt.)</div>
+                </div>
+                <div class="stat-callout">
+                    <div class="stat-val">~30%</div>
+                    <div class="stat-label">of GDP — Czech state budget alone</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Distinction importante :</strong> The <em>general government</em> is broader than the <em>state budget</em>. It includes central government, regional governments, municipalities, and social security funds. In the Czech Republic, general government is ~43% of GDP vs. ~30% for the state budget alone.
+            </div>
+        </section>
+
+        <hr class="fiscal-divider">
+
+        <!-- ════════════════════════════════════
+             2. REVENUES & EXPENDITURES
+        ════════════════════════════════════ -->
+        <section id="rev-exp">
+            <h2><i class="fas fa-arrows-left-right"></i> 2. Government Revenues &amp; Expenditures</h2>
+
+            <div class="rev-exp-grid">
+                <!-- REVENUES -->
+                <div class="rev-card">
+                    <h4><i class="fas fa-arrow-down-to-bracket"></i> Types of Government Revenues</h4>
+                    <ul>
+                        <li><strong>Taxes on income &amp; wealth:</strong> personal income tax, corporate tax, property taxes.</li>
+                        <li><strong>Taxes on goods &amp; services:</strong> VAT, excise taxes, customs duties.</li>
+                        <li><strong>Social contributions:</strong> financing pensions, healthcare and social insurance.</li>
+                        <li><strong>Other revenues:</strong> fees, fines, dividends from state-owned companies, EU funds.</li>
+                    </ul>
+                </div>
+                <!-- EXPENDITURES -->
+                <div class="rev-card exp-card">
+                    <h4><i class="fas fa-arrow-up-from-bracket"></i> Types of Government Expenditures</h4>
+                    <ul>
+                        <li><strong>Purchases of goods &amp; services:</strong> public sector wages, education, health, defence.</li>
+                        <li><strong>Transfer payments:</strong> pensions, unemployment benefits, social assistance.</li>
+                        <li><strong>Public investment:</strong> infrastructure, schools, hospitals and long-term assets.</li>
+                        <li><strong>Subsidies &amp; grants:</strong> financial support to firms, households or local governments.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="fiscal-divider">
+
+        <!-- ════════════════════════════════════
+             3. BUDGET DEFICIT
+        ════════════════════════════════════ -->
+        <section id="budget-deficit">
+            <h2><i class="fas fa-chart-bar"></i> 3. Budget Deficits</h2>
+
+            <p>A <strong>budget deficit</strong> occurs when government expenditures exceed government revenues in a given period. When revenues are insufficient, governments finance deficits by borrowing — typically by issuing <strong>government bonds</strong>.</p>
+
+            <div class="fiscal-formula">
+                <div class="formula-label">Budget Deficit Formula</div>
+                <div class="formula-math">
+                    $$\text{Budget Deficit} = G + TR + iB - T$$
+                </div>
+                <div class="formula-note">
+                    <strong>$G$</strong> = government purchases &nbsp;|&nbsp; <strong>$TR$</strong> = transfer payments &nbsp;|&nbsp; <strong>$iB$</strong> = interest payments on existing debt &nbsp;|&nbsp; <strong>$T$</strong> = government revenues
+                </div>
+            </div>
+
+            <p>The accumulation of past deficits increases the <strong>stock of public debt</strong>. It is important to distinguish between different types of deficit:</p>
+
+            <div class="deficit-grid">
+                <div class="deficit-box primary">
+                    <h5>Primary Deficit</h5>
+                    <p>Excludes interest payments on existing debt ($iB$). Measures the underlying fiscal imbalance before debt service costs.</p>
+                </div>
+                <div class="deficit-box total">
+                    <h5>Total Deficit</h5>
+                    <p>Includes interest payments ($iB$). This is the complete measure of how much the government must borrow in a given year.</p>
+                </div>
+                <div class="deficit-box structural">
+                    <h5>Structural Deficit</h5>
+                    <p>Reflects the underlying fiscal position <em>after adjusting for the business cycle</em> — the deficit that would persist at full employment.</p>
+                </div>
+                <div class="deficit-box cyclical">
+                    <h5>Cyclical Deficit</h5>
+                    <p>Caused by <em>temporary fluctuations</em> in output, employment and tax revenues. It disappears when the economy returns to potential.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="fiscal-divider">
+
+        <!-- ════════════════════════════════════
+             4. PUBLIC DEBT
+        ════════════════════════════════════ -->
+        <section id="public-debt">
+            <h2><i class="fas fa-coins"></i> 4. Public Debt</h2>
+
+            <p>Public debt is the <strong>stock of accumulated past government deficits</strong>. The most widely used indicator is the <strong>debt-to-GDP ratio</strong>:</p>
+
+            <div class="fiscal-formula">
+                <div class="formula-label">Key Indicator</div>
+                <div class="formula-math">
+                    $$\frac{B_t}{Y_t} = \text{Debt-to-GDP Ratio}$$
+                </div>
+                <div class="formula-note">
+                    A higher ratio may increase interest costs and reduce the government's <em>fiscal space</em> (room to manoeuvre with policy).
+                </div>
+            </div>
+
+            <p>Debt sustainability depends on four interconnected factors:</p>
+            <div class="sustain-list">
+                <div class="sustain-item"><i class="fas fa-chart-line"></i><p><strong>Economic growth</strong> — fast GDP growth increases the tax base and makes a given stock of debt easier to service.</p></div>
+                <div class="sustain-item"><i class="fas fa-percent"></i><p><strong>Interest rates</strong> — if $i > g$ (interest exceeds growth), the debt-to-GDP ratio tends to grow automatically.</p></div>
+                <div class="sustain-item"><i class="fas fa-fire"></i><p><strong>Inflation</strong> — can erode the real value of debt, but also triggers higher nominal yields if investors anticipate it.</p></div>
+                <div class="sustain-item"><i class="fas fa-file-invoice-dollar"></i><p><strong>Future primary balances</strong> — the government's ability and credibility in generating future surpluses.</p></div>
+            </div>
+        </section>
+
+        <hr class="fiscal-divider">
+
+        <!-- ════════════════════════════════════
+             5. BUDGET CONSTRAINTS
+        ════════════════════════════════════ -->
+        <section id="budget-constraints">
+            <h2><i class="fas fa-equals"></i> 5. Budget Constraints</h2>
+
+            <h3>Flow Version (Period-by-Period)</h3>
+            <p>Sources of government funds must equal uses of government funds at every point in time:</p>
+
+            <div class="intertemporal-box">
+                <div class="itb-label">Government Flow Budget Constraint</div>
+                <div class="itb-math">
+                    $$\underbrace{G_t + TR_t + iB_t}_{\text{Uses of funds}} = \underbrace{T_t + \Delta B_{t+1} + \Delta M_{t+1}}_{\text{Sources of funds}}$$
+                </div>
+                <div class="itb-legend">
+                    <span class="itb-leg-item"><span>$G_t$</span> Purchases</span>
+                    <span class="itb-leg-item"><span>$TR_t$</span> Transfers</span>
+                    <span class="itb-leg-item"><span>$iB_t$</span> Interest payments</span>
+                    <span class="itb-leg-item"><span>$T_t$</span> Tax revenues</span>
+                    <span class="itb-leg-item"><span>$\Delta B_{t+1}$</span> New borrowing</span>
+                    <span class="itb-leg-item"><span>$\Delta M_{t+1}$</span> Money creation</span>
+                </div>
+            </div>
+
+            <p>In other words: government expenditures must be covered by <strong>taxes</strong>, <strong>borrowing</strong>, or <strong>money creation</strong>.</p>
+
+            <h3>Intertemporal Budget Constraint</h3>
+
+            <p>Assume: (1) no money creation, (2) no transfers for simplicity, (3) interest payments separated from the primary deficit. Then the government's period-by-period constraint is:</p>
+
+            <div class="fiscal-formula" style="margin-bottom: 1rem;">
+                <div class="formula-label">Period-by-period debt accumulation</div>
+                <div class="formula-math">
+                    $$B_{t+1} = (1+i)B_t + \underbrace{G_t - T_t}_{\text{primary deficit}}$$
+                </div>
+            </div>
+
+            <p>For a two-period economy (periods 1 and 2), starting from initial debt $B_1$:</p>
+
+            <div class="fiscal-formula" style="background: linear-gradient(135deg, #ecfdf5, #d1fae5);">
+                <div class="formula-label">Period 2 debt</div>
+                <div class="formula-math">
+                    $$B_2 = (1+i)B_1 + G_1 - T_1$$
+                </div>
+            </div>
+
+            <p>Combining both periods and imposing <strong>no debt at the end</strong> ($B_3 = 0$, the government cannot borrow forever), we obtain the <strong>intertemporal budget constraint</strong>:</p>
+
+            <div class="intertemporal-box">
+                <div class="itb-label">★ Intertemporal Budget Constraint (2-period economy)</div>
+                <div class="itb-math">
+                    $$\underbrace{G_1 + \frac{G_2}{1+i}}_{\text{PDV of spending}} + \underbrace{(1+i)B_1}_{\text{initial debt}} = \underbrace{T_1 + \frac{T_2}{1+i}}_{\text{PDV of taxes}}$$
+                </div>
+                <div class="itb-legend">
+                    <span class="itb-leg-item"><span>PDV</span> Present Discounted Value</span>
+                    <span class="itb-leg-item"><span>$B_1$</span> Initial debt stock</span>
+                    <span class="itb-leg-item"><span>$i$</span> Interest rate</span>
+                </div>
+            </div>
+
+            <div class="key-takeaway">
+                <h4><i class="fas fa-lightbulb"></i> Key insight from the intertemporal constraint</h4>
+                <ul>
+                    <li>The government must eventually raise enough taxes (in present value) to cover all spending <em>and</em> repay its initial debt.</li>
+                    <li>Today's deficit means <strong>higher future taxes or lower future spending</strong> — the burden is shifted across time, not eliminated.</li>
+                    <li>There is no free lunch: if $G_1 > T_1$, then we need $T_2 > G_2$ to satisfy the constraint.</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr class="fiscal-divider">
+
+        <!-- ════════════════════════════════════
+             6. HOW MUCH CAN GOVTS BORROW?
+        ════════════════════════════════════ -->
+        <section id="borrowing-limits">
+            <h2><i class="fas fa-scale-unbalanced"></i> 6. How Much Can the Government Actually Borrow?</h2>
+
+            <p>There is <strong>no fixed debt-to-GDP ratio</strong> at which a crisis must occur. Sustainability is multidimensional and context-dependent.</p>
+
+            <div class="sustain-list">
+                <div class="sustain-item"><i class="fas fa-arrow-trend-up"></i><p><strong>Growth rate:</strong> When GDP grows faster than debt, the debt-to-GDP ratio falls even if nominal debt rises.</p></div>
+                <div class="sustain-item"><i class="fas fa-handshake"></i><p><strong>Credibility:</strong> Investors must trust the government's future fiscal commitments and institutional quality.</p></div>
+                <div class="sustain-item"><i class="fas fa-receipt"></i><p><strong>Taxing capacity:</strong> The ability to generate future primary surpluses is crucial for long-run solvency.</p></div>
+                <div class="sustain-item"><i class="fas fa-money-bill-trend-up"></i><p><strong>Interest vs. growth ($i$ vs $g$):</strong> If $g > i$, the debt ratio tends to stabilise or fall automatically.</p></div>
+            </div>
+
+            <h3>Economic Growth &amp; the Debt-to-GDP Ratio</h3>
+            <p>What matters is not the <em>absolute</em> level of debt, but <em>debt relative to GDP</em>:</p>
+
+            <div class="fiscal-formula">
+                <div class="formula-label">The Crucial Ratio</div>
+                <div class="formula-math">
+                    $$\frac{B_t}{Y_t}$$
+                </div>
+                <div class="formula-note">
+                    This ratio can <strong>fall</strong> even when nominal debt $B_t$ rises — provided that $Y_t$ (GDP) grows faster than debt. Economic growth expands the tax base, making a given stock of debt easier to service.
+                </div>
+            </div>
+
+            <h3>Generational Accounting</h3>
+            <div class="concept-card" style="border-left-color: #8b5cf6;">
+                <div class="concept-title" style="color: #5b21b6;"><i class="fas fa-people-group"></i> Intergenerational Burden</div>
+                <div class="concept-body">
+                    <p>Government debt <strong>shifts part of the cost of current spending into the future</strong>. Future generations may have to pay higher taxes or receive lower benefits.</p>
+                    <p>Borrowing is <strong>not necessarily bad</strong> if it finances productive public investment (infrastructure, education) — future generations will inherit both the liabilities <em>and</em> the valuable assets.</p>
+                    <p>The key normative question: <em>Do future generations inherit only debt, or also the public capital that justifies it?</em></p>
+                </div>
+            </div>
+
+            <h3>Deficits and Investment (Crowding Out)</h3>
+            <p>From national income accounting, investment must be financed by the sum of private saving, government saving, and foreign saving:</p>
+
+            <div class="national-accounts-box">
+                <div class="na-equation">
+                    $(Y - T - C) + (T - G) + (IM - EX) = I$
+                </div>
+                <div class="na-note">
+                    <span class="na-tag">$Y-T-C$ = Private saving</span>
+                    <span class="na-tag">$T-G$ = Government saving</span>
+                    <span class="na-tag">$IM-EX$ = Foreign saving</span>
+                    <span class="na-tag">$I$ = Investment</span>
+                </div>
+            </div>
+
+            <div class="deficit-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="deficit-box structural" style="border-left-color: #ef4444;">
+                    <h5>Standard View: Crowding Out</h5>
+                    <p>A higher budget deficit reduces government saving $(T - G)$. If private or foreign saving does not rise to compensate, <strong>investment falls</strong>.</p>
+                </div>
+                <div class="deficit-box cyclical" style="border-left-color: #8b5cf6;">
+                    <h5>Ricardian Equivalence</h5>
+                    <p>Under Ricardian equivalence, forward-looking households anticipate higher future taxes and <strong>increase private saving</strong> today, so investment need not decline.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="fiscal-divider">
+
+        <!-- ════════════════════════════════════
+             7. TROUBLES & DEFAULT
+        ════════════════════════════════════ -->
+        <section id="debt-crises">
+            <h2><i class="fas fa-triangle-exclamation"></i> 7. Troubles on the Horizon — Can Countries Go Bankrupt?</h2>
+
+            <p>If debt becomes too large, investors may doubt the government's ability or willingness to repay. This leads to a feedback loop:</p>
+
+            <div class="warning-box">
+                <strong>The debt spiral:</strong> Rising investor doubt → higher risk premia on government bonds → higher borrowing costs → worse debt dynamics → more doubt. Governments under severe fiscal pressure may need to: cut spending, raise taxes, generate inflation, restructure debt, or — in extreme cases — default.
+            </div>
+
+            <h3>Inflation as an Implicit Tax</h3>
+            <div class="concept-card" style="border-left-color: #f59e0b;">
+                <div class="concept-title" style="color: #92400e;"><i class="fas fa-fire"></i> Inflation &amp; Debt Dynamics</div>
+                <div class="concept-body">
+                    <p>Inflation can act as an <strong>implicit tax</strong> on debt holders: it lowers the <em>real</em> value of outstanding nominal debt and reduces the real burden of fixed interest payments.</p>
+                    <p><strong>Bracket creep (taxflation):</strong> Inflation pushes nominal incomes into higher tax brackets even when real incomes are unchanged, raising tax revenues without explicit tax hikes.</p>
+                    <p><strong>But — important caveats:</strong></p>
+                    <ul style="padding-left:1.25rem; margin-top:0.5rem;">
+                        <li style="font-size:0.9rem; margin-bottom:0.4rem;">This only works for debt issued in <strong>domestic currency</strong> and not indexed to inflation.</li>
+                        <li style="font-size:0.9rem; margin-bottom:0.4rem;">If investors <em>expect</em> higher inflation, they demand <strong>higher nominal yields</strong>, which can offset the benefit and damage credibility.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Sovereign Default — Key Factors</h3>
+            <p>Sovereign states do not go bankrupt like private firms, but they can <strong>lose market access</strong>, <strong>restructure debt</strong>, or <strong>default</strong>. What matters for sustainability:</p>
+
+            <div class="sustain-list">
+                <div class="sustain-item"><i class="fas fa-shield-halved"></i><p><strong>Credibility of fiscal policy</strong></p></div>
+                <div class="sustain-item"><i class="fas fa-chart-line"></i><p><strong>Economic growth relative to interest rates ($g$ vs $i$)</strong></p></div>
+                <div class="sustain-item"><i class="fas fa-dollar-sign"></i><p><strong>Currency denomination</strong> of debt (own currency = more flexibility)</p></div>
+                <div class="sustain-item"><i class="fas fa-users"></i><p><strong>Investor confidence</strong> and institutional quality</p></div>
+                <div class="sustain-item"><i class="fas fa-piggy-bank"></i><p><strong>Ability to generate future primary surpluses</strong></p></div>
+            </div>
+
+            <!-- Argentina Case Study -->
+            <h3>Case Study: Argentina 2001–2002</h3>
+            <div class="case-study">
+                <h4><i class="fas fa-flag"></i> Argentina 2001–2002 — A Debt Crisis Blueprint</h4>
+                <ul>
+                    <li>Argentina had a <strong>fixed exchange-rate regime</strong>: the peso was pegged to the USD (currency board).</li>
+                    <li>A prolonged recession reduced tax revenues, making debt servicing increasingly difficult.</li>
+                    <li>Investors lost confidence, <strong>risk premia rose</strong>, and Argentina <strong>lost market access</strong>.</li>
+                    <li>The government could no longer refinance its debt and <strong>defaulted in December 2001</strong> — the largest sovereign default in history at the time (~$100bn).</li>
+                    <li>The crisis triggered: devaluation of the peso (end of convertibility), a severe banking crisis, hyperinflation, and a deep fall in output.</li>
+                    <li>Costs of default: difficult debt restructuring, restricted future borrowing, very high risk premia, and strict IMF conditionality.</li>
+                </ul>
+                <div class="case-lesson">
+                    <strong>Key lesson:</strong> Default is not caused by debt alone, but by debt <em>interacting</em> with weak growth, credibility problems, currency mismatches, and financing constraints.
+                </div>
+            </div>
+        </section>
+
+        <hr class="fiscal-divider">
+
+        <!-- ════════════════════════════════════
+             8. WHAT HAVE WE LEARNT?
+        ════════════════════════════════════ -->
+        <section id="summary">
+            <h2><i class="fas fa-flag-checkered"></i> 8. What Have We Learnt?</h2>
+
+            <div class="key-takeaway">
+                <h4><i class="fas fa-graduation-cap"></i> Final Lecture Summary — Key Takeaways</h4>
+                <ul>
+                    <li>Governments affect the economy through <strong>public spending, taxation, redistribution and stabilization policy</strong>.</li>
+                    <li>Budget deficits arise when <strong>government spending exceeds revenues</strong> ($G + TR + iB > T$).</li>
+                    <li>Public debt is the <strong>accumulation of past total deficits</strong>.</li>
+                    <li>The <strong>total deficit</strong> includes interest payments; the <strong>primary deficit</strong> excludes them.</li>
+                    <li>Debt sustainability depends on <strong>interest rates, economic growth and future primary balances</strong>.</li>
+                    <li>A high debt-to-GDP ratio is <strong>not automatically a crisis</strong> — context and credibility matter enormously.</li>
+                    <li>Government borrowing can <strong>crowd out investment</strong>, unless private or foreign saving adjusts (Ricardian equivalence).</li>
+                    <li>The intertemporal constraint means <strong>current deficits imply higher future taxes or lower future spending</strong> — there is no free lunch.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer style="margin-top: 4rem; margin-bottom: 2rem; border-top: 3px solid var(--accent-fiscal-border); padding-top: 1.5rem;">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                <em>Macroeconomics II — Martin Janíčko (IES FSV). Last Lecture — 05/05/2026. ★ Fin du cours. ★</em>
+            </p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

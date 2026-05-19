@@ -841,3 +841,23 @@ figcaption {
         display: none;
     }
 }
+
+/* ===== Public Finance / Fiscal Accent — Emerald Teal ===== */
+
+:root {
+    --accent-fiscal: #059669;
+    --accent-fiscal-dark: #047857;
+    --accent-fiscal-light: #ecfdf5;
+    --accent-fiscal-border: #a7f3d0;
+    --accent-fiscal-hover: #065f46;
+}
+
+.menu-item.fiscal .accordion-header:hover,
+.menu-item.fiscal .accordion-header.active {
+    border-left-color: var(--accent-fiscal);
+}
+
+.menu-item.fiscal .accordion-content li a:hover,
+.menu-item.fiscal .accordion-content li a.active {
+    color: #6ee7b7;
+}
